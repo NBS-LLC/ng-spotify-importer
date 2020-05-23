@@ -4,8 +4,12 @@
   <input (change)="handleFileInput($event)" type="file" id="fileInput"/>
 </div>
 
-<div *ngIf="contents">
-  <h2>File Contents</h2>
-  <textarea id="file-contents" rows="40" cols="120" wrap="off">{{contents}}</textarea>
-</div>
+<h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
+
+<table id="song-data">
+  <tr *ngFor="let song of songs">
+    <td class="song-title">{{song.title}}</td>
+    <td class="song-artist">{{song.artist}}</td>
+  </tr>
+</table>
 

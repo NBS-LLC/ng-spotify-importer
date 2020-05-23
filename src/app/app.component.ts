@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {Song} from './song';
+import {Playlist} from './playlist';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'Slacker to Spotify';
-  contents = '';
+  playlistName = '';
+  songs: Song[] = [];
 
   handleFileInput(inputEvent: Event) {
     const files: FileList = (inputEvent.target as HTMLInputElement).files;
@@ -16,7 +19,11 @@ export class AppComponent {
 
       fileReader.onload = (readerEvent) => {
         if (typeof readerEvent.target.result === 'string') {
-          this.contents = atob(readerEvent.target.result.split(',')[1]);
+          const contents = readerEvent.target.result.split(',')[1];
+          const playlist = new Playlist(atob(contents));
+
+          this.playlistName = playlist.getPlaylistName();
+          this.songs = playlist.getSongs();
         }
       };
 
