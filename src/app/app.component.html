@@ -1,6 +1,11 @@
 <h1>{{title}}</h1>
 
 <div>
+  <p *ngIf="spotifyAccessToken; else logIntoSpotify">Spotify Access Token: {{spotifyAccessToken}}</p>
+  <ng-template #logIntoSpotify>
+    <p><a href="{{spotifyAuthUrl}}">Grant</a> access to your Spotify account.</p>
+  </ng-template>
+
   <input (change)="handleFileInput($event)" type="file" id="fileInput"/>
 </div>
 
