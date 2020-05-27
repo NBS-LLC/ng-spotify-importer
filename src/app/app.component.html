@@ -1,7 +1,12 @@
 <h1>{{title}}</h1>
 
 <div>
-  <p *ngIf="spotifyAccessToken; else logIntoSpotify">Spotify Access Token: {{spotifyAccessToken}}</p>
+  <dl *ngIf="spotifyAccessToken; else logIntoSpotify">
+    <dt>Spotify Access Token</dt>
+    <dd>{{spotifyAccessToken}}</dd>
+    <dt>User ID</dt>
+    <dd>{{spotifyUserId}}</dd>
+  </dl>
   <ng-template #logIntoSpotify>
     <p><a href="{{spotifyAuthUrl}}">Grant</a> access to your Spotify account.</p>
   </ng-template>

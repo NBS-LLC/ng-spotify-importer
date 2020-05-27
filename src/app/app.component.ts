@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Song} from './song';
 import {Playlist} from './playlist';
 import {ActivatedRoute} from '@angular/router';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   songs: Song[] = [];
   spotifyAuthUrl: string;
   spotifyAccessToken: string;
+  spotifyUserId: string;
 
   constructor(private activatedRoute: ActivatedRoute) {
     this.spotifyAuthUrl = this.generateSpotifyAuthUrl();
@@ -23,6 +25,14 @@ export class AppComponent implements OnInit {
     this.activatedRoute.fragment.subscribe(hash => {
       if (hash) {
         this.spotifyAccessToken = (new URLSearchParams(hash)).get('access_token');
+      }
+
+      if (this.spotifyAccessToken) {
+        const spotify = new SpotifyWebApi();
+        spotify.setAccessToken(this.spotifyAccessToken);
+        spotify.getMe((err, data) => {
+          this.spotifyUserId = data.id;
+        });
       }
     });
   }
