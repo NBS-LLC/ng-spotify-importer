@@ -69,6 +69,15 @@ export class AppComponent implements OnInit {
 
           this.playlistName = playlist.getPlaylistName();
           this.songs = playlist.getSongs();
+
+          for (const song of this.songs) {
+            const query = `"${song.title}" artist:"${song.artist}"`;
+            this.spotify.searchTracks(query, {limit: 1}, (err, data) => {
+              if (data.tracks.total > 0) {
+                song.previewUrl = data.tracks.items[0].preview_url;
+              }
+            });
+          }
         }
       };
 
