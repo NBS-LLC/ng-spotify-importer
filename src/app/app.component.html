@@ -1,25 +1,25 @@
 <h1>{{title}}</h1>
 
-<div>
-  <dl *ngIf="spotifyAccessToken; else logIntoSpotify">
+<div *ngIf="spotifyAccessToken; else logIntoSpotify">
+  <dl>
     <dt>Spotify Access Token</dt>
     <dd>{{spotifyAccessToken}}</dd>
     <dt>User ID</dt>
     <dd>{{spotifyUserId}}</dd>
   </dl>
-  <ng-template #logIntoSpotify>
-    <p><a href="{{spotifyAuthUrl}}">Grant</a> access to your Spotify account.</p>
-  </ng-template>
 
   <input (change)="handleFileInput($event)" type="file" id="fileInput"/>
+
+  <h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
+
+  <table id="song-data">
+    <tr *ngFor="let song of songs">
+      <td class="song-title">{{song.title}}</td>
+      <td class="song-artist">{{song.artist}}</td>
+    </tr>
+  </table>
 </div>
 
-<h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
-
-<table id="song-data">
-  <tr *ngFor="let song of songs">
-    <td class="song-title">{{song.title}}</td>
-    <td class="song-artist">{{song.artist}}</td>
-  </tr>
-</table>
-
+<ng-template #logIntoSpotify>
+  <p><a href="{{spotifyAuthUrl}}">Grant</a> access to your Spotify account.</p>
+</ng-template>

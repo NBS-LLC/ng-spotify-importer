@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   spotifyAccessToken: string;
   spotifyUserId: string;
 
+  spotify = new SpotifyWebApi();
+
   constructor(private activatedRoute: ActivatedRoute) {
     this.spotifyAuthUrl = this.generateSpotifyAuthUrl();
   }
@@ -28,9 +30,13 @@ export class AppComponent implements OnInit {
       }
 
       if (this.spotifyAccessToken) {
-        const spotify = new SpotifyWebApi();
-        spotify.setAccessToken(this.spotifyAccessToken);
-        spotify.getMe((err, data) => {
+        this.spotify.setAccessToken(this.spotifyAccessToken);
+        this.spotify.getMe((err, data) => {
+          if (err) {
+            // TODO: Handle expired access token.
+            console.log(err);
+          }
+
           this.spotifyUserId = data.id;
         });
       }
