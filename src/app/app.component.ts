@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
   generateSpotifyAuthUrl(): string {
     const clientId = 'ee26bb61755e44c5b7e7a0a29c0f7ed5';
-    const scope = 'user-read-private user-read-email';
+    const scope = 'user-read-private user-read-email playlist-modify-public';
     const redirectUrl = 'http://localhost:4200/';
 
     let url = 'https://accounts.spotify.com/authorize';
@@ -71,7 +71,15 @@ export class AppComponent implements OnInit {
           this.songs = playlist.getSongs();
 
           this.loadSpotifyData().then(() => {
-            console.log(this.songs.filter(song => song.uri != null).length);
+            this.spotify.createPlaylist(this.spotifyUserId, {name: this.playlistName}).then(data => {
+              const playlistId = data.id;
+
+              // TODO: Handle more than 100 songs.
+              const matchedSongUris = this.songs.filter(song => song.uri != null).map(song => song.uri);
+
+              // TODO: Ensure all songs are added.
+              this.spotify.addTracksToPlaylist(playlistId, matchedSongUris);
+            });
           });
         }
       };
