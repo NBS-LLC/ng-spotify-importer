@@ -74,7 +74,13 @@ export class AppComponent implements OnInit {
             const query = `"${song.title}" artist:"${song.artist}"`;
             this.spotify.searchTracks(query, {limit: 1}, (err, data) => {
               if (data.tracks.total > 0) {
+                song.uri = data.tracks.items[0].uri;
                 song.previewUrl = data.tracks.items[0].preview_url;
+                song.externalUrl = data.tracks.items[0].external_urls.spotify;
+              }
+
+              if (song.previewUrl === null) {
+                console.log(data);
               }
             });
           }

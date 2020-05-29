@@ -15,7 +15,9 @@
   <table id="song-data">
     <tr *ngFor="let song of songs">
       <td class="song-title">{{song.title}}</td>
-      <td class="song-artist">{{song.artist}}</td>
+      <td class="song-artist">{{song.artist}}
+        <a *ngIf="song.externalUrl" href="{{song.externalUrl}}" target="_blank">[open]</a>
+      </td>
       <td class="song-preview">
         <audio controls *ngIf="song.previewUrl">
           <source src="{{song.previewUrl}}">
