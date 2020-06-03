@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Playlist playlistid='playlists/358934717/1517767216704' name='Electro Reloaded' artistid='' image='https://i.slkimg.com/isv1/playlist/v000016e4e9044e0/358934717/1517767216704' lmtime='Sat, 09 Nov 2019 05:08:28 GMT' lastmodified="20191108" createtime="Tue, 16 Feb 50066 04:38:24 GMT" created="500660215" plen='64977' vzwRbt='0' tone='0' >
+<description>This custom playlist features the songs &quot;High&quot; by Sir Sly and &quot;Gone (Paperwhite Remix)&quot; by Monogem.  Tune in to hear the entire playlist.</description>
+<songs>
+	<song id='37979348' title='High' pid='43286020' tid='57714334' artistId='3998879' artistName='Sir Sly' albumId='11969276' albumName='Don&apos;t You Worry, Honey' tlen='229'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/sir-sly/high/57714334'>
+	</song>
+	<song id='33393204' title='Gone (Paperwhite Remix)' pid='44226915' tid='58668201' artistId='7079114' artistName='Monogem' albumId='12151906' albumName='Gone' tlen='206'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/monogem/gone-paperwhite-remix/58668201'>
+	</song>
+	<song id='40273285' title='Aftertaste' pid='45112305' tid='59865296' artistId='7718141' artistName='Whethan' albumId='12344020' albumName='Aftertaste' tlen='160'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/whethan/aftertaste/59865296'>
+	</song>
+	<song id='40841335' title='Habits' pid='45797952' tid='60662931' artistId='8086389' artistName='Xie' albumId='12379385' albumName='Habits' tlen='202'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/xie/habits/60662931'>
+	</song>
+	<song id='40490902' title='Heartbeat' pid='45349180' tid='60136919' artistId='7324186' artistName='Haux' albumId='12375598' albumName='Heartbeat' tlen='219'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/haux/heartbeat/60136919'>
+	</song>
+	<song id='39477592' title='Here Comes the Feeling' pid='44219021' tid='59807659' artistId='4610877' artistName='Until the Ribbon Breaks' albumId='12334015' albumName='Here Comes the Feeling' tlen='207'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/until-the-ribbon-breaks/here-comes-the-feeling/59807659'>
+	</song>
+	<song id='40773049' title='YOU' pid='45676725' tid='58878657' artistId='7966778' artistName='Morgan Saint' albumId='12185792' albumName='17 Hero' tlen='229'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/morgan-saint/you/58878657'>
+	</song>
+	<song id='38733657' title='Crawl' pid='43367602' tid='57612694' artistId='7428658' artistName='Tender' albumId='11951892' albumName='Modern Addiction' tlen='208'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/tender/crawl/57612694'>
+	</song>
+	<song id='35722565' title='Just a Lover' pid='39943316' tid='53100760' artistId='4750040' artistName='Hayden James' albumId='11223595' albumName='Just a Lover' tlen='169'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/hayden-james/just-a-lover/53100760'>
+	</song>
+	<song id='22349089' title='Permission To Love' pid='24603776' tid='31501305' artistId='4750040' artistName='Hayden James' albumId='6846838' albumName='Permission to Love' tlen='262'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/hayden-james/permission-to-love/31501305'>
+	</song>
+	<song id='29998780' title='Electric Love [Oliver Remix]' pid='37646409' tid='49323848' artistId='7019550' artistName='BØRNS' albumId='10750666' albumName='Electric Love' tlen='249'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/borns/electric-love-oliver-remix/49323848'>
+	</song>
+	<song id='37439046' title='In My Head (Landis Remix)' pid='41902202' tid='55797056' artistId='7389894' artistName='Party Favor' albumId='11622874' albumName='In My Head (feat. Georgia Ku) [Landis Remix]' tlen='211'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/party-favor/in-my-head-landis-remix/55797056'>
+	</song>
+	<song id='32856107' title='Falling Away' pid='36697189' tid='47595931' artistId='2725879' artistName='Seven Lions' albumId='10480472' albumName='Falling Away' tlen='230'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/seven-lions/falling-away/47595931'>
+	</song>
+	<song id='39982988' title='Get It Right (Remix)' pid='46085284' tid='59460241' artistId='552389' artistName='Diplo' albumId='12267686' albumName='Get It Right' tlen='169'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/diplo/get-it-right-remix/59460241'>
+	</song>
+	<song id='38313663' title='Eyes Closed' pid='43179273' tid='57394563' artistId='3709978' artistName='Halsey' albumId='11912078' albumName='Hopeless Fountain Kingdom' tlen='199'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/halsey/eyes-closed/57394563'>
+	</song>
+	<song id='38770487' title='Try to Fight' pid='43409737' tid='57660487' artistId='5910627' artistName='Cathedrals' albumId='11808830' albumName='Try to Fight' tlen='202'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cathedrals/try-to-fight/57660487'>
+	</song>
+	<song id='39143502' title='Say Nothing' pid='43837657' tid='58197798' artistId='7743458' artistName='Muto' albumId='12061835' albumName='Say Nothing' tlen='228'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/muto/say-nothing/58197798'>
+	</song>
+	<song id='40249146' title='Stay Off My Mind' pid='45086280' tid='59833876' artistId='7591436' artistName='Skott' albumId='12339641' albumName='Stay Off My Mind EP' tlen='219'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/skott/stay-off-my-mind/59833876'>
+	</song>
+	<song id='41121713' title='Be Like You' pid='46095718' tid='61042486' artistId='7718141' artistName='Whethan' albumId='12539071' albumName='Be Like You' tlen='160'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/whethan/be-like-you/61042486'>
+	</song>
+	<song id='38618203' title='2U' pid='43232409' tid='57465655' artistId='526446' artistName='David Guetta' albumId='11925681' albumName='2U' tlen='190'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/david-guetta/2u/57465655'>
+	</song>
+	<song id='38562778' title='New Rules [Freedo Remix]' pid='44688062' tid='59299987' artistId='7333667' artistName='Dua Lipa' albumId='12238472' albumName='New Rules' tlen='209'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/dua-lipa/new-rules-freedo-remix/59299987'>
+	</song>
+	<song id='39834474' title='I Miss You' pid='44622098' tid='43597768' artistId='4303862' artistName='Clean Bandit' albumId='9579145' albumName='I Miss You' tlen='203'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/clean-bandit/i-miss-you/43597768'>
+	</song>
+	<song id='8371313' title='Hearts on Fire' pid='8828920' tid='10187755' artistId='607863' artistName='Cut Copy' albumId='1228342' albumName='In Ghost Colours' tlen='288'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cut-copy/hearts-on-fire/10187755'>
+	</song>
+	<song id='39816131' title='I Miss You (Yungen Remix)' pid='45350714' tid='60139004' artistId='4303862' artistName='Clean Bandit' albumId='12376078' albumName='I Miss You (feat. Julia Michaels)' tlen='203'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/clean-bandit/i-miss-you-yungen-remix/60139004'>
+	</song>
+	<song id='23152075' title='XXX 88' pid='25515803' tid='33721276' artistId='4229082' artistName='MØ' albumId='7527601' albumName='Bikini Daze EP' tlen='219'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/mo/xxx-88/33721276'>
+	</song>
+	<song id='37784210' title='Barely Floating' pid='42292030' tid='56273031' artistId='3833858' artistName='Coucheron' albumId='11669115' albumName='Barely Floating' tlen='214'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/coucheron/barely-floating/56273031'>
+	</song>
+	<song id='39805291' title='Twilight vs Breathe (Jack Trades Remix)' pid='46074576' tid='61016419' artistId='1377164' artistName='Adam K &amp; Soha' albumId='12489253' albumName='Twilight vs Breathe (feat. HALIENE &amp; Matthew Steeper)' tlen='197'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/adam-k-soha/twilight-vs-breathe-jack-trades-remix/61016419'>
+	</song>
+	<song id='39541127' title='TopBrazil' pid='45404919' tid='60207252' artistId='466281' artistName='Fischerspooner' albumId='12390570' albumName='TopBrazil' tlen='167'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fischerspooner/topbrazil/60207252'>
+	</song>
+	<song id='40126532' title='Breathe' pid='44971803' tid='40221633' artistId='6012900' artistName='Jax Jones' albumId='9472669' albumName='Breathe' tlen='207'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/jax-jones/breathe/40221633'>
+	</song>
+	<song id='41044025' title='Aldrig Mer' pid='46008793' tid='60938820' artistId='8060704' artistName='Kasbo' albumId='12348312' albumName='Places We Don&apos;t Know' tlen='244'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kasbo/aldrig-mer/60938820'>
+	</song>
+	<song id='41424945' title='Same Old Song (S.O.S. Part 1)' pid='46436935' tid='63762922' artistId='7966756' artistName='Two Feet' albumId='13150671' albumName='A 20 Something F**k' tlen='146'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/two-feet/same-old-song-sos-part-1/63762922'>
+	</song>
+	<song id='39402236' title='Let Me Go' pid='44132960' tid='50160213' artistId='6873859' artistName='Hailee Steinfeld' albumId='10848906' albumName='Let Me Go' tlen='174'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/hailee-steinfeld/let-me-go/50160213'>
+	</song>
+	<song id='40891944' title='House of Cards' pid='45811667' tid='60695226' artistId='7126116' artistName='KSHMR' albumId='12475846' albumName='House of Cards' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kshmr/house-of-cards/60695226'>
+	</song>
+	<song id='39760908' title='Into the Night' pid='45765845' tid='60638408' artistId='1334739' artistName='Mattis' albumId='12462100' albumName='Into the Night' tlen='248'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/mattis/into-the-night/60638408'>
+	</song>
+	<song id='36270781' title='Ain&apos;t My Fault [R3hab Remix]' pid='40887169' tid='54443708' artistId='4630907' artistName='Zara Larsson' albumId='11443339' albumName='Ain&apos;t My Fault (R3hab Remix)' tlen='155'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/zara-larsson/aint-my-fault-r3hab-remix/54443708'>
+	</song>
+	<song id='40831925' title='Subtle Thing' pid='45744621' tid='61782161' artistId='6217965' artistName='Marian Hill' albumId='12678961' albumName='Unusual' tlen='180'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/marian-hill/subtle-thing/61782161'>
+	</song>
+	<song id='38181992' title='Belong' pid='42741495' tid='57466783' artistId='1997127' artistName='Fyfe' albumId='11925879' albumName='The Space Between' tlen='173'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fyfe/belong/57466783'>
+	</song>
+	<song id='40768595' title='Calling You Home (feat. RUNN) (Direct Remix)' pid='46037760' tid='60971676' artistId='2725879' artistName='Seven Lions' albumId='12522359' albumName='Calling You Home (feat. RUNN) [Remixes]' tlen='243'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/seven-lions/calling-you-home-feat-runn-direct-remix/60971676'>
+	</song>
+	<song id='40891450' title='Church [Party Pupils Remix]' pid='46201014' tid='61175443' artistId='316882' artistName='Alison Wonderland' albumId='12568874' albumName='Church' tlen='172'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alison-wonderland/church-party-pupils-remix/61175443'>
+	</song>
+	<song id='39997041' title='Breathe [Syris Remix]' pid='45824733' tid='60710497' artistId='31989' artistName='Mako' albumId='12478703' albumName='Breathe (Remixes)' tlen='196'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/mako/breathe-syris-remix/60710497'>
+	</song>
+	<song id='40996411' title='Be OK Again' pid='45953655' tid='60862629' artistId='7065233' artistName='What So Not' albumId='12398599' albumName='Not All the Beautiful Things' tlen='225'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/what-so-not/be-ok-again/60862629'>
+	</song>
+	<song id='39387192' title='Wonder Years' pid='44114797' tid='58534546' artistId='797257' artistName='Fedde Le Grand' albumId='12126016' albumName='Wonder Years' tlen='266'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fedde-le-grand/wonder-years/58534546'>
+	</song>
+	<song id='41112878' title='I Wanna Know' pid='46085912' tid='61030012' artistId='4147884' artistName='RL Grime' albumId='12536198' albumName='I Wanna Know' tlen='204'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rl-grime/i-wanna-know/61030012'>
+	</song>
+	<song id='41074606' title='Ride Or Die' pid='46042716' tid='60977640' artistId='1332022' artistName='The Knocks' albumId='12523778' albumName='Ride Or Die (feat. Foster The People)' tlen='240'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-knocks/ride-or-die/60977640'>
+	</song>
+	<song id='41542458' title='Cold As Stone' pid='46574061' tid='60891006' artistId='479403' artistName='Kaskade' albumId='12509185' albumName='Cold As Stone' tlen='239'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kaskade/cold-as-stone/60891006'>
+	</song>
+	<song id='40578344' title='Blood and Bones' pid='45447258' tid='60260588' artistId='7647950' artistName='Trace' albumId='12400945' albumName='Blood and Bones' tlen='231'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/trace/blood-and-bones/60260588'>
+	</song>
+	<song id='38647839' title='For Love [Decco Remix]' pid='45461653' tid='60278208' artistId='7467128' artistName='Filous' albumId='12404619' albumName='For Love EP (Remixes)' tlen='180'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/filous/for-love-decco-remix/60278208'>
+	</song>
+	<song id='41075868' title='Making Me Feel' pid='46044445' tid='60980092' artistId='5179860' artistName='Borgeous' albumId='12524299' albumName='Making Me Feel' tlen='192'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/borgeous/making-me-feel/60980092'>
+	</song>
+	<song id='41144534' title='Go To Sleep' pid='46121949' tid='61074927' artistId='7214040' artistName='Bearson' albumId='12546451' albumName='Go To Sleep' tlen='233'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bearson/go-to-sleep/61074927'>
+	</song>
+	<song id='36715949' title='I Got You [SNBRN Remix]' pid='42401555' tid='56415680' artistId='2790087' artistName='Bebe Rexha' albumId='11733322' albumName='I Got You [The Remixes]' tlen='195'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bebe-rexha/i-got-you-snbrn-remix/56415680'>
+	</song>
+	<song id='40996416' title='We Keep on Running' pid='45953661' tid='60247069' artistId='7065233' artistName='What So Not' albumId='12398599' albumName='Not All the Beautiful Things' tlen='278'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/what-so-not/we-keep-on-running/60247069'>
+	</song>
+	<song id='33955657' title='Running Out' pid='37908261' tid='49306372' artistId='7260427' artistName='Matoma' albumId='10748069' albumName='Running Out' tlen='204'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/matoma/running-out/49306372'>
+	</song>
+	<song id='33445540' title='New York City' pid='37321439' tid='48742288' artistId='3771877' artistName='The Chainsmokers' albumId='10669828' albumName='Bouquet' tlen='228'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-chainsmokers/new-york-city/48742288'>
+	</song>
+	<song id='40727579' title='The Middle' pid='45619428' tid='60346258' artistId='1979852' artistName='Zedd' albumId='12414319' albumName='The Middle' tlen='183'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/zedd/the-middle/60346258'>
+	</song>
+	<song id='38891807' title='True Feeling' pid='43548447' tid='57833986' artistId='2380870' artistName='Galantis' albumId='11993082' albumName='True Feeling' tlen='237'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/galantis/true-feeling/57833986'>
+	</song>
+	<song id='36353851' title='Words (Anton Kuhl Remix)' pid='42106493' tid='56047867' artistId='123381' artistName='Daya' albumId='11668516' albumName='Words (Anton Kuhl Remix)' tlen='193'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/daya/words-anton-kuhl-remix/56047867'>
+	</song>
+	<song id='41755618' title='No Place' pid='46827480' tid='61946085' artistId='6005881' artistName='Rüfüs Du Sol' albumId='12713761' albumName='No Place' tlen='237'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rufus-du-sol/no-place/61946085'>
+	</song>
+	<song id='38907027' title='Sit Next to Me' pid='43565518' tid='58881354' artistId='1709971' artistName='Foster the People' albumId='12186198' albumName='Sit Next to Me' tlen='199'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/foster-the-people/sit-next-to-me/58881354'>
+	</song>
+	<song id='42131608' title='Something Wonderful' pid='47258836' tid='61189464' artistId='6900958' artistName='Fakear' albumId='12572095' albumName='Something Wonderful' tlen='217'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fakear/something-wonderful/61189464'>
+	</song>
+	<song id='30941149' title='To Ü (Oliver Remix)' pid='37243230' tid='48619885' artistId='6998791' artistName='Jack Ü' albumId='10591561' albumName='To Ü (feat. AlunaGeorge)' tlen='228'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/jack-u/to-u-oliver-remix/48619885'>
+	</song>
+	<song id='35369957' title='How to Love' pid='39530144' tid='52332784' artistId='1150922' artistName='Cash Cash' albumId='11122884' albumName='How to Love' tlen='210'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/cash-cash/how-to-love/52332784'>
+	</song>
+	<song id='37634315' title='How to Love [Spanish Version]' pid='42120838' tid='56037452' artistId='5908983' artistName='Sofia Reyes' albumId='11666369' albumName='Louder!' tlen='217'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/sofia-reyes/how-to-love-spanish-version/56037452'>
+	</song>
+	<song id='41066664' title='Money' pid='46034184' tid='60967012' artistId='7037999' artistName='Bad Wave' albumId='12521117' albumName='Money' tlen='187'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bad-wave/money/60967012'>
+	</song>
+	<song id='39594681' title='Nobody Compares To You [Codeko Remix]' pid='47616371' tid='62963607' artistId='7326242' artistName='Gryffin' albumId='12390307' albumName='Nobody Compares To You' tlen='207'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/gryffin/nobody-compares-to-you-codeko-remix/62963607'>
+	</song>
+	<song id='41755206' title='Tessellating' pid='46826944' tid='61945312' artistId='7743458' artistName='Muto' albumId='12713612' albumName='Tessellating' tlen='227'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/muto/tessellating/61945312'>
+	</song>
+	<song id='36109533' title='Jagwar' pid='40386336' tid='53726830' artistId='7633055' artistName='SHELLS' albumId='11326053' albumName='Jagwar' tlen='209'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/shells/jagwar/53726830'>
+	</song>
+	<song id='34993463' title='Serotonin Rushes' pid='39080362' tid='56242850' artistId='774234' artistName='Fujiya &amp; Miyagi' albumId='11704253' albumName='Fujiya &amp; Miyagi' tlen='254'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fujiya-miyagi/serotonin-rushes/56242850'>
+	</song>
+	<song id='41323992' title='Trust Me Baby' pid='46343600' tid='61349372' artistId='4303937' artistName='Empress Of' albumId='12590787' albumName='Trust Me Baby/In Dreams' tlen='197'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/empress-of/trust-me-baby/61349372'>
+	</song>
+	<song id='41861470' title='Cold Fire' pid='46948399' tid='61462963' artistId='2352148' artistName='Prep' albumId='12622791' albumName='Cold Fire' tlen='242'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/prep/cold-fire/61462963'>
+	</song>
+	<song id='41169113' title='Holding On' pid='46149066' tid='64146570' artistId='7558007' artistName='Nightly' albumId='13232735' albumName='The Sound of Your Voice' tlen='195'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/nightly/holding-on/64146570'>
+	</song>
+	<song id='38842490' title='Tokyo (Anna of the North Remix)' pid='44568489' tid='59157201' artistId='7641357' artistName='Dan Croll' albumId='12224699' albumName='Tokyo EP' tlen='237'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/dan-croll/tokyo-anna-of-the-north-remix/59157201'>
+	</song>
+	<song id='41867286' title='Live In The Moment [TOKiMONSTA Remix]' pid='46955611' tid='61851543' artistId='267645' artistName='Tycho' albumId='12694713' albumName='Live in the Moment' tlen='193'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tycho/live-in-the-moment-tokimonsta-remix/61851543'>
+	</song>
+	<song id='41158424' title='twentyseven' pid='46137229' tid='61108816' artistId='5999979' artistName='Lanks' albumId='12554795' albumName='twentyseven' tlen='248'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/lanks/twentyseven/61108816'>
+	</song>
+	<song id='40968450' title='Night Time' pid='45920231' tid='60838989' artistId='7834183' artistName='Superorganism' albumId='12499874' albumName='Superorganism' tlen='254'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/superorganism/night-time/60838989'>
+	</song>
+	<song id='35492767' title='Shy' pid='39673744' tid='52646517' artistId='2017956' artistName='The Magician' albumId='11156824' albumName='Shy' tlen='202'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-magician/shy/52646517'>
+	</song>
+	<song id='37667809' title='No Promises' pid='42157882' tid='56737290' artistId='4575880' artistName='San Fermin' albumId='11790959' albumName='Belong [LP]' tlen='222'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/san-fermin/no-promises/56737290'>
+	</song>
+	<song id='39954821' title='Cause for Concern' pid='44759105' tid='59396609' artistId='6003882' artistName='De Lux' albumId='12191592' albumName='More Disco Songs About Love' tlen='293'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/de-lux/cause-for-concern/59396609'>
+	</song>
+	<song id='41054261' title='Way Back' pid='46020393' tid='60951204' artistId='4347864' artistName='Vicetone' albumId='12517400' albumName='Way Back' tlen='156'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/vicetone/way-back/60951204'>
+	</song>
+	<song id='41882456' title='Deep End' pid='46973950' tid='61946367' artistId='7486068' artistName='KREAM' albumId='12713849' albumName='Deep End' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kream/deep-end/61946367'>
+	</song>
+	<song id='40965870' title='This Wild Darkness [CYA Remix Edit]' pid='46550599' tid='61604579' artistId='10554' artistName='Moby' albumId='12645430' albumName='This Wild Darkness [Remixes]' tlen='291'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/moby/this-wild-darkness-cya-remix-edit/61604579'>
+	</song>
+	<song id='40987649' title='Deep Breaths' pid='45941573' tid='60694055' artistId='7026423' artistName='Lookas' albumId='12475606' albumName='Deep Breaths' tlen='180'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/lookas/deep-breaths/60694055'>
+	</song>
+	<song id='41318823' title='That&apos;s It (I&apos;m Crazy)' pid='46318591' tid='61324983' artistId='7252115' artistName='Sofi Tukker' albumId='12598499' albumName='That&apos;s It (I&apos;m Crazy)' tlen='202'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/sofi-tukker/thats-it-im-crazy/61324983'>
+	</song>
+	<song id='39995823' title='Slow [R3HAB Remix]' pid='45283969' tid='60139160' artistId='7260427' artistName='Matoma' albumId='12376115' albumName='Slow' tlen='160'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/matoma/slow-r3hab-remix/60139160'>
+	</song>
+	<song id='41152888' title='Flames' pid='46144103' tid='61086967' artistId='8120158' artistName='David Guetta &amp; Sia' albumId='12552584' albumName='Flames' tlen='194'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/david-guetta-sia/flames/61086967'>
+	</song>
+	<song id='35511736' title='Booomclap (Radio Mix)' pid='39695231' tid='52679710' artistId='956002' artistName='Ron Reeser' albumId='11161367' albumName='Booomclap' tlen='157'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/ron-reeser/booomclap-radio-mix/52679710'>
+	</song>
+	<song id='39484432' title='Leave a Light On [Cheat Codes Remix]' pid='46349565' tid='61366844' artistId='7689219' artistName='Tom Walker' albumId='12604875' albumName='Leave a Light On (Cheat Codes Remix)' tlen='183'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tom-walker/leave-a-light-on-cheat-codes-remix/61366844'>
+	</song>
+	<song id='41857072' title='I Wanna Know' pid='46975695' tid='61043570' artistId='7780361' artistName='NOTD' albumId='12539278' albumName='I Wanna Know' tlen='195'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/notd/i-wanna-know/61043570'>
+	</song>
+	<song id='41342252' title='Young' pid='46344708' tid='61359003' artistId='7689482' artistName='Couros' albumId='12603678' albumName='Young' tlen='186'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/couros/young/61359003'>
+	</song>
+	<song id='39882355' title='Not a Love Song' pid='44676750' tid='59288293' artistId='7877452' artistName='Bülow' albumId='12248401' albumName='Damaged, Vol. 1' tlen='188'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bulow/not-a-love-song/59288293'>
+	</song>
+	<song id='41683155' title='Solo' pid='46748184' tid='61851425' artistId='4303862' artistName='Clean Bandit' albumId='12694690' albumName='Solo' tlen='220'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/clean-bandit/solo/61851425'>
+	</song>
+	<song id='42232431' title='You Should See Me in a Crown' pid='47370555' tid='65737272' artistId='7442553' artistName='Billie Eilish' albumId='13578325' albumName='When We All Fall Asleep, Where Do We Go? [Super Deluxe Edition]' tlen='180'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/billie-eilish/you-should-see-me-in-a-crown/65737272'>
+	</song>
+	<song id='41618388' title='Audio' pid='46675241' tid='61759615' artistId='8161408' artistName='LSD' albumId='12674314' albumName='Audio' tlen='200'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/lsd/audio/61759615'>
+	</song>
+	<song id='41657305' title='Again' pid='46719127' tid='62187348' artistId='8171138' artistName='Totally Normal' albumId='12800624' albumName='Omfg Same' tlen='194'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/totally-normal/again/62187348'>
+	</song>
+	<song id='41880565' title='Born to be Yours' pid='46971249' tid='62112360' artistId='1283381' artistName='Imagine Dragons' albumId='12777512' albumName='Born to be Yours' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/imagine-dragons/born-to-be-yours/62112360'>
+	</song>
+	<song id='41857078' title='Spaceship' pid='46942126' tid='61851434' artistId='2380870' artistName='Galantis' albumId='12694696' albumName='Spaceship' tlen='165'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/galantis/spaceship/61851434'>
+	</song>
+	<song id='41865301' title='Why Don&apos;t You Come On' pid='46953118' tid='61853285' artistId='7385270' artistName='DJDS' albumId='12694942' albumName='Big Wave More Fire' tlen='198'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/djds/why-dont-you-come-on/61853285'>
+	</song>
+	<song id='40729903' title='First Time [Endor Radio Edit]' pid='46435563' tid='61488473' artistId='7371639' artistName='M-22' albumId='12627937' albumName='First Time' tlen='248'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/m22/first-time-endor-radio-edit/61488473'>
+	</song>
+	<song id='41075849' title='Higher Than The Sun [Steff Da Campo Remix]' pid='46927871' tid='62068670' artistId='818127' artistName='Dada Life' albumId='12745298' albumName='Higher Than The Sun' tlen='178'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/dada-life/higher-than-the-sun-steff-da-campo-remix/62068670'>
+	</song>
+	<song id='40892225' title='September Fades' pid='45812458' tid='60696332' artistId='2072993' artistName='Ralph' albumId='12475942' albumName='September Fades' tlen='247'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/ralph/september-fades/60696332'>
+	</song>
+	<song id='41424949' title='Love Actually' pid='46436946' tid='61490395' artistId='7667849' artistName='Off Bloom' albumId='12628217' albumName='Love Actually' tlen='203'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/off-bloom/love-actually/61490395'>
+	</song>
+	<song id='41205426' title='Day 1 ◑' pid='46190758' tid='61161425' artistId='6941582' artistName='HONNE' albumId='12565923' albumName='Day 1 ◑ / Sometimes ' tlen='233'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/honne/day-1-/61161425'>
+	</song>
+	<song id='42077988' title='Dark All Day' pid='47196398' tid='62401956' artistId='7215657' artistName='Gunship' albumId='12848255' albumName='Dark All Day' tlen='322'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/gunship/dark-all-day/62401956'>
+	</song>
+	<song id='38602926' title='Higher Ground (feat. Naomi Wild)' pid='43549230' tid='57834783' artistId='4561885' artistName='ODESZA' albumId='11993112' albumName='Higher Ground' tlen='215'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/odesza/higher-ground-feat-naomi-wild/57834783'>
+	</song>
+	<song id='23936074' title='Black Out Days' pid='26404957' tid='36857841' artistId='1267309' artistName='Phantogram' albumId='8566719' albumName='Voices' tlen='225'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/phantogram/black-out-days/36857841'>
+	</song>
+	<song id='40896339' title='In My Mind' pid='45817147' tid='60702171' artistId='182152' artistName='Gigi D&apos;Agostino' albumId='12477014' albumName='In My Mind' tlen='180'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/gigi-dagostino/in-my-mind/60702171'>
+	</song>
+	<song id='36858601' title='Wild' pid='41242965' tid='54938563' artistId='7079114' artistName='Monogem' albumId='11532569' albumName='Wild' tlen='215'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/monogem/wild/54938563'>
+	</song>
+	<song id='42467845' title='Hurting' pid='48522855' tid='64145989' artistId='2824968' artistName='SG Lewis' albumId='13232583' albumName='Dark' tlen='184'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/sg-lewis/hurting/64145989'>
+	</song>
+	<song id='41632693' title='Messy [Feenixpawl Remix]' pid='47144785' tid='62334488' artistId='7382178' artistName='Kiiara' albumId='12832382' albumName='Messy' tlen='176'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kiiara/messy-feenixpawl-remix/62334488'>
+	</song>
+	<song id='40919944' title='Dead Inside' pid='45865982' tid='60756794' artistId='7907396' artistName='Taska Black' albumId='12484123' albumName='Dead Inside' tlen='151'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/taska-black/dead-inside/60756794'>
+	</song>
+	<song id='41627201' title='Back to You' pid='46685220' tid='61853008' artistId='1076622' artistName='Selena Gomez' albumId='12694893' albumName='13 Reasons Why: Season 2 [Original TV Soundtrack]' tlen='206'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/selena-gomez/back-to-you/61853008'>
+	</song>
+	<song id='41642603' title='Pretender' pid='46702807' tid='61795431' artistId='643977' artistName='Steve Aoki' albumId='12681907' albumName='Pretender' tlen='185'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/steve-aoki/pretender/61795431'>
+	</song>
+	<song id='37511074' title='Love Is Alive [Conro Remix]' pid='43895908' tid='58267743' artistId='7337559' artistName='Louis the Child' albumId='12076001' albumName='Love Is Alive (Remixes)' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/louis-the-child/love-is-alive-conro-remix/58267743'>
+	</song>
+	<song id='41642603' title='Pretender [Steve Aoki &amp; Max Styler Remix]' pid='47298805' tid='62544055' artistId='643977' artistName='Steve Aoki' albumId='12874500' albumName='Pretender (Remixes)' tlen='226'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/steve-aoki/pretender-steve-aoki-max-styler-remix/62544055'>
+	</song>
+	<song id='39139911' title='Lonely Together [Alan Walker Remix]' pid='44804287' tid='59463747' artistId='1489994' artistName='Avicii' albumId='12281571' albumName='Lonely Together' tlen='179'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/avicii/lonely-together-alan-walker-remix/59463747'>
+	</song>
+	<song id='39037166' title='Sober [Krakn Remix]' pid='44223384' tid='58032759' artistId='7206200' artistName='Cheat Codes' albumId='12020998' albumName='Sober [The Remixes]' tlen='172'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cheat-codes/sober-krakn-remix/58032759'>
+	</song>
+	<song id='42300582' title='Feels So Good ◑' pid='47446638' tid='62742253' artistId='6941582' artistName='HONNE' albumId='12915915' albumName='Feels So Good ◑ / Shrink ' tlen='227'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/honne/feels-so-good-/62742253'>
+	</song>
+	<song id='41756131' title='Want' pid='46828334' tid='61946840' artistId='8177162' artistName='Night Tales' albumId='12601969' albumName='Want' tlen='240'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/night-tales/want/61946840'>
+	</song>
+	<song id='34356802' title='Lonely Cities' pid='38361512' tid='50523075' artistId='6817872' artistName='Tigertown' albumId='10895261' albumName='Lonely Cities' tlen='216'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tigertown/lonely-cities/50523075'>
+	</song>
+	<song id='41881508' title='I Only Need One' pid='46972264' tid='62113578' artistId='7214040' artistName='Bearson' albumId='12777933' albumName='I Only Need One' tlen='197'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bearson/i-only-need-one/62113578'>
+	</song>
+	<song id='42031945' title='Forgetter' pid='47144359' tid='62333857' artistId='2109300' artistName='Mr. Little Jeans' albumId='12832281' albumName='Forgetter' tlen='253'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/mr-little-jeans/forgetter/62333857'>
+	</song>
+	<song id='41963246' title='Cracks' pid='47066757' tid='62221738' artistId='7689482' artistName='Couros' albumId='12809570' albumName='Young' tlen='190'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/couros/cracks/62221738'>
+	</song>
+	<song id='42772228' title='All Is Lost' pid='47972582' tid='62581454' artistId='860507' artistName='Deadmau5' albumId='12834506' albumName='Mau5ville: Level 1' tlen='304'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/deadmau5/all-is-lost/62581454'>
+	</song>
+	<song id='43017243' title='Love (WIP)' pid='48250868' tid='63491574' artistId='4400920' artistName='San Holo' albumId='13085947' albumName='Album1' tlen='260'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/san-holo/love-wip/63491574'>
+	</song>
+	<song id='35200459' title='Capsize' pid='39327995' tid='52010072' artistId='7534900' artistName='Frenship &amp; Emily Warren' albumId='11080384' albumName='Capsize' tlen='235'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/frenship-emily-warren/capsize/52010072'>
+	</song>
+	<song id='41145380' title='Get Lost' pid='46122869' tid='61075956' artistId='7214040' artistName='Bearson' albumId='12546724' albumName='Get Lost' tlen='143'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bearson/get-lost/61075956'>
+	</song>
+	<song id='42201545' title='Strangest Feeling' pid='47336995' tid='62600448' artistId='7231784' artistName='Hannah Lucia' albumId='12884734' albumName='Strangest Feeling' tlen='183'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/hannah-lucia/strangest-feeling/62600448'>
+	</song>
+	<song id='42092986' title='Tables Have Turned' pid='47213600' tid='62431093' artistId='2072993' artistName='Ralph' albumId='12854074' albumName='Tables Have Turned' tlen='199'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/ralph/tables-have-turned/62431093'>
+	</song>
+	<song id='42854765' title='Don&apos;t Work Like That' pid='48066132' tid='63538833' artistId='7916891' artistName='Jinka' albumId='13096992' albumName='Don&apos;t Work Like That' tlen='207'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/jinka/dont-work-like-that/63538833'>
+	</song>
+	<song id='42837566' title='Let You Love Me' pid='48047687' tid='63513257' artistId='1155490' artistName='Rita Ora' albumId='13091005' albumName='Let You Love Me' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/rita-ora/let-you-love-me/63513257'>
+	</song>
+	<song id='41682195' title='Jackie Chan' pid='46748606' tid='61861900' artistId='7982722' artistName='Dzeko, Tiësto' albumId='12694727' albumName='Jackie Chan' tlen='215'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/dzeko-tiesto/jackie-chan/61861900'>
+	</song>
+	<song id='39411193' title='Let You Down' pid='44143718' tid='58565552' artistId='6916161' artistName='NF' albumId='12133092' albumName='Let You Down' tlen='203'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/nf/let-you-down/58565552'>
+	</song>
+	<song id='42295046' title='Don&apos;t Leave Me Alone' pid='47440461' tid='62733580' artistId='526446' artistName='David Guetta' albumId='12913881' albumName='Don&apos;t Leave Me Alone' tlen='181'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/david-guetta/dont-leave-me-alone/62733580'>
+	</song>
+	<song id='35369957' title='How to Love [Acoustic]' pid='39915357' tid='53064881' artistId='1150922' artistName='Cash Cash' albumId='11218555' albumName='How to Love [Acoustic &amp; Spanish B-Sides]' tlen='198'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cash-cash/how-to-love-acoustic/53064881'>
+	</song>
+	<song id='42444393' title='Happier' pid='47641817' tid='62994975' artistId='8243012' artistName='Bastille, Marshmello' albumId='12978692' albumName='Happier' tlen='213'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bastille-marshmello/happier/62994975'>
+	</song>
+	<song id='41690966' title='Yeah Right' pid='46756988' tid='61861834' artistId='7289113' artistName='Chinah' albumId='12696637' albumName='Yeah Right' tlen='248'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/chinah/yeah-right/61861834'>
+	</song>
+	<song id='39926725' title='Naked [CADE Remix]' pid='44924670' tid='59632935' artistId='3883853' artistName='James Arthur' albumId='12299298' albumName='Naked (CADE Remix)' tlen='233'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/james-arthur/naked-cade-remix/59632935'>
+	</song>
+	<song id='42478938' title='Let Me Live [Two Can Remix]' pid='47746066' tid='63133177' artistId='1449888' artistName='Rudimental' albumId='12998219' albumName='Let Me Live' tlen='171'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rudimental/let-me-live-two-can-remix/63133177'>
+	</song>
+	<song id='42004067' title='Lie To Me [Curbi Remix]' pid='47689508' tid='63057946' artistId='643977' artistName='Steve Aoki' albumId='12997864' albumName='Lie To Me (Remixes Part 2)' tlen='190'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/steve-aoki/lie-to-me-curbi-remix/63057946'>
+	</song>
+	<song id='42306764' title='Holy Arp' pid='47453640' tid='62752191' artistId='177775' artistName='Crystal Method' albumId='12863545' albumName='Holy Arp' tlen='199'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/crystal-method/holy-arp/62752191'>
+	</song>
+	<song id='42642137' title='Lost in My Mind' pid='47823949' tid='63847781' artistId='6005881' artistName='Rüfüs Du Sol' albumId='13170071' albumName='SOLACE' tlen='258'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rufus-du-sol/lost-in-my-mind/63847781'>
+	</song>
+	<song id='29781685' title='We&apos;re All We Need' pid='33074828' tid='42151831' artistId='340514' artistName='Above &amp; Beyond' albumId='9764035' albumName='We&apos;re All We Need' tlen='259'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/above-beyond/were-all-we-need/42151831'>
+	</song>
+	<song id='39723833' title='On The Loose [Basic Tape Remix]' pid='46044366' tid='60979946' artistId='2175159' artistName='Niall Horan' albumId='12524268' albumName='On The Loose' tlen='176'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/niall-horan/on-the-loose-basic-tape-remix/60979946'>
+	</song>
+	<song id='42174624' title='Stay on the Line (Kelso Remix)' pid='47797628' tid='63199738' artistId='7668230' artistName='Kat Cunning' albumId='13034321' albumName='Stay on the Line' tlen='217'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kat-cunning/stay-on-the-line-kelso-remix/63199738'>
+	</song>
+	<song id='43366663' title='Happy Now' pid='48643553' tid='63666382' artistId='7002693' artistName='Kygo' albumId='13127061' albumName='Happy Now' tlen='209'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kygo/happy-now/63666382'>
+	</song>
+	<song id='42130242' title='Only You' pid='47256531' tid='62224340' artistId='7206200' artistName='Cheat Codes' albumId='12809914' albumName='Only You' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cheat-codes/only-you/62224340'>
+	</song>
+	<song id='38512674' title='Saint (Tigertown Remix)' pid='45738969' tid='60603547' artistId='3590946' artistName='Verite' albumId='12455103' albumName='Somewhere in Between' tlen='213'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/verite/saint-tigertown-remix/60603547'>
+	</song>
+	<song id='40286825' title='I Know (salute Remix)' pid='46968796' tid='62109600' artistId='7357794' artistName='Bayonne' albumId='12776074' albumName='I Know EP' tlen='210'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bayonne/i-know-salute-remix/62109600'>
+	</song>
+	<song id='41867286' title='Live in the Moment [Superorganism Remix]' pid='47000834' tid='62069528' artistId='267645' artistName='Tycho' albumId='12745613' albumName='Live in the Moment' tlen='191'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tycho/live-in-the-moment-superorganism-remix/62069528'>
+	</song>
+	<song id='42608661' title='Far' pid='47786618' tid='63184886' artistId='8190596' artistName='Komplement' albumId='13030454' albumName='Far' tlen='238'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/komplement/far/63184886'>
+	</song>
+	<song id='42414218' title='I&apos;m Good' pid='47573275' tid='62909101' artistId='6888386' artistName='Wafia' albumId='12953637' albumName='I&apos;m Good' tlen='216'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/wafia/im-good/62909101'>
+	</song>
+	<song id='43247305' title='Connect' pid='48507072' tid='64124704' artistId='5914010' artistName='Elohim' albumId='13227919' albumName='Connect' tlen='179'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/elohim/connect/64124704'>
+	</song>
+	<song id='42679914' title='Dear Sense' pid='47867466' tid='63913279' artistId='7337559' artistName='Louis the Child' albumId='13185622' albumName='Kids at Play' tlen='174'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/louis-the-child/dear-sense/63913279'>
+	</song>
+	<song id='41099198' title='Remind Me to Forget [Hook N Sling Remix]' pid='46713238' tid='61808348' artistId='8116502' artistName='Kygo / Miguel' albumId='12685007' albumName='Remind Me to Forget (Remixes)' tlen='214'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kygo-miguel/remind-me-to-forget-hook-n-sling-remix/61808348'>
+	</song>
+	<song id='43268847' title='Show Me' pid='48530938' tid='64894476' artistId='8097995' artistName='Slippy' albumId='13386418' albumName='Flux' tlen='220'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/slippy/show-me/64894476'>
+	</song>
+	<song id='43533641' title='On Your Mind' pid='48831342' tid='64572535' artistId='479403' artistName='Kaskade' albumId='13319091' albumName='On Your Mind' tlen='318'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kaskade/on-your-mind/64572535'>
+	</song>
+	<song id='42937442' title='Without Me' pid='48178053' tid='63697144' artistId='3709978' artistName='Halsey' albumId='13121093' albumName='Without Me' tlen='227'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/halsey/without-me/63697144'>
+	</song>
+	<song id='32785491' title='Little Things [Kav Verhouzer Radio Edit]' pid='36566839' tid='47465872' artistId='7128129' artistName='Kav Verhouzer' albumId='10466555' albumName='Little Things (Kav Verhouzer Radio Edit)' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kav-verhouzer/little-things-kav-verhouzer-radio-edit/47465872'>
+	</song>
+	<song id='34926027' title='Coming Over [filous Remix]' pid='39002875' tid='51408567' artistId='2033108' artistName='James Hersey' albumId='10863106' albumName='Ultra Dance 17' tlen='196'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/james-hersey/coming-over-filous-remix/51408567'>
+	</song>
+	<song id='38149052' title='Done With You' pid='42704573' tid='56787703' artistId='6955913' artistName='Boehm' albumId='11800827' albumName='Done With You' tlen='154'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/boehm/done-with-you/56787703'>
+	</song>
+	<song id='42112028' title='Wonderland' pid='47235987' tid='62461326' artistId='7916891' artistName='Jinka' albumId='12860436' albumName='Wonderland' tlen='417'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/jinka/wonderland/62461326'>
+	</song>
+	<song id='11380827' title='Bad Wings' pid='11938149' tid='14308536' artistId='1089935' artistName='The Glitch Mob' albumId='1689537' albumName='Drink the Sea' tlen='395'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-glitch-mob/bad-wings/14308536'>
+	</song>
+	<song id='42952010' title='Trust My Lonely [Rain Or Shine Remix]' pid='48613570' tid='64269045' artistId='7227168' artistName='Alessia Cara' albumId='13257696' albumName='Trust My Lonely' tlen='272'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alessia-cara/trust-my-lonely-rain-or-shine-remix/64269045'>
+	</song>
+	<song id='42444393' title='Happier [Frank Walker Remix]' pid='48304023' tid='63848689' artistId='8243012' artistName='Bastille, Marshmello' albumId='13170187' albumName='Happier' tlen='195'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bastille-marshmello/happier-frank-walker-remix/63848689'>
+	</song>
+	<song id='39344656' title='Love So Soft [Ryan Riback Remix]' pid='44352145' tid='58836199' artistId='494149' artistName='Kelly Clarkson' albumId='12178944' albumName='Love So Soft' tlen='186'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kelly-clarkson/love-so-soft-ryan-riback-remix/58836199'>
+	</song>
+	<song id='39464950' title='Generous [Madison Mars Remix]' pid='45558386' tid='60408727' artistId='2836505' artistName='Olivia Holt' albumId='12421122' albumName='Generous' tlen='182'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/olivia-holt/generous-madison-mars-remix/60408727'>
+	</song>
+	<song id='43062742' title='Eyes' pid='48303426' tid='63847779' artistId='6005881' artistName='Rüfüs Du Sol' albumId='13170071' albumName='SOLACE' tlen='228'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rufus-du-sol/eyes/63847779'>
+	</song>
+	<song id='42999831' title='Ruin My Life [Futosé Remix]' pid='48637708' tid='64307545' artistId='4630907' artistName='Zara Larsson' albumId='13264655' albumName='Ruin My Life (Remixes)' tlen='284'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/zara-larsson/ruin-my-life-futose-remix/64307545'>
+	</song>
+	<song id='43803885' title='Lonely' pid='49130163' tid='64477006' artistId='7467143' artistName='Alan Walker' albumId='13299485' albumName='Different World' tlen='213'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alan-walker/lonely/64477006'>
+	</song>
+	<song id='42308454' title='Lift Me From the Ground' pid='47455545' tid='63491569' artistId='4400920' artistName='San Holo' albumId='13085947' albumName='Album1' tlen='261'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/san-holo/lift-me-from-the-ground/63491569'>
+	</song>
+	<song id='43062741' title='Treat You Better' pid='48303425' tid='63847778' artistId='6005881' artistName='Rüfüs Du Sol' albumId='13170071' albumName='SOLACE' tlen='272'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rufus-du-sol/treat-you-better/63847778'>
+	</song>
+	<song id='43051175' title='Fire In My Soul [Gil Sanders Remix]' pid='48838532' tid='65096503' artistId='5320850' artistName='Oliver Heldens' albumId='13429812' albumName='Fire In My Soul (Remixes)' tlen='212'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/oliver-heldens/fire-in-my-soul-gil-sanders-remix/65096503'>
+	</song>
+	<song id='43608327' title='Nobody' pid='48913555' tid='64684948' artistId='1483808' artistName='Netsky' albumId='13338734' albumName='Abbot Kinney' tlen='259'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/netsky/nobody/64684948'>
+	</song>
+	<song id='41011566' title='Falling Rain and Light [ATRIP Remix]' pid='48054074' tid='63522336' artistId='10554' artistName='Moby' albumId='13093336' albumName='Falling Rain and Light' tlen='300'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/moby/falling-rain-and-light-atrip-remix/63522336'>
+	</song>
+	<song id='43394801' title='Swoon' pid='48674801' tid='64353751' artistId='7389859' artistName='Tom &amp; Collins' albumId='13274852' albumName='Swoon' tlen='405'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tom-collins/swoon/64353751'>
+	</song>
+	<song id='42603865' title='Remedy' pid='47781263' tid='63177847' artistId='1785874' artistName='Alesso' albumId='13028641' albumName='Remedy' tlen='188'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alesso/remedy/63177847'>
+	</song>
+	<song id='41756118' title='Rise' pid='46828319' tid='64145753' artistId='5643956' artistName='Jonas Blue' albumId='13232549' albumName='Blue' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/jonas-blue/rise/64145753'>
+	</song>
+	<song id='43803884' title='Lily' pid='49130162' tid='64477003' artistId='7467143' artistName='Alan Walker' albumId='13299485' albumName='Different World' tlen='193'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alan-walker/lily/64477003'>
+	</song>
+	<song id='33190587' title='Hands to Myself [Betablock3r Remix]' pid='38898771' tid='51279459' artistId='1076622' artistName='Selena Gomez' albumId='10992176' albumName='Hands to Myself [Remixes]' tlen='315'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/selena-gomez/hands-to-myself-betablock3r-remix/51279459'>
+	</song>
+	<song id='43339346' title='Lava' pid='48611402' tid='64265326' artistId='474206' artistName='Dirty South' albumId='13256985' albumName='darko' tlen='311'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/dirty-south/lava/64265326'>
+	</song>
+	<song id='21451236' title='Sixteen and Free' pid='23581037' tid='30268035' artistId='765393' artistName='PANTyRAID' albumId='6225722' albumName='Pillowtalk' tlen='226'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/pantyraid/sixteen-and-free/30268035'>
+	</song>
+	<song id='13093581' title='Professional Griefers [Vocal Mix]' pid='17304916' tid='29862259' artistId='860507' artistName='Deadmau5' albumId='6302668' albumName='Professional Griefers (Vocal Mix)' tlen='244'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/deadmau5/professional-griefers-vocal-mix/29862259'>
+	</song>
+	<song id='12811244' title='Cat Skillz' pid='13713520' tid='17208267' artistId='848576' artistName='Beats Antique' albumId='2043876' albumName='Elektrafone' tlen='328'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/beats-antique/cat-skillz/17208267'>
+	</song>
+	<song id='24476600' title='Where I&apos;m Trying to Go (Marvel Years Remix [Mix Version])' pid='48240502' tid='63762072' artistId='1508583' artistName='Pretty Lights' albumId='13150521' albumName='Outbound (DJ Mix)' tlen='201'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/pretty-lights/where-im-trying-to-go-marvel-years-remix-mix-version/63762072'>
+	</song>
+	<song id='34954258' title='Touch [VIP Remix]' pid='39035027' tid='51449872' artistId='7126116' artistName='KSHMR' albumId='11018436' albumName='Touch' tlen='199'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kshmr/touch-vip-remix/51449872'>
+	</song>
+	<song id='41909060' title='Superlove' pid='47005180' tid='62149284' artistId='7718141' artistName='Whethan' albumId='12791406' albumName='Superlove' tlen='184'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/whethan/superlove/62149284'>
+	</song>
+	<song id='35899848' title='Wolf' pid='40146939' tid='53374276' artistId='7591436' artistName='Skott' albumId='11270548' albumName='Porcelain / Wolf' tlen='221'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/skott/wolf/53374276'>
+	</song>
+	<song id='43608188' title='Frequency' pid='48913361' tid='64684633' artistId='2206145' artistName='Matt Nash' albumId='13338687' albumName='Frequency' tlen='159'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/matt-nash/frequency/64684633'>
+	</song>
+	<song id='44013952' title='Sexy Sax' pid='49365625' tid='65239569' artistId='6981960' artistName='Suga7' albumId='13458698' albumName='Sexy Sax + Never Know' tlen='301'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/suga7/sexy-sax/65239569'>
+	</song>
+	<song id='39789680' title='All Falls Down' pid='44570397' tid='59162826' artistId='7467143' artistName='Alan Walker' albumId='12225013' albumName='All Falls Down' tlen='196'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alan-walker/all-falls-down/59162826'>
+	</song>
+	<song id='41887794' title='Ocean [Syn Cole Remix]' pid='47480805' tid='62787175' artistId='610186' artistName='Martin Garrix' albumId='12924641' albumName='Ocean (Remixes Vol. 2)' tlen='200'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/martin-garrix/ocean-syn-cole-remix/62787175'>
+	</song>
+	<song id='33234873' title='We Don&apos;t Talk Anymore' pid='37078612' tid='48356756' artistId='6645936' artistName='Charlie Puth' albumId='10560476' albumName='Nine Track Mind' tlen='215'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/charlie-puth/we-dont-talk-anymore/48356756'>
+	</song>
+	<song id='16971109' title='Tidal Wave' pid='18543753' tid='33902864' artistId='760125' artistName='Sub Focus' albumId='7586627' albumName='Torus' tlen='226'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/sub-focus/tidal-wave/33902864'>
+	</song>
+	<song id='31338521' title='Destiny (Morgan Page Remix)' pid='36185146' tid='46947145' artistId='156634' artistName='Markus Schulz' albumId='10398190' albumName='Destiny' tlen='342'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/markus-schulz/destiny-morgan-page-remix/46947145'>
+	</song>
+	<song id='43564082' title='So Close' pid='48865707' tid='64038582' artistId='7780361' artistName='NOTD' albumId='13210556' albumName='So Close' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/notd/so-close/64038582'>
+	</song>
+	<song id='42372769' title='Tie Me Down [Steve Aoki Remix]' pid='48969656' tid='64756947' artistId='8239259' artistName='Elley Duhé, Gryffin' albumId='13354050' albumName='Tie Me Down' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/elley-duhe-gryffin/tie-me-down-steve-aoki-remix/64756947'>
+	</song>
+	<song id='43086695' title='Waste It On Me [Cheat Codes Remix]' pid='48736557' tid='64440542' artistId='643977' artistName='Steve Aoki' albumId='13292721' albumName='Waste It On Me (Cheat Codes Remix)' tlen='166'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/steve-aoki/waste-it-on-me-cheat-codes-remix/64440542'>
+	</song>
+	<song id='42040120' title='Monophobia' pid='47972580' tid='62345746' artistId='860507' artistName='Deadmau5' albumId='12834506' albumName='Mau5ville: Level 1' tlen='213'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/deadmau5/monophobia/62345746'>
+	</song>
+	<song id='42805498' title='This Feeling' pid='48011749' tid='63816170' artistId='3771877' artistName='The Chainsmokers' albumId='13163001' albumName='Sick Boy' tlen='195'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-chainsmokers/this-feeling/63816170'>
+	</song>
+	<song id='43869112' title='Never Let You Go' pid='49202379' tid='65035870' artistId='7555808' artistName='Slushii' albumId='13415957' albumName='Never Let You Go' tlen='161'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/slushii/never-let-you-go/65035870'>
+	</song>
+	<song id='43195268' title='So Close [Dwilly Remix]' pid='49317997' tid='65180431' artistId='8315493' artistName='Captain Cuts, Felix Jaehn, NOTD' albumId='13444449' albumName='So Close' tlen='183'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/captain-cuts-felix-jaehn-notd/so-close-dwilly-remix/65180431'>
+	</song>
+	<song id='43533667' title='I Found You' pid='48831381' tid='64572599' artistId='268083' artistName='Benny Blanco' albumId='13319106' albumName='FRIENDS KEEP SECRETS' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/benny-blanco/i-found-you/64572599'>
+	</song>
+	<song id='13946615' title='Whiskers' pid='19633964' tid='24286637' artistId='1801826' artistName='Feed Me' albumId='4690688' albumName='UKF Dubstep 2012' tlen='288'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/feed-me/whiskers/24286637'>
+	</song>
+	<song id='42050966' title='So Long (feat. Juliana Chahayed)' pid='47165949' tid='64097651' artistId='7881779' artistName='Slander' albumId='13221904' albumName='Monstercat Instinct Vol. 2' tlen='190'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/slander/so-long-feat-juliana-chahayed/64097651'>
+	</song>
+	<song id='42937442' title='Without Me [ILLENIUM Remix]' pid='48753976' tid='64462694' artistId='3709978' artistName='Halsey' albumId='13297174' albumName='Without Me' tlen='245'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/halsey/without-me-illenium-remix/64462694'>
+	</song>
+	<song id='42891892' title='Where Have You Gone [Anywhere]' pid='48107198' tid='63601634' artistId='1944043' artistName='Lucas &amp; Steve' albumId='13109876' albumName='Where Have You Gone [Anywhere]' tlen='158'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/lucas-steve/where-have-you-gone-anywhere/63601634'>
+	</song>
+	<song id='44009371' title='Don&apos;t Call Me Up [R3HAB Remix]' pid='49468423' tid='65350925' artistId='7340764' artistName='Mabel' albumId='13488104' albumName='Don&apos;t Call Me Up' tlen='153'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/mabel/dont-call-me-up-r3hab-remix/65350925'>
+	</song>
+	<song id='44480907' title='Do You Feel It Now?' pid='49875827' tid='67460355' artistId='4169852' artistName='Goldroom' albumId='14110437' albumName='Plunge /\ Surface' tlen='203'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/goldroom/do-you-feel-it-now/67460355'>
+	</song>
+	<song id='42571596' title='Enough to Believe (Jamie Jones Remix)' pid='49212757' tid='65046317' artistId='6914391' artistName='Bob Moses' albumId='13418234' albumName='Enough to Believe' tlen='310'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bob-moses/enough-to-believe-jamie-jones-remix/65046317'>
+	</song>
+	<song id='43096792' title='Fear of Falling Asleep' pid='48340822' tid='63896511' artistId='7428658' artistName='Tender' albumId='13182044' albumName='Closer Still/Fear of Falling Asleep' tlen='248'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tender/fear-of-falling-asleep/63896511'>
+	</song>
+	<song id='44477421' title='Win You Over' pid='49871871' tid='65814639' artistId='8445054' artistName='Whethan &amp; Bearson' albumId='13530052' albumName='Win You Over' tlen='208'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/whethan-bearson/win-you-over/65814639'>
+	</song>
+	<song id='43970295' title='Too Proud [Japanese Wallpaper Remix]' pid='49684532' tid='65598097' artistId='5882924' artistName='Broods' albumId='13540939' albumName='Too Proud' tlen='190'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/broods/too-proud-japanese-wallpaper-remix/65598097'>
+	</song>
+	<song id='44299133' title='Lack of Love' pid='49677103' tid='65584284' artistId='955651' artistName='Friendly Fires' albumId='13539886' albumName='Lack of Love' tlen='256'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/friendly-fires/lack-of-love/65584284'>
+	</song>
+	<song id='42580655' title='It&apos;s Not This' pid='47755921' tid='63145479' artistId='8281856' artistName='Bearson &amp; Lemaitre' albumId='13019620' albumName='It&apos;s Not This' tlen='186'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bearson-lemaitre/its-not-this/63145479'>
+	</song>
+	<song id='42634728' title='Now or Never Now' pid='47815672' tid='63224592' artistId='473668' artistName='Metric' albumId='13040252' albumName='Now or Never Now' tlen='379'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/metric/now-or-never-now/63224592'>
+	</song>
+	<song id='43121279' title='Shade' pid='48368517' tid='63931754' artistId='7079114' artistName='Monogem' albumId='13190135' albumName='Shade' tlen='192'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/monogem/shade/63931754'>
+	</song>
+	<song id='40998850' title='Those Lights' pid='45957042' tid='58414457' artistId='416736' artistName='CMC' albumId='12104005' albumName='Those Lights' tlen='185'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cmc/those-lights/58414457'>
+	</song>
+	<song id='44625669' title='Gimme' pid='50034544' tid='65993576' artistId='5200101' artistName='Banks' albumId='13650020' albumName='Gimme' tlen='218'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/banks/gimme/65993576'>
+	</song>
+	<song id='42121745' title='Never Again' pid='47246952' tid='62477918' artistId='7945543' artistName='Superheart' albumId='12863560' albumName='Never Again' tlen='140'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/superheart/never-again/62477918'>
+	</song>
+	<song id='43925128' title='TV' pid='49267625' tid='65109666' artistId='5914010' artistName='Elohim' albumId='13432430' albumName='TV' tlen='186'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/elohim/tv/65109666'>
+	</song>
+	<song id='42476362' title='Sweet but Psycho (Morgan Page Dance Remix)' pid='48740281' tid='64445348' artistId='7935306' artistName='Ava Max' albumId='13293899' albumName='Sweet but Psycho' tlen='226'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/ava-max/sweet-but-psycho-morgan-page-dance-remix/64445348'>
+	</song>
+	<song id='34610923' title='Bad Blood' pid='38646804' tid='50954035' artistId='2079858' artistName='Näo' albumId='10949925' albumName='Bad Blood' tlen='237'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/nao/bad-blood/50954035'>
+	</song>
+	<song id='12303584' title='Alchemy' pid='13078268' tid='16365378' artistId='340514' artistName='Above &amp; Beyond' albumId='1877339' albumName='Group Therapy' tlen='318'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/above-beyond/alchemy/16365378'>
+	</song>
+	<song id='34729711' title='Bring Back the Summer [INSTRUM Remix]' pid='39791116' tid='52867474' artistId='348424' artistName='Rain Man' albumId='11185046' albumName='Bring Back the Summer [Remixes, Pt. 1]' tlen='269'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rain-man/bring-back-the-summer-instrum-remix/52867474'>
+	</song>
+	<song id='43737946' title='Right Now' pid='49057870' tid='41617929' artistId='7591083' artistName='VAVO' albumId='9688908' albumName='Right Now' tlen='183'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/vavo/right-now/41617929'>
+	</song>
+	<song id='42760910' title='Nothing on Us' pid='47958937' tid='63401348' artistId='7423590' artistName='The Him' albumId='13069340' albumName='Nothing on Us' tlen='161'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-him/nothing-on-us/63401348'>
+	</song>
+	<song id='40286825' title='I Know' pid='45127491' tid='65334394' artistId='7357794' artistName='Bayonne' albumId='13483408' albumName='Drastic Measures' tlen='260'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/bayonne/i-know/65334394'>
+	</song>
+	<song id='44424465' title='Tone Down' pid='49814126' tid='65752858' artistId='299741' artistName='Armin van Buuren' albumId='13581184' albumName='Tone Down' tlen='191'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/armin-van-buuren/tone-down/65752858'>
+	</song>
+	<song id='25530724' title='Take It' pid='28251127' tid='35991338' artistId='5883872' artistName='Magnum Mike' albumId='8327929' albumName='Take It' tlen='234'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/magnum-mike/take-it/35991338'>
+	</song>
+	<song id='44784181' title='I Feel Ya' pid='50209125' tid='66118080' artistId='7206200' artistName='Cheat Codes' albumId='13687400' albumName='I Feel Ya' tlen='167'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cheat-codes/i-feel-ya/66118080'>
+	</song>
+	<song id='44188064' title='Obsessed' pid='49556545' tid='65445790' artistId='1448933' artistName='Ina Wroldsen' albumId='13514555' albumName='Obsessed' tlen='206'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/ina-wroldsen/obsessed/65445790'>
+	</song>
+	<song id='44099366' title='No Sleep (feat. Bonn)' pid='49459795' tid='65333479' artistId='610186' artistName='Martin Garrix' albumId='13472445' albumName='No Sleep (feat. Bonn)' tlen='206'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/martin-garrix/no-sleep-feat-bonn/65333479'>
+	</song>
+	<song id='38470840' title='OK' pid='43066167' tid='57248433' artistId='4417869' artistName='Robin Schulz' albumId='11883746' albumName='OK' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/robin-schulz/ok/57248433'>
+	</song>
+	<song id='44976396' title='Higher Love' pid='50420891' tid='66421451' artistId='8509926' artistName='Kygo &amp; Whitney Houston' albumId='13778183' albumName='Higher Love' tlen='226'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kygo-whitney-houston/higher-love/66421451'>
+	</song>
+	<song id='40762765' title='Dreamer [Sylvain Armand Remix]' pid='45890520' tid='60787991' artistId='1387037' artistName='Axwell /\ Ingrosso' albumId='12491193' albumName='Dreamer' tlen='189'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/axwell-ingrosso/dreamer-sylvain-armand-remix/60787991'>
+	</song>
+	<song id='43463638' title='Out Of Love [Mangal Suvarnan Remix]' pid='49872105' tid='65815082' artistId='7227168' artistName='Alessia Cara' albumId='13599009' albumName='Out Of Love' tlen='207'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alessia-cara/out-of-love-mangal-suvarnan-remix/65815082'>
+	</song>
+	<song id='40938718' title='Pretty Shining People [Jack Wins Remix]' pid='49513409' tid='65398330' artistId='5324934' artistName='George Ezra' albumId='13500677' albumName='Pretty Shining People (Jack Wins Remix)' tlen='211'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/george-ezra/pretty-shining-people-jack-wins-remix/65398330'>
+	</song>
+	<song id='41683553' title='Trampoline [Tromme Remix]' pid='50199930' tid='66175959' artistId='7625592' artistName='SHAED' albumId='13704703' albumName='Trampoline' tlen='207'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/shaed/trampoline-tromme-remix/66175959'>
+	</song>
+	<song id='44712889' title='Motherload' pid='50130194' tid='66098759' artistId='7106220' artistName='SNBRN' albumId='13681455' albumName='Solé' tlen='310'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/snbrn/motherload/66098759'>
+	</song>
+	<song id='41438520' title='Lonely [Alle Farben Remix]' pid='46945182' tid='61946283' artistId='7260427' artistName='Matoma' albumId='12713826' albumName='Lonely [Remixes]' tlen='158'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/matoma/lonely-alle-farben-remix/61946283'>
+	</song>
+	<song id='35369539' title='Can&apos;t Get Enough [Pegboard Nerds Remix]' pid='40836917' tid='54377463' artistId='416621' artistName='Tommie Sunshine' albumId='11432342' albumName='Can&apos;t Get Enough (Remixes)' tlen='243'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/tommie-sunshine/cant-get-enough-pegboard-nerds-remix/54377463'>
+	</song>
+	<song id='44304622' title='Starry Eyes' pid='49683079' tid='65595971' artistId='7744552' artistName='Young Bombs' albumId='13540621' albumName='Starry Eyes' tlen='206'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/young-bombs/starry-eyes/65595971'>
+	</song>
+	<song id='43334137' title='Speechless' pid='48606152' tid='57905788' artistId='4417869' artistName='Robin Schulz' albumId='12007933' albumName='Speechless' tlen='210'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/robin-schulz/speechless/57905788'>
+	</song>
+	<song id='42665708' title='Doomsday' pid='47850518' tid='63268274' artistId='693444' artistName='VASSY' albumId='12901387' albumName='Doomsday' tlen='169'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/vassy/doomsday/63268274'>
+	</song>
+	<song id='44092876' title='One Less Day [Dying Young][GOLDHOUSE &amp; Mokita Remix]' pid='50101334' tid='65817351' artistId='121695' artistName='Rob Thomas' albumId='13599343' albumName='One Less Day (Dying Young)' tlen='200'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rob-thomas/one-less-day-dying-younggoldhouse-mokita-remix/65817351'>
+	</song>
+	<song id='37823801' title='Happier [Cazzette Remix]' pid='46929054' tid='62070163' artistId='1908849' artistName='Ed Sheeran' albumId='12745854' albumName='Happier' tlen='205'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/ed-sheeran/happier-cazzette-remix/62070163'>
+	</song>
+	<song id='40933497' title='Satellite' pid='45880857' tid='60775174' artistId='7945543' artistName='Superheart' albumId='12488241' albumName='Satellite' tlen='258'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/superheart/satellite/60775174'>
+	</song>
+	<song id='44784454' title='Flames' pid='50393766' tid='66391815' artistId='2824968' artistName='SG Lewis' albumId='13768974' albumName='Dawn' tlen='212'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/sg-lewis/flames/66391815'>
+	</song>
+	<song id='43420104' title='Dead and Gone' pid='48703436' tid='64400359' artistId='8050990' artistName='Drama' albumId='13283679' albumName='Dead and Gone' tlen='203'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/drama/dead-and-gone/64400359'>
+	</song>
+	<song id='42040287' title='Promise' pid='47153996' tid='62345957' artistId='2857856' artistName='Fytch' albumId='12834577' albumName='Promise' tlen='318'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fytch/promise/62345957'>
+	</song>
+	<song id='12304482' title='Black Room Boy [Radio Edit]' pid='21606371' tid='27640162' artistId='340514' artistName='Above &amp; Beyond' albumId='5568789' albumName='Black Room Boy' tlen='254'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/above-beyond/black-room-boy-radio-edit/27640162'>
+	</song>
+	<song id='44515045' title='Just Like You' pid='49912872' tid='65862133' artistId='1984939' artistName='Satin Jackets' albumId='13612541' albumName='Just Like You' tlen='173'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/satin-jackets/just-like-you/65862133'>
+	</song>
+	<song id='35977720' title='Forget' pid='40235321' tid='54260177' artistId='7116931' artistName='Boxed In' albumId='11412287' albumName='Melt' tlen='265'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/boxed-in/forget/54260177'>
+	</song>
+	<song id='36123048' title='Right On Time (MD Electro Remix)' pid='41736835' tid='55591886' artistId='7634340' artistName='GFDM &amp; MD Electro' albumId='11597501' albumName='Right On Time' tlen='217'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/gfdm-md-electro/right-on-time-md-electro-remix/55591886'>
+	</song>
+	<song id='41691094' title='Control (Secretly Sorry) (Holy Ghost! Remix)' pid='46760105' tid='61865307' artistId='1702950' artistName='Jr. Jr.' albumId='12688391' albumName='Control (Secretly Sorry)' tlen='348'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/jr-jr/control-secretly-sorry-holy-ghost-remix/61865307'>
+	</song>
+	<song id='42837602' title='Radar' pid='48202883' tid='63513356' artistId='7718141' artistName='Whethan' albumId='13091028' albumName='Radar' tlen='203'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/whethan/radar/63513356'>
+	</song>
+	<song id='36887471' title='Anywhere You Go' pid='41275001' tid='54979515' artistId='7709899' artistName='Nervo' albumId='11540195' albumName='Monstercat 029 - Havoc' tlen='181'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/nervo/anywhere-you-go/54979515'>
+	</song>
+	<song id='45125029' title='Cyclades' pid='50585116' tid='66605383' artistId='2021901' artistName='Keep Shelly in Athens' albumId='13835624' albumName='Cyclades' tlen='279'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/keep-shelly-in-athens/cyclades/66605383'>
+	</song>
+	<song id='43744575' title='Ghost 2 U' pid='49065358' tid='64875133' artistId='7916891' artistName='Jinka' albumId='13381265' albumName='Ghost 2 U' tlen='221'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/jinka/ghost-2-u/64875133'>
+	</song>
+	<song id='37348975' title='Let&apos;s Give It A Shot' pid='41796960' tid='55670480' artistId='6955913' artistName='Boehm' albumId='11608878' albumName='Let&apos;s Give It A Shot' tlen='186'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/boehm/lets-give-it-a-shot/55670480'>
+	</song>
+	<song id='38703240' title='Party on the West Coast' pid='43329612' tid='57579449' artistId='7260427' artistName='Matoma' albumId='11888819' albumName='Party on the West Coast' tlen='227'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/matoma/party-on-the-west-coast/57579449'>
+	</song>
+	<song id='41733176' title='This One&apos;s For You' pid='46802589' tid='61915960' artistId='6596211' artistName='Möwe' albumId='12706320' albumName='This One&apos;s For You' tlen='163'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/mowe/this-ones-for-you/61915960'>
+	</song>
+	<song id='43376074' title='Only Love [Plastik Funk Remix]' pid='49266009' tid='65034272' artistId='1688393' artistName='Deepend' albumId='13415834' albumName='Only Love' tlen='167'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/deepend/only-love-plastik-funk-remix/65034272'>
+	</song>
+	<song id='38625492' title='Criminal' pid='43240677' tid='57476017' artistId='6955913' artistName='Boehm' albumId='11927991' albumName='Criminal' tlen='183'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/boehm/criminal/57476017'>
+	</song>
+	<song id='44553478' title='Messed Up' pid='49955832' tid='65907641' artistId='4759220' artistName='Lizzy Land' albumId='13624107' albumName='Bossed Up' tlen='224'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/lizzy-land/messed-up/65907641'>
+	</song>
+	<song id='44344750' title='Kills You Slowly [Sick Individuals Remix]' pid='50184022' tid='66158981' artistId='3771877' artistName='The Chainsmokers' albumId='13699738' albumName='Kills You Slowly - The Remixes' tlen='170'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/the-chainsmokers/kills-you-slowly-sick-individuals-remix/66158981'>
+	</song>
+	<song id='45143807' title='I Wanna Dance' pid='50605743' tid='66627049' artistId='5643956' artistName='Jonas Blue' albumId='13842699' albumName='I Wanna Dance' tlen='182'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/jonas-blue/i-wanna-dance/66627049'>
+	</song>
+	<song id='44993430' title='Closer To You' pid='50440119' tid='66730858' artistId='8092091' artistName='Clairo' albumId='13876931' albumName='Immunity' tlen='184'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/clairo/closer-to-you/66730858'>
+	</song>
+	<song id='45129377' title='Thing for You [Club Mix]' pid='50590357' tid='66571286' artistId='526446' artistName='David Guetta' albumId='13825515' albumName='Thing for You' tlen='448'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  advisory='EXPLICIT'  songlink='song/david-guetta/thing-for-you-club-mix/66571286'>
+	</song>
+	<song id='41807308' title='Friends in Secret' pid='46885283' tid='62016192' artistId='7877458' artistName='CRi' albumId='12730932' albumName='Me and My Friends' tlen='363'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cri/friends-in-secret/62016192'>
+	</song>
+	<song id='44372695' title='All of Your Heart' pid='49757885' tid='65684726' artistId='7065240' artistName='Odd Mob' albumId='13540896' albumName='All Of Your Heart' tlen='221'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/odd-mob/all-of-your-heart/65684726'>
+	</song>
+	<song id='38682192' title='With You' pid='43303746' tid='57554180' artistId='7875037' artistName='The Range and Jim-E Stack' albumId='11944623' albumName='With You' tlen='218'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/the-range-and-jime-stack/with-you/57554180'>
+	</song>
+	<song id='39903737' title='Call My Name' pid='44701455' tid='60953159' artistId='7995025' artistName='Priest' albumId='12517792' albumName='Call My Name' tlen='216'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/priest/call-my-name/60953159'>
+	</song>
+	<song id='39472157' title='At Your Funeral (beGun Remix)' pid='44212844' tid='58650582' artistId='7536220' artistName='Bearoid' albumId='11947456' albumName='At Your Funeral (beGun Remix)' tlen='474'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bearoid/at-your-funeral-begun-remix/58650582'>
+	</song>
+	<song id='44713037' title='Sticker on My Suitcase' pid='50130358' tid='66099022' artistId='1747372' artistName='Alle Farben' albumId='13681535' albumName='Sticker on My Suitcase' tlen='213'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alle-farben/sticker-on-my-suitcase/66099022'>
+	</song>
+	<song id='38297144' title='Flames' pid='42870091' tid='56991837' artistId='7497300' artistName='Henri PFR &amp; Romeo Blanco' albumId='11838519' albumName='Flames' tlen='189'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/henri-pfr-romeo-blanco/flames/56991837'>
+	</song>
+	<song id='42615827' title='Dust' pid='47794613' tid='63195507' artistId='8190596' artistName='Komplement' albumId='12688459' albumName='Dust' tlen='233'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/komplement/dust/63195507'>
+	</song>
+	<song id='44305539' title='Who&apos;s Got Your Love (Mike Williams Remix)' pid='50642541' tid='66669533' artistId='8425436' artistName='Cheat Codes &amp; Daniel Blume' albumId='13856302' albumName='Who&apos;s Got Your Love' tlen='184'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cheat-codes-daniel-blume/whos-got-your-love-mike-williams-remix/66669533'>
+	</song>
+	<song id='43087490' title='Close To Me [CID Remix]' pid='49317905' tid='65180325' artistId='8302567' artistName='Diplo, Ellie Goulding, Swae Lee' albumId='13444422' albumName='Close To Me' tlen='174'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/diplo-ellie-goulding-swae-lee/close-to-me-cid-remix/65180325'>
+	</song>
+	<song id='43994068' title='Think About You' pid='49343907' tid='65209716' artistId='7002693' artistName='Kygo' albumId='13451440' albumName='Think About You' tlen='206'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/kygo/think-about-you/65209716'>
+	</song>
+	<song id='44781417' title='All My Friends' pid='50206096' tid='67656721' artistId='2203244' artistName='Madeon' albumId='14163669' albumName='Good Faith' tlen='205'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/madeon/all-my-friends/67656721'>
+	</song>
+	<song id='44991173' title='INDULGE' pid='50437397' tid='66439971' artistId='8313207' artistName='Sebastian Paul' albumId='13784291' albumName='INDULGE' tlen='205'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/sebastian-paul/indulge/66439971'>
+	</song>
+	<song id='44795553' title='Melody of Love' pid='50222150' tid='66366990' artistId='469510' artistName='Hot Chip' albumId='13761069' albumName='A Bath Full of Ecstasy' tlen='256'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/hot-chip/melody-of-love/66366990'>
+	</song>
+	<song id='42414763' title='Underwater' pid='47573959' tid='63847785' artistId='6005881' artistName='Rüfüs Du Sol' albumId='13170071' albumName='SOLACE' tlen='348'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/rufus-du-sol/underwater/63847785'>
+	</song>
+	<song id='45459009' title='Hurts' pid='50948177' tid='67025822' artistId='6888386' artistName='Wafia' albumId='13968408' albumName='Hurts (feat. Louis The Child &amp; Whethan)' tlen='198'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/wafia/hurts/67025822'>
+	</song>
+	<song id='42533535' title='Be There' pid='47704539' tid='63080618' artistId='1997127' artistName='Fyfe' albumId='13002709' albumName='Be There' tlen='165'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/fyfe/be-there/63080618'>
+	</song>
+	<song id='41346023' title='Wait to Come Over' pid='46348917' tid='61367605' artistId='7766113' artistName='Charles Fauna' albumId='12605071' albumName='Eulogy - EP' tlen='199'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/charles-fauna/wait-to-come-over/61367605'>
+	</song>
+	<song id='45166640' title='See The End' pid='50630379' tid='66655735' artistId='0' artistName='Above &amp; Beyond and Seven Lions' albumId='13851457' albumName='See The End (Glacci Remix)' tlen='217'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/_/see-the-end/66655735'>
+	</song>
+	<song id='44338319' title='Sometimes' pid='49720365' tid='65640530' artistId='0' artistName='Ricky Remedy' albumId='13552273' albumName='Sometimes (feat. TITUS)' tlen='180'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/_/sometimes/65640530'>
+	</song>
+	<song id='44769708' title='Search Box' pid='50193364' tid='66168695' artistId='8092602' artistName='Low Island' albumId='13702142' albumName='Search Box' tlen='245'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/low-island/search-box/66168695'>
+	</song>
+	<song id='45604754' title='Magical' pid='51107794' tid='67215135' artistId='1457085' artistName='Cassian' albumId='14028466' albumName='Magical (feat. ZOLLY)' tlen='221'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cassian/magical/67215135'>
+	</song>
+	<song id='45466008' title='In The Middle' pid='50940395' tid='67031826' artistId='8555775' artistName='Alesso, SUMR CAMP' albumId='13971258' albumName='In The Middle' tlen='145'  basicRadio='0' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/alesso-sumr-camp/in-the-middle/67031826'>
+	</song>
+	<song id='44973144' title='All This Time' pid='50417387' tid='66417626' artistId='2778190' artistName='Deorro' albumId='13776957' albumName='All This Time' tlen='224'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/deorro/all-this-time/66417626'>
+	</song>
+	<song id='44495633' title='Learn to Lose [Alle Farben Remix]' pid='50422677' tid='66423459' artistId='4798374' artistName='Bakermat' albumId='13778886' albumName='Learn to Lose (Remixes)' tlen='162'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/bakermat/learn-to-lose-alle-farben-remix/66423459'>
+	</song>
+	<song id='24166297' title='Try It Out (Neon Mix)' pid='26704138' tid='34002478' artistId='5393877' artistName='Skrillex &amp; Alvin Risk' albumId='7615779' albumName='Try It Out' tlen='227'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/skrillex-alvin-risk/try-it-out-neon-mix/34002478'>
+	</song>
+	<song id='44450953' title='Remember You' pid='49843188' tid='66600258' artistId='4947938' artistName='Conro' albumId='13834086' albumName='Thrill of It' tlen='187'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/conro/remember-you/66600258'>
+	</song>
+	<song id='44164881' title='Feel Love' pid='49531585' tid='65418819' artistId='1801826' artistName='Feed Me' albumId='13506101' albumName='High Street Creeps' tlen='336'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/feed-me/feel-love/65418819'>
+	</song>
+	<song id='8334252' title='Lights and Music' pid='8828914' tid='10187761' artistId='607863' artistName='Cut Copy' albumId='1228342' albumName='In Ghost Colours' tlen='278'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/cut-copy/lights-and-music/10187761'>
+	</song>
+	<song id='26689092' title='Ragga Bomb (Skrillex &amp; Zomboy Remix)' pid='33078768' tid='42158685' artistId='1461727' artistName='Skrillex' albumId='9764692' albumName='Ease My Mind v Ragga Bomb Remixes' tlen='227'  basicRadio='1' olicensed='1' ocache='1' vzwRbt='0' tone='0'  songlink='song/skrillex/ragga-bomb-skrillex-zomboy-remix/42158685'>
+	</song>
+</songs>
+</Playlist>
