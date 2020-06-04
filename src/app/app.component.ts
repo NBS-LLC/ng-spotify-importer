@@ -33,12 +33,7 @@ export class AppComponent implements OnInit {
 
       if (this.spotifyAccessToken) {
         this.spotify.setAccessToken(this.spotifyAccessToken);
-        this.spotify.getMe((err, data) => {
-          if (err) {
-            // TODO: Handle expired access token.
-            console.log(err);
-          }
-
+        this.spotify.getMe().then((data) => {
           this.spotifyUserId = data.id;
         });
       }
