@@ -71,21 +71,25 @@ export class AppComponent implements OnInit {
           this.songs = playlist.getSongs();
 
           this.loadSpotifyData().then(() => {
-            this.spotify.createPlaylist(this.spotifyUserId, {name: this.playlistName}).then(data => {
-              const playlistId = data.id;
-
-              // TODO: Handle more than 100 songs.
-              const matchedSongUris = this.songs.filter(song => song.uri != null).map(song => song.uri);
-
-              // TODO: Ensure all songs are added.
-              this.spotify.addTracksToPlaylist(playlistId, matchedSongUris);
-            });
+            // this.handleSpotifyData();
           });
         }
       };
 
       fileReader.readAsDataURL(files.item(0));
     }
+  }
+
+  private handleSpotifyData() {
+    this.spotify.createPlaylist(this.spotifyUserId, {name: this.playlistName}).then(data => {
+      const playlistId = data.id;
+
+      // TODO: Handle more than 100 songs.
+      const matchedSongUris = this.songs.filter(song => song.uri != null).map(song => song.uri);
+
+      // TODO: Ensure all songs are added.
+      this.spotify.addTracksToPlaylist(playlistId, matchedSongUris);
+    });
   }
 
   private loadSpotifyData(): Promise<any> {
