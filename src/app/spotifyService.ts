@@ -33,4 +33,16 @@ export class SpotifyService {
 
     return Promise.all(promises);
   }
+
+  createPlaylist(userId: string, playlistName: string, songs: Song[]) {
+    this.spotify.createPlaylist(userId, {name: playlistName}).then(data => {
+      const playlistId = data.id;
+
+      // TODO: Handle more than 100 songs.
+      const matchedSongUris = songs.filter(song => song.uri != null).map(song => song.uri);
+
+      // TODO: Ensure all songs are added.
+      this.spotify.addTracksToPlaylist(playlistId, matchedSongUris);
+    });
+  }
 }
