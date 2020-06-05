@@ -9,7 +9,7 @@ export class SpotifyService {
     this.spotify = spotify;
   }
 
-  loadSpotifyData(songs: Song[]): Promise<any> {
+  async loadSpotifyData(songs: Song[]): Promise<any> {
     const promises = [];
 
     for (const song of songs) {
@@ -21,12 +21,13 @@ export class SpotifyService {
         song.previewUrl = spotifySong.previewUrl;
         song.externalUrl = spotifySong.externalUrl;
 
-        if ((song.previewUrl === undefined) || (song.previewUrl === null)) {
+        if (song.previewUrl === undefined) {
           console.log(song);
         }
       });
 
       promises.push(searchResults);
+      await this.delay(100);
     }
 
     return Promise.all(promises);
@@ -59,5 +60,9 @@ export class SpotifyService {
         resolve(song);
       });
     });
+  }
+
+  private delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }

@@ -67,7 +67,14 @@ export class AppComponent implements OnInit {
           this.playlistName = playlist.getPlaylistName();
           this.songs = playlist.getSongs();
 
+          console.log(`handleFileInput: ${this.songs.length} songs parsed.`);
+
+          // tslint:disable-next-line:no-console
+          console.time('loadSpotifyData');
           this.spotifyService.loadSpotifyData(this.songs).then(() => {
+            // tslint:disable-next-line:no-console
+            console.timeEnd('loadSpotifyData');
+
             this.spotifyService.createPlaylist(this.spotifyUserId, this.playlistName, this.songs);
           });
         }
