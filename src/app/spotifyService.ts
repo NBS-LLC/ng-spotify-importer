@@ -13,18 +13,16 @@ export class SpotifyService {
     const promises = [];
 
     for (const song of songs) {
-      const query = `"${song.title}" artist:"${song.artist}"`;
-      const searchResults = this.spotify.searchTracks(query, {limit: 1});
+      const searchResults = this.searchForSong(song.title, song.artist);
+      searchResults.then((spotifySong) => {
+        song.title = spotifySong.title;
+        song.artist = spotifySong.artist;
+        song.uri = spotifySong.uri;
+        song.previewUrl = spotifySong.previewUrl;
+        song.externalUrl = spotifySong.externalUrl;
 
-      searchResults.then((data) => {
-        if (data.tracks.total > 0) {
-          song.uri = data.tracks.items[0].uri;
-          song.previewUrl = data.tracks.items[0].preview_url;
-          song.externalUrl = data.tracks.items[0].external_urls.spotify;
-        }
-
-        if (song.previewUrl === null) {
-          console.log(data);
+        if ((song.previewUrl === undefined) || (song.previewUrl === null)) {
+          console.log(song);
         }
       });
 
@@ -45,6 +43,21 @@ export class SpotifyService {
         const chunk = matchedSongUris.slice(i, i + chunkSize);
         this.spotify.addTracksToPlaylist(playlistId, chunk);
       }
+    });
+  }
+
+  private searchForSong(title: string, artist: string): Promise<Song> {
+    return new Promise<Song>(resolve => {
+      const query = `"${title}" artist:"${artist}"`;
+      this.spotify.searchTracks(query, {limit: 1}).then((data) => {
+        const song: Song = {artist, title};
+        if (data.tracks.total > 0) {
+          song.uri = data.tracks.items[0].uri;
+          song.previewUrl = data.tracks.items[0].preview_url;
+          song.externalUrl = data.tracks.items[0].external_urls.spotify;
+        }
+        resolve(song);
+      });
     });
   }
 }
