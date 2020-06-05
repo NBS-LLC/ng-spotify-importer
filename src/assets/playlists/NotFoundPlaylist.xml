@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Playlist name='Example - Unmatched Songs'>
+  <description>An example playlist songs that cannot be found.</description>
+  <songs>
+    <song title="Twilight vs Breathe (Jack Trades Remix)" artistName="Adam K &amp; Soha"/>
+    <song title="How to Love [Spanish Version]" artistName="Sofia Reyes"/>
+    <song title="Live In The Moment [TOKiMONSTA Remix]" artistName="Tycho"/>
+    <song title="Flames" artistName="David Guetta &amp; Sia"/>
+    <song title="Audio" artistName="LSD"/>
+    <song title="Born to be Yours" artistName="Imagine Dragons"/>
+    <song title="In My Mind" artistName="Gigi D'Agostino"/>
+    <song title="All Is Lost" artistName="Deadmau5"/>
+    <song title="Capsize" artistName="Frenship &amp; Emily Warren"/>
+    <song title="Jackie Chan" artistName="Dzeko, Tiësto"/>
+    <song title="Happier" artistName="Bastille, Marshmello"/>
+    <song title="Live in the Moment [Superorganism Remix]" artistName="Tycho"/>
+    <song title="Remind Me to Forget [Hook N Sling Remix]" artistName="Kygo / Miguel"/>
+    <song title="Little Things [Kav Verhouzer Radio Edit]" artistName="Kav Verhouzer"/>
+    <song title="Happier [Frank Walker Remix]" artistName="Bastille, Marshmello"/>
+    <song title="Tie Me Down [Steve Aoki Remix]" artistName="Elley Duhé, Gryffin"/>
+    <song title="So Close [Dwilly Remix]" artistName="Captain Cuts, Felix Jaehn, NOTD"/>
+    <song title="So Long (feat. Juliana Chahayed)" artistName="Slander"/>
+    <song title="Win You Over" artistName="Whethan &amp; Bearson"/>
+    <song title="It's Not This" artistName="Bearson &amp; Lemaitre"/>
+    <song title="Never Again" artistName="Superheart"/>
+    <song title="Tone Down" artistName="Armin van Buuren"/>
+    <song title="Take It" artistName="Magnum Mike"/>
+    <song title="Higher Love" artistName="Kygo &amp; Whitney Houston"/>
+    <song title="Right On Time (MD Electro Remix)" artistName="GFDM &amp; MD Electro"/>
+    <song title="Flames" artistName="Henri PFR &amp; Romeo Blanco"/>
+    <song title="Who's Got Your Love (Mike Williams Remix)" artistName="Cheat Codes &amp; Daniel Blume"/>
+    <song title="Close To Me [CID Remix]" artistName="Diplo, Ellie Goulding, Swae Lee"/>
+    <song title="See The End" artistName="Above &amp; Beyond and Seven Lions"/>
+    <song title="In The Middle" artistName="Alesso, SUMR CAMP"/>
+    <song title="Try It Out (Neon Mix)" artistName="Skrillex &amp; Alvin Risk"/>
+  </songs>
+</Playlist>
