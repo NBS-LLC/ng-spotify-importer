@@ -35,7 +35,7 @@ export class SpotifyService {
 
   createPlaylist(userId: string, playlistName: string, songs: Song[]): Promise<string> {
     return new Promise<string>(resolve => {
-      this.spotify.createPlaylist(userId, {name: playlistName}).then(data => {
+      this.spotify.createPlaylist(userId, {name: playlistName}).then(async data => {
         const chunkSize = 100;
         const playlistId = data.id;
         const matchedSongUris = songs.filter(song => song.uri != null).map(song => song.uri);
@@ -43,7 +43,7 @@ export class SpotifyService {
         const promises = [];
         for (let i = 0, j = matchedSongUris.length; i < j; i += chunkSize) {
           const chunk = matchedSongUris.slice(i, i + chunkSize);
-          promises.push(this.spotify.addTracksToPlaylist(playlistId, chunk));
+          promises.push(await this.spotify.addTracksToPlaylist(playlistId, chunk));
         }
 
         Promise.all(promises).then(() => {
