@@ -20,10 +20,6 @@ export class SpotifyService {
         song.uri = spotifySong.uri;
         song.previewUrl = spotifySong.previewUrl;
         song.externalUrl = spotifySong.externalUrl;
-
-        if (song.uri === undefined) {
-          console.log(song);
-        }
       });
 
       promises.push(searchResults);

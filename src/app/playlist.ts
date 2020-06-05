@@ -8,7 +8,7 @@ export class Playlist {
   constructor(playlistXml: string) {
     const options = {
       ignoreAttributes: false,
-      attrValueProcessor: (value, attrName) => decode(value),
+      attrValueProcessor: value => decodeURIComponent(escape(decode(value))),
     };
 
     this.json = parse(playlistXml, options);

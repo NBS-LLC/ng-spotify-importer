@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'Slacker to Spotify';
   playlistName = '';
   songs: Song[] = [];
+  songsUnmatched: Song[] = [];
   spotifyAuthUrl: string;
   spotifyAccessToken: string;
   spotifyUserId: string;
@@ -72,6 +73,8 @@ export class AppComponent implements OnInit {
           console.time('loadSpotifyData');
           this.spotifyService.loadSpotifyData(this.songs).then(() => {
             console.timeEnd('loadSpotifyData');
+
+            this.songsUnmatched = this.songs.filter(song => song.uri === undefined);
 
             this.spotifyService.createPlaylist(this.spotifyUserId, this.playlistName, this.songs).then(playlistId => {
               this.spotify.getPlaylistTracks(playlistId).then(result => {

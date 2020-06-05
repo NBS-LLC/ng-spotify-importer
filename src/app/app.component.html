@@ -12,6 +12,12 @@
 
   <h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
 
+  <pre *ngIf="songsUnmatched.length > 0">
+    Unmatched Songs:
+    <ng-container *ngFor="let song of songsUnmatched">
+      &lt;song title="{{song.title}}" artist="{{song.artist}}"/&gt;</ng-container>
+  </pre>
+
   <table id="song-data">
     <tr *ngFor="let song of songs">
       <td class="song-title">{{song.title}}</td>
