@@ -21,7 +21,7 @@ export class SpotifyService {
         song.previewUrl = spotifySong.previewUrl;
         song.externalUrl = spotifySong.externalUrl;
 
-        if (song.previewUrl === undefined) {
+        if (song.uri === undefined) {
           console.log(song);
         }
       });
@@ -33,17 +33,23 @@ export class SpotifyService {
     return Promise.all(promises);
   }
 
-  createPlaylist(userId: string, playlistName: string, songs: Song[]) {
-    this.spotify.createPlaylist(userId, {name: playlistName}).then(data => {
-      const chunkSize = 100;
-      const playlistId = data.id;
-      const matchedSongUris = songs.filter(song => song.uri != null).map(song => song.uri);
+  createPlaylist(userId: string, playlistName: string, songs: Song[]): Promise<string> {
+    return new Promise<string>(resolve => {
+      this.spotify.createPlaylist(userId, {name: playlistName}).then(data => {
+        const chunkSize = 100;
+        const playlistId = data.id;
+        const matchedSongUris = songs.filter(song => song.uri != null).map(song => song.uri);
 
-      for (let i = 0, j = matchedSongUris.length; i < j; i += chunkSize) {
-        // TODO: Ensure all songs are added.
-        const chunk = matchedSongUris.slice(i, i + chunkSize);
-        this.spotify.addTracksToPlaylist(playlistId, chunk);
-      }
+        const promises = [];
+        for (let i = 0, j = matchedSongUris.length; i < j; i += chunkSize) {
+          const chunk = matchedSongUris.slice(i, i + chunkSize);
+          promises.push(this.spotify.addTracksToPlaylist(playlistId, chunk));
+        }
+
+        Promise.all(promises).then(() => {
+          resolve(playlistId);
+        });
+      });
     });
   }
 
