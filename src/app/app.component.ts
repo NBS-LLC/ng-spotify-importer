@@ -3,7 +3,6 @@ import {Song} from './song';
 import {Playlist} from './playlist';
 import {ActivatedRoute} from '@angular/router';
 import SpotifyWebApi from 'spotify-web-api-js';
-import {SpotifyService as SS} from './spotifyService';
 import {SpotifyService} from './spotify.service';
 
 @Component({
@@ -20,7 +19,6 @@ export class AppComponent implements OnInit {
   spotifyUserId: string;
 
   spotifyWebApi = new SpotifyWebApi();
-  spotifyService = new SS(this.spotifyWebApi);
 
   constructor(private activatedRoute: ActivatedRoute, public spotifySvc: SpotifyService) {
     this.spotifyAuthUrl = this.generateSpotifyAuthUrl();
@@ -35,7 +33,7 @@ export class AppComponent implements OnInit {
       }
 
       if (this.spotifySvc.hasAuthenticated()) {
-        this.spotifySvc.getUserId().then(userId => this.spotifyUserId = userId);
+        this.spotifySvc.loadUserId().then(userId => this.spotifyUserId = userId);
       }
     });
   }
@@ -73,13 +71,10 @@ export class AppComponent implements OnInit {
 
           console.log(`handleFileInput: ${this.songs.length} songs parsed`);
 
-          console.time('loadSpotifyData');
-          this.spotifyService.loadSpotifyData(this.songs).then(() => {
-            console.timeEnd('loadSpotifyData');
-
+          this.spotifySvc.loadSongData(this.songs).then(() => {
             this.songsUnmatched = this.songs.filter(song => song.uri === undefined);
 
-            this.spotifyService.createPlaylist(this.spotifyUserId, this.playlistName, this.songs).then(playlistId => {
+            this.spotifySvc.createPlaylist(this.spotifyUserId, this.playlistName, this.songs).then(playlistId => {
               this.spotifyWebApi.getPlaylistTracks(playlistId).then(result => {
                 console.log(`createPlaylist: ${result.total} tracks added`);
               });
