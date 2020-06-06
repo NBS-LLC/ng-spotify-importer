@@ -56,6 +56,10 @@ export class AppComponent implements OnInit {
   }
 
   handleFileInput(inputEvent: Event) {
+    this.playlistName = '';
+    this.songs = [];
+    this.songsUnmatched = [];
+
     const files: FileList = (inputEvent.target as HTMLInputElement).files;
     if (files && files.item(0)) {
       const fileReader = new FileReader();
