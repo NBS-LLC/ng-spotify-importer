@@ -3,7 +3,8 @@ import {Song} from './song';
 import {Playlist} from './playlist';
 import {ActivatedRoute} from '@angular/router';
 import SpotifyWebApi from 'spotify-web-api-js';
-import {SpotifyService} from './spotifyService';
+import {SpotifyService as SS} from './spotifyService';
+import {SpotifyService} from './spotify.service';
 
 @Component({
   selector: 'app-root',
@@ -16,27 +17,25 @@ export class AppComponent implements OnInit {
   songs: Song[] = [];
   songsUnmatched: Song[] = [];
   spotifyAuthUrl: string;
-  spotifyAccessToken: string;
   spotifyUserId: string;
 
-  spotify = new SpotifyWebApi();
-  spotifyService = new SpotifyService(this.spotify);
+  spotifyWebApi = new SpotifyWebApi();
+  spotifyService = new SS(this.spotifyWebApi);
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, public spotifySvc: SpotifyService) {
     this.spotifyAuthUrl = this.generateSpotifyAuthUrl();
   }
 
   ngOnInit(): void {
     this.activatedRoute.fragment.subscribe(hash => {
       if (hash) {
-        this.spotifyAccessToken = (new URLSearchParams(hash)).get('access_token');
+        const accessToken = (new URLSearchParams(hash)).get('access_token');
+        this.spotifyWebApi.setAccessToken(accessToken);
+        this.spotifySvc.setAccessToken(accessToken);
       }
 
-      if (this.spotifyAccessToken) {
-        this.spotify.setAccessToken(this.spotifyAccessToken);
-        this.spotify.getMe().then((data) => {
-          this.spotifyUserId = data.id;
-        });
+      if (this.spotifySvc.hasAuthenticated()) {
+        this.spotifySvc.getUserId().then(userId => this.spotifyUserId = userId);
       }
     });
   }
@@ -81,7 +80,7 @@ export class AppComponent implements OnInit {
             this.songsUnmatched = this.songs.filter(song => song.uri === undefined);
 
             this.spotifyService.createPlaylist(this.spotifyUserId, this.playlistName, this.songs).then(playlistId => {
-              this.spotify.getPlaylistTracks(playlistId).then(result => {
+              this.spotifyWebApi.getPlaylistTracks(playlistId).then(result => {
                 console.log(`createPlaylist: ${result.total} tracks added`);
               });
             });

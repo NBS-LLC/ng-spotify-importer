@@ -1,9 +1,7 @@
 <h1>{{title}}</h1>
 
-<div *ngIf="spotifyAccessToken; else logIntoSpotify">
+<div *ngIf="spotifySvc.hasAuthenticated(); else logIntoSpotify">
   <dl>
-    <dt>Spotify Access Token</dt>
-    <dd>{{spotifyAccessToken}}</dd>
     <dt>User ID</dt>
     <dd>{{spotifyUserId}}</dd>
   </dl>
