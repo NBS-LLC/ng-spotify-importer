@@ -1,6 +1,6 @@
 <h1>{{title}}</h1>
 
-<div *ngIf="spotifySvc.hasAuthenticated(); else logIntoSpotify">
+<div *ngIf="spotifyService.hasAuthenticated(); else logIntoSpotify">
   <dl>
     <dt>User ID</dt>
     <dd>{{spotifyUserId}}</dd>

@@ -71,6 +71,15 @@ export class SpotifyService {
     });
   }
 
+  loadPlaylistTrackCount(playlistId: string): Promise<number> {
+    return new Promise<number>(resolve => {
+      const options = {fields: 'total'};
+      this.spotifyWebApi.getPlaylistTracks(playlistId, options).then(data => {
+        resolve(data.total);
+      });
+    });
+  }
+
   private searchForSong(title: string, artist: string): Promise<Song> {
     return new Promise<Song>(resolve => {
       const query = `"${title}" artist:"${artist}"`;
