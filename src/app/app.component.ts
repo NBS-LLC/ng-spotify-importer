@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Song} from './song';
 import {Playlist} from './playlist';
-import {ActivatedRoute} from '@angular/router';
 import {SpotifyService} from './spotify.service';
 
 @Component({
@@ -14,38 +13,11 @@ export class AppComponent implements OnInit {
   playlistName = '';
   songs: Song[] = [];
   songsUnmatched: Song[] = [];
-  spotifyAuthUrl: string;
-  spotifyUserId: string;
 
-  constructor(private activatedRoute: ActivatedRoute, public spotifyService: SpotifyService) {
-    this.spotifyAuthUrl = this.generateSpotifyAuthUrl();
+  constructor(public spotifyService: SpotifyService) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.fragment.subscribe(hash => {
-      if (hash) {
-        const accessToken = (new URLSearchParams(hash)).get('access_token');
-        this.spotifyService.setAccessToken(accessToken);
-      }
-
-      if (this.spotifyService.hasAuthenticated()) {
-        this.spotifyService.loadUserId().then(userId => this.spotifyUserId = userId);
-      }
-    });
-  }
-
-  generateSpotifyAuthUrl(): string {
-    const clientId = 'ee26bb61755e44c5b7e7a0a29c0f7ed5';
-    const scope = 'user-read-private user-read-email playlist-modify-public';
-    const redirectUrl = 'http://localhost:4200/';
-
-    let url = 'https://accounts.spotify.com/authorize';
-    url += '?response_type=token';
-    url += '&client_id=' + encodeURIComponent(clientId);
-    url += '&scope=' + encodeURIComponent(scope);
-    url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
-
-    return url;
   }
 
   handleFileInput(inputEvent: Event) {
@@ -70,9 +42,11 @@ export class AppComponent implements OnInit {
           this.spotifyService.loadSongData(this.songs).then(() => {
             this.songsUnmatched = this.songs.filter(song => song.uri === undefined);
 
-            this.spotifyService.createPlaylist(this.spotifyUserId, this.playlistName, this.songs).then(playlistId => {
-              this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
-                console.log(`createPlaylist: ${trackCount} tracks added`);
+            this.spotifyService.loadUserId().then(userId => {
+              this.spotifyService.createPlaylist(userId, this.playlistName, this.songs).then(playlistId => {
+                this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
+                  console.log(`createPlaylist: ${trackCount} tracks added`);
+                });
               });
             });
           });

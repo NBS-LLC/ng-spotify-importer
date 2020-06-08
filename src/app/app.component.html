@@ -1,11 +1,8 @@
 <h1>{{title}}</h1>
 
-<div *ngIf="spotifyService.hasAuthenticated(); else logIntoSpotify">
-  <dl>
-    <dt>User ID</dt>
-    <dd>{{spotifyUserId}}</dd>
-  </dl>
+<app-spotify-auth></app-spotify-auth>
 
+<div *ngIf="spotifyService.hasAuthenticated()" id="playlist-editor">
   <input (change)="handleFileInput($event)" type="file" id="fileInput"/>
 
   <h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
@@ -30,7 +27,3 @@
     </tr>
   </table>
 </div>
-
-<ng-template #logIntoSpotify>
-  <p><a href="{{spotifyAuthUrl}}">Grant</a> access to your Spotify account.</p>
-</ng-template>
