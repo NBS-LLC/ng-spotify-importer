@@ -5,6 +5,11 @@
 <div *ngIf="spotifyService.hasAuthenticated()" id="playlist-editor">
   <input (change)="handleFileInput($event)" type="file" id="fileInput"/>
 
+  <div>
+    <label for="playlist-load-progress">Loading playlist progress: </label>
+    <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
+  </div>
+
   <h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
 
   <pre *ngIf="songsUnmatched.length > 0">

@@ -29,7 +29,7 @@ export class SpotifyService {
     });
   }
 
-  async loadSongData(songs: Song[]): Promise<any> {
+  async loadSongData(songs: Song[], songsLoaded?: { count: number }): Promise<any> {
     const promises = [];
 
     console.time('loadSongData');
@@ -42,6 +42,10 @@ export class SpotifyService {
         song.previewUrl = spotifySong.previewUrl;
         song.externalUrl = spotifySong.externalUrl;
       });
+
+      if (songsLoaded) {
+        songsLoaded.count++;
+      }
 
       promises.push(searchResults);
       await this.delay(100);

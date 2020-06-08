@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   playlistName = '';
   songs: Song[] = [];
   songsUnmatched: Song[] = [];
+  songsLoaded = {count: 0};
 
   constructor(public spotifyService: SpotifyService) {
   }
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit {
     this.playlistName = '';
     this.songs = [];
     this.songsUnmatched = [];
+    this.songsLoaded = {count: 0};
 
     const files: FileList = (inputEvent.target as HTMLInputElement).files;
     if (files && files.item(0)) {
@@ -39,7 +41,7 @@ export class AppComponent implements OnInit {
 
           console.log(`handleFileInput: ${this.songs.length} songs parsed`);
 
-          this.spotifyService.loadSongData(this.songs).then(() => {
+          this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
             this.songsUnmatched = this.songs.filter(song => song.uri === undefined);
 
             this.spotifyService.loadUserId().then(userId => {
