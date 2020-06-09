@@ -41,11 +41,11 @@ export class SpotifyService {
         song.uri = spotifySong.uri;
         song.previewUrl = spotifySong.previewUrl;
         song.externalUrl = spotifySong.externalUrl;
-      });
 
-      if (songsLoaded) {
-        songsLoaded.count++;
-      }
+        if (songsLoaded) {
+          songsLoaded.count++;
+        }
+      });
 
       promises.push(searchResults);
       await this.delay(100);
