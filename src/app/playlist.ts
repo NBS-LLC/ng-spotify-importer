@@ -3,9 +3,14 @@ import {Song} from './song';
 import {decode} from 'he';
 
 export class Playlist {
+  static songs: Song[] = [];
+
   json: any;
+  songDataLoaded = false;
 
   constructor(playlistXml: string) {
+    Playlist.songs = [];
+
     const options = {
       ignoreAttributes: false,
       attrValueProcessor: value => decodeURIComponent(escape(decode(value))),
@@ -19,13 +24,20 @@ export class Playlist {
   }
 
   getSongs() {
-    const songs = [];
-
-    for (const songData of this.json.Playlist.songs.song) {
-      const song: Song = {title: songData['@_title'], artist: songData['@_artistName']};
-      songs.push(song);
+    if (Playlist.songs.length === 0) {
+      for (const songData of this.json.Playlist.songs.song) {
+        Playlist.songs.push({title: songData['@_title'], artist: songData['@_artistName']});
+      }
     }
 
-    return songs;
+    return Playlist.songs;
+  }
+
+  getKnownSongs(): Song[] {
+    return Playlist.songs.filter(song => song.uri);
+  }
+
+  getUnknownSongs(): Song[] {
+    return Playlist.songs.filter(song => song.uri === undefined);
   }
 }

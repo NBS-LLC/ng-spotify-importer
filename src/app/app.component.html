@@ -10,33 +10,5 @@
     <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
   </div>
 
-  <h2>Songs <span *ngIf="playlistName">- {{playlistName}}</span></h2>
-
-  <div *ngIf="songsLoaded.finished" id="song-data-filter">
-    <label for="song-data-filter-all">All Songs ({{songs.length}}):</label>
-    <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-all"
-           name="song-data-filter-group" value="all" checked="checked">
-
-    <label for="song-data-filter-known">Known Songs ({{songsKnown.length}}):</label>
-    <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-known"
-           name="song-data-filter-group" value="known">
-
-    <label for="song-data-filter-unknown">Unknown Songs ({{songsUnknown.length}}):</label>
-    <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-unknown"
-           name="song-data-filter-group" value="unknown">
-  </div>
-
-  <table id="song-data">
-    <tr *ngFor="let song of songsDisplayed">
-      <td class="song-title">{{song.title}}</td>
-      <td class="song-artist">{{song.artist}}
-        <a *ngIf="song.externalUrl" href="{{song.externalUrl}}" target="_blank">[open]</a>
-      </td>
-      <td class="song-preview">
-        <audio controls *ngIf="song.previewUrl">
-          <source src="{{song.previewUrl}}">
-        </audio>
-      </td>
-    </tr>
-  </table>
+  <app-playlist-editor *ngIf="playlist" [playlist]="playlist"></app-playlist-editor>
 </div>

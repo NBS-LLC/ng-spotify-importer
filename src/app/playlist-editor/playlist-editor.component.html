@@ -1,0 +1,29 @@
+<h2>Songs - {{playlist.getPlaylistName()}}</h2>
+
+<div *ngIf="playlist.songDataLoaded" id="song-data-filter">
+  <label for="song-data-filter-all">All Songs ({{playlist.getSongs().length}}):</label>
+  <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-all"
+         name="song-data-filter-group" value="all" checked="checked">
+
+  <label for="song-data-filter-known">Known Songs ({{playlist.getKnownSongs().length}}):</label>
+  <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-known"
+         name="song-data-filter-group" value="known">
+
+  <label for="song-data-filter-unknown">Unknown Songs ({{playlist.getUnknownSongs().length}}):</label>
+  <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-unknown"
+         name="song-data-filter-group" value="unknown">
+</div>
+
+<table id="song-data">
+  <tr *ngFor="let song of songsDisplayed">
+    <td class="song-title">{{song.title}}</td>
+    <td class="song-artist">{{song.artist}}
+      <a *ngIf="song.externalUrl" href="{{song.externalUrl}}" target="_blank">[open]</a>
+    </td>
+    <td class="song-preview">
+      <audio controls *ngIf="song.previewUrl">
+        <source src="{{song.previewUrl}}">
+      </audio>
+    </td>
+  </tr>
+</table>
