@@ -49,4 +49,8 @@ export class PlaylistEditorComponent implements OnInit {
       });
     });
   }
+
+  reset() {
+    this.songsDisplayed = this.playlist.getSongs();
+  }
 }

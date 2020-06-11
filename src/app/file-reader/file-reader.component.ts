@@ -6,6 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./file-reader.component.css']
 })
 export class FileReaderComponent implements OnInit {
+  @Output() fileChanged = new EventEmitter();
   @Output() fileContents = new EventEmitter<string>();
 
   constructor() {
@@ -15,6 +16,8 @@ export class FileReaderComponent implements OnInit {
   }
 
   handleFileInput($event: Event) {
+    this.fileChanged.emit();
+
     const files: FileList = ($event.target as HTMLInputElement).files;
     if (files && files.item(0)) {
       const fileReader = new FileReader();

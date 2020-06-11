@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Song} from './song';
 import {Playlist} from './playlist';
 import {SpotifyService} from './spotify.service';
+import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,9 @@ export class AppComponent implements OnInit {
   playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
+
+  @ViewChild(PlaylistEditorComponent)
+  private playlistEditor: PlaylistEditorComponent;
 
   constructor(public spotifyService: SpotifyService) {
   }
@@ -29,5 +33,13 @@ export class AppComponent implements OnInit {
     this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
       this.playlist.songDataLoaded = true;
     });
+  }
+
+  onFileChanged() {
+    if (this.playlistEditor) {
+      this.songsLoaded.count = 0;
+      this.playlist = null;
+      this.playlistEditor.reset();
+    }
   }
 }

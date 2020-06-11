@@ -3,7 +3,7 @@
 <app-spotify-auth></app-spotify-auth>
 
 <div *ngIf="spotifyService.hasAuthenticated()" id="playlist-loader">
-  <app-file-reader (fileContents)="onFileRead($event)"></app-file-reader>
+  <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
   <div>
     <label for="playlist-load-progress">Loading playlist progress:</label>
