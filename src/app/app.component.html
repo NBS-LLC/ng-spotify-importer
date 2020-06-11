@@ -2,7 +2,7 @@
 
 <app-spotify-auth></app-spotify-auth>
 
-<div *ngIf="spotifyService.hasAuthenticated()" id="playlist-editor">
+<div *ngIf="spotifyService.hasAuthenticated()" id="playlist-loader">
   <app-file-reader (fileContents)="onFileRead($event)"></app-file-reader>
 
   <div>
