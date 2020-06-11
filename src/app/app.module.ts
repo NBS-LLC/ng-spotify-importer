@@ -5,12 +5,14 @@ import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import { SpotifyAuthComponent } from './spotify-auth/spotify-auth.component';
 import { PlaylistEditorComponent } from './playlist-editor/playlist-editor.component';
+import { FileReaderComponent } from './file-reader/file-reader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpotifyAuthComponent,
-    PlaylistEditorComponent
+    PlaylistEditorComponent,
+    FileReaderComponent
   ],
   imports: [
     BrowserModule,
