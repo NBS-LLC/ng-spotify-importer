@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import { SpotifyAuthComponent } from './spotify-auth/spotify-auth.component';
 import { PlaylistEditorComponent } from './playlist-editor/playlist-editor.component';
 import { FileReaderComponent } from './file-reader/file-reader.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FileReaderComponent } from './file-reader/file-reader.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

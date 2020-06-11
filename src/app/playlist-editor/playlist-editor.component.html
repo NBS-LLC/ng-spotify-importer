@@ -15,15 +15,29 @@
 </div>
 
 <table id="song-data">
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Link</th>
+    <th>Preview</th>
+  </tr>
   <tr *ngFor="let song of songsDisplayed">
-    <td class="song-title">{{song.title}}</td>
-    <td class="song-artist">{{song.artist}}
-      <a *ngIf="song.externalUrl" href="{{song.externalUrl}}" target="_blank">[open]</a>
+    <td class="song-title">
+      <input type="text" [(ngModel)]="song.title"/>
+    </td>
+    <td class="song-artist">
+      <input type="text" [(ngModel)]="song.artist"/>
+    </td>
+    <td class="song-link">
+      <a *ngIf="song.externalUrl; else unknown" href="{{song.externalUrl}}" target="_blank">[Spotify]</a>
+      <ng-template #unknown>unknown song</ng-template>
+      &nbsp;<a href="#" (click)="refreshSong(song)">[refresh]</a>
     </td>
     <td class="song-preview">
-      <audio controls *ngIf="song.previewUrl">
+      <audio controls *ngIf="song.previewUrl; else noPreview">
         <source src="{{song.previewUrl}}">
       </audio>
+      <ng-template #noPreview>no preview available</ng-template>
     </td>
   </tr>
 </table>

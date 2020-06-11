@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Playlist} from '../playlist';
 import {Song} from '../song';
+import {SpotifyService} from '../spotify.service';
 
 @Component({
   selector: 'app-playlist-editor',
@@ -11,7 +12,7 @@ export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
   songsDisplayed: Song[];
 
-  constructor() {
+  constructor(private spotifyService: SpotifyService) {
   }
 
   ngOnInit(): void {
@@ -33,5 +34,9 @@ export class PlaylistEditorComponent implements OnInit {
         this.songsDisplayed = this.playlist.getUnknownSongs();
         break;
     }
+  }
+
+  refreshSong(song: Song) {
+    this.spotifyService.loadSongData(Array.of(song));
   }
 }
