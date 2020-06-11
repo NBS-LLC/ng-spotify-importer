@@ -39,4 +39,14 @@ export class PlaylistEditorComponent implements OnInit {
   refreshSong(song: Song) {
     this.spotifyService.loadSongData(Array.of(song));
   }
+
+  importPlaylist() {
+    this.spotifyService.loadUserId().then(userId => {
+      this.spotifyService.createPlaylist(userId, this.playlist.getPlaylistName(), this.playlist.getSongs()).then(playlistId => {
+        this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
+          console.log(`createPlaylist: ${trackCount} tracks added`);
+        });
+      });
+    });
+  }
 }

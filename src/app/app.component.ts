@@ -28,14 +28,6 @@ export class AppComponent implements OnInit {
 
     this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
       this.playlist.songDataLoaded = true;
-
-      this.spotifyService.loadUserId().then(userId => {
-        this.spotifyService.createPlaylist(userId, this.playlist.getPlaylistName(), this.songs).then(playlistId => {
-          this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
-            console.log(`createPlaylist: ${trackCount} tracks added`);
-          });
-        });
-      });
     });
   }
 }
