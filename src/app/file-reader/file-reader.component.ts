@@ -9,6 +9,8 @@ export class FileReaderComponent implements OnInit {
   @Output() fileChanged = new EventEmitter();
   @Output() fileContents = new EventEmitter<string>();
 
+  fileInputDisabled = false;
+
   constructor() {
   }
 

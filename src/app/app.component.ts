@@ -3,6 +3,7 @@ import {Song} from './song';
 import {Playlist} from './playlist';
 import {SpotifyService} from './spotify.service';
 import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.component';
+import {FileReaderComponent} from './file-reader/file-reader.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,9 @@ export class AppComponent implements OnInit {
   playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
+
+  @ViewChild(FileReaderComponent)
+  private fileReader: FileReaderComponent;
 
   @ViewChild(PlaylistEditorComponent)
   private playlistEditor: PlaylistEditorComponent;
@@ -30,8 +34,10 @@ export class AppComponent implements OnInit {
 
     console.log(`onFileRead: ${this.songs.length} songs parsed`);
 
+    this.fileReader.fileInputDisabled = true;
     this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
       this.playlist.songDataLoaded = true;
+      this.fileReader.fileInputDisabled = false;
     });
   }
 
