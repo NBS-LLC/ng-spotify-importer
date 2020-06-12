@@ -12,7 +12,7 @@ export class SpotifyAuthComponent implements OnInit {
   public userId: string;
 
   constructor(private activatedRoute: ActivatedRoute, public spotifyService: SpotifyService) {
-    this.authUrl = this.spotifyService.getAuthUrl('ee26bb61755e44c5b7e7a0a29c0f7ed5');
+    this.authUrl = this.spotifyService.getAuthUrl();
   }
 
   ngOnInit(): void {

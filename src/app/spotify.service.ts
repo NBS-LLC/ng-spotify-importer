@@ -6,19 +6,21 @@ import {Song} from './song';
   providedIn: 'root'
 })
 export class SpotifyService {
+  private static clientId = 'ee26bb61755e44c5b7e7a0a29c0f7ed5'; // TODO: Move this elsewhere.
+
   private spotifyWebApi = new SpotifyWebApi();
   private authenticated = false;
 
   constructor() {
   }
 
-  getAuthUrl(clientId: string) {
+  getAuthUrl() {
     const scope = 'user-read-private playlist-modify-public';
     const redirectUrl = 'http://localhost:4200/';
 
     let url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
-    url += '&client_id=' + encodeURIComponent(clientId);
+    url += '&client_id=' + encodeURIComponent(SpotifyService.clientId);
     url += '&scope=' + encodeURIComponent(scope);
     url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
 
