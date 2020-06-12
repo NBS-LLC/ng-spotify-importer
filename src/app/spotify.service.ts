@@ -12,19 +12,6 @@ export class SpotifyService {
   constructor() {
   }
 
-  getAuthUrl(clientId: string) {
-    const scope = 'user-read-private playlist-modify-public';
-    const redirectUrl = 'http://localhost:4200/';
-
-    let url = 'https://accounts.spotify.com/authorize';
-    url += '?response_type=token';
-    url += '&client_id=' + encodeURIComponent(clientId);
-    url += '&scope=' + encodeURIComponent(scope);
-    url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
-
-    return url;
-  }
-
   setAccessToken(accessToken: string): void {
     this.spotifyWebApi.setAccessToken(accessToken);
     this.authenticated = true;
