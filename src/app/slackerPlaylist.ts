@@ -1,8 +1,9 @@
 import {parse} from 'fast-xml-parser';
 import {Song} from './song';
 import {decode} from 'he';
+import {Playlist} from './playlist';
 
-export class SlackerPlaylist {
+export class SlackerPlaylist implements Playlist {
   static songs: Song[] = [];
 
   json: any;

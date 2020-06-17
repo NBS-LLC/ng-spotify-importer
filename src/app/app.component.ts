@@ -4,6 +4,8 @@ import {SlackerPlaylist} from './slackerPlaylist';
 import {SpotifyService} from './spotify.service';
 import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.component';
 import {FileReaderComponent} from './file-reader/file-reader.component';
+import {CsvPlaylist} from './csvPlaylist';
+import {Playlist} from './playlist';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ import {FileReaderComponent} from './file-reader/file-reader.component';
 })
 export class AppComponent implements OnInit {
   title = 'NG Spotify Importer';
-  playlist: SlackerPlaylist;
+  playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
 
@@ -31,26 +33,25 @@ export class AppComponent implements OnInit {
   onFileRead(playlist: { contents: string; name: string, type: string }) {
     switch (playlist.type) {
       case 'csv': {
-        console.log(playlist.name);
-        console.log(atob(playlist.contents));
-        console.log('onFileRead: csv not implemented');
+        this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
         break;
       }
 
       case 'slacker': {
         this.playlist = new SlackerPlaylist(atob(playlist.contents));
-        this.songs = this.playlist.getSongs();
-
-        console.log(`onFileRead: ${this.songs.length} songs parsed`);
-
-        this.fileReader.fileInputDisabled = true;
-        this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
-          this.playlist.songDataLoaded = true;
-          this.fileReader.fileInputDisabled = false;
-        });
         break;
       }
     }
+
+    this.songs = this.playlist.getSongs();
+
+    console.log(`onFileRead: ${this.songs.length} songs parsed`);
+
+    this.fileReader.fileInputDisabled = true;
+    this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
+      this.playlist.songDataLoaded = true;
+      this.fileReader.fileInputDisabled = false;
+    });
   }
 
   onFileChanged() {
