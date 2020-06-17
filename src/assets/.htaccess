@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /projects/ng-spotify-importer/
+Options +FollowSymlinks
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.html [L,QSA]
