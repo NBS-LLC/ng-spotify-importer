@@ -1,1 +1,13 @@
-<input (change)="handleFileInput($event)" type="file" id="file-input" [disabled]="fileInputDisabled"/>
+<div>
+  <label for="file-type-csv">Comma Separated Values Playlist (CSV|TXT)</label>
+  <input (change)="handleFileTypeChange($event)" type="radio" name="file-type-group"
+         id="file-type-csv" value="csv" checked="checked" [disabled]="fileInputDisabled">
+
+  <label for="file-type-slacker">Slacker Playlist (XML)</label>
+  <input (change)="handleFileTypeChange($event)" type="radio" name="file-type-group"
+         id="file-type-slacker" value="slacker" [disabled]="fileInputDisabled">
+</div>
+
+<input #fileInput (change)="handleFileInput($event)" type="file" id="file-input" [disabled]="fileInputDisabled"/>
+
+

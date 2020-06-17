@@ -11,7 +11,7 @@ import {FileReaderComponent} from './file-reader/file-reader.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Slacker to Spotify';
+  title = 'NG Spotify Importer';
   playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
