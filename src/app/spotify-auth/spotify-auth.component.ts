@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SpotifyService} from '../spotify.service';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-spotify-auth',
@@ -29,15 +30,11 @@ export class SpotifyAuthComponent implements OnInit {
   }
 
   generateSpotifyAuthUrl(): string {
-    const clientId = 'ee26bb61755e44c5b7e7a0a29c0f7ed5';
-    const scope = 'user-read-private user-read-email playlist-modify-public';
-    const redirectUrl = 'http://localhost:4200/';
-
     let url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
-    url += '&client_id=' + encodeURIComponent(clientId);
-    url += '&scope=' + encodeURIComponent(scope);
-    url += '&redirect_uri=' + encodeURIComponent(redirectUrl);
+    url += '&client_id=' + encodeURIComponent(environment.spotify.clientId);
+    url += '&scope=' + encodeURIComponent('user-read-private playlist-modify-public');
+    url += '&redirect_uri=' + encodeURIComponent(environment.spotify.redirectUrl);
 
     return url;
   }
