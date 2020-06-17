@@ -28,9 +28,11 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFileRead(playlist: { contents: string; type: string }) {
+  onFileRead(playlist: { contents: string; name: string, type: string }) {
     switch (playlist.type) {
       case 'csv': {
+        console.log(playlist.name);
+        console.log(atob(playlist.contents));
         console.log('onFileRead: csv not implemented');
         break;
       }

@@ -7,7 +7,7 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 })
 export class FileReaderComponent implements OnInit {
   @Output() fileChanged = new EventEmitter();
-  @Output() fileContents = new EventEmitter<{ contents: string, type: string }>();
+  @Output() fileContents = new EventEmitter<{ contents: string, name: string, type: string }>();
 
   @ViewChild('fileInput')
   fileInputElement: ElementRef;
@@ -31,7 +31,7 @@ export class FileReaderComponent implements OnInit {
       fileReader.onload = (readerEvent) => {
         if (typeof readerEvent.target.result === 'string') {
           const contents = readerEvent.target.result.split(',')[1];
-          this.fileContents.emit({contents, type: this.fileType});
+          this.fileContents.emit({contents, name: files.item(0).name, type: this.fileType});
         }
       };
 
