@@ -7,12 +7,13 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@a
 })
 export class FileReaderComponent implements OnInit {
   @Output() fileChanged = new EventEmitter();
-  @Output() fileContents = new EventEmitter<string>();
+  @Output() fileContents = new EventEmitter<{ contents: string, type: string }>();
 
   @ViewChild('fileInput')
   fileInputElement: ElementRef;
 
   fileInputDisabled = false;
+  fileType = 'csv';
 
   constructor() {
   }
@@ -30,7 +31,7 @@ export class FileReaderComponent implements OnInit {
       fileReader.onload = (readerEvent) => {
         if (typeof readerEvent.target.result === 'string') {
           const contents = readerEvent.target.result.split(',')[1];
-          this.fileContents.emit(contents);
+          this.fileContents.emit({contents, type: this.fileType});
         }
       };
 
@@ -41,16 +42,6 @@ export class FileReaderComponent implements OnInit {
   handleFileTypeChange($event: Event) {
     this.fileChanged.emit();
     this.fileInputElement.nativeElement.value = '';
-
-    const fileType = ($event.target as HTMLInputElement).value;
-    switch (fileType) {
-      case 'csv':
-        console.log('csv playlist');
-        break;
-
-      case 'slacker':
-        console.log('slacker playlist');
-        break;
-    }
+    this.fileType = ($event.target as HTMLInputElement).value;
   }
 }

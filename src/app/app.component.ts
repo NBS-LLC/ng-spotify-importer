@@ -28,17 +28,27 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFileRead(contents: string) {
-    this.playlist = new Playlist(atob(contents));
-    this.songs = this.playlist.getSongs();
+  onFileRead(playlist: { contents: string; type: string }) {
+    switch (playlist.type) {
+      case 'csv': {
+        console.log('onFileRead: csv not implemented');
+        break;
+      }
 
-    console.log(`onFileRead: ${this.songs.length} songs parsed`);
+      case 'slacker': {
+        this.playlist = new Playlist(atob(playlist.contents));
+        this.songs = this.playlist.getSongs();
 
-    this.fileReader.fileInputDisabled = true;
-    this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
-      this.playlist.songDataLoaded = true;
-      this.fileReader.fileInputDisabled = false;
-    });
+        console.log(`onFileRead: ${this.songs.length} songs parsed`);
+
+        this.fileReader.fileInputDisabled = true;
+        this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
+          this.playlist.songDataLoaded = true;
+          this.fileReader.fileInputDisabled = false;
+        });
+        break;
+      }
+    }
   }
 
   onFileChanged() {
