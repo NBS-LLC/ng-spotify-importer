@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Song} from './song';
-import {Playlist} from './playlist';
+import {SlackerPlaylist} from './slackerPlaylist';
 import {SpotifyService} from './spotify.service';
 import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.component';
 import {FileReaderComponent} from './file-reader/file-reader.component';
@@ -12,7 +12,7 @@ import {FileReaderComponent} from './file-reader/file-reader.component';
 })
 export class AppComponent implements OnInit {
   title = 'NG Spotify Importer';
-  playlist: Playlist;
+  playlist: SlackerPlaylist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
 
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
       }
 
       case 'slacker': {
-        this.playlist = new Playlist(atob(playlist.contents));
+        this.playlist = new SlackerPlaylist(atob(playlist.contents));
         this.songs = this.playlist.getSongs();
 
         console.log(`onFileRead: ${this.songs.length} songs parsed`);

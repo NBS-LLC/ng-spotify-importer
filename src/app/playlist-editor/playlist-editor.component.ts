@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Playlist} from '../playlist';
+import {SlackerPlaylist} from '../slackerPlaylist';
 import {Song} from '../song';
 import {SpotifyService} from '../spotify.service';
 
@@ -9,7 +9,7 @@ import {SpotifyService} from '../spotify.service';
   styleUrls: ['./playlist-editor.component.css']
 })
 export class PlaylistEditorComponent implements OnInit {
-  @Input() playlist: Playlist;
+  @Input() playlist: SlackerPlaylist;
   songsDisplayed: Song[];
 
   constructor(private spotifyService: SpotifyService) {

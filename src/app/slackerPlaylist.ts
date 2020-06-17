@@ -2,14 +2,14 @@ import {parse} from 'fast-xml-parser';
 import {Song} from './song';
 import {decode} from 'he';
 
-export class Playlist {
+export class SlackerPlaylist {
   static songs: Song[] = [];
 
   json: any;
   songDataLoaded = false;
 
   constructor(playlistXml: string) {
-    Playlist.songs = [];
+    SlackerPlaylist.songs = [];
 
     const options = {
       ignoreAttributes: false,
@@ -24,20 +24,20 @@ export class Playlist {
   }
 
   getSongs() {
-    if (Playlist.songs.length === 0) {
+    if (SlackerPlaylist.songs.length === 0) {
       for (const songData of this.json.Playlist.songs.song) {
-        Playlist.songs.push({title: songData['@_title'], artist: songData['@_artistName']});
+        SlackerPlaylist.songs.push({title: songData['@_title'], artist: songData['@_artistName']});
       }
     }
 
-    return Playlist.songs;
+    return SlackerPlaylist.songs;
   }
 
   getKnownSongs(): Song[] {
-    return Playlist.songs.filter(song => song.uri);
+    return SlackerPlaylist.songs.filter(song => song.uri);
   }
 
   getUnknownSongs(): Song[] {
-    return Playlist.songs.filter(song => song.uri === undefined);
+    return SlackerPlaylist.songs.filter(song => song.uri === undefined);
   }
 }
