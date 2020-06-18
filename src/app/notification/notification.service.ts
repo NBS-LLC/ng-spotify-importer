@@ -35,7 +35,7 @@ export class NotificationService {
   }
 
   public reset() {
-    this.setMessage('');
+    this.message = '';
     this.messageType = 'info';
   }
 
