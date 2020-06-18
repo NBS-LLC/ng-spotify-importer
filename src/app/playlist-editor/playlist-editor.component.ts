@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Song} from '../song';
 import {SpotifyService} from '../spotify.service';
 import {Playlist} from '../playlist';
+import {NotificationService} from '../notification/notification.service';
 
 @Component({
   selector: 'app-playlist-editor',
@@ -12,7 +13,7 @@ export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
   songsDisplayed: Song[];
 
-  constructor(private spotifyService: SpotifyService) {
+  constructor(private spotifyService: SpotifyService, private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -44,7 +45,7 @@ export class PlaylistEditorComponent implements OnInit {
     this.spotifyService.loadUserId().then(userId => {
       this.spotifyService.createPlaylist(userId, this.playlist.getPlaylistName(), this.playlist.getSongs()).then(playlistId => {
         this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
-          console.log(`createPlaylist: ${trackCount} tracks added`);
+          this.notificationService.success(`SUCCESS: ${trackCount} tracks added.`);
         });
       });
     });

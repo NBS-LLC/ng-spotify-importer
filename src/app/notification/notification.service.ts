@@ -16,6 +16,11 @@ export class NotificationService {
     this.setMessage(message);
   }
 
+  public success(message: string) {
+    this.messageType = 'success';
+    this.setMessage(message);
+  }
+
   public setMessage(message: string) {
     this.message = message;
     setTimeout(() => this.reset(), this.timeoutSec * 1000);

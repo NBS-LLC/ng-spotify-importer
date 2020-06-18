@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
         try {
           this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
         } catch (e) {
-          this.notificationService.error('Invalid CSV Playlist.');
+          this.notificationService.error('ERROR: Invalid CSV playlist.');
           throw e;
         }
         break;
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
         try {
           this.playlist = new SlackerPlaylist(atob(playlist.contents));
         } catch (e) {
-          this.notificationService.error('Invalid Slacker Playlist.');
+          this.notificationService.error('ERROR: Invalid Slacker playlist.');
           throw e;
         }
         break;
