@@ -6,6 +6,8 @@ import {Playlist} from './playlist';
 export class SlackerPlaylist implements Playlist {
   static songs: Song[] = [];
 
+  private name: string;
+
   json: any;
   songDataLoaded = false;
 
@@ -22,10 +24,16 @@ export class SlackerPlaylist implements Playlist {
       console.log(playlistXml);
       throw new Error('Invalid Slacker Playlist');
     }
+
+    this.name = this.json.Playlist['@_name'];
   }
 
   getPlaylistName() {
-    return this.json.Playlist['@_name'];
+    return this.name;
+  }
+
+  setPlaylistName(name: string) {
+    this.name = name;
   }
 
   getSongs() {

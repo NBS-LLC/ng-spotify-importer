@@ -6,8 +6,8 @@ import {decode} from 'he';
 export class CsvPlaylist implements Playlist {
   static songs: Song[] = [];
 
-  private readonly name: string;
   private readonly csv: ParseResult<unknown>;
+  private name: string;
 
   songDataLoaded: boolean;
 
@@ -32,6 +32,10 @@ export class CsvPlaylist implements Playlist {
 
   getPlaylistName() {
     return this.name;
+  }
+
+  setPlaylistName(name: string) {
+    this.name = name;
   }
 
   getSongs() {
