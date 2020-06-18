@@ -1,5 +1,7 @@
 <h1>{{title}}</h1>
 
+<app-notification></app-notification>
+
 <app-spotify-auth></app-spotify-auth>
 
 <div *ngIf="spotifyService.hasAuthenticated()" id="playlist-loader">

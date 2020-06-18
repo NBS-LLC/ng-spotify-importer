@@ -1,0 +1,3 @@
+<div *ngIf="notificationService.hasMessage()" id="notification" [className]="notificationService.getMessageType()">
+  {{notificationService.getMessage()}}
+</div>
