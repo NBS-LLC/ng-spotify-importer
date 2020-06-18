@@ -12,6 +12,8 @@ export class CsvPlaylist implements Playlist {
   songDataLoaded: boolean;
 
   constructor(playlistCsv: string, playlistName: string) {
+    CsvPlaylist.songs = [];
+
     const options: ParseConfig = {
       header: true,
       skipEmptyLines: true,
