@@ -21,7 +21,7 @@ export class CsvPlaylist implements Playlist {
 
     this.csv = parse(playlistCsv, options);
     if (!this.csv.meta.fields.includes('TITLE') || !this.csv.meta.fields.includes('ARTIST')) {
-      console.log(this.csv);
+      console.log(playlistCsv);
       throw new Error('Invalid CSV Playlist');
     }
 
