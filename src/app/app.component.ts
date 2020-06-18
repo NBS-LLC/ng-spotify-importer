@@ -6,6 +6,7 @@ import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.compone
 import {FileReaderComponent} from './file-reader/file-reader.component';
 import {CsvPlaylist} from './csvPlaylist';
 import {Playlist} from './playlist';
+import {NotificationService} from './notification/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent implements OnInit {
   @ViewChild(PlaylistEditorComponent)
   private playlistEditor: PlaylistEditorComponent;
 
-  constructor(public spotifyService: SpotifyService) {
+  constructor(public spotifyService: SpotifyService, private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
@@ -33,12 +34,22 @@ export class AppComponent implements OnInit {
   onFileRead(playlist: { contents: string; name: string, type: string }) {
     switch (playlist.type) {
       case 'csv': {
-        this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
+        try {
+          this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
+        } catch (e) {
+          this.notificationService.error('Invalid CSV Playlist.');
+          throw e;
+        }
         break;
       }
 
       case 'slacker': {
-        this.playlist = new SlackerPlaylist(atob(playlist.contents));
+        try {
+          this.playlist = new SlackerPlaylist(atob(playlist.contents));
+        } catch (e) {
+          this.notificationService.error('Invalid Slacker Playlist.');
+          throw e;
+        }
         break;
       }
     }
