@@ -7,7 +7,7 @@ export class CsvPlaylist implements Playlist {
   static songs: Song[] = [];
 
   private readonly name: string;
-  private readonly csv: ParseResult[];
+  private readonly csv: ParseResult<unknown>;
 
   songDataLoaded: boolean;
 
