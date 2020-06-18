@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-file-reader',
@@ -7,9 +7,13 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class FileReaderComponent implements OnInit {
   @Output() fileChanged = new EventEmitter();
-  @Output() fileContents = new EventEmitter<string>();
+  @Output() fileContents = new EventEmitter<{ contents: string, name: string, type: string }>();
+
+  @ViewChild('fileInput')
+  fileInputElement: ElementRef;
 
   fileInputDisabled = false;
+  fileType = 'csv';
 
   constructor() {
   }
@@ -27,11 +31,17 @@ export class FileReaderComponent implements OnInit {
       fileReader.onload = (readerEvent) => {
         if (typeof readerEvent.target.result === 'string') {
           const contents = readerEvent.target.result.split(',')[1];
-          this.fileContents.emit(contents);
+          this.fileContents.emit({contents, name: files.item(0).name, type: this.fileType});
         }
       };
 
       fileReader.readAsDataURL(files.item(0));
     }
+  }
+
+  handleFileTypeChange($event: Event) {
+    this.fileChanged.emit();
+    this.fileInputElement.nativeElement.value = '';
+    this.fileType = ($event.target as HTMLInputElement).value;
   }
 }

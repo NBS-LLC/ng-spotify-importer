@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {Song} from './song';
-import {Playlist} from './playlist';
+import {SlackerPlaylist} from './slackerPlaylist';
 import {SpotifyService} from './spotify.service';
 import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.component';
 import {FileReaderComponent} from './file-reader/file-reader.component';
+import {CsvPlaylist} from './csvPlaylist';
+import {Playlist} from './playlist';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ import {FileReaderComponent} from './file-reader/file-reader.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Slacker to Spotify';
+  title = 'NG Spotify Importer';
   playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
@@ -28,8 +30,19 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onFileRead(contents: string) {
-    this.playlist = new Playlist(atob(contents));
+  onFileRead(playlist: { contents: string; name: string, type: string }) {
+    switch (playlist.type) {
+      case 'csv': {
+        this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
+        break;
+      }
+
+      case 'slacker': {
+        this.playlist = new SlackerPlaylist(atob(playlist.contents));
+        break;
+      }
+    }
+
     this.songs = this.playlist.getSongs();
 
     console.log(`onFileRead: ${this.songs.length} songs parsed`);
