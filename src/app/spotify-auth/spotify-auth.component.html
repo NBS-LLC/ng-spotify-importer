@@ -1,9 +1,4 @@
-<div *ngIf="spotifyService.hasAuthenticated(); else logIntoSpotify">
-  <dl>
-    <dt>User ID</dt>
-    <dd>{{userId}}</dd>
-  </dl>
-</div>
+<div *ngIf="spotifyService.hasAuthenticated(); else logIntoSpotify">Spotify User ID: {{userId}}</div>
 
 <ng-template #logIntoSpotify>
   <p><a href="{{authUrl}}">Grant</a> access to your Spotify account.</p>

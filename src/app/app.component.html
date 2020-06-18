@@ -8,7 +8,7 @@
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
   <div>
-    <label for="playlist-load-progress">Loading playlist progress:</label>
+    <label for="playlist-load-progress">Playlist Loading Progress:</label>
     <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
   </div>
 
