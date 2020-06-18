@@ -1,6 +1,6 @@
 <h2>Songs - {{playlist.getPlaylistName()}}</h2>
 
-<button *ngIf="playlist.songDataLoaded" (click)="importPlaylist()">Import Playlist</button>
+<button *ngIf="playlist.songDataLoaded" (click)="importPlaylist()" [disabled]="playlist.getKnownSongs().length == 0">Import Playlist</button>
 
 <div *ngIf="playlist.songDataLoaded" id="song-data-filter">
   <label for="song-data-filter-all">All Songs ({{playlist.getSongs().length}}):</label>
