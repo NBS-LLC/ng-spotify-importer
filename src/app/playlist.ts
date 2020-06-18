@@ -5,6 +5,8 @@ export interface Playlist {
 
   getPlaylistName(): string;
 
+  setPlaylistName(name: string);
+
   getSongs(): Song[];
 
   getKnownSongs(): Song[];
