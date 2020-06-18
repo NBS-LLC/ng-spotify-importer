@@ -18,6 +18,10 @@ export class SlackerPlaylist implements Playlist {
     };
 
     this.json = parse(playlistXml, options);
+    if (!this.json.Playlist) {
+      console.log(playlistXml);
+      throw new Error('Invalid Slacker Playlist');
+    }
   }
 
   getPlaylistName() {
