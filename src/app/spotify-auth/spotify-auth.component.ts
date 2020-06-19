@@ -33,7 +33,7 @@ export class SpotifyAuthComponent implements OnInit {
     let url = 'https://accounts.spotify.com/authorize';
     url += '?response_type=token';
     url += '&client_id=' + encodeURIComponent(environment.spotify.clientId);
-    url += '&scope=' + encodeURIComponent('user-read-private playlist-modify-public');
+    url += '&scope=' + encodeURIComponent('playlist-modify-public');
     url += '&redirect_uri=' + encodeURIComponent(environment.spotify.redirectUrl);
 
     return url;
