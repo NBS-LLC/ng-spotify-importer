@@ -8,4 +8,9 @@
          id="file-type-slacker" value="slacker" [disabled]="fileInputDisabled">
 </div>
 
+<p class="note">
+  <span *ngIf="fileType == 'csv'">CSV playlist must contain at least two named columns: TITLE, ARTIST.</span>
+  <span *ngIf="fileType == 'slacker'">Slacker playlist as returned by the https://slacker.livexlive.com/wsv1/playlists API.</span>
+</p>
+
 <input #fileInput (change)="handleFileInput($event)" type="file" id="file-input" [disabled]="fileInputDisabled"/>

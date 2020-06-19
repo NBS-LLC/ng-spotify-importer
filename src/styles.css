@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+.note {
+  font-style: italic;
+}
+
 input {
   margin-top: 1em;
   margin-right: 1em;
