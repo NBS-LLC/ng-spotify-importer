@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Song} from '../song';
+import {SpotifyService} from '../spotify.service';
 
 @Component({
   selector: 'app-song-details',
@@ -8,9 +9,37 @@ import {Song} from '../song';
   styleUrls: ['./song-details.component.css']
 })
 export class SongDetailsComponent implements OnInit {
-  constructor(@Inject(MAT_DIALOG_DATA) public song: Song) {
+  public originalSong: Song;
+  public relatedSongs: Song[];
+
+  constructor(@Inject(MAT_DIALOG_DATA) public song: Song, private spotifyService: SpotifyService) {
+    this.originalSong = Object.assign({}, this.song);
   }
 
   ngOnInit(): void {
+    this.searchForRelated();
   }
+
+  handleSearchClick() {
+    this.relatedSongs = [];
+    this.searchForRelated();
+  }
+
+  handleRelatedSongClick(relatedSong: Song) {
+    this.song.artist = relatedSong.artist;
+    this.song.title = relatedSong.title;
+    this.song.externalUrl = relatedSong.externalUrl;
+    this.song.previewUrl = relatedSong.previewUrl;
+    this.song.uri = relatedSong.uri;
+  }
+
+  private searchForRelated() {
+    this.spotifyService.loadPageOfSongs(this.song.title, this.song.artist, 1).then(songs => {
+      if (songs) {
+        this.relatedSongs = songs;
+      }
+    });
+  }
+
+  // TODO: Handle search result paging...
 }
