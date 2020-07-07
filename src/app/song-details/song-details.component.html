@@ -33,7 +33,7 @@
           {{relatedSong.artist}}
         </td>
         <td class="song-link">
-          <a href="{{relatedSong.externalUrl}}" target="_blank">[Spotify]</a>
+          <a href="{{relatedSong.externalUrl}}" target="_blank" (click)="$event.stopPropagation()">[Spotify]</a>
         </td>
         <td class="song-preview">
           <audio controls *ngIf="relatedSong.previewUrl; else noPreview">

@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Song} from '../song';
 import {SpotifyService} from '../spotify.service';
 
@@ -12,7 +12,10 @@ export class SongDetailsComponent implements OnInit {
   public originalSong: Song;
   public relatedSongs: Song[];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public song: Song, private spotifyService: SpotifyService) {
+  constructor(
+    private dialogRef: MatDialogRef<SongDetailsComponent>,
+    @Inject(MAT_DIALOG_DATA) public song: Song,
+    private spotifyService: SpotifyService) {
     this.originalSong = Object.assign({}, this.song);
   }
 
@@ -31,6 +34,7 @@ export class SongDetailsComponent implements OnInit {
     this.song.externalUrl = relatedSong.externalUrl;
     this.song.previewUrl = relatedSong.previewUrl;
     this.song.uri = relatedSong.uri;
+    this.dialogRef.close();
   }
 
   private searchForRelated() {

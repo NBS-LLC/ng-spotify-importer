@@ -13,3 +13,8 @@
 #song-data tr:nth-child(odd) {
   background-color: lightgray;
 }
+
+#song-data tr:not(:first-child):hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
