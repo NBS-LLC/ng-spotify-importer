@@ -20,3 +20,14 @@ table input {
 input[type=text] {
   width: 20em;
 }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding-left: 1em;
+  padding-top: 1em;
+}

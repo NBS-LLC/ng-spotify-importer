@@ -84,6 +84,30 @@ export class SpotifyService {
     });
   }
 
+  loadPageOfSongs(title: string, artist: string, pageNumber: number): Promise<Song[] | null> {
+    return new Promise<Song[]>(resolve => {
+      const query = `"${title}" artist:"${artist}"`;
+      const limit = 10;
+      const offset = (pageNumber - 1) * limit;
+
+      this.spotifyWebApi.searchTracks(query, {offset, limit}).then((data) => {
+        if (data.tracks.total > 0) {
+          const songs: Song[] = [];
+          for (const track of data.tracks.items) {
+            const song: Song = {artist: track.artists.pop().name, title: track.name};
+            song.uri = track.uri;
+            song.previewUrl = track.preview_url;
+            song.externalUrl = track.external_urls.spotify;
+            songs.push(song);
+            resolve(songs);
+          }
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
   private searchForSong(title: string, artist: string): Promise<Song> {
     return new Promise<Song>(resolve => {
       const query = `"${title}" artist:"${artist}"`;

@@ -41,7 +41,8 @@
     <td class="song-link">
       <a *ngIf="song.externalUrl; else unknown" href="{{song.externalUrl}}" target="_blank">[Spotify]</a>
       <ng-template #unknown>unknown song</ng-template>
-      &nbsp;<a href="#" (click)="refreshSong(song)">[refresh]</a>
+      <button (click)="openSongDetailsDialog(song)">more</button>
+      <button (click)="refreshSong(song)">refresh</button>
     </td>
     <td class="song-preview">
       <audio controls *ngIf="song.previewUrl; else noPreview">
