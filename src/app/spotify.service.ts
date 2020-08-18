@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
-import {sha256} from 'js-sha256';
-import {Base64} from 'js-base64';
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +13,14 @@ export class SpotifyService {
   }
 
   generateCodeVerifier(): string {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 128; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return result;
+    const array = new Uint32Array(56 / 2);
+    window.crypto.getRandomValues(array);
+    return Array.from(array, this.dec2hex).join('');
   }
 
-  generateCodeChallenge(codeVerifier: string): string {
-    return Base64.encodeURL(sha256(codeVerifier));
+  async generateCodeChallenge(codeVerifier: string): Promise<string> {
+    const hashed = await this.sha256(codeVerifier);
+    return this.base64UrlEncode(hashed);
   }
 
   setAccessToken(accessToken: string): void {
@@ -121,6 +117,30 @@ export class SpotifyService {
         }
       });
     });
+  }
+
+  private dec2hex(dec) {
+    return ('0' + dec.toString(16)).substr(-2);
+  }
+
+  private sha256(plain) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(plain);
+    return window.crypto.subtle.digest('SHA-256', data);
+  }
+
+  private base64UrlEncode(data) {
+    let str = '';
+    const bytes = new Uint8Array(data);
+
+    for (let i = 0; i < bytes.byteLength; i++) {
+      str += String.fromCharCode(bytes[i]);
+    }
+
+    return btoa(str)
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
   }
 
   private searchForSong(title: string, artist: string): Promise<Song> {

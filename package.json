@@ -23,8 +23,6 @@
     "@angular/router": "~9.1.9",
     "fast-xml-parser": "^3.17.1",
     "he": "^1.2.0",
-    "js-base64": "^3.4.5",
-    "js-sha256": "^0.9.0",
     "papaparse": "^5.2.0",
     "rxjs": "~6.5.4",
     "spotify-web-api-js": "^1.4.0",
