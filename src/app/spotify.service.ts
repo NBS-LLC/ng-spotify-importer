@@ -1,6 +1,14 @@
 import {Injectable} from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {environment} from '../environments/environment';
+
+export interface RefreshableToken {
+  access_token: string;
+  expires_in: number;
+  refresh_token: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +17,7 @@ export class SpotifyService {
   private spotifyWebApi = new SpotifyWebApi();
   private authenticated = false;
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   generateCodeVerifier(): string {
@@ -23,9 +31,34 @@ export class SpotifyService {
     return this.base64UrlEncode(hashed);
   }
 
-  setAccessToken(accessToken: string): void {
-    this.spotifyWebApi.setAccessToken(accessToken);
+  setAccessToken(token: RefreshableToken) {
+    console.log('Setting the access token.');
+    console.log(token);
+
+    this.spotifyWebApi.setAccessToken(token.access_token);
     this.authenticated = true;
+
+    setTimeout(() => {
+      this.getRefreshedToken(token.refresh_token).then(refreshedToken => {
+        this.setAccessToken(refreshedToken);
+      });
+    }, (token.expires_in - 60) * 1000); // Refresh the token 1 minute before it expires.
+  }
+
+  getRefreshedToken(refreshToken: string): Promise<RefreshableToken> {
+    console.log('Getting a refreshed token.');
+    console.log(refreshToken);
+
+    const body = new HttpParams()
+      .set('client_id', environment.spotify.clientId)
+      .set('grant_type', 'refresh_token')
+      .set('refresh_token', refreshToken);
+
+    return new Promise<RefreshableToken>(resolve => {
+      this.http.post('https://accounts.spotify.com/api/token', body).subscribe((data: RefreshableToken) => {
+        resolve(data);
+      });
+    });
   }
 
   hasAuthenticated(): boolean {

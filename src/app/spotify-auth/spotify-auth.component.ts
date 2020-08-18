@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {SpotifyService} from '../spotify.service';
+import {RefreshableToken, SpotifyService} from '../spotify.service';
 import {environment} from '../../environments/environment';
 import {HttpClient, HttpParams} from '@angular/common/http';
 
@@ -38,8 +38,8 @@ export class SpotifyAuthComponent implements OnInit {
           .set('redirect_uri', environment.spotify.redirectUrl)
           .set('code_verifier', this.codeVerifier);
 
-        this.http.post('https://accounts.spotify.com/api/token', body).subscribe((data: { access_token: string }) => {
-          this.spotifyService.setAccessToken(data.access_token);
+        this.http.post('https://accounts.spotify.com/api/token', body).subscribe((data: RefreshableToken) => {
+          this.spotifyService.setAccessToken(data);
 
           if (this.spotifyService.hasAuthenticated()) {
             this.spotifyService.loadUserId().then(userId => this.userId = userId);
