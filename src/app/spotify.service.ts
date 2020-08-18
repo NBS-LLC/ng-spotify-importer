@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
+import {sha256} from 'js-sha256';
+import {Base64} from 'js-base64';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,19 @@ export class SpotifyService {
   private authenticated = false;
 
   constructor() {
+  }
+
+  generateCodeVerifier(): string {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 128; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+  }
+
+  generateCodeChallenge(codeVerifier: string): string {
+    return Base64.encodeURL(sha256(codeVerifier));
   }
 
   setAccessToken(accessToken: string): void {
