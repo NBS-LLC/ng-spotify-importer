@@ -15,6 +15,7 @@ import {NotificationService} from './notification/notification.service';
 })
 export class AppComponent implements OnInit {
   title = 'NG Spotify Importer';
+  showPlaylistLoader = false;
   playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = {count: 0};
@@ -25,10 +26,13 @@ export class AppComponent implements OnInit {
   @ViewChild(PlaylistEditorComponent)
   private playlistEditor: PlaylistEditorComponent;
 
-  constructor(public spotifyService: SpotifyService, private notificationService: NotificationService) {
+  constructor(private spotifyService: SpotifyService, private notificationService: NotificationService) {
   }
 
   ngOnInit(): void {
+    this.spotifyService.onAuthChange.subscribe(isAuthenticated => {
+      this.showPlaylistLoader = isAuthenticated;
+    });
   }
 
   onFileRead(playlist: { contents: string; name: string, type: string }) {
