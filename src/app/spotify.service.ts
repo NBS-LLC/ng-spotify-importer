@@ -33,7 +33,7 @@ export class SpotifyService {
 
   setAccessToken(token: RefreshableToken) {
     this.spotifyWebApi.setAccessToken(token.access_token);
-    this.authenticated = true;
+    this.setAuthenticated(true);
 
     setTimeout(() => {
       this.getRefreshedToken(token.refresh_token).then(refreshedToken => {
@@ -53,6 +53,10 @@ export class SpotifyService {
         resolve(data);
       });
     });
+  }
+
+  setAuthenticated(value: boolean) {
+    this.authenticated = value;
   }
 
   hasAuthenticated(): boolean {
