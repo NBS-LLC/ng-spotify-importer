@@ -1,6 +1,14 @@
 import {Injectable} from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {environment} from '../environments/environment';
+
+export interface RefreshableToken {
+  access_token: string;
+  expires_in: number;
+  refresh_token: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,12 +17,42 @@ export class SpotifyService {
   private spotifyWebApi = new SpotifyWebApi();
   private authenticated = false;
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  setAccessToken(accessToken: string): void {
-    this.spotifyWebApi.setAccessToken(accessToken);
+  generateCodeVerifier(): string {
+    const array = new Uint32Array(56 / 2);
+    window.crypto.getRandomValues(array);
+    return Array.from(array, this.dec2hex).join('');
+  }
+
+  async generateCodeChallenge(codeVerifier: string): Promise<string> {
+    const hashed = await this.sha256(codeVerifier);
+    return this.base64UrlEncode(hashed);
+  }
+
+  setAccessToken(token: RefreshableToken) {
+    this.spotifyWebApi.setAccessToken(token.access_token);
     this.authenticated = true;
+
+    setTimeout(() => {
+      this.getRefreshedToken(token.refresh_token).then(refreshedToken => {
+        this.setAccessToken(refreshedToken);
+      });
+    }, (token.expires_in - 60) * 1000); // Refresh the token 1 minute before it expires.
+  }
+
+  getRefreshedToken(refreshToken: string): Promise<RefreshableToken> {
+    const body = new HttpParams()
+      .set('client_id', environment.spotify.clientId)
+      .set('grant_type', 'refresh_token')
+      .set('refresh_token', refreshToken);
+
+    return new Promise<RefreshableToken>(resolve => {
+      this.http.post('https://accounts.spotify.com/api/token', body).subscribe((data: RefreshableToken) => {
+        resolve(data);
+      });
+    });
   }
 
   hasAuthenticated(): boolean {
@@ -106,6 +144,30 @@ export class SpotifyService {
         }
       });
     });
+  }
+
+  private dec2hex(dec) {
+    return ('0' + dec.toString(16)).substr(-2);
+  }
+
+  private sha256(plain) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(plain);
+    return window.crypto.subtle.digest('SHA-256', data);
+  }
+
+  private base64UrlEncode(data) {
+    let str = '';
+    const bytes = new Uint8Array(data);
+
+    for (let i = 0; i < bytes.byteLength; i++) {
+      str += String.fromCharCode(bytes[i]);
+    }
+
+    return btoa(str)
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
   }
 
   private searchForSong(title: string, artist: string): Promise<Song> {

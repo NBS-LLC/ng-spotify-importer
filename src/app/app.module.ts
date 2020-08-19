@@ -11,6 +11,7 @@ import {NotificationComponent} from './notification/notification.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SongDetailsComponent} from './song-details/song-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
