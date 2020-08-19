@@ -32,9 +32,6 @@ export class SpotifyService {
   }
 
   setAccessToken(token: RefreshableToken) {
-    console.log('Setting the access token.');
-    console.log(token);
-
     this.spotifyWebApi.setAccessToken(token.access_token);
     this.authenticated = true;
 
@@ -46,9 +43,6 @@ export class SpotifyService {
   }
 
   getRefreshedToken(refreshToken: string): Promise<RefreshableToken> {
-    console.log('Getting a refreshed token.');
-    console.log(refreshToken);
-
     const body = new HttpParams()
       .set('client_id', environment.spotify.clientId)
       .set('grant_type', 'refresh_token')
