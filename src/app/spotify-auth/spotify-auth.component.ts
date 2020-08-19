@@ -16,7 +16,7 @@ export class SpotifyAuthComponent implements OnInit {
   private codeVerifier: string;
   private codeChallenge: string;
 
-  constructor(private activatedRoute: ActivatedRoute, public spotifyService: SpotifyService, private http: HttpClient) {
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient, private spotifyService: SpotifyService) {
     if (!sessionStorage.codeVerifier) {
       sessionStorage.codeVerifier = this.spotifyService.generateCodeVerifier();
     }

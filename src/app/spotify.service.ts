@@ -3,6 +3,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 export interface RefreshableToken {
   access_token: string;
@@ -15,6 +16,8 @@ export interface RefreshableToken {
 })
 export class SpotifyService {
   private spotifyWebApi = new SpotifyWebApi();
+  private isAuthenticated = new BehaviorSubject<boolean>(false);
+  onAuthChange: Observable<boolean> = this.isAuthenticated.asObservable();
   private authenticated = false;
 
   constructor(private http: HttpClient) {
@@ -33,7 +36,7 @@ export class SpotifyService {
 
   setAccessToken(token: RefreshableToken) {
     this.spotifyWebApi.setAccessToken(token.access_token);
-    this.authenticated = true;
+    this.setAuthenticated(true);
 
     setTimeout(() => {
       this.getRefreshedToken(token.refresh_token).then(refreshedToken => {
@@ -53,6 +56,11 @@ export class SpotifyService {
         resolve(data);
       });
     });
+  }
+
+  setAuthenticated(value: boolean) {
+    this.authenticated = value;
+    this.isAuthenticated.next(value);
   }
 
   hasAuthenticated(): boolean {
