@@ -1,11 +1,21 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {async, TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
+import {NotificationComponent} from './notification/notification.component';
+import {SpotifyAuthComponent} from './spotify-auth/spotify-auth.component';
+import {RouterModule} from '@angular/router';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterModule.forRoot([]),
+        HttpClientModule
+      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NotificationComponent,
+        SpotifyAuthComponent
       ],
     }).compileComponents();
   }));
@@ -16,16 +26,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ng-slacker-to-spotify'`, () => {
+  it(`should have as title 'NG Spotify Importer'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-slacker-to-spotify');
+    expect(app.title).toEqual('NG Spotify Importer');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('ng-slacker-to-spotify app is running!');
+    expect(compiled.querySelector('h1').textContent).toContain('NG Spotify Importer');
   });
 });
