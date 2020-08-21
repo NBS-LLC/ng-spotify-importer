@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SongDetailsComponent } from './song-details.component';
+import {SongDetailsComponent} from './song-details.component';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 describe('SongDetailsComponent', () => {
   let component: SongDetailsComponent;
@@ -8,9 +11,18 @@ describe('SongDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SongDetailsComponent ]
-    })
-    .compileComponents();
+      imports: [
+        HttpClientModule,
+        FormsModule
+      ],
+      declarations: [
+        SongDetailsComponent
+      ],
+      providers: [
+        {provide: MatDialogRef, useValue: {}},
+        {provide: MAT_DIALOG_DATA, useValue: {}}
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
