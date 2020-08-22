@@ -4,6 +4,8 @@ import {Song} from './song';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
+import sha256 from 'crypto-js/sha256';
+import Base64 from 'crypto-js/enc-base64';
 
 export interface RefreshableToken {
   access_token: string;
@@ -24,14 +26,17 @@ export class SpotifyService {
   }
 
   generateCodeVerifier(): string {
-    const array = new Uint32Array(56 / 2);
-    window.crypto.getRandomValues(array);
-    return Array.from(array, this.dec2hex).join('');
+    const CryptoJS = require('crypto-js');
+    const code = CryptoJS.lib.WordArray.random(56 / 2);
+    return CryptoJS.enc.Hex.stringify(code);
   }
 
-  async generateCodeChallenge(codeVerifier: string): Promise<string> {
-    const hashed = await this.sha256(codeVerifier);
-    return this.base64UrlEncode(hashed);
+  generateCodeChallenge(codeVerifier: string): string {
+    const hashed = sha256(codeVerifier);
+    return Base64.stringify(hashed)
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
   }
 
   setAccessToken(token: RefreshableToken) {
@@ -152,30 +157,6 @@ export class SpotifyService {
         }
       });
     });
-  }
-
-  private dec2hex(dec) {
-    return ('0' + dec.toString(16)).substr(-2);
-  }
-
-  private sha256(plain) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(plain);
-    return window.crypto.subtle.digest('SHA-256', data);
-  }
-
-  private base64UrlEncode(data) {
-    let str = '';
-    const bytes = new Uint8Array(data);
-
-    for (let i = 0; i < bytes.byteLength; i++) {
-      str += String.fromCharCode(bytes[i]);
-    }
-
-    return btoa(str)
-      .replace(/\+/g, '-')
-      .replace(/\//g, '_')
-      .replace(/=+$/, '');
   }
 
   private searchForSong(title: string, artist: string): Promise<Song> {

@@ -9,6 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "browser": {
+    "crypto": false
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.9",
@@ -21,6 +24,7 @@
     "@angular/platform-browser": "~9.1.9",
     "@angular/platform-browser-dynamic": "~9.1.9",
     "@angular/router": "~9.1.9",
+    "crypto-js": "^4.0.0",
     "fast-xml-parser": "^3.17.1",
     "he": "^1.2.0",
     "papaparse": "^5.2.0",

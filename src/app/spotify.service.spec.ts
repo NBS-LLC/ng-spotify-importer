@@ -31,12 +31,11 @@ describe('SpotifyService', () => {
    * - https://emn178.github.io/online-tools/sha256.html
    * - https://emn178.github.io/online-tools/base64_encode.html
    */
-  it('should generate a URL safe code challenge for PKCE', (done) => {
+  it('should generate a URL safe code challenge for PKCE', () => {
     const code = 'd7988a4d0d5c5d6be3a8d4424c0f227e9a2f154f5b712cc0443df02a';
-    service.generateCodeChallenge(code).then(challenge => {
-      // Base64 would normally generate: 1TzPHyyCW0Uc23/t2qSQUdQvXdsL+gmacEQm8zLTfvo= which isn't URL safe.
-      expect(challenge).toEqual('1TzPHyyCW0Uc23_t2qSQUdQvXdsL-gmacEQm8zLTfvo');
-      done();
-    });
+    const challenge = service.generateCodeChallenge(code);
+
+    // Base64 would normally generate: 1TzPHyyCW0Uc23/t2qSQUdQvXdsL+gmacEQm8zLTfvo= which isn't URL safe.
+    expect(challenge).toEqual('1TzPHyyCW0Uc23_t2qSQUdQvXdsL-gmacEQm8zLTfvo');
   });
 });
