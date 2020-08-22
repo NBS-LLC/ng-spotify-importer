@@ -21,11 +21,9 @@ export class SpotifyAuthComponent implements OnInit {
       sessionStorage.codeVerifier = this.spotifyService.generateCodeVerifier();
     }
 
-    (async () => {
-      this.codeVerifier = sessionStorage.codeVerifier;
-      this.codeChallenge = await this.spotifyService.generateCodeChallenge(this.codeVerifier);
-      this.authUrl = this.generateAuthUrl();
-    })();
+    this.codeVerifier = sessionStorage.codeVerifier;
+    this.codeChallenge = this.spotifyService.generateCodeChallenge(this.codeVerifier);
+    this.authUrl = this.generateAuthUrl();
   }
 
   ngOnInit(): void {
