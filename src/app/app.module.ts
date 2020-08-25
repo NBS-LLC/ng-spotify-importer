@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SongDetailsComponent} from './song-details/song-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {HttpClientModule} from '@angular/common/http';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 @NgModule({
   imports: [
@@ -33,7 +34,9 @@ import {HttpClientModule} from '@angular/common/http';
   entryComponents: [
     SongDetailsComponent
   ],
-  providers: [],
+  providers: [
+    {provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

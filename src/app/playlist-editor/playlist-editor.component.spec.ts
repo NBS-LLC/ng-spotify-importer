@@ -6,6 +6,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {Playlist} from '../playlist';
 import {Song} from '../song';
 import {FormsModule} from '@angular/forms';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 class MockPlaylist implements Playlist {
   songDataLoaded: boolean;
@@ -43,6 +44,9 @@ describe('PlaylistEditorComponent', () => {
       ],
       declarations: [
         PlaylistEditorComponent
+      ],
+      providers: [
+        {provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi}
       ]
     }).compileComponents();
   }));

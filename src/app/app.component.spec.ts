@@ -4,6 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NotificationComponent} from './notification/notification.component';
 import {SpotifyAuthComponent} from './spotify-auth/spotify-auth.component';
 import {RouterModule} from '@angular/router';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -17,6 +18,9 @@ describe('AppComponent', () => {
         NotificationComponent,
         SpotifyAuthComponent
       ],
+      providers: [
+        {provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi}
+      ]
     }).compileComponents();
   }));
 

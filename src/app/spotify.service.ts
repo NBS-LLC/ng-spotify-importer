@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
 import {HttpClient, HttpParams} from '@angular/common/http';
@@ -17,12 +17,13 @@ export interface RefreshableToken {
   providedIn: 'root'
 })
 export class SpotifyService {
-  private spotifyWebApi = new SpotifyWebApi();
   private isAuthenticated = new BehaviorSubject<boolean>(false);
   onAuthChange: Observable<boolean> = this.isAuthenticated.asObservable();
   private authenticated = false;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    @Inject('SpotifyWebApiJs') private spotifyWebApi: SpotifyWebApi.SpotifyWebApiJs) {
   }
 
   generateCodeVerifier(): string {
