@@ -2,6 +2,7 @@ import {async, TestBed} from '@angular/core/testing';
 
 import {SpotifyService} from './spotify.service';
 import {HttpClientModule} from '@angular/common/http';
+import SpotifyWebApi from 'spotify-web-api-js';
 
 describe('SpotifyService', () => {
   let service: SpotifyService;
@@ -10,6 +11,9 @@ describe('SpotifyService', () => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule
+      ],
+      providers: [
+        {provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi}
       ]
     }).compileComponents();
     service = TestBed.inject(SpotifyService);
