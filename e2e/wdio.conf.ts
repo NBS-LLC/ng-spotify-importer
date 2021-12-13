@@ -1,3 +1,6 @@
+import { dir } from "console";
+import { dirname } from "path";
+
 export const config: WebdriverIO.Config = {
     //
     // ====================
@@ -21,7 +24,7 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        dirname(__filename) + '/test/specs/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -50,7 +53,7 @@ export const config: WebdriverIO.Config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-    
+
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
@@ -94,7 +97,7 @@ export const config: WebdriverIO.Config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://localhost:4200',
+    baseUrl: 'http://localhost:4200',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -111,7 +114,7 @@ export const config: WebdriverIO.Config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -132,8 +135,8 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['dot'],
-    
+    reporters: ['spec'],
+
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -226,7 +229,7 @@ export const config: WebdriverIO.Config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
             await browser.takeScreenshot();
         }
