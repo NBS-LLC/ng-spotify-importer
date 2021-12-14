@@ -25,7 +25,19 @@ Run `npx ng test` to execute the unit tests via [Karma](https://karma-runner.git
 
 ## Running end-to-end tests
 
-Run `npx ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+To execute the end-to-end tests via [WDIO](http://webdriver.io):
+
+```shell
+npm run start &
+npm run e2e
+```
+
+Make sure to shutdown the local webserver:
+
+```shell
+fg
+^C
+```
 
 ## Deploy
 
