@@ -32,6 +32,13 @@ npm run start &
 npm run e2e
 ```
 
+Make sure to shutdown the local webserver:
+
+```shell
+fg
+^C
+```
+
 ## Deploy
 
 Run `sh deploy.sh` to prepare a production deployment. The build artifacts will be stored in the `dist/` directory.
