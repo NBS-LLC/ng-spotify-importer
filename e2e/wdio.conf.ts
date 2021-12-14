@@ -1,4 +1,3 @@
-import { dir } from "console";
 import { dirname } from "path";
 
 export const config: WebdriverIO.Config = {
