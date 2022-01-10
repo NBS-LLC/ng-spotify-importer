@@ -1,3 +1,5 @@
+import { Credentials } from "../../../support/credentials";
+
 class LoginPage {
     get pageElement() {
         return $("//*[@ng-controller='LoginController']");
@@ -15,9 +17,9 @@ class LoginPage {
         return $('#login-button');
     }
 
-    async loginWithCredentails(username: string, password: string) {
-        await this.usernameElement.setValue(username);
-        await this.passwordElement.setValue(password);
+    async loginWithCredentails(credentials: Credentials) {
+        await this.usernameElement.setValue(credentials.username);
+        await this.passwordElement.setValue(credentials.password);
         await this.loginElement.click();
     }
 

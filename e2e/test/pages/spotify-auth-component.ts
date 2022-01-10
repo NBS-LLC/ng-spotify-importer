@@ -1,3 +1,4 @@
+import { Credentials } from "../support/credentials";
 import spotifyLoginPage from "./vendor/spotify/login-page";
 
 class SpotifyAuthComponent {
@@ -9,10 +10,10 @@ class SpotifyAuthComponent {
         return $('=Grant');
     }
 
-    async grantPermissionWithCredentials(username: string, password: string) {
+    async grantPermissionWithCredentials(credentials: Credentials) {
         await this.grantElement.click();
         await spotifyLoginPage.waitForDisplayed();
-        await spotifyLoginPage.loginWithCredentails(username, password);
+        await spotifyLoginPage.loginWithCredentails(credentials);
     }
 
     async waitForDisplayed() {
