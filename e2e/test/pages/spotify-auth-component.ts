@@ -1,4 +1,5 @@
 import { Credentials } from "../support/credentials";
+import authorizePage from "./vendor/spotify/authorize-page";
 import spotifyLoginPage from "./vendor/spotify/login-page";
 
 class SpotifyAuthComponent {
@@ -14,6 +15,8 @@ class SpotifyAuthComponent {
         await this.grantElement.click();
         await spotifyLoginPage.waitForDisplayed();
         await spotifyLoginPage.loginWithCredentails(credentials);
+        await authorizePage.waitForDisplayed();
+        await authorizePage.clickAgree();
     }
 
     async waitForDisplayed() {

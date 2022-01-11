@@ -28,7 +28,7 @@ class LoginPage {
             return await browser.getTitle() == 'Login - Spotify';
         });
 
-        return this.pageElement.waitForDisplayed();
+        return await this.pageElement.waitForDisplayed();
     }
 }
 
