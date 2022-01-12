@@ -7,7 +7,7 @@
 <div *ngIf="showPlaylistLoader" id="playlist-loader">
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
-  <div>
+  <div> <!-- TODO: Move into the file reader component. -->
     <label for="playlist-load-progress">Playlist Loading Progress:</label>
     <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
   </div>
