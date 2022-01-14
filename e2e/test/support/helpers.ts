@@ -1,3 +1,5 @@
+import { DOMParser } from "@xmldom/xmldom";
+
 export function fileToString(path: string): string {
     const fs = require('fs');
 
@@ -6,4 +8,14 @@ export function fileToString(path: string): string {
     } catch (err) {
         console.error(err)
     }
+}
+
+export function getSongCountFromSpotifyPlaylist(playlistPath: string): number {
+    const contents = fileToString(playlistPath);
+    const doc = new DOMParser().parseFromString(contents, 'text/xml');
+    return doc.getElementsByTagName('song').length;
+}
+
+export function parseSongCountFromLabel(label: string): number {
+    return parseInt(label.match(/.+Songs \((\d+)\):/)[1], 10);
 }
