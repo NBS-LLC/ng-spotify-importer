@@ -2,7 +2,7 @@ import { Credentials } from "../../../support/credentials";
 
 class LoginPage {
     get pageElement() {
-        return $("//*[@ng-controller='LoginController']");
+        return $("//*[@data-testid='login-container']");
     }
 
     get usernameElement() {
