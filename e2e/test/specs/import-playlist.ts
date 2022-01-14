@@ -1,6 +1,7 @@
 import { dirname } from "path";
 import fileReaderComponent from "../pages/file-reader-component";
-import spotifyAuthComponent from "../pages/spotify-auth-component"
+import playlistEditorComponent from "../pages/playlist-editor-component";
+import spotifyAuthComponent from "../pages/spotify-auth-component";
 import config from "../support/config";
 
 describe('import playlist flows', () => {
@@ -16,6 +17,9 @@ describe('import playlist flows', () => {
         await fileReaderComponent.uploadSlackerPlaylist(playlistPath);
         await fileReaderComponent.waitForPlaylistToLoad();
 
-        await driver.debug();
+        await playlistEditorComponent.waitForDisplayed();
+        const allSongsLabel = await playlistEditorComponent.allSongsLabelElement.getText();
+        expect(allSongsLabel).toEqual('All Songs (60):');
     });
 });
+

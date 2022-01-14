@@ -2,7 +2,7 @@ import assert = require("assert")
 import config from "./config"
 
 describe('Config', () => {
-    describe('#getPrimarySpotifyCredentials', () => {
+    describe('#getPrimarySpotifyCredentials()', () => {
         it('should throw error when username is not set', () => {
             delete process.env['PRIMARY_SPOTIFY_USERNAME'];
 
