@@ -4,7 +4,7 @@ import { fileToString, getSongCountFromSpotifyPlaylist, parseSongCountFromLabel 
 
 describe('helpers', () => {
     describe('fileToString()', () => {
-        it('should return the contents of the specified file', () => {
+        it('should return the contents of a specified file', () => {
             const contents = fileToString(dirname(__filename) + '/../assets/playlists/80sHitsPlaylist.xml');
             assert.strictEqual(contents.length, 19449);
         });
@@ -19,7 +19,7 @@ describe('helpers', () => {
     });
 
     describe('parseSongCountFromLabel()', () => {
-        it('should return the song count of a playlist editor song label', () => {
+        it('should return the song count from a playlist editor filter label', () => {
             const songCount = parseSongCountFromLabel('All Songs (60):');
             assert.strictEqual(songCount, 60);
         });
