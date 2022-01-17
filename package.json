@@ -49,6 +49,7 @@
         "@wdio/mocha-framework": "^7.16.11",
         "@wdio/spec-reporter": "^7.16.11",
         "@xmldom/xmldom": "^0.8.0",
+        "axios": "^0.24.0",
         "chromedriver": "^90.0.0",
         "codelyzer": "^5.1.2",
         "jasmine-core": "~3.5.0",
