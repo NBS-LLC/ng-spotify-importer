@@ -8,6 +8,14 @@ class Config {
         );
     }
 
+    getSpotifyClientId(): string {
+        return this.getEnvVar('SPOTIFY_CLIENT_ID');
+    }
+
+    getSpotifyClientSecret(): string {
+        return this.getEnvVar('SPOTIFY_CLIENT_SECRET');
+    }
+
     protected getEnvVar(name: string): string {
         if (name in process.env) {
             return process.env[name];
