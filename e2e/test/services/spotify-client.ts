@@ -1,26 +1,21 @@
 import logger from "@wdio/logger";
-import axios from "axios";
 import config from "../support/config";
+import SpotifyWebApi = require('spotify-web-api-node');
 
 const log = logger('SpotifyClient');
 
 export class SpotifyClient {
+    constructor(private spotifyApi?: SpotifyWebApi) {
+        this.spotifyApi = spotifyApi ? spotifyApi : new SpotifyWebApi({
+            clientId: config.getSpotifyClientId(),
+            clientSecret: config.getSpotifyClientSecret()
+        });
+    }
+
     async getAccessToken(): Promise<string> {
         try {
-            const clientId = config.getSpotifyClientId();
-            const clientSecret = config.getSpotifyClientSecret();
-            const authCode = Buffer.from(clientId + ':' + clientSecret).toString('base64');
-            const response = await axios.post(
-                'https://accounts.spotify.com/api/token',
-                'grant_type=client_credentials',
-                {
-                    headers: {
-                        'Authorization': 'Basic ' + authCode
-                    }
-                }
-            );
-
-            return response.data.access_token;
+            const response = await this.spotifyApi.clientCredentialsGrant();
+            return response.body.access_token;
         } catch (error) {
             log.error(error);
         }
