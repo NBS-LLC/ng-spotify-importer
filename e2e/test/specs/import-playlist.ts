@@ -4,8 +4,9 @@ import fileReaderComponent from "../pages/file-reader-component";
 import notificationComponent from "../pages/notification-component";
 import playlistEditorComponent from "../pages/playlist-editor-component";
 import spotifyAuthComponent from "../pages/spotify-auth-component";
+import { SpotifyClient } from "../services/spotify-client";
 import config from "../support/config";
-import { getSongCountFromSpotifyPlaylist, parseSongCountFromLabel } from "../support/helpers";
+import { getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from "../support/helpers";
 
 const log = logger('e2e - import playlist flows');
 
@@ -47,7 +48,14 @@ describe('import playlist flows', () => {
 
             const knownSongsLabel = await playlistEditorComponent.knownSongsLabelElement.getText();
             const knownSongCount = parseSongCountFromLabel(knownSongsLabel);
-            expect(notificationMessage).toEqual(`SUCCESS: Playlist imported with ${knownSongCount} tracks.`);
+            expect(notificationMessage).toContain('SUCCESS');
+            expect(notificationMessage).toContain(`${knownSongCount} tracks`);
+
+            const spotifyClient = await SpotifyClient.getInstance();
+            const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+            const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
+            expect(playlistDetails.body.name).toEqual(playlistName);
+            expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
             log.info(`Imported playlist: ${playlistName}`);
         });

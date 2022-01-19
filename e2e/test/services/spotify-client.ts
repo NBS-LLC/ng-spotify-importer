@@ -5,11 +5,19 @@ import SpotifyWebApi = require('spotify-web-api-node');
 const log = logger('SpotifyClient');
 
 export class SpotifyClient {
-    constructor(private spotifyApi?: SpotifyWebApi) {
-        this.spotifyApi = spotifyApi ? spotifyApi : new SpotifyWebApi({
+    protected constructor(readonly spotifyApi: SpotifyWebApi) { }
+
+    static async getInstance() {
+        const spotifyApi = new SpotifyWebApi({
             clientId: config.getSpotifyClientId(),
             clientSecret: config.getSpotifyClientSecret()
         });
+
+        const spotifyClient = new SpotifyClient(spotifyApi);
+        const accessToken = await spotifyClient.getAccessToken();
+        spotifyClient.spotifyApi.setAccessToken(accessToken);
+
+        return spotifyClient;
     }
 
     async getAccessToken(): Promise<string> {
@@ -19,5 +27,10 @@ export class SpotifyClient {
         } catch (error) {
             log.error(error);
         }
+    }
+
+    async getPlaylistDetailsById(playlistId: string) {
+        const response = await this.spotifyApi.getPlaylist(playlistId);
+        return response;
     }
 }

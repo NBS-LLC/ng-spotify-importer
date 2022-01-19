@@ -1,6 +1,6 @@
 import assert = require("assert");
 import { dirname } from "path";
-import { fileToString, getSongCountFromSpotifyPlaylist, parseSongCountFromLabel } from "./helpers";
+import { fileToString, getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from "./helpers";
 
 describe('helpers', () => {
     describe('fileToString()', () => {
@@ -22,6 +22,13 @@ describe('helpers', () => {
         it('should return the song count from a playlist editor filter label', () => {
             const songCount = parseSongCountFromLabel('All Songs (60):');
             assert.strictEqual(songCount, 60);
+        });
+    });
+
+    describe('parsePlaylistIdFromImportNotification()', () => {
+        it('should return the playlist id from an import notification message', () => {
+            const playlistId = parsePlaylistIdFromImportNotification('SUCCESS: Playlist (5ag2PxDhgA0IXOU6Y2RGht) imported with 57 tracks.');
+            assert.strictEqual(playlistId, '5ag2PxDhgA0IXOU6Y2RGht');
         });
     });
 });

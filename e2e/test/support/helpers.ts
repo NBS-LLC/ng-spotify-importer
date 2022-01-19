@@ -17,5 +17,9 @@ export function getSongCountFromSpotifyPlaylist(playlistPath: string): number {
 }
 
 export function parseSongCountFromLabel(label: string): number {
-    return parseInt(label.match(/.+Songs \((\d+)\):/)[1], 10);
+    return parseInt(label.match(/Songs \((\d+)\):/)[1], 10);
+}
+
+export function parsePlaylistIdFromImportNotification(notification: string): string {
+    return notification.match(/Playlist \((\w+)\) imported/)[1];
 }
