@@ -50,7 +50,7 @@ export class PlaylistEditorComponent implements OnInit {
     this.spotifyService.loadUserId().then(userId => {
       this.spotifyService.createPlaylist(userId, this.playlist.getPlaylistName(), this.playlist.getSongs()).then(playlistId => {
         this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
-          this.notificationService.success(`SUCCESS: Playlist imported with ${trackCount} tracks.`);
+          this.notificationService.success(`SUCCESS: Playlist (${playlistId}) imported with ${trackCount} tracks.`);
         });
       });
     });
