@@ -4,8 +4,7 @@
             "node",
             "webdriverio/async",
             "@wdio/mocha-framework",
-            "expect-webdriverio",
-            "axios"
+            "expect-webdriverio"
         ],
         "target": "ES5"
     }
