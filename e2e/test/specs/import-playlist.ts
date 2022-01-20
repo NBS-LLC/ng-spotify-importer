@@ -10,8 +10,8 @@ import { getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification,
 
 const log = logger('e2e - import playlist flows');
 
-describe('import playlist flows', () => {
-    describe('simple slacker playlist', async () => {
+describe('import playlist flows', function () {
+    describe('simple slacker playlist', async function () {
         const playlistPath = dirname(__filename) + '/../assets/playlists/80sHitsPlaylist.xml';
         const expectedSongCount = getSongCountFromSpotifyPlaylist(playlistPath);
 
@@ -28,18 +28,18 @@ describe('import playlist flows', () => {
             await playlistEditorComponent.waitForDisplayed();
         })
 
-        it('should parse all songs from the playlist', async () => {
+        it('should parse all songs from the playlist', async function () {
             const allSongsLabel = await playlistEditorComponent.allSongsLabelElement.getText();
             expect(allSongsLabel).toEqual(`All Songs (${expectedSongCount}):`);
         });
 
-        it('spotify should know at least half of the parsed songs', async () => {
+        it('spotify should know at least half of the parsed songs', async function () {
             const knownSongsLabel = await playlistEditorComponent.knownSongsLabelElement.getText();
             const knownSongCount = parseSongCountFromLabel(knownSongsLabel);
             expect(knownSongCount).toBeGreaterThanOrEqual(Math.floor(expectedSongCount / 2));
         });
 
-        it('should be able to import the playlist', async () => {
+        it('should be able to import the playlist', async function () {
             const uid = Date.now();
             const playlistName = `NGSI QA Auto - ${uid}`;
             await playlistEditorComponent.importPlaylist(playlistName);
