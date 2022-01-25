@@ -145,7 +145,7 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: [['spec', { addConsoleLogs: true }]],
 
     //
     // Options to be passed to Mocha.

@@ -1,4 +1,3 @@
-import logger from "@wdio/logger";
 import { dirname } from "path";
 import fileReaderComponent from "../pages/file-reader-component";
 import notificationComponent from "../pages/notification-component";
@@ -8,56 +7,56 @@ import { SpotifyClient } from "../services/spotify-client";
 import config from "../support/config";
 import { getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from "../support/helpers";
 
-const log = logger('e2e - import playlist flows');
-
 describe('import playlist flows', function () {
-    describe('simple slacker playlist', async function () {
+    it('simple slacker playlist', async function () {
         const playlistPath = dirname(__filename) + '/../assets/playlists/80sHitsPlaylist.xml';
         const expectedSongCount = getSongCountFromSpotifyPlaylist(playlistPath);
 
-        it('should load a slacker playlist', async () => {
-            await browser.url('/')
-            await spotifyAuthComponent.waitForDisplayed();
-            await spotifyAuthComponent.grantPermissionWithCredentials(
-                config.getPrimarySpotifyCredentials()
-            );
+        console.log('Load a Slacker playlist.');
 
-            await fileReaderComponent.waitForDisplayed();
-            await fileReaderComponent.uploadSlackerPlaylist(playlistPath);
-            await fileReaderComponent.waitForPlaylistToLoad();
-            await playlistEditorComponent.waitForDisplayed();
-        })
+        await browser.url('/');
+        await spotifyAuthComponent.waitForDisplayed();
+        await spotifyAuthComponent.grantPermissionWithCredentials(
+            config.getPrimarySpotifyCredentials()
+        );
 
-        it('should parse all songs from the playlist', async function () {
-            const allSongsLabel = await playlistEditorComponent.allSongsLabelElement.getText();
-            expect(allSongsLabel).toEqual(`All Songs (${expectedSongCount}):`);
-        });
+        await fileReaderComponent.waitForDisplayed();
+        await fileReaderComponent.uploadSlackerPlaylist(playlistPath);
+        await fileReaderComponent.waitForPlaylistToLoad();
+        await playlistEditorComponent.waitForDisplayed();
 
-        it('spotify should know at least half of the parsed songs', async function () {
-            const knownSongsLabel = await playlistEditorComponent.knownSongsLabelElement.getText();
-            const knownSongCount = parseSongCountFromLabel(knownSongsLabel);
-            expect(knownSongCount).toBeGreaterThanOrEqual(Math.floor(expectedSongCount / 2));
-        });
+        console.log('Verify that all songs from the playlist are parsed.');
 
-        it('should be able to import the playlist', async function () {
-            const uid = Date.now();
-            const playlistName = `NGSI QA Auto - ${uid}`;
-            await playlistEditorComponent.importPlaylist(playlistName);
-            await notificationComponent.waitForDisplayed();
-            const notificationMessage = await notificationComponent.componentElement.getText();
+        const allSongsLabel = await playlistEditorComponent.allSongsLabelElement.getText();
+        expect(allSongsLabel).toEqual(`All Songs (${expectedSongCount}):`);
 
-            const knownSongsLabel = await playlistEditorComponent.knownSongsLabelElement.getText();
-            const knownSongCount = parseSongCountFromLabel(knownSongsLabel);
-            expect(notificationMessage).toContain('SUCCESS');
-            expect(notificationMessage).toContain(`${knownSongCount} tracks`);
+        console.log('Verify that Spotify knows at least half of the songs.');
 
-            const spotifyClient = await SpotifyClient.getInstance();
-            const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
-            const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
-            expect(playlistDetails.body.name).toEqual(playlistName);
-            expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
+        const knownSongsLabel = await playlistEditorComponent.knownSongsLabelElement.getText();
+        const knownSongCount = parseSongCountFromLabel(knownSongsLabel);
+        expect(knownSongCount).toBeGreaterThanOrEqual(Math.floor(expectedSongCount / 2));
 
-            log.info(`Imported playlist: ${playlistName}`);
-        });
+        console.log('Verify that the playlist can be imported into Spotify.');
+
+        const uid = Date.now();
+        const playlistName = `NGSI QA Auto - ${uid}`;
+        await playlistEditorComponent.importPlaylist(playlistName);
+
+        console.log('Verify that a success message displays after importing.');
+
+        await notificationComponent.waitForDisplayed();
+        const notificationMessage = await notificationComponent.componentElement.getText();
+        expect(notificationMessage).toContain('SUCCESS');
+        expect(notificationMessage).toContain(`${knownSongCount} tracks`);
+
+        console.log('Verify the Spotify playlist contains all of the known songs.');
+
+        const spotifyClient = await SpotifyClient.getInstance();
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
+        expect(playlistDetails.body.name).toEqual(playlistName);
+        expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
+
+        console.log(`Imported playlist name: ${playlistName}.`);
     });
 });
