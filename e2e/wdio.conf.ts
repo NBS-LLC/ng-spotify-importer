@@ -151,7 +151,7 @@ export const config: WebdriverIO.Config = {
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
     mochaOpts: {
-        ui: 'bdd',
+        ui: 'tdd',
         timeout: DEBUG ? (24 * 60 * 60 * 1000) : 60000
     },
     //

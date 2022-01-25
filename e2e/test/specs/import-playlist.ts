@@ -7,8 +7,8 @@ import { SpotifyClient } from "../services/spotify-client";
 import config from "../support/config";
 import { getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from "../support/helpers";
 
-describe('import playlist flows', function () {
-    it('simple slacker playlist', async function () {
+suite('import playlist flows', function () {
+    test('simple slacker playlist', async function () {
         const playlistPath = dirname(__filename) + '/../assets/playlists/80sHitsPlaylist.xml';
         const expectedSongCount = getSongCountFromSpotifyPlaylist(playlistPath);
 
