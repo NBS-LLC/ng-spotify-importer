@@ -1,6 +1,6 @@
-import { Credentials } from "../support/credentials";
-import authorizePage from "./vendor/spotify/authorize-page";
-import spotifyLoginPage from "./vendor/spotify/login-page";
+import { Credentials } from '../support/credentials';
+import authorizePage from './vendor/spotify/authorize-page';
+import spotifyLoginPage from './vendor/spotify/login-page';
 
 class SpotifyAuthComponent {
     get componentElement() {
@@ -13,8 +13,12 @@ class SpotifyAuthComponent {
 
     async grantPermissionWithCredentials(credentials: Credentials) {
         await this.grantElement.click();
-        await spotifyLoginPage.waitForDisplayed();
-        await spotifyLoginPage.loginWithCredentails(credentials);
+        try {
+            await spotifyLoginPage.waitForDisplayed();
+            await spotifyLoginPage.loginWithCredentails(credentials);
+        } catch {
+            console.warn('Spotify login page not displayed. Already logged in?');
+        }
         await authorizePage.waitForDisplayed();
         await authorizePage.clickAgree();
     }
