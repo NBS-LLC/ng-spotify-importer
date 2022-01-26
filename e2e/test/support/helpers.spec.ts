@@ -1,6 +1,12 @@
-import assert = require("assert");
-import { dirname } from "path";
-import { fileToString, getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from "./helpers";
+import assert = require('assert');
+import { dirname } from 'path';
+import {
+    fileToString,
+    getSongCountFromCSVPlaylist,
+    getSongCountFromSpotifyPlaylist,
+    parsePlaylistIdFromImportNotification,
+    parseSongCountFromLabel
+} from './helpers';
 
 describe('helpers', () => {
     describe('fileToString()', () => {
@@ -15,6 +21,14 @@ describe('helpers', () => {
             const playlistPath = dirname(__filename) + '/../assets/playlists/80sHitsPlaylist.xml';
             const songCount = getSongCountFromSpotifyPlaylist(playlistPath);
             assert.strictEqual(songCount, 60);
+        });
+    });
+
+    describe('getSongCountFromCSVPlaylist()', () => {
+        it('should get the song count from a csv playlist (csv file)', () => {
+            const playlistPath = dirname(__filename) + '/../assets/playlists/CommaSeparatedValuesExample.csv';
+            const songCount = getSongCountFromCSVPlaylist(playlistPath);
+            assert.strictEqual(songCount, 4);
         });
     });
 
