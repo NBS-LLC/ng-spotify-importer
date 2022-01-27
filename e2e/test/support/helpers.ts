@@ -17,10 +17,14 @@ export function getSongCountFromSpotifyPlaylist(playlistPath: string): number {
     return doc.getElementsByTagName('song').length;
 }
 
-export function getSongCountFromCSVPlaylist(playlistPath: string): number {
+export function getSongCountFromTextPlaylist(playlistPath: string): number {
     const contents = fileToString(playlistPath);
     const csv = Papa.parse(contents, { header: true, });
     return csv.data.length;
+}
+
+export function getSongCountFromCSVPlaylist(playlistPath: string): number {
+    return getSongCountFromTextPlaylist(playlistPath);
 }
 
 export function parseSongCountFromLabel(label: string): number {

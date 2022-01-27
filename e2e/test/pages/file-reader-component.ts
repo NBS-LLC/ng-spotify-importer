@@ -26,11 +26,15 @@ class FileReaderComponent {
         await this.fileInputElement.setValue(remotePath);
     }
 
-    async uploadCSVPlaylist(localPath: string) {
+    async uploadTextPlaylist(localPath: string) {
         const remotePath = await browser.uploadFile(localPath);
 
         await this.fileTypeCSVElement.click();
         await this.fileInputElement.setValue(remotePath);
+    }
+
+    async uploadCSVPlaylist(localPath: string) {
+        return await this.uploadTextPlaylist(localPath);
     }
 
     async waitForPlaylistToLoad() {
