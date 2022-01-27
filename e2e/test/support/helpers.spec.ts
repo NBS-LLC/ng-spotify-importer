@@ -32,6 +32,14 @@ describe('helpers', () => {
         });
     });
 
+    describe('getSongCountFromTextPlaylist()', () => {
+        it('should get the song count from a csv playlist (csv file)', () => {
+            const playlistPath = dirname(__filename) + '/../assets/playlists/CsvAsTextExample.txt';
+            const songCount = getSongCountFromCSVPlaylist(playlistPath);
+            assert.strictEqual(songCount, 4);
+        });
+    });
+
     describe('parseSongCountFromLabel()', () => {
         it('should return the song count from a playlist editor filter label', () => {
             const songCount = parseSongCountFromLabel('All Songs (60):');
