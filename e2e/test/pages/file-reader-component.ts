@@ -3,6 +3,10 @@ class FileReaderComponent {
         return $('<app-file-reader />');
     }
 
+    get fileTypeCSVElement() {
+        return $('#file-type-csv');
+    }
+
     get fileTypeSlackerElement() {
         return $('#file-type-slacker');
     }
@@ -19,6 +23,13 @@ class FileReaderComponent {
         const remotePath = await browser.uploadFile(localPath);
 
         await this.fileTypeSlackerElement.click();
+        await this.fileInputElement.setValue(remotePath);
+    }
+
+    async uploadCSVPlaylist(localPath: string) {
+        const remotePath = await browser.uploadFile(localPath);
+
+        await this.fileTypeCSVElement.click();
         await this.fileInputElement.setValue(remotePath);
     }
 
