@@ -1,6 +1,7 @@
 import { dirname } from 'path';
 import fileReaderComponent from '../pages/file-reader-component';
 import playlistEditorComponent from '../pages/playlist-editor-component';
+import { songDetailsComponent } from '../pages/song-details-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import config from '../support/config';
 
@@ -28,11 +29,22 @@ suite('modify playlist flows', function () {
         console.log('Display more (related) songs.');
 
         await songDataRowComponent.clickMore();
-        await driver.debug();
 
         console.log('Modify the title and artist.');
+
+        await songDetailsComponent.waitForDisplayed();
+        await songDetailsComponent.songTitleElement.setValue('Twilight vs Breathe');
+        await songDetailsComponent.songArtistElement.setValue('Adam K');
+
         console.log('Search for more (related) songs.');
+
+        await songDetailsComponent.clickSearch();
+        await songDetailsComponent.waitForSearchResults();
+
         console.log('Select the correct (related) known song.');
+
+        await songDetailsComponent.clickSearchResultRowByTitle('Twilight vs Breathe (feat. HALIENE & Matthew Steeper) - Jack Trades Remix');
+
         console.log('Import the modified playlist into Spotify.');
         console.log('Verify the Spotify playlist contains all of the known songs.');
         console.log('Verify the Spotify playlist contains the fixed (previously unknown) song.');
