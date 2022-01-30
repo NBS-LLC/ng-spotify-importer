@@ -6,7 +6,7 @@ import { songDetailsComponent } from '../pages/song-details-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
 import config from '../support/config';
-import { getSongCountFromCSVPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from '../support/helpers';
+import { getSongCountFromCSVPlaylist, parsePlaylistIdFromImportNotification } from '../support/helpers';
 
 suite('modify playlist flows', function () {
     test('fix unknown song', async function () {
@@ -25,22 +25,16 @@ suite('modify playlist flows', function () {
         await fileReaderComponent.waitForPlaylistToLoad();
         await playlistEditorComponent.waitForDisplayed();
 
+        console.log('Fix the unknown song\'s title and artist.');
+
         const songDataRowComponent = await playlistEditorComponent.getSongDataRowComponentBySongTitle(
             'Twilight vs Breathe (Jack Trades Remix)'
         );
 
-        console.log('Display more (related) songs.');
-
         await songDataRowComponent.clickMore();
-
-        console.log('Modify the title and artist.');
-
         await songDetailsComponent.waitForDisplayed();
         await songDetailsComponent.songTitleElement.setValue('Twilight vs Breathe');
         await songDetailsComponent.songArtistElement.setValue('Adam K');
-
-        console.log('Search for more (related) songs.');
-
         await songDetailsComponent.clickSearch();
         await songDetailsComponent.waitForSearchResults();
 
@@ -48,10 +42,6 @@ suite('modify playlist flows', function () {
 
         const modifiedSongTitle = 'Twilight vs Breathe (feat. HALIENE & Matthew Steeper) - Jack Trades Remix';
         await songDetailsComponent.clickSearchResultRowByTitle(modifiedSongTitle);
-
-        const expectedKnownSongCount = getSongCountFromCSVPlaylist(playlistPath);
-        const actualKnownSongCount = parseSongCountFromLabel(await playlistEditorComponent.knownSongsLabelElement.getText());
-        expect(actualKnownSongCount).toEqual(expectedKnownSongCount);
 
         console.log('Import the modified playlist into Spotify.');
 
@@ -62,9 +52,10 @@ suite('modify playlist flows', function () {
         await notificationComponent.waitForDisplayed();
         const notificationMessage = await notificationComponent.componentElement.getText();
         expect(notificationMessage).toContain('SUCCESS');
-        expect(notificationMessage).toContain(`${actualKnownSongCount} tracks`);
 
         console.log('Verify the Spotify playlist contains all of the known songs.');
+
+        const actualKnownSongCount = getSongCountFromCSVPlaylist(playlistPath);
 
         const spotifyClient = await SpotifyClient.getInstance();
         const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
