@@ -4,6 +4,7 @@ import playlistEditorComponent from '../pages/playlist-editor-component';
 import { songDetailsComponent } from '../pages/song-details-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import config from '../support/config';
+import { getSongCountFromCSVPlaylist, parseSongCountFromLabel } from '../support/helpers';
 
 suite('modify playlist flows', function () {
     test('fix unknown song', async function () {
@@ -44,6 +45,10 @@ suite('modify playlist flows', function () {
         console.log('Select the correct (related) known song.');
 
         await songDetailsComponent.clickSearchResultRowByTitle('Twilight vs Breathe (feat. HALIENE & Matthew Steeper) - Jack Trades Remix');
+
+        const expectedKnownSongCount = getSongCountFromCSVPlaylist(playlistPath);
+        const actualKnownSongCount = parseSongCountFromLabel(await playlistEditorComponent.knownSongsLabelElement.getText());
+        expect(actualKnownSongCount).toEqual(expectedKnownSongCount);
 
         console.log('Import the modified playlist into Spotify.');
         console.log('Verify the Spotify playlist contains all of the known songs.');
