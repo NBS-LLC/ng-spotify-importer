@@ -5,7 +5,7 @@ on:
     branches: master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     env:
@@ -18,9 +18,11 @@ jobs:
           node-version: '14'
           cache: 'npm'
       - name: Install Chromium
-      - run: curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip
-      - run: unzip chrome-linux.zip
+        run: | 
+          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip
+          unzip chrome-linux.zip
       - name: Running E2E Tests
-      - run: npm ci
-      - run: npm run start
-      - run: npm run e2e
+        run: |
+          npm ci
+          npm run start
+          npm run e2e
