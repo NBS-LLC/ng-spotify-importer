@@ -23,4 +23,3 @@ jobs:
     - run: npm ci
     - run: npm run start
     - run: npm run e2e
-  
