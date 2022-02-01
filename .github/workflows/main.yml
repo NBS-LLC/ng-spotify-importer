@@ -12,7 +12,6 @@ jobs:
       CHROME_BIN: $GITHUB_WORKSPACE/chrome-linux/chrome
 
     steps:
-      - name: Install Chromium
       - run: curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip
       - run: unzip chrome-linux.zip
       - uses: actions/checkout@v2
