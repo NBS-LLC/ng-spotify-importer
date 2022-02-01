@@ -1,11 +1,15 @@
-import { dirname } from "path";
-import logger from "@wdio/logger";
+import logger from '@wdio/logger';
+import { dirname } from 'path';
 
 const DEBUG = process.env['DEBUG'];
+const CI = process.env['CI'];
 
 const log = logger('wdio.conf.ts');
 if (DEBUG) {
     log.info('Debugging is enabled.');
+}
+if (CI) {
+    log.info('Continuous integration (CI) is enabled.');
 }
 
 export const config: WebdriverIO.Config = {
@@ -73,7 +77,11 @@ export const config: WebdriverIO.Config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
         'goog:chromeOptions': {
-            binary: process.env['CHROME_BIN']
+            binary: process.env['CHROME_BIN'],
+            args: [
+                ...CI ? ['headless'] : [],
+                'disable-gpu'
+            ]
         }
     }],
     //
@@ -289,10 +297,10 @@ export const config: WebdriverIO.Config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
-    //onReload: function(oldSessionId, newSessionId) {
-    //}
-}
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
+    // onReload: function(oldSessionId, newSessionId) {
+    // }
+};
