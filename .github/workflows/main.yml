@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CHROME_BIN: ${{ GITHUB_WORKSPACE }}/chrome-linux/chrome
+      CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
 
     steps:
       - uses: actions/checkout@v2
