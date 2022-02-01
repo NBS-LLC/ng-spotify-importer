@@ -9,7 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CHROME_BIN: $GITHUB_WORKSPACE/chrome-linux/chrome
+      CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
+      PRIMARY_SPOTIFY_USERNAME: ${{ secrets.PRIMARY_SPOTIFY_USERNAME }}
+      PRIMARY_SPOTIFY_PASSWORD: ${{ secrets.PRIMARY_SPOTIFY_PASSWORD }}
+      SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+      SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
 
     steps:
       - uses: actions/checkout@v2
@@ -23,6 +27,7 @@ jobs:
           unzip chrome-linux.zip
       - name: Running E2E Tests
         run: |
-          npm ci
-          npm run start
+          npm ci &&
+          npm run start &&
+          curl --retry 20 --retry-connrefused http://localhost:4200 -I &&
           npm run e2e
