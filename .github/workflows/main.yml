@@ -23,11 +23,12 @@ jobs:
           cache: 'npm'
       - name: Install Chromium
         run: | 
-          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip
+          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
           unzip chrome-linux.zip
-      - name: Running E2E Tests
+      - name: Build and Start Local Test Server
         run: |
           npm ci &&
           npm run start &&
-          curl --retry 20 --retry-connrefused http://localhost:4200 -I &&
+          curl --retry 20 --retry-connrefused http://localhost:4200 > /dev/null 2>&1 &&
+      - name: Running E2E Tests
           npm run e2e
