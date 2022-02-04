@@ -28,12 +28,12 @@ jobs:
       - name: Cache Node Modules
         uses: actions/cache@v2
         env:
-          cache-name: cache-node-modules
+          CACHE-NAME: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.CACHE-NAME }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Build and Start Local Test Server
