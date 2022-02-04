@@ -30,7 +30,7 @@ jobs:
         env:
           CACHE-NAME: cache-node-modules
         with:
-          path: ~/.npm
+          path: ${{ github.workspace }}/node_modules
           key: ${{ runner.os }}-build-${{ env.CACHE-NAME }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
