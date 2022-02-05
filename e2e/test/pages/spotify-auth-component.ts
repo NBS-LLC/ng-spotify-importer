@@ -15,7 +15,7 @@ class SpotifyAuthComponent {
         await this.grantElement.click();
         try {
             await spotifyLoginPage.waitForDisplayed();
-            await spotifyLoginPage.loginWithCredentails(credentials);
+            await spotifyLoginPage.loginWithCredentials(credentials);
         } catch {
             console.warn('Spotify login page not displayed. Already logged in?');
         }

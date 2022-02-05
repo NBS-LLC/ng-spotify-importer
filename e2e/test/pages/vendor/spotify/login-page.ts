@@ -1,10 +1,6 @@
-import { Credentials } from "../../../support/credentials";
+import { Credentials } from '../../../support/credentials';
 
 class LoginPage {
-    get pageElement() {
-        return $("//*[@data-testid='login-container']");
-    }
-
     get usernameElement() {
         return $('#login-username');
     }
@@ -17,7 +13,7 @@ class LoginPage {
         return $('#login-button');
     }
 
-    async loginWithCredentails(credentials: Credentials) {
+    async loginWithCredentials(credentials: Credentials) {
         await this.usernameElement.setValue(credentials.username);
         await this.passwordElement.setValue(credentials.password);
         await this.loginElement.click();
@@ -25,10 +21,8 @@ class LoginPage {
 
     async waitForDisplayed() {
         await browser.waitUntil(async () => {
-            return await browser.getTitle() == 'Login - Spotify';
+            return await browser.getTitle() === 'Login - Spotify';
         });
-
-        return await this.pageElement.waitForDisplayed();
     }
 }
 
