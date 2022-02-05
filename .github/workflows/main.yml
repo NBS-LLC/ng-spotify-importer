@@ -30,5 +30,5 @@ jobs:
           npm ci &&
           npm run start &&
           curl --retry 10 --retry-connrefused http://localhost:4200 > /dev/null 2>&1
-      - name: Run E2E Tests
-        run: npm run e2e
+      # - name: Run E2E Tests
+      #   run: npm run e2e
