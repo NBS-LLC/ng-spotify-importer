@@ -7,6 +7,7 @@ import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
 import config from '../support/config';
 import { getSongCountFromCSVPlaylist, parsePlaylistIdFromImportNotification } from '../support/helpers';
+import { testDataManager } from '../support/test-data-manager';
 
 suite('modify playlist flows', function () {
     test('fix unknown song', async function () {
@@ -52,6 +53,8 @@ suite('modify playlist flows', function () {
         await notificationComponent.waitForDisplayed();
         const notificationMessage = await notificationComponent.componentElement.getText();
         expect(notificationMessage).toContain('SUCCESS');
+
+        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
