@@ -1,10 +1,6 @@
 class AuthorizePage {
-    get pageElement() {
-        return $("//*[@ng-controller='AuthorizeController']");
-    }
-
     get agreeElement() {
-        return $('#auth-accept');
+        return $('button=Agree');
     }
 
     async clickAgree() {
@@ -13,10 +9,8 @@ class AuthorizePage {
 
     async waitForDisplayed() {
         await browser.waitUntil(async () => {
-            return await browser.getTitle() == 'Authorize - Spotify';
+            return await browser.getTitle() === 'Authorize - Spotify';
         });
-
-        return await this.pageElement.waitForDisplayed();
     }
 }
 
