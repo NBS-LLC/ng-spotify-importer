@@ -1,4 +1,3 @@
-
 class SpotifyWebPlayerPage {
     get loginElement() {
         return $('[data-testid="login-button"]');
