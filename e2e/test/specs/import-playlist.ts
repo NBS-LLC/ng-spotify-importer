@@ -5,7 +5,8 @@ import playlistEditorComponent from '../pages/playlist-editor-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
 import config from '../support/config';
-import { getSongCountFromCSVPlaylist, getSongCountFromSpotifyPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel, getSongCountFromTextPlaylist } from '../support/helpers';
+import { getSongCountFromCSVPlaylist, getSongCountFromSpotifyPlaylist, getSongCountFromTextPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from '../support/helpers';
+import { testDataManager } from '../support/test-data-manager';
 
 suite('import playlist flows', function () {
     test('simple slacker playlist', async function () {
@@ -58,6 +59,7 @@ suite('import playlist flows', function () {
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
         console.log(`Imported playlist name: ${playlistName}.`);
+        testDataManager.addPlaylistName(playlistName);
     });
 
     test('simple csv playlist', async function () {
@@ -110,6 +112,7 @@ suite('import playlist flows', function () {
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
         console.log(`Imported playlist name: ${playlistName}.`);
+        testDataManager.addPlaylistName(playlistName);
     });
 
     test('simple text playlist', async function () {
@@ -162,5 +165,6 @@ suite('import playlist flows', function () {
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
         console.log(`Imported playlist name: ${playlistName}.`);
+        testDataManager.addPlaylistName(playlistName);
     });
 });

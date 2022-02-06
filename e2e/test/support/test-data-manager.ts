@@ -1,33 +1,22 @@
-import logger from '@wdio/logger';
-
-const log = logger('test-data-manager');
-
-class TestData {
-    playlistNames: string[] = [];
-}
-
 class TestDataManager {
     private constructor() { }
     private static instance: TestDataManager;
-    private testData: TestData = new TestData();
+    private playlistNames: string[] = [];
 
     public static getInstance() {
         return this.instance || (this.instance = new this());
     }
 
     public addPlaylistName(playlistName: string) {
-        this.testData.playlistNames.push(playlistName);
+        this.playlistNames.push(playlistName);
     }
 
     public getPlaylistNames(): string[] {
-        return this.testData.playlistNames;
+        return this.playlistNames;
     }
 
-    public cleanupTestData() {
-        while (this.getPlaylistNames().length) {
-            const playlistName = this.getPlaylistNames().pop();
-            log.info(`(Dry Run) Deleting playlist: ${playlistName}.`);
-        }
+    public resetTestData() {
+        this.playlistNames = [];
     }
 }
 

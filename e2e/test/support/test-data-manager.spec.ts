@@ -1,13 +1,9 @@
 import assert = require('assert');
-import logger from '@wdio/logger';
 import { testDataManager } from './test-data-manager';
-
-const log = logger('test-data-manager');
-log.disableAll();
 
 describe('TestDataManager', () => {
     afterEach(() => {
-        testDataManager.cleanupTestData();
+        testDataManager.resetTestData();
     });
 
     describe('#addPlaylistName', () => {
@@ -25,11 +21,11 @@ describe('TestDataManager', () => {
         });
     });
 
-    describe('#cleanupTestData', () => {
+    describe('#resetTestData', () => {
         it('should remove playlist names from the test data manager', () => {
             testDataManager.addPlaylistName('Unit Test - 1111');
             testDataManager.addPlaylistName('Unit Test - 2222');
-            testDataManager.cleanupTestData();
+            testDataManager.resetTestData();
             const playlistNames = testDataManager.getPlaylistNames();
             assert.strictEqual(playlistNames.length, 0);
         });

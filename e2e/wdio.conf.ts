@@ -280,12 +280,14 @@ export const config: WebdriverIO.Config = {
      */
     after: async function (result, capabilities, specs) {
         const playlistNames = testDataManager.getPlaylistNames();
+
         await spotifyWebPlayerPage.open();
         await spotifyWebPlayerPage.waitForDisplayed();
-
         for (const playlistName of playlistNames) {
             await spotifyWebPlayerPage.deletePlaylistByName(playlistName);
         }
+
+        testDataManager.resetTestData();
     },
     /**
      * Gets executed right after terminating the webdriver session.

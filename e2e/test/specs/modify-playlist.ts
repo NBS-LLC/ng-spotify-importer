@@ -54,8 +54,6 @@ suite('modify playlist flows', function () {
         const notificationMessage = await notificationComponent.componentElement.getText();
         expect(notificationMessage).toContain('SUCCESS');
 
-        testDataManager.addPlaylistName(playlistName);
-
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const actualKnownSongCount = getSongCountFromCSVPlaylist(playlistPath);
@@ -72,5 +70,6 @@ suite('modify playlist flows', function () {
         expect(found).toBeTruthy();
 
         console.log(`Imported playlist name: ${playlistName}.`);
+        testDataManager.addPlaylistName(playlistName);
     });
 });
