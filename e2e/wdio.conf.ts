@@ -1,5 +1,7 @@
 import logger from '@wdio/logger';
 import { dirname } from 'path';
+import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
+import { testDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
 const CI = process.env['CI'];
@@ -276,8 +278,17 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that ran
      */
-    // after: function (result, capabilities, specs) {
-    // },
+    after: async function (result, capabilities, specs) {
+        const playlistNames = testDataManager.getPlaylistNames();
+
+        await spotifyWebPlayerPage.open();
+        await spotifyWebPlayerPage.waitForDisplayed();
+        for (const playlistName of playlistNames) {
+            await spotifyWebPlayerPage.deletePlaylistByName(playlistName);
+        }
+
+        testDataManager.resetTestData();
+    },
     /**
      * Gets executed right after terminating the webdriver session.
      * @param {Object} config wdio configuration object
