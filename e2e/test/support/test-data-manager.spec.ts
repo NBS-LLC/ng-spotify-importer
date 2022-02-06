@@ -1,9 +1,11 @@
 import assert = require('assert');
+import logger from '@wdio/logger';
 import { testDataManager } from './test-data-manager';
 
-describe('TestDataManager', () => {
-    // TODO: Turn off TestDataManager's logger.
+const log = logger('test-data-manager');
+log.disableAll();
 
+describe('TestDataManager', () => {
     afterEach(() => {
         testDataManager.cleanupTestData();
     });
