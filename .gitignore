@@ -43,7 +43,7 @@ testem.log
 
 # System Files
 .DS_Store
-Thumbs.
+Thumbs.db
 
 # Project Specific
 .ng-serve.pid
