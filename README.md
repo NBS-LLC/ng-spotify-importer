@@ -30,15 +30,14 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 To execute the end-to-end tests via [WDIO](http://webdriver.io):
 
 ```shell
-npm run start
+npm start
 npm run e2e
 ```
 
-Make sure to shutdown the local webserver:
+Make sure to shutdown the local webserver when done:
 
 ```shell
-fg
-^C
+npm stop
 ```
 
 ## Deploy
