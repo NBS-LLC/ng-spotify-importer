@@ -28,7 +28,7 @@
     "@angular/platform-browser-dynamic": "~10.2.5",
     "@angular/router": "~10.2.5",
     "crypto-js": "^4.0.0",
-    "fast-xml-parser": "^3.17.1",
+    "fast-xml-parser": "^4.0.2",
     "he": "^1.2.0",
     "papaparse": "^5.2.0",
     "rxjs": "~6.5.4",
