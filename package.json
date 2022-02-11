@@ -46,7 +46,7 @@
     "@types/node": "^12.11.1",
     "@types/papaparse": "^5.0.4",
     "@types/spotify-web-api-node": "^5.0.6",
-    "@wdio/cli": "^7.16.11",
+    "@wdio/cli": "^7.16.15",
     "@wdio/local-runner": "^7.16.11",
     "@wdio/mocha-framework": "^7.16.11",
     "@wdio/spec-reporter": "^7.16.11",
