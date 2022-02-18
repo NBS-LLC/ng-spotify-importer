@@ -12,7 +12,7 @@
     "e2e": "wdio run e2e/wdio.conf.ts --autoCompileOpts.tsNodeOpts.project=e2e/tsconfig.json",
     "e2e:unit": "TS_NODE_PROJECT=e2e/tsconfig.json mocha -r ts-node/register e2e/**/*.spec.ts",
     "e2e:debug": "DEBUG=true npm run e2e",
-    "deploy:upload": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/upload.ts"
+    "upload": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/upload.ts"
   },
   "browser": {
     "crypto": false
