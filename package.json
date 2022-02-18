@@ -6,6 +6,7 @@
     "start": "ng serve & echo $! > .ng-serve.pid",
     "stop": "kill $(cat .ng-serve.pid)",
     "build": "ng build",
+    "build:dev": "ng build --configuration=dev --base-href /projects/ng-spotify-importer/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "wdio run e2e/wdio.conf.ts --autoCompileOpts.tsNodeOpts.project=e2e/tsconfig.json",
