@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Prerequisites
 
-* Node 14 LTS - not compatibile with newer versions
+* Node 14 LTS - not compatible with newer versions
 * Chrome or Chromium - ensure CHROME_BIN env var is exported
 
 Note: Chrom* must match the [version](https://www.chromium.org/getting-involved/download-chromium) of the ChromeDriver. Firewall warnings on macOS can be fixed by [signing](https://github.com/puppeteer/puppeteer/issues/4752#issuecomment-586599843) the app.
@@ -42,7 +42,21 @@ npm stop
 
 ## Deploy
 
-Run `sh deploy.sh` to prepare a production deployment. The build artifacts will be stored in the `dist/` directory.
+To build and upload (aka deploy) the project:
+
+```shell
+npm run deploy
+```
+
+Deployment configuration is based on the following environment variables:
+
+* ENVIRONMENT
+* NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOST
+* NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME
+* NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD
+* NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT
+* NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH
+* NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH
 
 ## Further help
 

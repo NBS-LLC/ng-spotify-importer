@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "types": [
+            "ssh2-sftp-client"
+        ],
+        "target": "es2018"
+    }
+}
