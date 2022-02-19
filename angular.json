@@ -30,7 +30,7 @@
             "scripts": []
           },
           "configurations": {
-            "dev": {
+            "development": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
