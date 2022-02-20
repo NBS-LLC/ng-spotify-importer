@@ -9,7 +9,7 @@ jobs:
       name: staging
       url: https://stg.nickwanders.com/projects/ng-spotify-importer/
     env:
-      ENVIRONMENT: staging
+      ENVIRONMENT: production,staging
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOST: stg.nickwanders.com
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME }}
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD }}
