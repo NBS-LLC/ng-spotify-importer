@@ -27,6 +27,10 @@ class SongDetailsComponent {
         await (await this.getSearchResultTitleElementBySongTitle(title)).click();
     }
 
+    async getSearchResultSongTitleByIndex(index: number) {
+        return await this.searchResultSongTitleElements[index].getText();
+    }
+
     async waitForSearchResults() {
         await browser.waitUntil(async () => {
             return (await this.searchResultSongTitleElements).length > 0;
