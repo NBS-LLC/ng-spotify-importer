@@ -41,7 +41,7 @@ suite('modify playlist flows', function () {
 
         console.log('Select the correct (related) known song.');
 
-        const modifiedSongTitle = 'Twilight vs Breathe (feat. HALIENE & Matthew Steeper) - Jack Trades Remix';
+        const modifiedSongTitle = await songDetailsComponent.getSearchResultSongTitleByIndex(0);
         await songDetailsComponent.clickSearchResultRowByTitle(modifiedSongTitle);
 
         console.log('Import the modified playlist into Spotify.');
