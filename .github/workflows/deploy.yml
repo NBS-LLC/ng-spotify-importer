@@ -1,0 +1,29 @@
+name: Deploy
+
+on: workflow_dispatch
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - name: Cache Node Modules
+        uses: actions/cache@v2
+        env:
+          CACHE-NAME: cache-node-modules
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-build-${{ env.CACHE-NAME }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Deploy to Staging
+        run: |
+          npm install &&
+          npm run deploy
