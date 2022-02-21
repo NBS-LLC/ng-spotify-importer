@@ -1,12 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {Song} from './song';
-import {SlackerPlaylist} from './slackerPlaylist';
-import {SpotifyService} from './spotify.service';
-import {PlaylistEditorComponent} from './playlist-editor/playlist-editor.component';
-import {FileReaderComponent} from './file-reader/file-reader.component';
-import {CsvPlaylist} from './csvPlaylist';
-import {Playlist} from './playlist';
-import {NotificationService} from './notification/notification.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { version } from '../../package.json';
+import { CsvPlaylist } from './csvPlaylist';
+import { FileReaderComponent } from './file-reader/file-reader.component';
+import { NotificationService } from './notification/notification.service';
+import { Playlist } from './playlist';
+import { PlaylistEditorComponent } from './playlist-editor/playlist-editor.component';
+import { SlackerPlaylist } from './slackerPlaylist';
+import { Song } from './song';
+import { SpotifyService } from './spotify.service';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,11 @@ import {NotificationService} from './notification/notification.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'NG Spotify Importer';
+  title = `NG Spotify Importer (v${version})`;
   showPlaylistLoader = false;
   playlist: Playlist;
   songs: Song[] = [];
-  songsLoaded = {count: 0};
+  songsLoaded = { count: 0 };
 
   @ViewChild(FileReaderComponent)
   private fileReader: FileReaderComponent;
