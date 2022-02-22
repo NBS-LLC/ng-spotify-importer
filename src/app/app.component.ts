@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { version } from '../../package.json';
+import { version as _version } from '../../package.json';
 import { CsvPlaylist } from './csvPlaylist';
 import { FileReaderComponent } from './file-reader/file-reader.component';
 import { NotificationService } from './notification/notification.service';
@@ -15,7 +15,10 @@ import { SpotifyService } from './spotify.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = `NG Spotify Importer (v${version})`;
+  title = `NG Spotify Importer`;
+  version = _version;
+  projectUrl = 'https://github.com/NBS-LLC/ng-spotify-importer';
+  releaseUrl = `${this.projectUrl}/releases/tag/v${this.version}`;
   showPlaylistLoader = false;
   playlist: Playlist;
   songs: Song[] = [];
