@@ -6,6 +6,6 @@
             "@wdio/mocha-framework",
             "expect-webdriverio"
         ],
-        "target": "es2018"
+        "target": "ES5"
     }
 }
