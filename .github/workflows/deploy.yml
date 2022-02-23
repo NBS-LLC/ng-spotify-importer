@@ -1,6 +1,11 @@
 name: Deploy
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   staging:
@@ -33,6 +38,9 @@ jobs:
             ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - name: Inject Version
+        if: github.ref_type == 'tag'
+        run: npm --no-git-tag-version version {{ github.ref_name }}
       - name: Deploy to Staging
         run: |
           npm install &&
