@@ -1,4 +1,4 @@
-<h1>{{title}} (<a href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</h1>
+<h1>{{title}} <span *ngIf="releaseUrl">(<a href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
 
 <app-notification></app-notification>
 

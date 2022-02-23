@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   title = `NG Spotify Importer`;
   version = _version;
   projectUrl = 'https://github.com/NBS-LLC/ng-spotify-importer';
-  releaseUrl = `${this.projectUrl}/releases/tag/v${this.version}`;
+  releaseUrl = null;
   showPlaylistLoader = false;
   playlist: Playlist;
   songs: Song[] = [];
@@ -34,6 +34,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!this.isLocalBuild()) {
+      this.releaseUrl = `${this.projectUrl}/releases/tag/v${this.version}`;
+    }
+
     this.spotifyService.onAuthChange.subscribe(isAuthenticated => {
       this.showPlaylistLoader = isAuthenticated;
     });
@@ -79,5 +83,9 @@ export class AppComponent implements OnInit {
       this.playlist = null;
       this.playlistEditor.reset();
     }
+  }
+
+  private isLocalBuild(): boolean {
+    return this.version === '0.0.0';
   }
 }
