@@ -282,6 +282,10 @@ export const config: WebdriverIO.Config = {
     after: async function (result, capabilities, specs) {
         const playlistNames = testDataManager.getPlaylistNames();
 
+        if (!playlistNames.length) {
+            return;
+        }
+
         await spotifyWebPlayerPage.open();
         await spotifyWebPlayerPage.waitForDisplayed();
         for (const playlistName of playlistNames) {

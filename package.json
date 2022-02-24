@@ -12,7 +12,8 @@
     "e2e:unit": "TS_NODE_PROJECT=e2e/tsconfig.json mocha -r ts-node/register e2e/**/*.spec.ts",
     "e2e:debug": "DEBUG=true npm run e2e",
     "upload": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/upload.ts",
-    "deploy": "npm run build && npm run upload"
+    "deploy": "npm run build && npm run upload",
+    "deploy:test": "npm run e2e -- --spec e2e/test/deploy-specs/**/*.ts"
   },
   "browser": {
     "crypto": false
