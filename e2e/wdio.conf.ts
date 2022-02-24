@@ -162,7 +162,8 @@ export const config: WebdriverIO.Config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'tdd',
-        timeout: DEBUG ? (24 * 60 * 60 * 1000) : 60000
+        timeout: DEBUG ? (24 * 60 * 60 * 1000) : 60000,
+        retries: 3
     },
     //
     // =====
