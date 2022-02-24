@@ -1,3 +1,4 @@
+import { version } from '../../../package.json';
 import { Credentials } from './credentials';
 
 class Config {
@@ -17,7 +18,7 @@ class Config {
     }
 
     getAppVersion(): string {
-        return this.getEnvVar('GITHUB_REF_NAME');
+        return version;
     }
 
     protected getEnvVar(name: string): string {
