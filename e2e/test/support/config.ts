@@ -1,4 +1,5 @@
-import { Credentials } from "./credentials";
+import { version } from '../../../package.json';
+import { Credentials } from './credentials';
 
 class Config {
     getPrimarySpotifyCredentials(): Credentials {
@@ -14,6 +15,10 @@ class Config {
 
     getSpotifyClientSecret(): string {
         return this.getEnvVar('SPOTIFY_CLIENT_SECRET');
+    }
+
+    getAppVersion(): string {
+        return version;
     }
 
     protected getEnvVar(name: string): string {

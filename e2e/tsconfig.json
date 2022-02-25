@@ -6,6 +6,7 @@
             "@wdio/mocha-framework",
             "expect-webdriverio"
         ],
-        "target": "ES5"
+        "target": "ES5",
+        "resolveJsonModule": true
     }
 }

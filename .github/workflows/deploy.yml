@@ -45,3 +45,5 @@ jobs:
         run: |
           npm install &&
           npm run deploy
+      - name: Run Deploy Tests
+        run: npm run deploy:test
