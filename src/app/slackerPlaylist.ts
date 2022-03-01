@@ -1,7 +1,7 @@
-import {parse} from 'fast-xml-parser';
-import {Song} from './song';
-import {decode} from 'he';
-import {Playlist} from './playlist';
+import { XMLParser } from 'fast-xml-parser';
+import { Song } from './song';
+import { decode } from 'he';
+import { Playlist } from './playlist';
 
 export class SlackerPlaylist implements Playlist {
   static songs: Song[] = [];
@@ -19,7 +19,8 @@ export class SlackerPlaylist implements Playlist {
       attrValueProcessor: value => decodeURIComponent(escape(decode(value))),
     };
 
-    this.json = parse(playlistXml, options);
+    const parser = new XMLParser(options);
+    this.json = parser.parse(playlistXml);
     if (!this.json.Playlist) {
       console.log(playlistXml);
       throw new Error('Invalid Slacker Playlist');
@@ -39,7 +40,7 @@ export class SlackerPlaylist implements Playlist {
   getSongs() {
     if (SlackerPlaylist.songs.length === 0) {
       for (const songData of this.json.Playlist.songs.song) {
-        SlackerPlaylist.songs.push({title: songData['@_title'], artist: songData['@_artistName']});
+        SlackerPlaylist.songs.push({ title: songData['@_title'], artist: songData['@_artistName'] });
       }
     }
 
