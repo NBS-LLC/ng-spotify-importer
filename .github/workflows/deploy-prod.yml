@@ -1,0 +1,45 @@
+name: Deploy Production
+
+on: 
+  release:
+    types: [released]
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://nickwanders.com/projects/ng-spotify-importer/
+    env:
+      ENVIRONMENT: production
+      CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
+      NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOST: nickwanders.com
+      NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME }}
+      NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD }}
+      NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT: 22
+      NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH: /home/nickwanders/nickwanders.com/
+      NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH: projects/ng-spotify-importer/
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - name: Cache Node Modules
+        uses: actions/cache@v2
+        env:
+          CACHE-NAME: cache-node-modules
+        with:
+          path: ${{ github.workspace }}/node_modules
+          key: ${{ runner.os }}-build-${{ env.CACHE-NAME }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Inject Version
+        if: github.ref_type == 'tag'
+        run: npm --no-git-tag-version version $GITHUB_REF_NAME
+      - name: Deploy to Production
+        run: |
+          npm install &&
+          npm run deploy
