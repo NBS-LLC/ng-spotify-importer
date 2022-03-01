@@ -5,7 +5,7 @@ on:
     types: [released]
 
 jobs:
-  staging:
+  production:
     runs-on: ubuntu-latest
     environment:
       name: production
