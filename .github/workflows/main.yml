@@ -40,6 +40,7 @@ jobs:
       - name: Build and Start Local Test Server
         run: |
           npm install &&
+          npm run build &&
           npm start &&
           curl --retry 10 --retry-connrefused http://localhost:4200 > /dev/null 2>&1
       - name: Run E2E Tests
