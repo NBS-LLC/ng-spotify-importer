@@ -13,6 +13,11 @@ label + progress, label + input[type=text] {
   margin-left: 0.5em;
 }
 
+table {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 table input {
   margin: 0;
 }
@@ -30,4 +35,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   padding-left: 1em;
   padding-top: 1em;
+}
+
+div {
+  margin-top: 0.5em;
 }

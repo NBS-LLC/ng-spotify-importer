@@ -10,9 +10,12 @@
          (ngModelChange)="playlist.setPlaylistName($event)"/>
 </div>
 
-<div>
-  <label for="playlist-clean-unknown">Cleanup Unknown Songs (<a href="javascript: void(0);" (click)="openCleanupUnknownSongsHelpDialog()">?</a>):</label>
-  <input id="playlist-clean-unknown" type="checkbox">
+<div *ngIf="playlist.songDataLoaded">
+  <button id="playlist-cleanup-unknown-songs" (click)="cleanupUnknownSongs()" [disabled]="playlist.getUnknownSongs().length == 0">
+    Cleanup Unknown Songs
+  </button>
+
+  (<a href="javascript: void(0);" (click)="openCleanupUnknownSongsHelpDialog()">?</a>)
 </div>
 
 <div *ngIf="playlist.songDataLoaded" id="song-data-filter">

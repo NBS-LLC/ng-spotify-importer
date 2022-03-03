@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Song} from '../song';
-import {SpotifyService} from '../spotify.service';
-import {Playlist} from '../playlist';
-import {NotificationService} from '../notification/notification.service';
-import {MatDialog} from '@angular/material/dialog';
-import {SongDetailsComponent} from '../song-details/song-details.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CleanupUnknownSongsHelpComponent } from '../cleanup-unknown-songs-help/cleanup-unknown-songs-help.component';
+import { NotificationService } from '../notification/notification.service';
+import { Playlist } from '../playlist';
+import { Song } from '../song';
+import { SongDetailsComponent } from '../song-details/song-details.component';
+import { SpotifyService } from '../spotify.service';
 
 @Component({
   selector: 'app-playlist-editor',
@@ -41,6 +41,22 @@ export class PlaylistEditorComponent implements OnInit {
         this.songsDisplayed = this.playlist.getUnknownSongs();
         break;
     }
+  }
+
+  async cleanupUnknownSongs() {
+    // TODO: Disable the import playlist button.
+
+    for (const song of this.playlist.getUnknownSongs()) {
+      // TODO: Cleanup song titles and author names.
+      // TODO: Remove demo code.
+      if (song.title.includes('(')) {
+        song.title = 'Twilight vs Breathe';
+      }
+    }
+
+    await this.spotifyService.loadSongData(this.playlist.getUnknownSongs());
+
+    // TODO: Enable the import playlist button.
   }
 
   refreshSong(song: Song) {
