@@ -5,6 +5,7 @@ import {Playlist} from '../playlist';
 import {NotificationService} from '../notification/notification.service';
 import {MatDialog} from '@angular/material/dialog';
 import {SongDetailsComponent} from '../song-details/song-details.component';
+import { CleanupUnknownSongsHelpComponent } from '../cleanup-unknown-songs-help/cleanup-unknown-songs-help.component';
 
 @Component({
   selector: 'app-playlist-editor',
@@ -18,7 +19,7 @@ export class PlaylistEditorComponent implements OnInit {
   constructor(
     private spotifyService: SpotifyService,
     private notificationService: NotificationService,
-    private songDetailsDialog: MatDialog) {
+    private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -61,8 +62,12 @@ export class PlaylistEditorComponent implements OnInit {
   }
 
   openSongDetailsDialog(song: Song) {
-    this.songDetailsDialog.open(SongDetailsComponent, {
+    this.dialog.open(SongDetailsComponent, {
       data: song
     });
+  }
+
+  openCleanupUnknownSongsHelpDialog() {
+    this.dialog.open(CleanupUnknownSongsHelpComponent);
   }
 }

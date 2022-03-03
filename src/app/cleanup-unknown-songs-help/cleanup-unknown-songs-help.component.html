@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Help - Cleanup Unknown Songs</h1>
+
+<div mat-dialog-content>
+    <p>
+        Cleanup Unknown Songs is an experimental feature. When enabled it removes special characters from unknown song
+        titles and artist names.
+    </p>
+
+    <p>The idea being that the "cleaned up" songs will then be found (known).</p>
+
+    <p>
+        The following cleanup occurs on each unknown song:
+    </p>
+    <ul>
+        <li>the parenthesis portion of the song title is removed</li>
+        <li>the ampersand (&) portion from song title and artist name is removed</li>
+        <li>single quotes (') from the title and artist name are removed</li>
+        <li>the "featuring" portion of the song title is removed</li>
+    </ul>
+
+    <p>Credit to: <a href="https://github.com/lauhub">lauhub</a></p>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-dialog-close>Close</button>
+</div>
