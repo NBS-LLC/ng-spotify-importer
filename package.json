@@ -45,7 +45,7 @@
     "@angular/compiler-cli": "~10.2.5",
     "@types/he": "^1.1.1",
     "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
+    "@types/jasminewd2": "~2.0.10",
     "@types/node": "^12.11.1",
     "@types/papaparse": "^5.0.4",
     "@types/spotify-web-api-node": "^5.0.7",
