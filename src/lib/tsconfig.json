@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "types": [
+            "mocha"
+        ],
+        "target": "ES5",
+        "resolveJsonModule": true
+    }
+}

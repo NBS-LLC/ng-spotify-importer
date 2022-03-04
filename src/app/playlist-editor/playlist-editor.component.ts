@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { cleanupSong } from 'src/lib/song-utilities';
 import { CleanupUnknownSongsHelpComponent } from '../cleanup-unknown-songs-help/cleanup-unknown-songs-help.component';
 import { NotificationService } from '../notification/notification.service';
 import { Playlist } from '../playlist';
@@ -47,11 +48,9 @@ export class PlaylistEditorComponent implements OnInit {
     // TODO: Disable the import playlist button.
 
     for (const song of this.playlist.getUnknownSongs()) {
-      // TODO: Cleanup song titles and author names.
-      // TODO: Remove demo code.
-      if (song.title.includes('(')) {
-        song.title = 'Twilight vs Breathe';
-      }
+      const cleanSong = cleanupSong(song);
+      song.title = cleanSong.title;
+      song.artist = cleanSong.artist;
     }
 
     await this.spotifyService.loadSongData(this.playlist.getUnknownSongs());
