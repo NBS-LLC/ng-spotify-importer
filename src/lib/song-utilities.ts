@@ -9,11 +9,27 @@ import { Song } from '../app/song';
 export function cleanupSong(song: Song): Song {
     const cleanSong = { ...song };
 
-    cleanSong.title = removeParenthesisPortion(song.title);
+    cleanSong.title = removeParenthesisPortion(cleanSong.title);
+    cleanSong.title = removeAmpersandPortion(cleanSong.title);
+    cleanSong.title = normalizeSpaces(cleanSong.title);
 
     return cleanSong;
 }
 
 function removeParenthesisPortion(text: string) {
     return text.replace(/\([^)]*\)/g, '').trim();
+}
+
+function removeAmpersandPortion(text: string) {
+    const result = text.match(/(\w.*)(&.*$)/);
+
+    if (Array.isArray(result)) {
+        return result[1].trim();
+    }
+
+    return text;
+}
+
+function normalizeSpaces(text: string) {
+    return text.replace(/\s\s+/g, ' ').trim();
 }

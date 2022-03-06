@@ -26,5 +26,38 @@ describe('song-utilities', () => {
 
             assert.strictEqual(cleanSong.title, 'Sample Song Data');
         });
+
+        it('should remove the ampersand portion of the song title', () => {
+            const song: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data & This Should be Removed'
+            };
+
+            const cleanSong = cleanupSong(song);
+
+            assert.strictEqual(cleanSong.title, 'Sample Song Data');
+        });
+
+        it('should normalize spaces', () => {
+            const song: Song = {
+                artist: 'Unit Test',
+                title: '\tSample  Song Data   '
+            };
+
+            const cleanSong = cleanupSong(song);
+
+            assert.strictEqual(cleanSong.title, 'Sample Song Data');
+        });
+
+        it('should not the ampersand portion if its at the beginning of the song title', () => {
+            const song: Song = {
+                artist: 'Unit Test',
+                title: '& (This Should &be Removed) Sample Song Data'
+            };
+
+            const cleanSong = cleanupSong(song);
+
+            assert.strictEqual(cleanSong.title, '& Sample Song Data');
+        });
     });
 });
