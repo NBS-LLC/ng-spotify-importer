@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
         "types": [
+            "node",
             "mocha"
         ],
         "target": "ES5",

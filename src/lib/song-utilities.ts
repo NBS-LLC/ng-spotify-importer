@@ -11,6 +11,7 @@ export function cleanupSong(song: Song): Song {
 
     cleanSong.title = removeParenthesisPortion(cleanSong.title);
     cleanSong.title = removeAmpersandPortion(cleanSong.title);
+    cleanSong.artist = removeAmpersandPortion(cleanSong.artist);
     cleanSong.title = normalizeSpaces(cleanSong.title);
 
     return cleanSong;

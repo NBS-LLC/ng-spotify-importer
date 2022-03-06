@@ -5,6 +5,11 @@ import { cleanupSong } from './song-utilities';
 
 describe('song-utilities', () => {
     describe('cleanupSong()', () => {
+        const expectedSong: Song = {
+            artist: 'Unit Test',
+            title: 'Sample Song Data'
+        };
+
         it('should remove the parenthesis part of the song title', () => {
             const song: Song = {
                 artist: 'Unit Test',
@@ -12,8 +17,7 @@ describe('song-utilities', () => {
             };
 
             const cleanSong = cleanupSong(song);
-
-            assert.strictEqual(cleanSong.title, 'Sample Song Data');
+            assert.deepStrictEqual(cleanSong, expectedSong);
         });
 
         it('should not remove anything if parenthesis do not exist', () => {
@@ -23,8 +27,7 @@ describe('song-utilities', () => {
             };
 
             const cleanSong = cleanupSong(song);
-
-            assert.strictEqual(cleanSong.title, 'Sample Song Data');
+            assert.deepStrictEqual(cleanSong, expectedSong);
         });
 
         it('should remove the ampersand portion of the song title', () => {
@@ -34,8 +37,7 @@ describe('song-utilities', () => {
             };
 
             const cleanSong = cleanupSong(song);
-
-            assert.strictEqual(cleanSong.title, 'Sample Song Data');
+            assert.deepStrictEqual(cleanSong, expectedSong);
         });
 
         it('should normalize spaces', () => {
@@ -45,8 +47,7 @@ describe('song-utilities', () => {
             };
 
             const cleanSong = cleanupSong(song);
-
-            assert.strictEqual(cleanSong.title, 'Sample Song Data');
+            assert.deepStrictEqual(cleanSong, expectedSong);
         });
 
         it('should not the ampersand portion if its at the beginning of the song title', () => {
@@ -55,9 +56,10 @@ describe('song-utilities', () => {
                 title: '& (This Should &be Removed) Sample Song Data'
             };
 
-            const cleanSong = cleanupSong(song);
+            expectedSong.title = '& Sample Song Data';
 
-            assert.strictEqual(cleanSong.title, '& Sample Song Data');
+            const cleanSong = cleanupSong(song);
+            assert.deepStrictEqual(cleanSong, expectedSong);
         });
     });
 });
