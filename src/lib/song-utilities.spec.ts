@@ -109,5 +109,35 @@ describe('song-utilities', () => {
             const cleanSong = cleanupSong(song);
             assert.deepStrictEqual(cleanSong, expectedSong);
         });
+
+        it('should remove the single quotes from the song title', () => {
+            const song: Song = {
+                artist: 'Unit Test',
+                title: 'Sample \'Song\' Data\''
+            };
+
+            const expectedSong: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data'
+            };
+
+            const cleanSong = cleanupSong(song);
+            assert.deepStrictEqual(cleanSong, expectedSong);
+        });
+
+        it('should remove the single quotes from the artist name', () => {
+            const song: Song = {
+                artist: 'Unit \'Test',
+                title: 'Sample Song Data'
+            };
+
+            const expectedSong: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data'
+            };
+
+            const cleanSong = cleanupSong(song);
+            assert.deepStrictEqual(cleanSong, expectedSong);
+        });
     });
 });

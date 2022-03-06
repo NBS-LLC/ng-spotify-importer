@@ -12,6 +12,8 @@ export function cleanupSong(song: Song): Song {
     cleanSong.title = removeParenthesisPortion(cleanSong.title);
     cleanSong.title = removeAmpersandPortion(cleanSong.title);
     cleanSong.artist = removeAmpersandPortion(cleanSong.artist);
+    cleanSong.title = removeSingleQuote(cleanSong.title);
+    cleanSong.artist = removeSingleQuote(cleanSong.artist);
     cleanSong.title = normalizeSpaces(cleanSong.title);
 
     return cleanSong;
@@ -29,6 +31,10 @@ function removeAmpersandPortion(text: string) {
     }
 
     return text;
+}
+
+function removeSingleQuote(text: string) {
+    return text.replace(/'/g, '').trim();
 }
 
 function normalizeSpaces(text: string) {
