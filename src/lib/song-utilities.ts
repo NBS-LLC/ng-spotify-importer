@@ -9,39 +9,41 @@ import { Song } from '../app/song';
 export function cleanupSong(song: Song): Song {
     const cleanSong = { ...song };
 
-    cleanSong.title = removeParenthesisPortion(cleanSong.title);
-    cleanSong.title = removeAmpersandPortion(cleanSong.title);
-    cleanSong.artist = removeAmpersandPortion(cleanSong.artist);
-    cleanSong.title = removeSingleQuote(cleanSong.title);
-    cleanSong.artist = removeSingleQuote(cleanSong.artist);
-    cleanSong.title = removeFeaturingPortion(cleanSong.title);
-    cleanSong.title = normalizeSpaces(cleanSong.title);
+    removeParenthesisPortion(cleanSong);
+    removeAmpersandPortion(cleanSong);
+    removeFeaturingPortion(cleanSong);
+    removeSingleQuote(cleanSong);
+    normalizeSpaces(cleanSong);
 
     return cleanSong;
 }
 
-function removeParenthesisPortion(text: string) {
-    return text.replace(/\([^)]*\)/g, '').trim();
+function removeParenthesisPortion(song: Song) {
+    song.artist = song.artist.replace(/\([^)]*\)/g, '');
+    song.title = song.title.replace(/\([^)]*\)/g, '');
 }
 
-function removeAmpersandPortion(text: string) {
-    const result = text.match(/(\w.*)(&.*$)/);
-
-    if (Array.isArray(result)) {
-        return result[1].trim();
-    }
-
-    return text;
+function removeAmpersandPortion(song: Song) {
+    const keys = ['artist', 'title'];
+    keys.forEach(key => {
+        const result = song[key].match(/([^&]+)(&.*$)/);
+        if (Array.isArray(result)) {
+            song[key] = result[1];
+        }
+    });
 }
 
-function removeFeaturingPortion(text: string) {
-    return text.replace(/(feat\.|featuring).*/i, '').trim();
+function removeFeaturingPortion(song: Song) {
+    song.artist = song.artist.replace(/(feat\.|featuring).*/i, '');
+    song.title = song.title.replace(/(feat\.|featuring).*/i, '');
 }
 
-function removeSingleQuote(text: string) {
-    return text.replace(/'/g, '').trim();
+function removeSingleQuote(song: Song) {
+    song.artist = song.artist.replace(/'/g, '');
+    song.title = song.title.replace(/'/g, '');
 }
 
-function normalizeSpaces(text: string) {
-    return text.replace(/\s\s+/g, ' ').trim();
+function normalizeSpaces(song: Song) {
+    song.artist = song.artist.replace(/\s\s+/g, ' ').trim();
+    song.title = song.title.replace(/\s\s+/g, ' ').trim();
 }

@@ -126,6 +126,17 @@ describe('song-utilities', () => {
                     artist: 'Unit Test',
                     title: 'Sample Song Data'
                 }
+            },
+            {
+                name: 'should cleanup a mix of special characters',
+                input: {
+                    artist: '&&& Unit (&) Test (& Remove &)',
+                    title: '(& Remove) Sample Song Data &(Remove This) Featuring This Should be Removed'
+                },
+                expected: {
+                    artist: '&&& Unit Test',
+                    title: 'Sample Song Data'
+                }
             }
         ];
 
