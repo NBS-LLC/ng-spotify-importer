@@ -139,5 +139,35 @@ describe('song-utilities', () => {
             const cleanSong = cleanupSong(song);
             assert.deepStrictEqual(cleanSong, expectedSong);
         });
+
+        it('should remove the feat. (featuring) portion of the song title', () => {
+            const song: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data Feat. This Should be Removed'
+            };
+
+            const expectedSong: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data'
+            };
+
+            const cleanSong = cleanupSong(song);
+            assert.deepStrictEqual(cleanSong, expectedSong);
+        });
+
+        it('should remove the featuring portion of the song title', () => {
+            const song: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data Featuring This Should be Removed'
+            };
+
+            const expectedSong: Song = {
+                artist: 'Unit Test',
+                title: 'Sample Song Data'
+            };
+
+            const cleanSong = cleanupSong(song);
+            assert.deepStrictEqual(cleanSong, expectedSong);
+        });
     });
 });

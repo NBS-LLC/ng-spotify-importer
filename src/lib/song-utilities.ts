@@ -14,6 +14,7 @@ export function cleanupSong(song: Song): Song {
     cleanSong.artist = removeAmpersandPortion(cleanSong.artist);
     cleanSong.title = removeSingleQuote(cleanSong.title);
     cleanSong.artist = removeSingleQuote(cleanSong.artist);
+    cleanSong.title = removeFeaturingPortion(cleanSong.title);
     cleanSong.title = normalizeSpaces(cleanSong.title);
 
     return cleanSong;
@@ -31,6 +32,10 @@ function removeAmpersandPortion(text: string) {
     }
 
     return text;
+}
+
+function removeFeaturingPortion(text: string) {
+    return text.replace(/(feat\.|featuring).*/i, '').trim();
 }
 
 function removeSingleQuote(text: string) {
