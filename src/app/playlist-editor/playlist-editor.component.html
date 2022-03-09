@@ -1,6 +1,6 @@
 <h2>Songs - {{playlist.getPlaylistName()}}</h2>
 
-<button id="playlist-import" *ngIf="playlist.songDataLoaded" (click)="importPlaylist()" [disabled]="playlist.getKnownSongs().length == 0">
+<button id="playlist-import" *ngIf="playlist.songDataLoaded" (click)="importPlaylist()" [disabled]="!importEnabled || playlist.getKnownSongs().length == 0">
   Import Playlist
 </button>
 
@@ -11,7 +11,7 @@
 </div>
 
 <div *ngIf="playlist.songDataLoaded">
-  <button id="playlist-cleanup-unknown-songs" (click)="cleanupUnknownSongs()" [disabled]="playlist.getUnknownSongs().length == 0">
+  <button id="playlist-cleanup-unknown-songs" (click)="cleanupUnknownSongs()" [disabled]="!cleanupEnabled || playlist.getUnknownSongs().length == 0">
     Cleanup Unknown Songs
   </button>
 

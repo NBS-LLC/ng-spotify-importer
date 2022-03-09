@@ -16,6 +16,8 @@ import { SpotifyService } from '../spotify.service';
 export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
   songsDisplayed: Song[];
+  importEnabled = true;
+  cleanupEnabled = true;
 
   constructor(
     private spotifyService: SpotifyService,
@@ -45,7 +47,8 @@ export class PlaylistEditorComponent implements OnInit {
   }
 
   async cleanupUnknownSongs() {
-    // TODO: Disable the import playlist button.
+    this.importEnabled = false;
+    this.cleanupEnabled = false;
 
     for (const song of this.playlist.getUnknownSongs()) {
       const cleanSong = cleanupSong(song);
@@ -55,7 +58,8 @@ export class PlaylistEditorComponent implements OnInit {
 
     await this.spotifyService.loadSongData(this.playlist.getUnknownSongs());
 
-    // TODO: Enable the import playlist button.
+    this.cleanupEnabled = true;
+    this.importEnabled = true;
   }
 
   refreshSong(song: Song) {
