@@ -1,7 +1,4 @@
-import * as assert from 'assert';
-import { Song } from '../app/song';
 import { cleanupSong } from './song-utilities';
-
 
 describe('song-utilities', () => {
     describe('cleanupSong()', () => {
@@ -143,7 +140,7 @@ describe('song-utilities', () => {
         data.forEach(testData => {
             it(testData.name, () => {
                 const cleanSong = cleanupSong(testData.input);
-                assert.deepStrictEqual(cleanSong, testData.expected);
+                expect(cleanSong).toEqual(testData.expected);
             });
         });
     });
