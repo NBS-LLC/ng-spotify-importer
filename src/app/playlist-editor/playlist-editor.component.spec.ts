@@ -83,9 +83,7 @@ describe('PlaylistEditorComponent', () => {
         { provide: SpotifyService, useValue: loadSongDataSpy }
       ]
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
     fixture = TestBed.createComponent(PlaylistEditorComponent);
     component = fixture.componentInstance;
