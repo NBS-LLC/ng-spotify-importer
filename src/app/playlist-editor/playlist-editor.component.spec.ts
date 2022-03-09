@@ -2,9 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import SpotifyWebApi from 'spotify-web-api-js';
 import { Playlist } from '../playlist';
 import { Song } from '../song';
+import { SpotifyService } from '../spotify.service';
 import { PlaylistEditorComponent } from './playlist-editor.component';
 
 
@@ -33,15 +33,11 @@ class MockPlaylist implements Playlist {
     this.playlistName = name;
   }
 
-  reset() {
-    this.songDataLoaded = false;
-    this.songs = [];
-  }
-
   loadMix() {
     this.songs = [
       { artist: 'Unit Test 01', title: 'Sample Song 01', uri: 'http://example.com/unit_test_01-sample_song_01' },
-      { artist: 'Unit Test 02', title: 'Sample Song 02' }
+      { artist: 'Unit Test 02', title: 'Sample Song 02' },
+      { artist: 'Unit Test 03 & Should be Removed', title: 'Sample Song 03 (Should be Removed)' }
     ];
 
     this.songDataLoaded = true;
@@ -69,8 +65,11 @@ class MockPlaylist implements Playlist {
 describe('PlaylistEditorComponent', () => {
   let component: PlaylistEditorComponent;
   let fixture: ComponentFixture<PlaylistEditorComponent>;
+  let spotifyServiceSpy: jasmine.SpyObj<SpotifyService>;
 
   beforeEach(() => {
+    const loadSongDataSpy = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
+
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule,
@@ -81,12 +80,13 @@ describe('PlaylistEditorComponent', () => {
         PlaylistEditorComponent
       ],
       providers: [
-        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
+        { provide: SpotifyService, useValue: loadSongDataSpy }
       ]
     }).compileComponents();
   });
 
   beforeEach(() => {
+    spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
     fixture = TestBed.createComponent(PlaylistEditorComponent);
     component = fixture.componentInstance;
     component.playlist = new MockPlaylist();
@@ -143,5 +143,26 @@ describe('PlaylistEditorComponent', () => {
     const cleanupUnknownSongsElement: HTMLButtonElement = componentElement.querySelector('#playlist-cleanup-unknown-songs');
     expect(cleanupUnknownSongsElement).not.toBeNull();
     expect(cleanupUnknownSongsElement.disabled).toBeTruthy();
+  });
+
+  it('should cleanup unknown songs only', async () => {
+    const testData = new MockPlaylist();
+    testData.loadMix();
+    component.playlist = testData;
+    fixture.detectChanges();
+
+    await component.cleanupUnknownSongs();
+
+    expect(spotifyServiceSpy.loadSongData).toHaveBeenCalledTimes(1);
+    expect(spotifyServiceSpy.loadSongData).toHaveBeenCalledWith(testData.getUnknownSongs());
+    expect(component.playlist.getSongs()).toEqual([
+      { artist: 'Unit Test 01', title: 'Sample Song 01', uri: 'http://example.com/unit_test_01-sample_song_01' },
+      { artist: 'Unit Test 02', title: 'Sample Song 02' }, // Nothing to cleanup
+      { artist: 'Unit Test 03', title: 'Sample Song 03' } // Cleaned up
+    ]);
+  });
+
+  it('should temporarily disable import and cleanup while cleaning up songs', () => {
+    throw new Error('test not implemented');
   });
 });
