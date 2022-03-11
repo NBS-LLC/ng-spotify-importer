@@ -62,6 +62,11 @@ class MockPlaylist implements Playlist {
   }
 }
 
+function getElementByCSS(cssQuery: string, fixture: ComponentFixture<unknown>): HTMLElement {
+  const componentElement: HTMLElement = fixture.nativeElement;
+  return componentElement.querySelector(cssQuery);
+}
+
 describe('PlaylistEditorComponent', () => {
   let component: PlaylistEditorComponent;
   let fixture: ComponentFixture<PlaylistEditorComponent>;
@@ -101,8 +106,7 @@ describe('PlaylistEditorComponent', () => {
     component.playlist = testData;
     fixture.detectChanges();
 
-    const componentElement: HTMLElement = fixture.nativeElement;
-    const playlistImportElement: HTMLButtonElement = componentElement.querySelector('#playlist-import');
+    const playlistImportElement = getElementByCSS('#playlist-import', fixture) as HTMLButtonElement;
     expect(playlistImportElement).not.toBeNull();
     expect(playlistImportElement.disabled).toBeFalsy();
   });
@@ -113,8 +117,7 @@ describe('PlaylistEditorComponent', () => {
     component.playlist = testData;
     fixture.detectChanges();
 
-    const componentElement: HTMLElement = fixture.nativeElement;
-    const playlistImportElement: HTMLButtonElement = componentElement.querySelector('#playlist-import');
+    const playlistImportElement = getElementByCSS('#playlist-import', fixture) as HTMLButtonElement;
     expect(playlistImportElement).not.toBeNull();
     expect(playlistImportElement.disabled).toBeTruthy();
   });
@@ -125,8 +128,7 @@ describe('PlaylistEditorComponent', () => {
     component.playlist = testData;
     fixture.detectChanges();
 
-    const componentElement: HTMLElement = fixture.nativeElement;
-    const cleanupUnknownSongsElement: HTMLButtonElement = componentElement.querySelector('#playlist-cleanup-unknown-songs');
+    const cleanupUnknownSongsElement = getElementByCSS('#playlist-cleanup-unknown-songs', fixture) as HTMLButtonElement;
     expect(cleanupUnknownSongsElement).not.toBeNull();
     expect(cleanupUnknownSongsElement.disabled).toBeFalsy();
   });
@@ -137,8 +139,7 @@ describe('PlaylistEditorComponent', () => {
     component.playlist = testData;
     fixture.detectChanges();
 
-    const componentElement: HTMLElement = fixture.nativeElement;
-    const cleanupUnknownSongsElement: HTMLButtonElement = componentElement.querySelector('#playlist-cleanup-unknown-songs');
+    const cleanupUnknownSongsElement = getElementByCSS('#playlist-cleanup-unknown-songs', fixture) as HTMLButtonElement;
     expect(cleanupUnknownSongsElement).not.toBeNull();
     expect(cleanupUnknownSongsElement.disabled).toBeTruthy();
   });
@@ -160,7 +161,31 @@ describe('PlaylistEditorComponent', () => {
     ]);
   });
 
-  it('should temporarily disable import and cleanup while cleaning up songs', () => {
-    throw new Error('test not implemented');
+  it('should temporarily disable import and cleanup while cleaning up songs', async () => {
+    const testData = new MockPlaylist();
+    testData.loadMix();
+    component.playlist = testData;
+    fixture.detectChanges();
+
+    const playlistImportElement = getElementByCSS('#playlist-import', fixture) as HTMLButtonElement;
+    expect(playlistImportElement).not.toBeNull();
+    expect(playlistImportElement.disabled).toBeFalsy();
+
+    const cleanupUnknownSongsElement = getElementByCSS('#playlist-cleanup-unknown-songs', fixture) as HTMLButtonElement;
+    expect(cleanupUnknownSongsElement).not.toBeNull();
+    expect(cleanupUnknownSongsElement.disabled).toBeFalsy();
+
+    spotifyServiceSpy.loadSongData.and.callFake(async () => {
+      fixture.detectChanges();
+      expect(playlistImportElement.disabled).toBeTruthy();
+      expect(cleanupUnknownSongsElement.disabled).toBeTruthy();
+      return Promise.resolve();
+    });
+
+    await component.cleanupUnknownSongs();
+    fixture.detectChanges();
+
+    expect(playlistImportElement.disabled).toBeFalsy();
+    expect(cleanupUnknownSongsElement.disabled).toBeFalsy();
   });
 });
