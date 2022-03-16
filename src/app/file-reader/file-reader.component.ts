@@ -1,4 +1,5 @@
-import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { readPlaylist } from 'src/lib/playlist-file-reader';
 
 @Component({
   selector: 'app-file-reader',
@@ -21,21 +22,13 @@ export class FileReaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  handleFileInput($event: Event) {
+  async handleFileInput($event: Event) {
     this.fileChanged.emit();
 
-    const files: FileList = ($event.target as HTMLInputElement).files;
-    if (files && files.item(0)) {
-      const fileReader = new FileReader();
-
-      fileReader.onload = (readerEvent) => {
-        if (typeof readerEvent.target.result === 'string') {
-          const contents = readerEvent.target.result.split(',')[1];
-          this.fileContents.emit({contents, name: files.item(0).name, type: this.fileType});
-        }
-      };
-
-      fileReader.readAsDataURL(files.item(0));
+    const file = ($event.target as HTMLInputElement).files.item(0);
+    if (file) {
+      const contents = await readPlaylist(file);
+      this.fileContents.emit({ contents, name: file.name, type: this.fileType });
     }
   }
 
