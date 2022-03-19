@@ -4,12 +4,12 @@ export function readPlaylist(playlist: File): Promise<string> {
 
         fileReader.onload = (readerEvent) => {
             if (typeof readerEvent.target.result === 'string') {
-                resolve(readerEvent.target.result.split(',')[1]);
+                resolve(readerEvent.target.result);
             }
         };
 
         fileReader.onerror = reject;
 
-        fileReader.readAsDataURL(playlist);
+        fileReader.readAsText(playlist);
     });
 }
