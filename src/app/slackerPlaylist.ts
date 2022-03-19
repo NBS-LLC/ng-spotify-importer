@@ -1,7 +1,7 @@
 import { XMLParser } from 'fast-xml-parser';
-import { Song } from './song';
 import { decode } from 'he';
 import { Playlist } from './playlist';
+import { Song } from './song';
 
 export class SlackerPlaylist implements Playlist {
   static songs: Song[] = [];
@@ -16,7 +16,7 @@ export class SlackerPlaylist implements Playlist {
 
     const options = {
       ignoreAttributes: false,
-      attrValueProcessor: value => decodeURIComponent(escape(decode(value))),
+      attributeValueProcessor: (name, value, path) => decode(value),
     };
 
     const parser = new XMLParser(options);

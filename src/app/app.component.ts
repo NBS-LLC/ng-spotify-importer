@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
   songsLoaded = { count: 0 };
 
   @ViewChild(FileReaderComponent)
-  private fileReader: FileReaderComponent;
+  fileReader: FileReaderComponent;
 
   @ViewChild(PlaylistEditorComponent)
-  private playlistEditor: PlaylistEditorComponent;
+  playlistEditor: PlaylistEditorComponent;
 
   constructor(private spotifyService: SpotifyService, private notificationService: NotificationService) {
   }
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     switch (playlist.type) {
       case 'csv': {
         try {
-          this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
+          this.playlist = new CsvPlaylist(playlist.contents, playlist.name);
         } catch (e) {
           this.notificationService.error('ERROR: Invalid CSV playlist.');
           throw e;
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
 
       case 'slacker': {
         try {
-          this.playlist = new SlackerPlaylist(atob(playlist.contents));
+          this.playlist = new SlackerPlaylist(playlist.contents);
         } catch (e) {
           this.notificationService.error('ERROR: Invalid Slacker playlist.');
           throw e;
