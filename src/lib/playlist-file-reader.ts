@@ -1,5 +1,5 @@
 /**
- * Read the contents of a playlist file from the browser
+ * Read the contents of a playlist file from the browser.
  *
  * @async
  * @param playlist The file usually from an HTMLInputElement
