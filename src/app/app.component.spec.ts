@@ -46,7 +46,7 @@ describe('AppComponent', () => {
     expect(component.title).toEqual('NG Spotify Importer');
   });
 
-  it('should handle unicode slacker playlists', async () => {
+  it('should handle unicode slacker playlists', () => {
     const contents = `
     <?xml version="1.0" encoding="UTF-8" ?>
     <Playlist name='Example - Special Characters'>
@@ -64,13 +64,13 @@ describe('AppComponent', () => {
     </Playlist>
     `.trim();
 
-    component.onFileRead({ contents, name: 'Unit Test - Base64 XML Playlist', type: 'slacker' });
+    component.onFileRead({ contents, name: 'Unit Test - Unicode Slacker Playlist', type: 'slacker' });
 
     const songs = spotifyServiceSpy.loadSongData.calls.mostRecent().args[0];
     expect(songs[3].artist).toEqual('Rüfüs Du Sol');
   });
 
-  it('should handle html entities inside slacker playlists', async () => {
+  it('should handle html entities inside slacker playlists', () => {
     const contents = `
     <?xml version="1.0" encoding="UTF-8" ?>
     <Playlist name='Example - Special Characters'>
@@ -88,7 +88,36 @@ describe('AppComponent', () => {
     </Playlist>
     `.trim();
 
-    component.onFileRead({ contents, name: 'Unit Test - Base64 XML Playlist', type: 'slacker' });
+    component.onFileRead({ contents, name: 'Unit Test - HTML Entity Slacker Playlist', type: 'slacker' });
+
+    const songs = spotifyServiceSpy.loadSongData.calls.mostRecent().args[0];
+    expect(songs[2].title).toEqual('Twilight vs Breathe (§)');
+    expect(songs[2].artist).toEqual('Adam K & Soha');
+  });
+
+  it('should handle unicode csv playlists', () => {
+    const contents =
+      'Title,Artist\n' +
+      'Electric Love [Oliver Remix],BØRNS\n' +
+      'XXX 88,MØ\n' +
+      'Twilight vs Breathe (Jack Trades Remix),Adam K &amp; Soha\n' +
+      'No Place,Rüfüs Du Sol';
+
+    component.onFileRead({ contents, name: 'Unit Test - Unicode CSV Playlist', type: 'csv' });
+
+    const songs = spotifyServiceSpy.loadSongData.calls.mostRecent().args[0];
+    expect(songs[3].artist).toEqual('Rüfüs Du Sol');
+  });
+
+  it('should handle unicode csv playlists', () => {
+    const contents =
+      'Title,Artist\n' +
+      'Electric Love [Oliver Remix],BØRNS\n' +
+      'XXX 88,MØ\n' +
+      'Twilight vs Breathe (&sect;),Adam K &amp; Soha\n' +
+      'No Place,Rüfüs Du Sol';
+
+    component.onFileRead({ contents, name: 'Unit Test - HTML Entity CSV Playlist', type: 'csv' });
 
     const songs = spotifyServiceSpy.loadSongData.calls.mostRecent().args[0];
     expect(songs[2].title).toEqual('Twilight vs Breathe (§)');
