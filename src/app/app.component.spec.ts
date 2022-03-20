@@ -17,7 +17,7 @@ describe('AppComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([]),
+        RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
         HttpClientModule
       ],
       declarations: [

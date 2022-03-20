@@ -17,7 +17,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot([]),
+    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
