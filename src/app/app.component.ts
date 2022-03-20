@@ -68,8 +68,6 @@ export class AppComponent implements OnInit {
 
     this.songs = this.playlist.getSongs();
 
-    console.log(`onFileRead: ${this.songs.length} songs parsed`);
-
     this.fileReader.fileInputDisabled = true;
     this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
       this.playlist.songDataLoaded = true;
