@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import * as appInfo from './app-info';
 import { CsvPlaylist } from './csvPlaylist';
 import { FileReaderComponent } from './file-reader/file-reader.component';
 import { NotificationService } from './notification/notification.service';
@@ -15,7 +16,7 @@ import { SpotifyService } from './spotify.service';
 })
 export class AppComponent implements OnInit {
   title = `NG Spotify Importer`;
-  version = '@APP_VERSION@';
+  version = appInfo.version;
   projectUrl = 'https://github.com/NBS-LLC/ng-spotify-importer';
   releaseUrl = null;
   showPlaylistLoader = false;

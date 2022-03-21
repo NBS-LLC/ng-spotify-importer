@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve & echo $! > .ng-serve.pid",
     "stop": "kill $(cat .ng-serve.pid)",
-    "inject-version": "cross-var replace -s \"@VERSION@\" $npm_package_version src/app/app.component.ts",
+    "inject-version": "cross-var replace \"@APP_VERSION@\" $npm_package_version src/app/app-info.ts",
     "build": "ng build --configuration=$ENVIRONMENT --base-href /projects/ng-spotify-importer/",
     "test": "ng test",
     "lint": "ng lint",
