@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { version as _version } from '../../package.json';
+import * as appInfo from './app-info';
 import { CsvPlaylist } from './csvPlaylist';
 import { FileReaderComponent } from './file-reader/file-reader.component';
 import { NotificationService } from './notification/notification.service';
@@ -16,7 +16,7 @@ import { SpotifyService } from './spotify.service';
 })
 export class AppComponent implements OnInit {
   title = `NG Spotify Importer`;
-  version = _version;
+  version = appInfo.version;
   projectUrl = 'https://github.com/NBS-LLC/ng-spotify-importer';
   releaseUrl = null;
   showPlaylistLoader = false;
@@ -84,6 +84,7 @@ export class AppComponent implements OnInit {
   }
 
   private isLocalBuild(): boolean {
-    return this.version === '0.0.0';
+    const localBuildTags = ['@APP_VERSION@', '0.0.0'];
+    return localBuildTags.includes(this.version);
   }
 }
