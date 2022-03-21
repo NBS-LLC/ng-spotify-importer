@@ -46,8 +46,8 @@ jobs:
       - name: Inject Version
         if: github.ref_type == 'tag'
         run: |
-          npm --no-git-tag-version version $GITHUB_REF_NAME
-          npm run inject-version
+          npm version:update &&
+          npm version:inject
       - name: Deploy to Staging
         run: |
           npm install &&
