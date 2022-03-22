@@ -9,7 +9,6 @@
     "version:inject": "cross-var replace \"@APP_VERSION@\" $npm_package_version src/app/app-info.ts",
     "build": "ng build --configuration=$ENVIRONMENT --base-href /projects/ng-spotify-importer/",
     "test": "ng test",
-    "lint": "ng lint",
     "e2e": "wdio run e2e/wdio.conf.ts --autoCompileOpts.tsNodeOpts.project=e2e/tsconfig.json",
     "e2e:unit": "TS_NODE_PROJECT=e2e/tsconfig.json mocha -r ts-node/register e2e/**/*.spec.ts",
     "e2e:debug": "DEBUG=true npm run e2e",
