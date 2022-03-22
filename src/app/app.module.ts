@@ -15,29 +15,26 @@ import {HttpClientModule} from '@angular/common/http';
 import SpotifyWebApi from 'spotify-web-api-js';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
-    FormsModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    HttpClientModule,
-  ],
-  declarations: [
-    AppComponent,
-    SpotifyAuthComponent,
-    PlaylistEditorComponent,
-    FileReaderComponent,
-    NotificationComponent,
-    SongDetailsComponent
-  ],
-  entryComponents: [
-    SongDetailsComponent
-  ],
-  providers: [
-    {provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi}
-  ],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
+        FormsModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        HttpClientModule,
+    ],
+    declarations: [
+        AppComponent,
+        SpotifyAuthComponent,
+        PlaylistEditorComponent,
+        FileReaderComponent,
+        NotificationComponent,
+        SongDetailsComponent
+    ],
+    providers: [
+        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
