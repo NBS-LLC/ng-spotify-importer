@@ -56,3 +56,9 @@ jobs:
           npm run deploy
       - name: Run Deploy Tests
         run: npm run deploy:test
+      - name: Save Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: deploy-test-results
+          path: e2e/output/
+          if-no-files-found: ignore
