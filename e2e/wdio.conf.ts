@@ -256,7 +256,7 @@ export const config: WebdriverIO.Config = {
             const filename = getFailureScreenshotFilename(test);
             const fullPath = dirname(__filename) + '/output/' + filename;
             await browser.saveScreenshot(fullPath);
-            log.info(`Screenshot saved to: ${fullPath}.`);
+            log.warn(`Failure screenshot saved to: ${fullPath}.`);
         }
     },
 
