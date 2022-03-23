@@ -1,5 +1,6 @@
 import logger from '@wdio/logger';
 import { dirname } from 'path';
+import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
 import { testDataManager } from './test/support/test-data-manager';
 
@@ -252,7 +253,7 @@ export const config: WebdriverIO.Config = {
      */
     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
-            const filename = `${test.parent}_${test.title}_failure_${Date.now()}.png`;
+            const filename = getFailureScreenshotFilename(test);
             const fullPath = dirname(__filename) + '/output/' + filename;
             await browser.saveScreenshot(fullPath);
             log.info(`Screenshot saved to: ${fullPath}.`);
