@@ -83,7 +83,8 @@ export const config: WebdriverIO.Config = {
             binary: process.env['CHROME_BIN'],
             args: [
                 ...CI ? ['headless'] : [],
-                'disable-gpu'
+                'disable-gpu',
+                'window-size=1920,1080'
             ]
         }
     }],
