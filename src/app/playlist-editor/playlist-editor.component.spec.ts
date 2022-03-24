@@ -7,7 +7,6 @@ import { Song } from '../song';
 import { SpotifyService } from '../spotify.service';
 import { PlaylistEditorComponent } from './playlist-editor.component';
 
-
 class MockPlaylist implements Playlist {
   playlistName: string;
   songDataLoaded = false;

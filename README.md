@@ -1,10 +1,10 @@
 # NgSlackerToSpotify
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7 and upgraded to version 10.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7 and upgraded to version 13.
 
 ## Prerequisites
 
-* Node 14 LTS - not compatible with newer versions
+* Node 14 / npm 7 - not compatible with newer versions
 * Chrome or Chromium - ensure CHROME_BIN env var is exported
 
 Note: Chrom* must match the [version](https://www.chromium.org/getting-involved/download-chromium) of the ChromeDriver. Firewall warnings on macOS can be fixed by [signing](https://github.com/puppeteer/puppeteer/issues/4752#issuecomment-586599843) the app.

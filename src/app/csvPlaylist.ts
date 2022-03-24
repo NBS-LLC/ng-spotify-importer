@@ -1,7 +1,7 @@
-import {Song} from './song';
-import {parse, ParseConfig, ParseResult} from 'papaparse';
-import {Playlist} from './playlist';
-import {decode} from 'he';
+import { decode } from 'he';
+import { parse, ParseConfig, ParseResult } from 'papaparse';
+import { Playlist } from './playlist';
+import { Song } from './song';
 
 export class CsvPlaylist implements Playlist {
   static songs: Song[] = [];
@@ -18,7 +18,7 @@ export class CsvPlaylist implements Playlist {
       header: true,
       skipEmptyLines: true,
       transformHeader: header => header.toUpperCase(),
-      transform: value => decodeURIComponent(escape(decode(value))),
+      transform: value => decode(value),
     };
 
     this.csv = parse(playlistCsv, options);
@@ -42,7 +42,7 @@ export class CsvPlaylist implements Playlist {
     if (CsvPlaylist.songs.length === 0) {
       for (const songData of this.csv.data) {
         // tslint:disable-next-line:no-string-literal
-        CsvPlaylist.songs.push({title: songData['TITLE'], artist: songData['ARTIST']});
+        CsvPlaylist.songs.push({ title: songData['TITLE'], artist: songData['ARTIST'] });
       }
     }
 

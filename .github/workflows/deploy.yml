@@ -28,6 +28,8 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
+      - name: Install NPM v7
+        run: npm install -g npm@7
       - name: Install Chromium
         run: | 
           curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
@@ -45,10 +47,19 @@ jobs:
             ${{ runner.os }}-
       - name: Inject Version
         if: github.ref_type == 'tag'
-        run: npm --no-git-tag-version version $GITHUB_REF_NAME
+        run: |
+          npm version:update &&
+          npm version:inject
       - name: Deploy to Staging
         run: |
           npm install &&
           npm run deploy
       - name: Run Deploy Tests
         run: npm run deploy:test
+      - name: Save Test Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: deploy-test-results
+          path: e2e/output/
+          if-no-files-found: ignore

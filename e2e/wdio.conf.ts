@@ -1,5 +1,6 @@
 import logger from '@wdio/logger';
 import { dirname } from 'path';
+import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
 import { testDataManager } from './test/support/test-data-manager';
 
@@ -82,7 +83,8 @@ export const config: WebdriverIO.Config = {
             binary: process.env['CHROME_BIN'],
             args: [
                 ...CI ? ['headless'] : [],
-                'disable-gpu'
+                'disable-gpu',
+                'window-size=1920,1080'
             ]
         }
     }],
@@ -252,7 +254,10 @@ export const config: WebdriverIO.Config = {
      */
     afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         if (!passed) {
-            await browser.takeScreenshot();
+            const filename = getFailureScreenshotFilename(test);
+            const fullPath = dirname(__filename) + '/output/' + filename;
+            await browser.saveScreenshot(fullPath);
+            log.warn(`Failure screenshot saved to: ${fullPath}.`);
         }
     },
 

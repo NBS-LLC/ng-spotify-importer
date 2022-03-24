@@ -1,19 +1,19 @@
-import {async, TestBed} from '@angular/core/testing';
-
-import {SpotifyService} from './spotify.service';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { SpotifyService } from './spotify.service';
+
 
 describe('SpotifyService', () => {
   let service: SpotifyService;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule
       ],
       providers: [
-        {provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi}
+        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
       ]
     }).compileComponents();
     service = TestBed.inject(SpotifyService);

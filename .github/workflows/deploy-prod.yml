@@ -25,6 +25,8 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
+      - name: Install NPM v7
+        run: npm install -g npm@7
       - name: Cache Node Modules
         uses: actions/cache@v2
         env:
@@ -38,7 +40,9 @@ jobs:
             ${{ runner.os }}-
       - name: Inject Version
         if: github.ref_type == 'tag'
-        run: npm --no-git-tag-version version $GITHUB_REF_NAME
+        run: |
+          npm version:update &&
+          npm version:inject
       - name: Deploy to Production
         run: |
           npm install &&

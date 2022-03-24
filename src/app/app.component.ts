@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { version as _version } from '../../package.json';
+import * as appInfo from './app-info';
 import { CsvPlaylist } from './csvPlaylist';
 import { FileReaderComponent } from './file-reader/file-reader.component';
 import { NotificationService } from './notification/notification.service';
@@ -16,7 +16,7 @@ import { SpotifyService } from './spotify.service';
 })
 export class AppComponent implements OnInit {
   title = `NG Spotify Importer`;
-  version = _version;
+  version = appInfo.version;
   projectUrl = 'https://github.com/NBS-LLC/ng-spotify-importer';
   releaseUrl = null;
   showPlaylistLoader = false;
@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
   songsLoaded = { count: 0 };
 
   @ViewChild(FileReaderComponent)
-  private fileReader: FileReaderComponent;
+  fileReader: FileReaderComponent;
 
   @ViewChild(PlaylistEditorComponent)
-  private playlistEditor: PlaylistEditorComponent;
+  playlistEditor: PlaylistEditorComponent;
 
   constructor(private spotifyService: SpotifyService, private notificationService: NotificationService) {
   }
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     switch (playlist.type) {
       case 'csv': {
         try {
-          this.playlist = new CsvPlaylist(atob(playlist.contents), playlist.name);
+          this.playlist = new CsvPlaylist(playlist.contents, playlist.name);
         } catch (e) {
           this.notificationService.error('ERROR: Invalid CSV playlist.');
           throw e;
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
 
       case 'slacker': {
         try {
-          this.playlist = new SlackerPlaylist(atob(playlist.contents));
+          this.playlist = new SlackerPlaylist(playlist.contents);
         } catch (e) {
           this.notificationService.error('ERROR: Invalid Slacker playlist.');
           throw e;
@@ -67,8 +67,6 @@ export class AppComponent implements OnInit {
     }
 
     this.songs = this.playlist.getSongs();
-
-    console.log(`onFileRead: ${this.songs.length} songs parsed`);
 
     this.fileReader.fileInputDisabled = true;
     this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
@@ -86,6 +84,7 @@ export class AppComponent implements OnInit {
   }
 
   private isLocalBuild(): boolean {
-    return this.version === '0.0.0';
+    const localBuildTags = ['@APP_VERSION@', '0.0.0'];
+    return localBuildTags.includes(this.version);
   }
 }
