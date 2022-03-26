@@ -27,18 +27,15 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 
 ## Running end-to-end tests
 
-To execute the end-to-end tests via [WDIO](http://webdriver.io):
+Run `npm run e2e` to execute the end-to-end tests via [WDIO](http://webdriver.io).
 
-```shell
-npm start
-npm run e2e
-```
+Test configuration is based on the following environment variables:
 
-Make sure to shutdown the local webserver when done:
-
-```shell
-npm stop
-```
+* CHROME_BIN
+* PRIMARY_SPOTIFY_USERNAME
+* PRIMARY_SPOTIFY_PASSWORD
+* SPOTIFY_CLIENT_ID
+* SPOTIFY_CLIENT_SECRET
 
 ## Deploy
 
