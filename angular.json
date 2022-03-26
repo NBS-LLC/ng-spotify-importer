@@ -117,14 +117,9 @@
           }
         },
         "e2e": {
-          "builder": "@wdio/schematics:wdio",
+          "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "configFile": "e2e/wdio.conf.ts",
-            "autoCompileOpts": {
-              "tsNodeOpts": {
-                "project": "e2e/tsconfig.json"
-              }
-            },
+            "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "ng-slacker-to-spotify:serve"
           },
           "configurations": {
