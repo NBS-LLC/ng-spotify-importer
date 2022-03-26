@@ -54,7 +54,7 @@
     "@wdio/cli": "^7.19.1",
     "@wdio/local-runner": "^7.19.1",
     "@wdio/mocha-framework": "^7.19.1",
-    "@wdio/spec-reporter": "^7.16.14",
+    "@wdio/spec-reporter": "^7.19.1",
     "@xmldom/xmldom": "^0.8.0",
     "chromedriver": "^90.0.0",
     "codelyzer": "^6.0.0",
