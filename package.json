@@ -9,12 +9,12 @@
     "version:inject": "cross-var replace \"@APP_VERSION@\" $npm_package_version src/app/app-info.ts",
     "build": "ng build --configuration=$ENVIRONMENT --base-href /projects/ng-spotify-importer/",
     "test": "ng test",
-    "e2e": "wdio run e2e/wdio.conf.ts --autoCompileOpts.tsNodeOpts.project=e2e/tsconfig.json",
+    "e2e": "ng e2e",
     "e2e:unit": "TS_NODE_PROJECT=e2e/tsconfig.json mocha -r ts-node/register 'e2e/**/*.spec.ts'",
     "e2e:debug": "DEBUG=true npm run e2e",
     "upload": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/upload.ts",
     "deploy": "npm run build && npm run upload",
-    "deploy:test": "npm run e2e -- --spec e2e/test/deploy-specs/**/*.ts"
+    "deploy:test": "wdio run e2e/wdio.conf.ts --autoCompileOpts.tsNodeOpts.project=e2e/tsconfig.json --spec e2e/test/deploy-specs/**/*.ts"
   },
   "browser": {
     "crypto": false
@@ -54,6 +54,7 @@
     "@wdio/cli": "^7.19.1",
     "@wdio/local-runner": "^7.19.1",
     "@wdio/mocha-framework": "^7.19.1",
+    "@wdio/schematics": "^1.2.1",
     "@wdio/spec-reporter": "^7.19.1",
     "@xmldom/xmldom": "^0.8.0",
     "chromedriver": "^90.0.0",
