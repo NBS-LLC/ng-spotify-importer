@@ -53,7 +53,7 @@
     "@types/ssh2-sftp-client": "^7.0.1",
     "@wdio/cli": "^7.19.1",
     "@wdio/local-runner": "^7.19.1",
-    "@wdio/mocha-framework": "^7.19.1",
+    "@wdio/mocha-framework": "^7.19.2",
     "@wdio/schematics": "^1.2.1",
     "@wdio/spec-reporter": "^7.19.1",
     "@xmldom/xmldom": "^0.8.0",
