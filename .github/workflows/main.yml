@@ -7,10 +7,7 @@ on:
 
 jobs:
   test:
-    concurrency:
-      group: ci-test
-      cancel-in-progress: true
-      
+    concurrency: ci-test
     runs-on: ubuntu-latest
 
     env:
