@@ -29,7 +29,7 @@
     "@angular/forms": "~13.3.0",
     "@angular/material": "^13.3.2",
     "@angular/platform-browser": "~13.3.1",
-    "@angular/platform-browser-dynamic": "~13.3.0",
+    "@angular/platform-browser-dynamic": "~13.3.1",
     "@angular/router": "~13.3.0",
     "crypto-js": "^4.1.1",
     "fast-xml-parser": "^4.0.3",
