@@ -51,7 +51,7 @@
     "@types/papaparse": "^5.0.4",
     "@types/spotify-web-api-node": "^5.0.7",
     "@types/ssh2-sftp-client": "^7.0.1",
-    "@wdio/cli": "^7.19.1",
+    "@wdio/cli": "^7.19.3",
     "@wdio/local-runner": "^7.19.3",
     "@wdio/mocha-framework": "^7.19.3",
     "@wdio/schematics": "^1.2.1",
