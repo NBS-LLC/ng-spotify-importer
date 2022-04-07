@@ -9,7 +9,6 @@ jobs:
   test:
     concurrency:
       group: ci-test
-      cancel-in-progress: true
       
     runs-on: ubuntu-latest
 
