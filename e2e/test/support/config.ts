@@ -1,14 +1,6 @@
 import { version } from '../../../package.json';
-import { Credentials } from './credentials';
 
 class Config {
-    getPrimarySpotifyCredentials(): Credentials {
-        return new Credentials(
-            this.getEnvVar('PRIMARY_SPOTIFY_USERNAME'),
-            this.getEnvVar('PRIMARY_SPOTIFY_PASSWORD')
-        );
-    }
-
     getSpotifyAuthTokenPrimary(): string {
         return this.getEnvVar('SPOTIFY_AUTH_TOKEN_PRIMARY');
     }
@@ -25,7 +17,7 @@ class Config {
         return version;
     }
 
-    protected getEnvVar(name: string): string {
+    getEnvVar(name: string): string {
         if (name in process.env) {
             return process.env[name];
         }
