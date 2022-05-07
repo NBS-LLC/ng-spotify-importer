@@ -14,8 +14,7 @@ jobs:
 
     env:
       CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
-      PRIMARY_SPOTIFY_USERNAME: ${{ secrets.PRIMARY_SPOTIFY_USERNAME }}
-      PRIMARY_SPOTIFY_PASSWORD: ${{ secrets.PRIMARY_SPOTIFY_PASSWORD }}
+      SPOTIFY_AUTH_TOKEN_PRIMARY: ${{ secrets.SPOTIFY_AUTH_TOKEN_PRIMARY }}
       SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
       SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
 

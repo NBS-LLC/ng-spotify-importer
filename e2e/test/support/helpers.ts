@@ -1,5 +1,6 @@
 import { DOMParser } from '@xmldom/xmldom';
 import * as Papa from 'papaparse';
+import config from './config';
 
 export function fileToString(path: string): string {
     const fs = require('fs');
@@ -33,4 +34,9 @@ export function parseSongCountFromLabel(label: string): number {
 
 export function parsePlaylistIdFromImportNotification(notification: string): string {
     return notification.match(/Playlist \((\w+)\) imported/)[1];
+}
+
+export async function setSpotifyAuthToken() {
+    await browser.setCookies({ name: 'sp_dc', value: config.getSpotifyAuthTokenPrimary() });
+    await browser.refresh();
 }
