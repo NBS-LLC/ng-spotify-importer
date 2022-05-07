@@ -32,10 +32,15 @@ Run `npm run e2e` to execute the end-to-end tests via [WDIO](http://webdriver.io
 Test configuration is based on the following environment variables:
 
 * CHROME_BIN
-* PRIMARY_SPOTIFY_USERNAME
-* PRIMARY_SPOTIFY_PASSWORD
+* SPOTIFY_AUTH_TOKEN_PRIMARY
 * SPOTIFY_CLIENT_ID
 * SPOTIFY_CLIENT_SECRET
+
+To get a Spotify Auth Token do the following:
+
+1. Log into Spotify
+1. Examine the site's cookies
+1. The value of `sp_dc` is your auth token
 
 ## Deploy
 
