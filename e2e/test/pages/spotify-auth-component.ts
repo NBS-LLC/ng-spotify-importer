@@ -1,5 +1,5 @@
-import config from '../support/config';
 import { Credentials } from '../support/credentials';
+import { setSpotifyAuthToken } from '../support/helpers';
 import authorizePage from './vendor/spotify/authorize-page';
 import spotifyLoginPage from './vendor/spotify/login-page';
 
@@ -14,10 +14,7 @@ class SpotifyAuthComponent {
 
     async grantPermissionWithCookies() {
         await this.grantElement.click();
-
-        await browser.setCookies({ name: 'sp_dc', value: config.getSpotifyAuthTokenPrimary() });
-        await browser.refresh();
-
+        await setSpotifyAuthToken();
         await authorizePage.waitForDisplayed();
         await authorizePage.clickAgree();
     }

@@ -1,4 +1,4 @@
-import config from '../../../support/config';
+import { setSpotifyAuthToken } from '../../../support/helpers';
 
 class SpotifyWebPlayerPage {
     get loginElement() {
@@ -31,9 +31,7 @@ class SpotifyWebPlayerPage {
 
     async open() {
         await browser.url('https://open.spotify.com/');
-
-        await browser.setCookies({ name: 'sp_dc', value: config.getSpotifyAuthTokenPrimary() });
-        await browser.refresh();
+        await setSpotifyAuthToken();
     }
 
     async deletePlaylistByName(playlistName: string) {
