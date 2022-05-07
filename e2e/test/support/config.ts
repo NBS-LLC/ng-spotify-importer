@@ -9,6 +9,10 @@ class Config {
         );
     }
 
+    getSpotifyAuthTokenPrimary(): string {
+        return this.getEnvVar('SPOTIFY_AUTH_TOKEN_PRIMARY');
+    }
+
     getSpotifyClientId(): string {
         return this.getEnvVar('SPOTIFY_CLIENT_ID');
     }

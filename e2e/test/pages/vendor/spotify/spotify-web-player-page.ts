@@ -1,3 +1,5 @@
+import config from '../../../support/config';
+
 class SpotifyWebPlayerPage {
     get loginElement() {
         return $('[data-testid="login-button"]');
@@ -29,6 +31,9 @@ class SpotifyWebPlayerPage {
 
     async open() {
         await browser.url('https://open.spotify.com/');
+
+        await browser.setCookies({ name: 'sp_dc', value: config.getSpotifyAuthTokenPrimary() });
+        await browser.refresh();
     }
 
     async deletePlaylistByName(playlistName: string) {
