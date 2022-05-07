@@ -11,7 +11,7 @@ describe('Config', () => {
             }, { message: 'The environment variable: CONFIG_GET_ENV_VAR_UNIT_TEST, is not defined.' });
         });
 
-        it('should return data when env var is set', () => {
+        it('should return data when the env var is set', () => {
             process.env['CONFIG_GET_ENV_VAR_UNIT_TEST'] = 'something';
             assert.strictEqual(config.getEnvVar('CONFIG_GET_ENV_VAR_UNIT_TEST'), 'something');
         });
