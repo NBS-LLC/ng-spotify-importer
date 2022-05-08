@@ -13,6 +13,7 @@ import {SongDetailsComponent} from './song-details/song-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {HttpClientModule} from '@angular/common/http';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { CleanupUnknownSongsHelpComponent } from './cleanup-unknown-songs-help/cleanup-unknown-songs-help.component';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import SpotifyWebApi from 'spotify-web-api-js';
         PlaylistEditorComponent,
         FileReaderComponent,
         NotificationComponent,
-        SongDetailsComponent
+        SongDetailsComponent,
+        CleanupUnknownSongsHelpComponent
     ],
     providers: [
         { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
