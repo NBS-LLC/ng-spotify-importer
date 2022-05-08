@@ -26,7 +26,7 @@ describe('CsvPlaylist', () => {
             expect(songs[1].artist).toEqual('Adam K & Soha');
         });
 
-        it('should throw error when header is not present', () => {
+        it('should throw an error when header is not present', () => {
             const csv =
                 'XXX 88,MØ\n' +
                 'Twilight vs Breathe (&sect;),Adam K &amp; Soha';
