@@ -1,3 +1,5 @@
+import { setSpotifyAuthToken } from '../../../support/helpers';
+
 class SpotifyWebPlayerPage {
     get loginElement() {
         return $('[data-testid="login-button"]');
@@ -29,6 +31,7 @@ class SpotifyWebPlayerPage {
 
     async open() {
         await browser.url('https://open.spotify.com/');
+        await setSpotifyAuthToken();
     }
 
     async deletePlaylistByName(playlistName: string) {

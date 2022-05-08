@@ -5,7 +5,6 @@ import playlistEditorComponent from '../pages/playlist-editor-component';
 import { songDetailsComponent } from '../pages/song-details-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
-import config from '../support/config';
 import { getSongCountFromCSVPlaylist, parsePlaylistIdFromImportNotification } from '../support/helpers';
 import { testDataManager } from '../support/test-data-manager';
 
@@ -17,9 +16,7 @@ suite('modify playlist flows', function () {
 
         await browser.url('/');
         await spotifyAuthComponent.waitForDisplayed();
-        await spotifyAuthComponent.grantPermissionWithCredentials(
-            config.getPrimarySpotifyCredentials()
-        );
+        await spotifyAuthComponent.grantPermissionWithCookies();
 
         await fileReaderComponent.waitForDisplayed();
         await fileReaderComponent.uploadCSVPlaylist(playlistPath);

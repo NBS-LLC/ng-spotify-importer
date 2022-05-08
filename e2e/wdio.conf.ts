@@ -165,7 +165,7 @@ export const config: WebdriverIO.Config = {
     mochaOpts: {
         ui: 'tdd',
         timeout: DEBUG ? (24 * 60 * 60 * 1000) : 60000,
-        retries: 3
+        retries: DEBUG ? 0 : 3
     },
     //
     // =====

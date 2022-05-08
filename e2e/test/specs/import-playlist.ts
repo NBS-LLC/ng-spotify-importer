@@ -4,7 +4,6 @@ import notificationComponent from '../pages/notification-component';
 import playlistEditorComponent from '../pages/playlist-editor-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
-import config from '../support/config';
 import { getSongCountFromCSVPlaylist, getSongCountFromSpotifyPlaylist, getSongCountFromTextPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from '../support/helpers';
 import { testDataManager } from '../support/test-data-manager';
 
@@ -17,9 +16,7 @@ suite('import playlist flows', function () {
 
         await browser.url('/');
         await spotifyAuthComponent.waitForDisplayed();
-        await spotifyAuthComponent.grantPermissionWithCredentials(
-            config.getPrimarySpotifyCredentials()
-        );
+        await spotifyAuthComponent.grantPermissionWithCookies();
 
         await fileReaderComponent.waitForDisplayed();
         await fileReaderComponent.uploadSlackerPlaylist(playlistPath);
@@ -70,9 +67,7 @@ suite('import playlist flows', function () {
 
         await browser.url('/');
         await spotifyAuthComponent.waitForDisplayed();
-        await spotifyAuthComponent.grantPermissionWithCredentials(
-            config.getPrimarySpotifyCredentials()
-        );
+        await spotifyAuthComponent.grantPermissionWithCookies();
 
         await fileReaderComponent.waitForDisplayed();
         await fileReaderComponent.uploadCSVPlaylist(playlistPath);
@@ -123,9 +118,7 @@ suite('import playlist flows', function () {
 
         await browser.url('/');
         await spotifyAuthComponent.waitForDisplayed();
-        await spotifyAuthComponent.grantPermissionWithCredentials(
-            config.getPrimarySpotifyCredentials()
-        );
+        await spotifyAuthComponent.grantPermissionWithCookies();
 
         await fileReaderComponent.waitForDisplayed();
         await fileReaderComponent.uploadTextPlaylist(playlistPath);

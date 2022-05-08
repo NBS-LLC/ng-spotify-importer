@@ -7,12 +7,14 @@ on:
 
 jobs:
   test:
+    concurrency:
+      group: ci-test
+      
     runs-on: ubuntu-latest
 
     env:
       CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
-      PRIMARY_SPOTIFY_USERNAME: ${{ secrets.PRIMARY_SPOTIFY_USERNAME }}
-      PRIMARY_SPOTIFY_PASSWORD: ${{ secrets.PRIMARY_SPOTIFY_PASSWORD }}
+      SPOTIFY_AUTH_TOKEN_PRIMARY: ${{ secrets.SPOTIFY_AUTH_TOKEN_PRIMARY }}
       SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
       SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
 
@@ -39,13 +41,14 @@ jobs:
             ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Build and Start Local Test Server
+      - name: Build Project
         run: |
           npm install &&
-          npm run build &&
+          npm run build
+      - name: Run Unit Tests
+        run: |
           npm run test &&
-          npm start &&
-          curl --retry 10 --retry-connrefused http://localhost:4200 > /dev/null 2>&1
+          npm run e2e:unit
       - name: Run E2E Tests
         run: npm run e2e
       - name: Save Test Results
@@ -55,5 +58,3 @@ jobs:
           name: e2e-test-results
           path: e2e/output/
           if-no-files-found: ignore
-      - name: Stop Local Test Server
-        run: npm stop
