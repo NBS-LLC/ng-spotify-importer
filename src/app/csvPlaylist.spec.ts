@@ -25,5 +25,15 @@ describe('CsvPlaylist', () => {
             expect(songs[1].title).toEqual('Twilight vs Breathe (§)');
             expect(songs[1].artist).toEqual('Adam K & Soha');
         });
+
+        it('should throw an error when header is not present', () => {
+            const csv =
+                'XXX 88,MØ\n' +
+                'Twilight vs Breathe (&sect;),Adam K &amp; Soha';
+
+            expect(() => {
+                const playlist = new CsvPlaylist(csv, 'Unit Test - CSV Playlist');
+            }).toThrowError(/Invalid CSV Playlist/);
+        });
     });
 });
