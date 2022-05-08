@@ -19,11 +19,15 @@ export class SlackerPlaylist implements Playlist {
       attributeValueProcessor: (name, value, path) => decode(value),
     };
 
-    const parser = new XMLParser(options);
-    this.json = parser.parse(playlistXml);
+    try {
+      const parser = new XMLParser(options);
+      this.json = parser.parse(playlistXml);
+    } catch (e) {
+      throw new Error('Invalid Slacker Playlist - Unable to parse XML.');
+    }
+
     if (!this.json.Playlist) {
-      console.log(playlistXml);
-      throw new Error('Invalid Slacker Playlist');
+      throw new Error('Invalid Slacker Playlist - Playlist element does not exist.');
     }
 
     this.name = this.json.Playlist['@_name'];

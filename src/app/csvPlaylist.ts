@@ -23,8 +23,7 @@ export class CsvPlaylist implements Playlist {
 
     this.csv = parse(playlistCsv, options);
     if (!this.csv.meta.fields.includes('TITLE') || !this.csv.meta.fields.includes('ARTIST')) {
-      console.log(playlistCsv);
-      throw new Error('Invalid CSV Playlist');
+      throw new Error('Invalid CSV Playlist - First row must be a header containing the columns TITLE and ARTIST.');
     }
 
     this.name = playlistName;
