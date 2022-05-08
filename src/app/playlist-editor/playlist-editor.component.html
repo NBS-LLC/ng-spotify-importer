@@ -1,6 +1,6 @@
 <h2>Songs - {{playlist.getPlaylistName()}}</h2>
 
-<button id="playlist-import" *ngIf="playlist.songDataLoaded" (click)="importPlaylist()" [disabled]="playlist.getKnownSongs().length == 0">
+<button id="playlist-import" *ngIf="playlist.songDataLoaded" (click)="importPlaylist()" [disabled]="!importEnabled || playlist.getKnownSongs().length == 0">
   Import Playlist
 </button>
 
@@ -8,6 +8,14 @@
   <label for="playlist-name">Playlist Name:</label>
   <input id="playlist-name" type="text" [ngModel]="playlist.getPlaylistName()"
          (ngModelChange)="playlist.setPlaylistName($event)"/>
+</div>
+
+<div *ngIf="playlist.songDataLoaded">
+  <button id="playlist-cleanup-unknown-songs" (click)="cleanupUnknownSongs()" [disabled]="!cleanupEnabled || playlist.getUnknownSongs().length == 0">
+    Cleanup Unknown Songs
+  </button>
+
+  (<a href="javascript: void(0);" (click)="openCleanupUnknownSongsHelpDialog()">?</a>)
 </div>
 
 <div *ngIf="playlist.songDataLoaded" id="song-data-filter">

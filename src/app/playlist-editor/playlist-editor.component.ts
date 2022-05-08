@@ -1,10 +1,12 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Song} from '../song';
-import {SpotifyService} from '../spotify.service';
-import {Playlist} from '../playlist';
-import {NotificationService} from '../notification/notification.service';
-import {MatDialog} from '@angular/material/dialog';
-import {SongDetailsComponent} from '../song-details/song-details.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { cleanupSong } from 'src/lib/song-utilities';
+import { CleanupUnknownSongsHelpComponent } from '../cleanup-unknown-songs-help/cleanup-unknown-songs-help.component';
+import { NotificationService } from '../notification/notification.service';
+import { Playlist } from '../playlist';
+import { Song } from '../song';
+import { SongDetailsComponent } from '../song-details/song-details.component';
+import { SpotifyService } from '../spotify.service';
 
 @Component({
   selector: 'app-playlist-editor',
@@ -14,11 +16,13 @@ import {SongDetailsComponent} from '../song-details/song-details.component';
 export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
   songsDisplayed: Song[];
+  importEnabled = true;
+  cleanupEnabled = true;
 
   constructor(
     private spotifyService: SpotifyService,
     private notificationService: NotificationService,
-    private songDetailsDialog: MatDialog) {
+    private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -42,6 +46,22 @@ export class PlaylistEditorComponent implements OnInit {
     }
   }
 
+  async cleanupUnknownSongs() {
+    this.importEnabled = false;
+    this.cleanupEnabled = false;
+
+    for (const song of this.playlist.getUnknownSongs()) {
+      const cleanSong = cleanupSong(song);
+      song.title = cleanSong.title;
+      song.artist = cleanSong.artist;
+    }
+
+    await this.spotifyService.loadSongData(this.playlist.getUnknownSongs());
+
+    this.cleanupEnabled = true;
+    this.importEnabled = true;
+  }
+
   refreshSong(song: Song) {
     this.spotifyService.loadSongData(Array.of(song));
   }
@@ -61,8 +81,12 @@ export class PlaylistEditorComponent implements OnInit {
   }
 
   openSongDetailsDialog(song: Song) {
-    this.songDetailsDialog.open(SongDetailsComponent, {
+    this.dialog.open(SongDetailsComponent, {
       data: song
     });
+  }
+
+  openCleanupUnknownSongsHelpDialog() {
+    this.dialog.open(CleanupUnknownSongsHelpComponent);
   }
 }
