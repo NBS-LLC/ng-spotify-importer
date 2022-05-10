@@ -41,8 +41,8 @@ jobs:
       - name: Inject Version
         if: github.ref_type == 'tag'
         run: |
-          npm version:update &&
-          npm version:inject
+          npm run version:update &&
+          npm run version:inject
       - name: Deploy to Production
         run: |
           npm install &&
