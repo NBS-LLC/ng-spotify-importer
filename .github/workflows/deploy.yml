@@ -45,15 +45,15 @@ jobs:
             ${{ runner.os }}-build-${{ env.CACHE-NAME }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - name: Install Dependencies
+        run: npm install
       - name: Inject Version
         if: github.ref_type == 'tag'
         run: |
           npm run version:update &&
           npm run version:inject
       - name: Deploy to Staging
-        run: |
-          npm install &&
-          npm run deploy
+        run: npm run deploy
       - name: Run Deploy Tests
         run: npm run deploy:test
       - name: Save Test Results
