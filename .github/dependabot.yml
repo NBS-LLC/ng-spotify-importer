@@ -7,4 +7,5 @@ updates:
       time: "06:00"
       timezone: "America/Los_Angeles"
     versioning-strategy: "increase"
-    open-pull-requests-limit: 1
+    # Temporarily disabled because every other PR gets stuck
+    open-pull-requests-limit: 0
