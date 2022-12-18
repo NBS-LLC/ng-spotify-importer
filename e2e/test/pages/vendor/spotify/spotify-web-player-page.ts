@@ -22,7 +22,7 @@ class SpotifyWebPlayerPage {
     }
 
     get deleteModalDeleteElement() {
-        return this.deleteModalElement.$('div=DELETE');
+        return this.deleteModalElement.$('button=Delete');
     }
 
     get alertModalRemovedFromLibraryElement() {
