@@ -27,8 +27,9 @@ jobs:
       - name: Install NPM v7
         run: npm install -g npm@7
       - name: Install Chromium
-        run: | 
-          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F857949%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
+        run: |
+          # Chromium v108
+          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F1058929%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
           unzip chrome-linux.zip
       - name: Cache Node Modules
         uses: actions/cache@v2

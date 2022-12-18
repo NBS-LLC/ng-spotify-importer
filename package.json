@@ -57,7 +57,7 @@
     "@wdio/schematics": "^1.2.1",
     "@wdio/spec-reporter": "^7.19.7",
     "@xmldom/xmldom": "^0.8.4",
-    "chromedriver": "^90.0.0",
+    "chromedriver": "^108.0.0",
     "codelyzer": "^6.0.0",
     "cross-var": "^1.1.0",
     "expect": "^28.1.0",
