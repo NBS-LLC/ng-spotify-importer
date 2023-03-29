@@ -39,6 +39,7 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
+        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -56,7 +57,6 @@ suite('import playlist flows', function () {
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
         console.log(`Imported playlist name: ${playlistName}.`);
-        testDataManager.addPlaylistName(playlistName);
     });
 
     test('simple csv playlist', async function () {
@@ -90,6 +90,7 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
+        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -107,7 +108,6 @@ suite('import playlist flows', function () {
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
         console.log(`Imported playlist name: ${playlistName}.`);
-        testDataManager.addPlaylistName(playlistName);
     });
 
     test('simple text playlist', async function () {
@@ -141,6 +141,7 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
+        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -158,6 +159,5 @@ suite('import playlist flows', function () {
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
         console.log(`Imported playlist name: ${playlistName}.`);
-        testDataManager.addPlaylistName(playlistName);
     });
 });

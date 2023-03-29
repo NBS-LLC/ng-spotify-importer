@@ -56,6 +56,27 @@ class SpotifyWebPlayerPage {
         throw new Error(`Unable to delete: ${playlistName}.`);
     }
 
+    async deleteAllPlaylists() {
+        await browser.waitUntil(async () => {
+            return await this.libraryElements.length > 0;
+        }, { timeoutMsg: 'No library elements found.' });
+
+        for (const element of await this.libraryElements) {
+            if ((await element.getText()).toLowerCase().includes('unit test')) {
+                continue;
+            }
+
+            await element.click({ button: 'right' });
+            await this.contextMenuElement.waitForDisplayed({ timeoutMsg: 'Context menu did not display.' });
+            await this.contextMenuDeleteElement.click();
+            await this.deleteModalElement.waitForDisplayed({ timeoutMsg: 'Delete modal did not display.' });
+            await this.deleteModalDeleteElement.click();
+            await this.alertModalRemovedFromLibraryElement.waitForDisplayed(
+                { timeoutMsg: 'Removed from library alert did not display.' }
+            );
+        }
+    }
+
     async waitForDisplayed() {
         await browser.waitUntil(async () => {
             return (await browser.getTitle()).includes('Spotify - Web Player');

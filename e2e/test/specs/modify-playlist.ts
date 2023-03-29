@@ -46,6 +46,7 @@ suite('modify playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
+        testDataManager.addPlaylistName(playlistName);
 
         await notificationComponent.waitForDisplayed();
         const notificationMessage = await notificationComponent.componentElement.getText();
@@ -67,6 +68,5 @@ suite('modify playlist flows', function () {
         expect(found).toBeTruthy();
 
         console.log(`Imported playlist name: ${playlistName}.`);
-        testDataManager.addPlaylistName(playlistName);
     });
 });
