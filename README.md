@@ -1,6 +1,6 @@
 # NgSlackerToSpotify
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7 and upgraded to version 13.
+Import CSV and Slacker Radio playlists into Spotify.
 
 ## Prerequisites
 
@@ -12,10 +12,6 @@ Note: Chrom* must match the [version](https://www.chromium.org/getting-involved/
 ## Development server
 
 Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `npx ng generate component component-name` to generate a new component. You can also use `npx ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
@@ -59,7 +55,3 @@ Deployment configuration is based on the following environment variables:
 * NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT
 * NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH
 * NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH
-
-## Further help
-
-To get more help on the Angular CLI use `npx ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
