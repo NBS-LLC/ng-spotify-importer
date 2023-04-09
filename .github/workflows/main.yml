@@ -29,10 +29,10 @@ jobs:
           # Chromium v108
           curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F1058929%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
           unzip chrome-linux.zip
+      - name: Install Dependencies
+        run: npm ci
       - name: Build Project
-        run: |
-          npm ci &&
-          npm run build
+        run: npm run build
       - name: Run Unit Tests
         run: |
           npm run test &&
