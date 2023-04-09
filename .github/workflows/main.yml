@@ -31,7 +31,7 @@ jobs:
           unzip chrome-linux.zip
       - name: Build Project
         run: |
-          npm install &&
+          npm ci &&
           npm run build
       - name: Run Unit Tests
         run: |

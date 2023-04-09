@@ -26,7 +26,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'npm'
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
       - name: Inject Version
         if: github.ref_type == 'tag'
         run: |
