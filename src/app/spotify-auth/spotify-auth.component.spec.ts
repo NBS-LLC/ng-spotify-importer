@@ -12,7 +12,7 @@ describe('SpotifyAuthComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
+        RouterModule.forRoot([], {}),
         HttpClientModule
       ],
       declarations: [
