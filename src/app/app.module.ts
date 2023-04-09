@@ -18,7 +18,7 @@ import { CleanupUnknownSongsHelpComponent } from './cleanup-unknown-songs-help/c
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot([], { relativeLinkResolution: 'legacy' }),
+        RouterModule.forRoot([], {}),
         FormsModule,
         BrowserAnimationsModule,
         MatDialogModule,
