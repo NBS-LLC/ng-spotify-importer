@@ -4,6 +4,7 @@ Import CSV and Slacker Radio playlists into Spotify.
 
 ## Prerequisites
 
+* [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) 
 * Chrome or Chromium - ensure CHROME_BIN env var is exported
 
 Note: Chrom* must match the [version](https://www.chromium.org/getting-involved/download-chromium) of the ChromeDriver. Firewall warnings on macOS can be fixed by [signing](https://github.com/puppeteer/puppeteer/issues/4752#issuecomment-586599843) the app.
@@ -23,6 +24,10 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+Unit test configuration is based on the following environment variables:
+
+* CHROME_BIN
 
 ## Running end-to-end tests
 
@@ -58,3 +63,5 @@ Deployment configuration is based on the following environment variables:
 * NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT
 * NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH
 * NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH
+
+Note: ENVIRONMENT must match a value found in angular.json's `configurations` section. 
