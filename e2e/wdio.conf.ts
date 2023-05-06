@@ -1,5 +1,5 @@
 import logger from '@wdio/logger';
-import { dirname } from 'path';
+import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
 import { testDataManager } from './test/support/test-data-manager';

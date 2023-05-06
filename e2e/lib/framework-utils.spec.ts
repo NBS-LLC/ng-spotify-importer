@@ -1,5 +1,5 @@
 import { expect } from 'expect';
-import { basename } from 'path';
+import { basename } from 'node:path';
 import { getFailureScreenshotFilename } from './framework-utils';
 
 describe(basename(__filename).split('.spec.ts')[0], () => {

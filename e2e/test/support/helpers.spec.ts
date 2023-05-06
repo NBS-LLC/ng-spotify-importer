@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { dirname } from 'path';
+import { dirname } from 'node:path';
 import {
     fileToString,
     getSongCountFromCSVPlaylist,
