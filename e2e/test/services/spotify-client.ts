@@ -1,6 +1,6 @@
 import logger from "@wdio/logger";
 import config from "../support/config";
-import SpotifyWebApi = require('spotify-web-api-node');
+import SpotifyWebApi from 'spotify-web-api-node';
 
 const log = logger('SpotifyClient');
 

@@ -1,4 +1,4 @@
-import assert = require('assert');
+import assert from 'node:assert/strict';
 import { dirname } from 'path';
 import {
     fileToString,
