@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
+        "resolveJsonModule": true,
+        "target": "ES5",
         "types": [
             "node",
             "webdriverio/async",
             "@wdio/mocha-framework",
         ],
-        "target": "ES5",
-        "resolveJsonModule": true
     }
 }
