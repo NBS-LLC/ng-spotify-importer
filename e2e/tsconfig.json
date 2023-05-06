@@ -4,7 +4,6 @@
             "node",
             "webdriverio/async",
             "@wdio/mocha-framework",
-            "expect-webdriverio"
         ],
         "target": "ES5",
         "resolveJsonModule": true
