@@ -1,30 +1,13 @@
 import assert = require('assert');
-import { TestDataManager, testDataManager } from './test-data-manager';
+import { TestDataManager } from './test-data-manager';
 
 describe('TestDataManager', () => {
-    afterEach(() => {
+    const testDataManager = TestDataManager.getInstance('test');
+    beforeEach(() => {
         testDataManager.resetTestData();
     });
 
     describe('#getInstance', () => {
-        it('should return the same instance', () => {
-            const instance1 = TestDataManager.getInstance();
-            const instance2 = TestDataManager.getInstance();
-            assert.strictEqual(instance1, instance2);
-        });
-
-        it('should return a default instance when no name is given', () => {
-            const instance1 = TestDataManager.getInstance();
-            const instance2 = TestDataManager.getInstance('default');
-            assert.strictEqual(instance1, instance2);
-        });
-
-        it('should return a non-default instance when a name is given', () => {
-            const instance1 = TestDataManager.getInstance();
-            const instance2 = TestDataManager.getInstance('unit test');
-            assert.notStrictEqual(instance1, instance2);
-        });
-
         it('should return a different instance when different names are given', () => {
             const instance1 = TestDataManager.getInstance('unit test 1');
             const instance2 = TestDataManager.getInstance('unit test 2');

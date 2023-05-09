@@ -8,9 +8,9 @@ export class TestDataManager {
      * 
      * Note: it is important that a named instance be used when running specs
      * in parallel. Each process should have its own instance to prevent
-     * conflicts. If a name is not provided a default will be used.
+     * conflicts.
      */
-    public static getInstance(name: string = 'default') {
+    public static getInstance(name: string) {
         return this.instances[name] || (this.instances[name] = new this());
     }
 
@@ -26,5 +26,3 @@ export class TestDataManager {
         this.playlistNames = [];
     }
 }
-
-export const testDataManager = TestDataManager.getInstance();
