@@ -81,11 +81,12 @@ suite('import playlist flows', function () {
         const allSongsLabel = await playlistEditorComponent.allSongsLabelElement.getText();
         expect(allSongsLabel).toEqual(`All Songs (${expectedSongCount}):`);
 
-        console.log('Verify that Spotify knows at least half of the songs.');
+        // Covers https://github.com/NBS-LLC/ng-spotify-importer/issues/217
+        console.log('Verify that Spotify knows all of the songs.');
 
         const knownSongsLabel = await playlistEditorComponent.knownSongsLabelElement.getText();
         const knownSongCount = parseSongCountFromLabel(knownSongsLabel);
-        expect(knownSongCount).toBeGreaterThanOrEqual(Math.floor(expectedSongCount / 2));
+        expect(knownSongCount).toEqual(expectedSongCount);
 
         console.log('Verify that the playlist can be imported into Spotify.');
 
