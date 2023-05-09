@@ -6,7 +6,9 @@ import { songDetailsComponent } from '../pages/song-details-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
 import { getSongCountFromCSVPlaylist, parsePlaylistIdFromImportNotification } from '../support/helpers';
-import { testDataManager } from '../support/test-data-manager';
+import { TestDataManager } from '../support/test-data-manager';
+
+const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
 
 suite('modify playlist flows', function () {
     test('fix unknown song', async function () {

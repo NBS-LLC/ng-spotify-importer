@@ -2,7 +2,7 @@ import logger from '@wdio/logger';
 import { dirname } from 'path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
-import { testDataManager } from './test/support/test-data-manager';
+import { TestDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
 const CI = process.env['CI'];
@@ -285,6 +285,7 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     after: async function (result, capabilities, specs) {
+        const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
         const playlistNames = testDataManager.getPlaylistNames();
 
         if (!playlistNames.length) {

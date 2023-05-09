@@ -1,10 +1,17 @@
-class TestDataManager {
+export class TestDataManager {
     private constructor() { }
-    private static instance: TestDataManager;
+    private static instances: TestDataManager[] = [];
     private playlistNames: string[] = [];
 
-    public static getInstance() {
-        return this.instance || (this.instance = new this());
+    /**
+     * Get a named instance of this class.
+     * 
+     * Note: it is important that a named instance be used when running specs
+     * in parallel. Each process should have its own instance to prevent
+     * conflicts.
+     */
+    public static getInstance(name: string) {
+        return this.instances[name] || (this.instances[name] = new this());
     }
 
     public addPlaylistName(playlistName: string) {
@@ -19,5 +26,3 @@ class TestDataManager {
         this.playlistNames = [];
     }
 }
-
-export const testDataManager = TestDataManager.getInstance();

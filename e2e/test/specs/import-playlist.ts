@@ -5,7 +5,9 @@ import playlistEditorComponent from '../pages/playlist-editor-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
 import { getSongCountFromCSVPlaylist, getSongCountFromSpotifyPlaylist, getSongCountFromTextPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from '../support/helpers';
-import { testDataManager } from '../support/test-data-manager';
+import { TestDataManager } from '../support/test-data-manager';
+
+const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
 
 suite('import playlist flows', function () {
     test('simple slacker playlist', async function () {
