@@ -1,10 +1,10 @@
-class TestDataManager {
+export class TestDataManager {
     private constructor() { }
-    private static instance: TestDataManager;
+    private static instances: TestDataManager[] = [];
     private playlistNames: string[] = [];
 
-    public static getInstance() {
-        return this.instance || (this.instance = new this());
+    public static getInstance(name: string = 'default') {
+        return this.instances[name] || (this.instances[name] = new this());
     }
 
     public addPlaylistName(playlistName: string) {
