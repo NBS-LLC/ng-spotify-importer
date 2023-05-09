@@ -59,6 +59,6 @@ describe('SpotifyService', () => {
     ];
 
     await service.loadSongData(songs);
-    expect(spotifyWebApi.searchTracks).toHaveBeenCalledWith('Hearts on Fire artist: ILLENIUM, Dabin, Lights', { limit: 1 });
+    expect(spotifyWebApi.searchTracks).toHaveBeenCalledWith('Hearts on Fire artist:ILLENIUM, Dabin, Lights', { limit: 1 });
   });
 });
