@@ -162,7 +162,7 @@ export class SpotifyService {
 
   private searchForSong(title: string, artist: string): Promise<Song> {
     return new Promise<Song>(resolve => {
-      const query = `"${title}" artist:"${artist}"`;
+      const query = `${title} artist:${artist}`;
       this.spotifyWebApi.searchTracks(query, {limit: 1}).then((data) => {
         const song: Song = {artist, title};
         if (data.tracks.total > 0) {
