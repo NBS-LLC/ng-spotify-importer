@@ -1,19 +1,22 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TestBed, waitForAsync } from '@angular/core/testing';
-import SpotifyWebApi from 'spotify-web-api-js';
+import { Song } from './song';
 import { SpotifyService } from './spotify.service';
 
 
 describe('SpotifyService', () => {
   let service: SpotifyService;
+  let spotifyWebApi;
 
   beforeEach(waitForAsync(() => {
+    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks']);
+
     TestBed.configureTestingModule({
       imports: [
         HttpClientModule
       ],
       providers: [
-        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
+        { provide: 'SpotifyWebApiJs', useValue: spotifyWebApi }
       ]
     }).compileComponents();
     service = TestBed.inject(SpotifyService);
@@ -41,5 +44,21 @@ describe('SpotifyService', () => {
 
     // Base64 would normally generate: 1TzPHyyCW0Uc23/t2qSQUdQvXdsL+gmacEQm8zLTfvo= which isn't URL safe.
     expect(challenge).toEqual('1TzPHyyCW0Uc23_t2qSQUdQvXdsL-gmacEQm8zLTfvo');
+  });
+
+  /**
+   * Covers https://github.com/NBS-LLC/ng-spotify-importer/issues/217
+   */
+  it('should search for tracks using proper query', async () => {
+    spotifyWebApi.searchTracks.and.returnValue(Promise.resolve({
+      tracks: {}
+    }));
+
+    const songs: Song[] = [
+      { title: 'Hearts on Fire', artist: 'ILLENIUM, Dabin, Lights' },
+    ];
+
+    await service.loadSongData(songs);
+    expect(spotifyWebApi.searchTracks).toHaveBeenCalledWith('Hearts on Fire artist: ILLENIUM, Dabin, Lights', { limit: 1 });
   });
 });
