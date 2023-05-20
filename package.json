@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "prestart": "ng test",
+    "test": "ng test",
+    "prestart": "npm run test",
     "start": "ng serve & echo $! > .ng-serve.pid",
     "stop": "kill $(cat .ng-serve.pid)",
     "version:update": "npm --no-git-tag-version version $GITHUB_REF_NAME",
