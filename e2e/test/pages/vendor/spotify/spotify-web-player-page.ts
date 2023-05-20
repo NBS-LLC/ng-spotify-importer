@@ -6,7 +6,7 @@ class SpotifyWebPlayerPage {
     }
 
     get libraryElements() {
-        return $$('[data-testid="rootlist-item"]');
+        return $$('[role="listitem"]');
     }
 
     get contextMenuElement() {
@@ -40,7 +40,7 @@ class SpotifyWebPlayerPage {
         }, { timeoutMsg: 'No library elements found.' });
 
         for (const element of await this.libraryElements) {
-            if (await element.getText() === playlistName) {
+            if ((await element.getText()).includes(playlistName)) {
                 await element.click({ button: 'right' });
                 await this.contextMenuElement.waitForDisplayed({ timeoutMsg: 'Context menu did not display.' });
                 await this.contextMenuDeleteElement.click();
@@ -62,7 +62,10 @@ class SpotifyWebPlayerPage {
         }, { timeoutMsg: 'No library elements found.' });
 
         for (const element of await this.libraryElements) {
-            if ((await element.getText()).toLowerCase().includes('unit test')) {
+            const text = (await element.getText()).trim().toLowerCase();
+            const isUnitTest = text.includes('unit test');
+
+            if (isUnitTest || text.length === 0) {
                 continue;
             }
 
