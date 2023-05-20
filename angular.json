@@ -115,23 +115,6 @@
             ],
             "scripts": []
           }
-        },
-        "e2e": {
-          "builder": "@wdio/schematics:wdio",
-          "options": {
-            "configFile": "e2e/wdio.conf.ts",
-            "autoCompileOpts": {
-              "tsNodeOpts": {
-                "project": "e2e/tsconfig.json"
-              }
-            },
-            "devServerTarget": "ng-slacker-to-spotify:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ng-slacker-to-spotify:serve:production"
-            }
-          }
         }
       }
     }

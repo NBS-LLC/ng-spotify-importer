@@ -25,6 +25,8 @@ Run `npm run build` to build the project. The build artifacts will be stored in 
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+**Note:** Runs automatically when starting the development server.
+
 Unit test configuration is based on the following environment variables:
 
 * CHROME_BIN
@@ -32,6 +34,8 @@ Unit test configuration is based on the following environment variables:
 ## Running end-to-end tests
 
 Run `npm run e2e` to execute the end-to-end tests via [WDIO](http://webdriver.io).
+
+**Note:** The development server must be running.
 
 Test configuration is based on the following environment variables:
 
