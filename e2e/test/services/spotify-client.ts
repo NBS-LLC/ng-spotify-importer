@@ -1,8 +1,5 @@
-import logger from "@wdio/logger";
-import config from "../support/config";
 import SpotifyWebApi from 'spotify-web-api-node';
-
-const log = logger('SpotifyClient');
+import config from "../support/config";
 
 export class SpotifyClient {
     protected constructor(readonly spotifyApi: SpotifyWebApi) { }
@@ -25,7 +22,7 @@ export class SpotifyClient {
             const response = await this.spotifyApi.clientCredentialsGrant();
             return response.body.access_token;
         } catch (error) {
-            log.error(error);
+            console.error(error);
         }
     }
 

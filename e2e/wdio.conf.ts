@@ -1,4 +1,3 @@
-import logger from '@wdio/logger';
 import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
@@ -7,12 +6,11 @@ import { TestDataManager } from './test/support/test-data-manager';
 const DEBUG = process.env['DEBUG'];
 const CI = process.env['CI'];
 
-const log = logger('wdio.conf.ts');
 if (DEBUG) {
-    log.info('Debugging is enabled.');
+    console.info('Debugging is enabled.');
 }
 if (CI) {
-    log.info('Continuous integration (CI) is enabled.');
+    console.info('Continuous integration (CI) is enabled.');
 }
 
 export const config: WebdriverIO.Config = {
@@ -257,7 +255,7 @@ export const config: WebdriverIO.Config = {
             const filename = getFailureScreenshotFilename(test);
             const fullPath = dirname(__filename) + '/output/' + filename;
             await browser.saveScreenshot(fullPath);
-            log.warn(`Failure screenshot saved to: ${fullPath}.`);
+            console.warn(`Failure screenshot saved to: ${fullPath}.`);
         }
     },
 

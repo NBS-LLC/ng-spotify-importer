@@ -7,7 +7,7 @@
         "target": "ES2022",
         "types": [
             "node",
-            "webdriverio/async",
+            "@wdio/globals/types",
             "@wdio/mocha-framework",
         ],
     }
