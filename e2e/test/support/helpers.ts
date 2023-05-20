@@ -1,10 +1,9 @@
 import { DOMParser } from '@xmldom/xmldom';
+import fs from 'node:fs';
 import * as Papa from 'papaparse';
 import config from './config';
 
 export function fileToString(path: string): string {
-    const fs = require('fs');
-
     try {
         return String(fs.readFileSync(path, 'utf8')).trim();
     } catch (err) {

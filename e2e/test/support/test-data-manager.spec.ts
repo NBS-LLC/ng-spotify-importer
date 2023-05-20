@@ -1,4 +1,4 @@
-import assert = require('assert');
+import assert from 'node:assert/strict';
 import { TestDataManager } from './test-data-manager';
 
 describe('TestDataManager', () => {

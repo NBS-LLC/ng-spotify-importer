@@ -1,5 +1,5 @@
-import assert = require('assert');
-import { dirname } from 'path';
+import assert from 'node:assert/strict';
+import { dirname } from 'node:path';
 import {
     fileToString,
     getSongCountFromCSVPlaylist,

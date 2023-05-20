@@ -1,4 +1,4 @@
-import { dirname } from 'path';
+import { dirname } from 'node:path';
 import fileReaderComponent from '../pages/file-reader-component';
 import notificationComponent from '../pages/notification-component';
 import playlistEditorComponent from '../pages/playlist-editor-component';

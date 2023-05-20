@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "target": "ES2022",
         "types": [
             "node",
-            "webdriverio/async",
+            "@wdio/globals/types",
             "@wdio/mocha-framework",
-            "expect-webdriverio"
         ],
-        "target": "ES5",
-        "resolveJsonModule": true
     }
 }
