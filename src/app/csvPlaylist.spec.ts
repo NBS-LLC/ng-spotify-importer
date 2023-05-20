@@ -35,5 +35,18 @@ describe('CsvPlaylist', () => {
                 const playlist = new CsvPlaylist(csv, 'Unit Test - CSV Playlist');
             }).toThrowError(/Invalid CSV Playlist/);
         });
+
+        it('should handle csv with bom', () => {
+            const bomChar = String.fromCharCode(0xFEFF);
+            const csv =
+                bomChar +
+                'Title,Artist\n' +
+                'XXX 88,MØ\n' +
+                'Twilight vs Breathe (&sect;),Adam K &amp; Soha';
+
+            const playlist = new CsvPlaylist(csv, 'Unit Test - CSV Playlist');
+            const songs = playlist.getSongs();
+            expect(songs.length).toEqual(2);
+        });
     });
 });

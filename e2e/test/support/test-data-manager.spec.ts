@@ -1,9 +1,24 @@
 import assert from 'node:assert/strict';
-import { testDataManager } from './test-data-manager';
+import { TestDataManager } from './test-data-manager';
 
 describe('TestDataManager', () => {
-    afterEach(() => {
+    const testDataManager = TestDataManager.getInstance('test');
+    beforeEach(() => {
         testDataManager.resetTestData();
+    });
+
+    describe('#getInstance', () => {
+        it('should return a different instance when different names are given', () => {
+            const instance1 = TestDataManager.getInstance('unit test 1');
+            const instance2 = TestDataManager.getInstance('unit test 2');
+            assert.notStrictEqual(instance1, instance2);
+        });
+
+        it('should return the same instance when the same name is given', () => {
+            const instance1 = TestDataManager.getInstance('unit test');
+            const instance2 = TestDataManager.getInstance('unit test');
+            assert.strictEqual(instance1, instance2);
+        });
     });
 
     describe('#addPlaylistName', () => {
