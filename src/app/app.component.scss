@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    height: fit-content;
+    padding: 30px 20px;
+    width: auto;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #E1E5F2;
+    margin-bottom: 20px;
+    font-size: .8em;
+}
+
+.playlist-loader {
+
+    app-file-reader {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        width: fit-content;
+        height: 120px;
+        padding: 20px;
+        margin: 40px auto;
+
+        border-radius: 5px;
+        background-color: #BFDBF7;
+    }
+}
+
+.github-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+table{
+    background-color: #d6adf1;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+app-playlist-editor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

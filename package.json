@@ -37,6 +37,7 @@
     "he": "^1.2.0",
     "papaparse": "^5.4.1",
     "rxjs": "^7.8.0",
+    "scss": "^0.2.4",
     "spotify-web-api-js": "^1.5.2",
     "tslib": "^2.5.0",
     "zone.js": "^0.13.0"

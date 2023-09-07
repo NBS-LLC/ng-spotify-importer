@@ -1,0 +1,24 @@
+.user-id{
+    font-size: 1.1em;
+}
+
+.grant-access{
+    position: absolute;
+    top: 120px;
+    left: 0;
+    right: 0;
+
+    font-size: 1.3em;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 5px;
+
+    padding: 20px;
+
+    background-color: #BFDBF7;
+    box-shadow: 1px 1px 10px rgb(196, 196, 196);
+    font-weight: 600;
+}
+.grant-access span{
+    color: #1db954;
+}

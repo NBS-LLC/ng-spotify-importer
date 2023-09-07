@@ -1,5 +1,7 @@
-<div *ngIf="userId; else logIntoSpotify">Spotify User ID: {{userId}}</div>
+<div *ngIf="userId; else logIntoSpotify" [className]="'user-id'"><b>Spotify User ID:</b> {{userId}}</div>
 
 <ng-template #logIntoSpotify>
-  <p><a data-testid="grant-link" href="{{authUrl}}">Grant</a> access to your Spotify account.</p>
+  <div class="grant-access">
+    <p><a data-testid="grant-link" href="{{authUrl}}">Grant</a> access to your <span>Spotify</span> account</p>
+  </div>
 </ng-template>

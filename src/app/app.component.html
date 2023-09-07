@@ -1,10 +1,12 @@
-<h1>{{title}} <span *ngIf="releaseUrl">(<a data-testid="release-link" href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
+<header class="header">
+  <h1>{{title}} <span *ngIf="releaseUrl">(<a data-testid="release-link" href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
+  
+  <app-notification></app-notification>
+  
+  <app-spotify-auth></app-spotify-auth>
+</header>
 
-<app-notification></app-notification>
-
-<app-spotify-auth></app-spotify-auth>
-
-<div *ngIf="showPlaylistLoader" id="playlist-loader">
+<div *ngIf="showPlaylistLoader" class="playlist-loader" id="playlist-loader">
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
   <div>
@@ -15,6 +17,6 @@
   <app-playlist-editor *ngIf="playlist" [playlist]="playlist"></app-playlist-editor>
 </div>
 
-<p>
+<p class="github-link">
   View <a href="{{projectUrl}}" target="_blank">source code</a> and contribute to this project on GitHub.
 </p>

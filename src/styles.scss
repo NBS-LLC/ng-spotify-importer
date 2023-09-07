@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+}
 
 .note {
   font-style: italic;
-}
-
-input {
-  margin-top: 1em;
-  margin-right: 1em;
 }
 
 label + progress, label + input[type=text] {
@@ -33,10 +31,4 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  padding-left: 1em;
-  padding-top: 1em;
 }
-
-div {
-  margin-top: 0.5em;
-} 

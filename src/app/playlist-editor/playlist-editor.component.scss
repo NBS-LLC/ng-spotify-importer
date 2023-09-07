@@ -1,0 +1,24 @@
+#song-data {
+  border-collapse: collapse;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px rgb(239, 196, 255);
+}
+
+#song-data, #song-data td {
+  border-bottom: 1px solid rgb(172, 191, 213);
+}
+
+#song-data td {
+  padding: 5px;
+}
+
+#song-data tr:nth-child(odd) {
+  background-color: #cc99fd;
+}
+#song-data tr:nth-child(even) {
+  background-color: #c07dff;
+}
+
+.song-link button {
+  margin-left: 0.5em;
+}

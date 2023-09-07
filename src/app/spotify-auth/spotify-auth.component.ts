@@ -7,7 +7,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 @Component({
   selector: 'app-spotify-auth',
   templateUrl: './spotify-auth.component.html',
-  styleUrls: ['./spotify-auth.component.css']
+  styleUrls: ['./spotify-auth.component.scss']
 })
 export class SpotifyAuthComponent implements OnInit {
   public authUrl: string;

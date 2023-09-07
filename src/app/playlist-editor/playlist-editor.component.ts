@@ -11,7 +11,7 @@ import { SpotifyService } from '../spotify.service';
 @Component({
   selector: 'app-playlist-editor',
   templateUrl: './playlist-editor.component.html',
-  styleUrls: ['./playlist-editor.component.css']
+  styleUrls: ['./playlist-editor.component.scss']
 })
 export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
