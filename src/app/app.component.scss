@@ -7,9 +7,17 @@
     justify-content: space-between;
     align-items: center;
 
-    background-color: #E1E5F2;
+    background: #2980B9;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #9ed4fa, #2952b9);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #9ed4fa, #2952b9);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     margin-bottom: 20px;
     font-size: .8em;
+
+    box-shadow: 1px 1px 8px rgb(167, 167, 167);
 }
 
 .playlist-loader {
@@ -21,29 +29,40 @@
         justify-content: space-around;
 
         width: fit-content;
-        height: 120px;
+        height: 220px;
         padding: 20px;
         margin: 40px auto;
 
         border-radius: 5px;
-        background-color: #BFDBF7;
+        background: #2980B9;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #9ed4fa, #6185e2);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #9ed4fa, #6185e2);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        box-shadow: 1px 1px 8px rgb(184, 184, 184);
     }
 }
 
 .github-link {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
+    position: relative;
+    left: 65%;
 }
 
-table{
+table {
     background-color: #d6adf1;
     border: 1px solid rgb(202, 202, 202);
 }
 
-app-playlist-editor{
+app-playlist-editor {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
+}
+
+.playlist-load-progress {
+    text-align: center;
 }

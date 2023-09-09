@@ -1,6 +1,7 @@
 div {
     padding: 2px;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
@@ -8,4 +9,37 @@ div {
         margin: 0 10px 0 5px;
     }
 
+    .option-pair{
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
+.note{
+    font-size: 0.8em;
+    font-weight: 200;
+}
+
+input {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+input[type="file"]::file-selector-button {
+
+    border: none;
+    padding: 10px 20px;
+    margin-right: 30px;
+    border-radius: 4px;
+
+
+    box-shadow: 1px 1px 8px rgb(173, 173, 173);
+
+    background: #f3f3f3;
+   
+    &:hover {
+        cursor: pointer;
+    }
 }

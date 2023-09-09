@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-*{
+
+* {
   margin: 0;
 }
 
@@ -7,7 +8,8 @@
   font-style: italic;
 }
 
-label + progress, label + input[type=text] {
+label+progress,
+label+input[type=text] {
   margin-left: 0.5em;
 }
 
@@ -24,11 +26,25 @@ input[type=text] {
   width: 20em;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #def0ff;
+}
+
+button{
+  border: none;
+  padding: 10px 20px;
+  margin-right: 30px;
+  border-radius: 4px;
+  font-weight: 600;
+
+  box-shadow: 1px 1px 8px rgb(173, 173, 173);
+
+  background: #f3f3f3;
 }

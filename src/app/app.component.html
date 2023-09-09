@@ -1,6 +1,8 @@
 <header class="header">
-  <h1>{{title}} <span *ngIf="releaseUrl">(<a data-testid="release-link" href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
-  
+  <div class="header-text">
+    <h1>{{title}} <span *ngIf="releaseUrl">(<a data-testid="release-link" href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
+    <p style="font-size: 1em;">by nickwanders</p>
+  </div>
   <app-notification></app-notification>
   
   <app-spotify-auth></app-spotify-auth>
@@ -9,7 +11,7 @@
 <div *ngIf="showPlaylistLoader" class="playlist-loader" id="playlist-loader">
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
-  <div>
+  <div *ngIf="playlist" class="playlist-load-progress">
     <label for="playlist-load-progress">Playlist Loading Progress:</label>
     <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
   </div>

@@ -4,7 +4,7 @@
 
 .grant-access{
     position: absolute;
-    top: 120px;
+    top: 200px;
     left: 0;
     right: 0;
 
@@ -15,9 +15,19 @@
 
     padding: 20px;
 
-    background-color: #BFDBF7;
+    // background-color: #BFDBF7;
+    background: #E0EAFC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #b1cdf4, #c5d9fc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #b1cdf4, #d0e1ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     box-shadow: 1px 1px 10px rgb(196, 196, 196);
     font-weight: 600;
+
+    svg{
+        width: 120px;
+        margin-top: 20px;
+        margin-left: 25%;
+    }
 }
 .grant-access span{
     color: #1db954;
