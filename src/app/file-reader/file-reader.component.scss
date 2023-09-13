@@ -3,7 +3,7 @@ div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    // align-items: center;
 
     input {
         margin: 0 10px 0 5px;
@@ -12,6 +12,7 @@ div {
     .option-pair{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
     }
 
 }
