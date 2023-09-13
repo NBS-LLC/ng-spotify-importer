@@ -11,7 +11,7 @@
 }
 
 #song-data tr:nth-child(odd) {
-  background-color: #edcdff;
+  background-color: #79abe6;
 }
 
 #song-data tr:not(:first-child):hover {
