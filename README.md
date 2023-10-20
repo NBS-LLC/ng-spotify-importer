@@ -50,7 +50,7 @@ To get a Spotify Auth Token do the following:
 1. Examine the site's cookies
 1. The value of `sp_dc` is your auth token
 
-The Spotify Client ID and Secret are located in the settings of your [development](https://developer.spotify.com/) dashboard.
+The Spotify Client ID and Secret are located in the settings of the [development](https://developer.spotify.com/) dashboard.
 
 ## Deploy
 
