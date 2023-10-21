@@ -48,5 +48,17 @@ describe('CsvPlaylist', () => {
             const songs = playlist.getSongs();
             expect(songs.length).toEqual(2);
         });
+
+        it('should handle csv with spaces', () => {
+            const csv =
+                'Title, Artist\n' +
+                'Some Song, Some Artist';
+
+            const playlist = new CsvPlaylist(csv, 'Unit Test - CSV With Spaces Playlist');
+            const songs = playlist.getSongs();
+            expect(songs.length).toEqual(1);
+            expect(songs[0].title).toEqual('Some Song');
+            expect(songs[0].artist).toEqual('Some Artist');
+        });
     });
 });
