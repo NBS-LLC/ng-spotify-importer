@@ -17,8 +17,8 @@ export class CsvPlaylist implements Playlist {
     const options: ParseConfig = {
       header: true,
       skipEmptyLines: true,
-      transformHeader: header => header.toUpperCase(),
-      transform: value => decode(value),
+      transformHeader: header => header.trim().toUpperCase(),
+      transform: value => decode(value.trim()),
     };
 
     this.csv = parse(playlistCsv, options);
