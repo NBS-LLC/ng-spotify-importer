@@ -1,6 +1,14 @@
 # Deployment Guide
+Follow these instructions when the main branch is ready to be deployed:
 
-1. `> git tag -a v#.#.# -m "Short Summary of User Facing Changes"`
+```
+> git checkout main
+> git pull
+> git tag -a v#.#.# -m "Short Summary of User Facing Changes"
+> git push origin v#.#.#
+```
+
+
 1. Approve the deployment to staging via GitHub
 1. (Optional) Spot check staging
 1. Create a release from the new tag via GitHub
