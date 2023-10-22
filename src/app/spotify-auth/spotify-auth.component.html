@@ -1,4 +1,4 @@
-<div *ngIf="userId; else logIntoSpotify" [className]="'user-id'"><b>Spotify User ID:</b> {{userId}}</div>
+<div *ngIf="userId; else logIntoSpotify" class="user-id"><b>Spotify User ID:</b> {{userId}}</div>
 
 <ng-template #logIntoSpotify>
   <div class="grant-access">
