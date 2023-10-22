@@ -1,7 +1,7 @@
-# Contributing Guide
+# Contribution Guide
 
 ## Branch Names
-Branches should be prefixed with a category followed by a slash.
+Branches must be prefixed with a category followed by a slash.
 
 For example: `docs/contributing-guide`
 
@@ -13,3 +13,6 @@ For example: `docs/contributing-guide`
 * enhancements/ - updates and improvements to the application
 * feature/ - new application features
 * tests/ - updates, fixes, and additions to unit, component and integration tests
+
+## Commit Messages
+[Conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) messages must be used.

@@ -25,8 +25,8 @@ class SpotifyWebPlayerPage {
         return this.deleteModalElement.$('button=Delete');
     }
 
-    get alertModalRemovedFromLibraryElement() {
-        return $('[role="alert"]*=Removed');
+    get removedFromLibraryNotificationElement() {
+        return $('span*=Removed');
     }
 
     async open() {
@@ -46,8 +46,8 @@ class SpotifyWebPlayerPage {
                 await this.contextMenuDeleteElement.click();
                 await this.deleteModalElement.waitForDisplayed({ timeoutMsg: 'Delete modal did not display.' });
                 await this.deleteModalDeleteElement.click();
-                await this.alertModalRemovedFromLibraryElement.waitForDisplayed(
-                    { timeoutMsg: 'Removed from library alert did not display.' }
+                await this.removedFromLibraryNotificationElement.waitForDisplayed(
+                    { timeoutMsg: 'Removed from library notification did not display.' }
                 );
                 return;
             }
@@ -74,8 +74,8 @@ class SpotifyWebPlayerPage {
             await this.contextMenuDeleteElement.click();
             await this.deleteModalElement.waitForDisplayed({ timeoutMsg: 'Delete modal did not display.' });
             await this.deleteModalDeleteElement.click();
-            await this.alertModalRemovedFromLibraryElement.waitForDisplayed(
-                { timeoutMsg: 'Removed from library alert did not display.' }
+            await this.removedFromLibraryNotificationElement.waitForDisplayed(
+                { timeoutMsg: 'Removed from library notification did not display.' }
             );
         }
     }
