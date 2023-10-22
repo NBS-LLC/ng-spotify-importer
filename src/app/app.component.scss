@@ -9,10 +9,12 @@
 
     background: #2980B9;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #9ed4fa, #2952b9);
+    background: -webkit-linear-gradient(to left, #9ed4fa, rgb(0, 170, 255));
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #9ed4fa, #2952b9);
+    background: linear-gradient(to left, #9ed4fa, rgb(0, 170, 255));
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
 
     margin-bottom: 20px;
     font-size: .8em;
@@ -21,7 +23,7 @@
 
     // header title
     h1 {
-        font-family: 'Nunito Sans';
+        font-family: 'Nunito Sans', Arial, sans-serif;
         font-weight: 900;
         font-size: 2.5em;
         margin-bottom: 20px;
@@ -39,7 +41,7 @@
             right: 0;
             bottom: calc(var(--deco-height) * -0.625);
             height: var(--deco-height);
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%231DB954' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+            background-image: url("./svg-files/decoration.svg");
             background-size: auto 100%;
             background-repeat: round;
             background-position: 0em;
@@ -62,11 +64,16 @@
         margin: 40px auto;
 
         border-radius: 5px;
-        background: #2980B9;
+        background: #ecf0f3;
+        box-shadow:
+          4px 4px 4px 0px #d1d9e6 inset,
+          -4px -4px 4px 0px #ffffff inset;
+
+        background: rgb(0, 170, 255);
         /* fallback for old browsers */
-        background: -webkit-linear-gradient(to bottom, #9ed4fa, #6185e2);
+        background: -webkit-linear-gradient(to bottom, #ffffff, rgb(165 225 255));
         /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to bottom, #9ed4fa, #6185e2);
+        background: linear-gradient(to bottom, #ffffff, rgb(165 225 255));
         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
         box-shadow: 1px 1px 8px rgb(184, 184, 184);

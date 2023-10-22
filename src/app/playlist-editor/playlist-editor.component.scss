@@ -1,7 +1,7 @@
 #song-data {
   border-collapse: collapse;
   border-radius: 5px;
-  box-shadow: 1px 1px 8px rgb(239, 196, 255);
+  box-shadow: 1px 1px 8px rgb(195, 195, 195);
 }
 
 #song-data,
@@ -14,15 +14,16 @@
 }
 
 #song-data tr:nth-child(odd) {
-  background-color: #79abe6;
+  background-color: #f7f7f7;
 }
 
 #song-data tr:nth-child(even) {
-  background-color: #90cefb;
+  background-color: #fbfbfb;
 }
 
 .song-link button {
   margin-left: 0.5em;
+  background-color: rgb(0, 170, 255);
 }
 
 // Spacing
@@ -36,12 +37,16 @@ table {
   margin-top: 20px;
   font-family: 'circular';
 
+  th{
+    background-color: rgb(0, 170, 255);
+  }
 }
 
 .songs-actions {
   display: flex;
   flex-direction: column;
   border: 3px solid rgb(221, 221, 221);
+  border-radius: 5px;
   padding: 20px;
   box-shadow: 1px 1px 8px rgb(215, 215, 215);
   background-color: white;

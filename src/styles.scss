@@ -51,4 +51,8 @@ button{
   box-shadow: 1px 1px 8px rgb(173, 173, 173);
 
   background: #f3f3f3;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
