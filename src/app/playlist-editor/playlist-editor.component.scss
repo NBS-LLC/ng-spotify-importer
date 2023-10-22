@@ -44,6 +44,7 @@ table {
 
 .songs-actions {
   display: flex;
+  max-width: 385px;
   flex-direction: column;
   border: 3px solid rgb(221, 221, 221);
   border-radius: 5px;

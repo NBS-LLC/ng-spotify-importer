@@ -8,6 +8,10 @@
   <app-spotify-auth></app-spotify-auth>
 </header>
 
+<p class="github-link">
+  View <a href="{{projectUrl}}" target="_blank">source code</a> and contribute to this project on GitHub.
+</p>
+
 <div *ngIf="showPlaylistLoader" class="playlist-loader" id="playlist-loader">
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
@@ -18,7 +22,3 @@
 
   <app-playlist-editor *ngIf="playlist" [playlist]="playlist"></app-playlist-editor>
 </div>
-
-<p class="github-link">
-  View <a href="{{projectUrl}}" target="_blank">source code</a> and contribute to this project on GitHub.
-</p>

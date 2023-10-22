@@ -55,13 +55,13 @@
     app-file-reader {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: left;
         justify-content: space-around;
 
         width: fit-content;
         height: 220px;
         padding: 20px;
-        margin: 40px auto;
+        margin: 40px 5%;
 
         border-radius: 5px;
         background: #ecf0f3;
@@ -83,6 +83,7 @@
 .github-link {
     position: relative;
     left: 65%;
+    top: 10px;
 }
 
 table {
@@ -93,9 +94,9 @@ table {
 app-playlist-editor {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin: 40px 5%;
 }
 
 .playlist-load-progress {
