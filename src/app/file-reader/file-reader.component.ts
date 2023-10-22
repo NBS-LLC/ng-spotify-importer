@@ -4,7 +4,7 @@ import { readPlaylist } from 'src/lib/playlist-file-reader';
 @Component({
   selector: 'app-file-reader',
   templateUrl: './file-reader.component.html',
-  styleUrls: ['./file-reader.component.css']
+  styleUrls: ['./file-reader.component.scss']
 })
 export class FileReaderComponent implements OnInit {
   @Output() fileChanged = new EventEmitter();

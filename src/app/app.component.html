@@ -1,13 +1,17 @@
-<h1>{{title}} <span *ngIf="releaseUrl">(<a data-testid="release-link" href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
+<header class="header">
+  <div class="header-text">
+    <h1>{{title}} <span *ngIf="releaseUrl">(<a data-testid="release-link" href="{{releaseUrl}}" target="_blank">v{{version}}</a>)</span></h1>
+    <p style="font-size: 1em;">by <a href="https://community.spotify.com/t5/user/viewprofilepage/user-id/23761235">nick_wanders</a></p>
+  </div>
+  <app-notification></app-notification>
 
-<app-notification></app-notification>
+  <app-spotify-auth></app-spotify-auth>
+</header>
 
-<app-spotify-auth></app-spotify-auth>
-
-<div *ngIf="showPlaylistLoader" id="playlist-loader">
+<div *ngIf="showPlaylistLoader" class="playlist-loader" id="playlist-loader">
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
-  <div>
+  <div *ngIf="playlist" class="playlist-load-progress">
     <label for="playlist-load-progress">Playlist Loading Progress:</label>
     <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
   </div>
@@ -15,6 +19,6 @@
   <app-playlist-editor *ngIf="playlist" [playlist]="playlist"></app-playlist-editor>
 </div>
 
-<p>
+<p class="github-link">
   View <a href="{{projectUrl}}" target="_blank">source code</a> and contribute to this project on GitHub.
 </p>

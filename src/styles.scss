@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+// Font for H1
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;0,6..12,1000;1,6..12,200;1,6..12,300;1,6..12,400;1,6..12,500;1,6..12,600;1,6..12,700;1,6..12,800;1,6..12,900;1,6..12,1000&display=swap');
+
+* {
+  margin: 0;
+}
+
+.note {
+  font-style: italic;
+}
+
+label+progress,
+label+input[type=text] {
+  margin-left: 0.5em;
+}
+
+table {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+table input {
+  margin: 0;
+}
+
+input[type=text] {
+  width: 20em;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #def0ff;
+}
+
+button{
+  border: none;
+  padding: 10px 20px;
+  margin-right: 30px;
+  border-radius: 4px;
+  font-weight: 600;
+
+  box-shadow: 1px 1px 8px rgb(173, 173, 173);
+
+  background: #f3f3f3;
+}
