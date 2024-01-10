@@ -1,0 +1,63 @@
+#song-data {
+  border-collapse: collapse;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px rgb(195, 195, 195);
+}
+
+#song-data,
+#song-data td {
+  border-bottom: 1px solid rgb(172, 191, 213);
+}
+
+#song-data td {
+  padding: 5px;
+}
+
+#song-data tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+#song-data tr:nth-child(even) {
+  background-color: #fbfbfb;
+}
+
+.song-link button {
+  margin-left: 0.5em;
+  background-color: rgb(0, 170, 255);
+}
+
+// Spacing
+h2,
+button,
+div {
+  margin: 10px 0;
+}
+
+table {
+  margin-top: 20px;
+  font-family: 'circular';
+
+  th{
+    background-color: rgb(0, 170, 255);
+  }
+}
+
+.songs-actions {
+  display: flex;
+  max-width: 385px;
+  flex-direction: column;
+  border: 3px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 1px 8px rgb(215, 215, 215);
+  background-color: white;
+}
+
+.song-data-filter {
+  max-width: 200px;
+
+  .option-pair {
+    display: flex;
+    justify-content: space-between;
+  }
+}

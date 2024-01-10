@@ -1,0 +1,104 @@
+.header {
+    display: flex;
+    height: fit-content;
+    padding: 20px 20px;
+    width: auto;
+
+    justify-content: space-between;
+    align-items: center;
+
+    background: #2980B9;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #9ed4fa, rgb(0, 170, 255));
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #9ed4fa, rgb(0, 170, 255));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+
+    margin-bottom: 20px;
+    font-size: .8em;
+
+    box-shadow: 1px 1px 8px rgb(167, 167, 167);
+
+    // header title
+    h1 {
+        font-family: 'Nunito Sans', Arial, sans-serif;
+        font-weight: 900;
+        font-size: 2.5em;
+        margin-bottom: 20px;
+
+        position: relative;
+        white-space: nowrap;
+
+        color: white;
+
+        &:after {
+            --deco-height: 0.3125em;
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: calc(var(--deco-height) * -0.625);
+            height: var(--deco-height);
+            background-image: url("./svg-files/decoration.svg");
+            background-size: auto 100%;
+            background-repeat: round;
+            background-position: 0em;
+            opacity: 0.7;
+        }
+    }
+}
+
+.playlist-loader {
+
+    app-file-reader {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: space-around;
+
+        width: fit-content;
+        height: 220px;
+        padding: 20px;
+        margin: 40px 5%;
+
+        border-radius: 5px;
+        background: #ecf0f3;
+        box-shadow:
+          4px 4px 4px 0px #d1d9e6 inset,
+          -4px -4px 4px 0px #ffffff inset;
+
+        background: rgb(0, 170, 255);
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #ffffff, rgb(165 225 255));
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #ffffff, rgb(165 225 255));
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        box-shadow: 1px 1px 8px rgb(184, 184, 184);
+    }
+}
+
+.github-link {
+    position: relative;
+    left: 65%;
+    top: 10px;
+}
+
+table {
+    background-color: #d6adf1;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+app-playlist-editor {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: center;
+    margin: 40px 5%;
+}
+
+.playlist-load-progress {
+    text-align: center;
+}

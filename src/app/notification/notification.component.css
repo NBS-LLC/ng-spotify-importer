@@ -4,6 +4,11 @@
 
 .error {
   color: red;
+  font-weight: 600;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 6px rgb(167, 167, 167);
 }
 
 .success {
