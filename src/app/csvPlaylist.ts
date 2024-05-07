@@ -41,7 +41,7 @@ export class CsvPlaylist implements Playlist {
     if (CsvPlaylist.songs.length === 0) {
       for (const songData of this.csv.data) {
         // tslint:disable-next-line:no-string-literal
-        CsvPlaylist.songs.push({ title: songData['TITLE'], artist: songData['ARTIST'] });
+        CsvPlaylist.songs.push({ title: songData['TITLE'], artist: songData['ARTIST'], album: songData['ALBUM'] || "", isrc: songData['ISRC'] || "" });
       }
     }
 
