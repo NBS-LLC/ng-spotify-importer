@@ -12,6 +12,14 @@
     <label for="song-artist">Artist:</label>
     <input id="song-artist" type="text" [(ngModel)]="song.artist"/>
 
+    <br/>
+
+    <label for="song-artist">Album:</label>
+    <input id="song-artist" type="text" [(ngModel)]="song.album"/>
+
+    <label for="song-artist">isrc:</label>
+    <input id="song-artist" type="text" [(ngModel)]="song.isrc"/>
+
     <button (click)="handleSearchClick()">Search</button>
   </div>
 
@@ -22,6 +30,7 @@
       <tr>
         <th>Title</th>
         <th>Artist</th>
+        <th>Album</th>
         <th>Link</th>
         <th>Preview</th>
       </tr>
@@ -31,6 +40,9 @@
         </td>
         <td class="song-artist">
           {{relatedSong.artist}}
+        </td>
+        <td class="song-album">
+          {{relatedSong.album}}
         </td>
         <td class="song-link">
           <a href="{{relatedSong.externalUrl}}" target="_blank" (click)="$event.stopPropagation()">[Spotify]</a>

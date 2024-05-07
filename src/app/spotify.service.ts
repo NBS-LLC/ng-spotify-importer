@@ -148,7 +148,7 @@ export class SpotifyService {
         if (data.tracks.total > 0) {
           const songs: Song[] = [];
           for (const track of data.tracks.items) {
-            const song: Song = {artist: track.artists.pop().name, title: track.name};
+            const song: Song = {artist: track.artists.pop().name, title: track.name, album: track.album.name};
             song.uri = track.uri;
             song.previewUrl = track.preview_url;
             song.externalUrl = track.external_urls.spotify;
