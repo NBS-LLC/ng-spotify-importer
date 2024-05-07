@@ -38,7 +38,7 @@ export class SongDetailsComponent implements OnInit {
   }
 
   private searchForRelated() {
-    this.spotifyService.loadPageOfSongs(this.song.title, this.song.artist, 1).then(songs => {
+    this.spotifyService.loadPageOfSongs(this.song.title, this.song.artist, 1, this.song.album, this.song.isrc).then(songs => {
       if (songs) {
         this.relatedSongs = songs;
       }
