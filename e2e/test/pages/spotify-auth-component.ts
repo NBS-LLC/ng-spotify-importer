@@ -13,6 +13,7 @@ class SpotifyAuthComponent {
     async grantPermissionWithCookies() {
         await this.grantElement.click();
         await setSpotifyAuthToken();
+        // TODO: add user friendly error message if this fails
         await authorizePage.waitForDisplayed();
         await authorizePage.clickAgree();
     }
