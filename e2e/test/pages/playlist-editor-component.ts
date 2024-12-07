@@ -57,10 +57,10 @@ class PlaylistEditorComponent {
         }
 
         return new SongDataRowComponent(
-            this.songTitleElements[index],
-            this.songArtistElements[index],
-            this.songLinkElements[index],
-            this.songPreviewElements[index]
+            await this.songTitleElements[index],
+            await this.songArtistElements[index],
+            await this.songLinkElements[index],
+            await this.songPreviewElements[index]
         );
     }
 
