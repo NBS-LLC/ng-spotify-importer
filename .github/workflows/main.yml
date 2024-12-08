@@ -43,10 +43,7 @@ jobs:
         if: always()
         run: npm stop
 
-        # TODO: store test results summary
-
-        # TODO: misleading, seems to only save failure screenshots
-      - name: Save Test Results
+      - name: Store Test Results
         if: always()
         uses: actions/upload-artifact@v4
         with:
