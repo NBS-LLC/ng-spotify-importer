@@ -48,18 +48,19 @@ suite('modify playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         await notificationComponent.waitForDisplayed();
         const notificationMessage = await notificationComponent.componentElement.getText();
         expect(notificationMessage).toContain('SUCCESS');
+
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
 
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const actualKnownSongCount = getSongCountFromCSVPlaylist(playlistPath);
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
         const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(actualKnownSongCount);

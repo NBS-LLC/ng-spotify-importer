@@ -39,3 +39,27 @@ export async function setSpotifyAuthToken() {
     await browser.setCookies({ name: 'sp_dc', value: config.getSpotifyAuthTokenPrimary() });
     await browser.refresh();
 }
+
+export async function unfollowPlaylist(playlistId: string, accessToken: string) {
+    await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/followers`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    });
+}
+
+export interface PlaylistItem {
+    id: string,
+    name: string
+}
+
+export async function getCurrentUsersPlaylists(accessToken: string) {
+    const response = await fetch('https://api.spotify.com/v1/me/playlists', {
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        }
+    });
+
+    return (await response.json()).items as PlaylistItem[];
+}

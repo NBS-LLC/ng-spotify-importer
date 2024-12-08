@@ -1,6 +1,7 @@
 import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
+import { unfollowPlaylist } from './test/support/helpers';
 import { TestDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
@@ -283,22 +284,22 @@ export const config: WebdriverIO.Config = {
      * @param {Array.<String>} specs List of spec file paths that ran
      */
     after: async function (result, capabilities, specs) {
-        // TODO: fix test data cleanup, infinite loop during element lookup
-        
-        // const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
-        // const playlistNames = testDataManager.getPlaylistNames();
+        const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
+        const playlistIds = testDataManager.getPlaylistIds();
 
-        // if (!playlistNames.length) {
-        //     return;
-        // }
+        if (!playlistIds.length) {
+            return;
+        }
 
-        // await spotifyWebPlayerPage.open();
-        // await spotifyWebPlayerPage.waitForDisplayed();
-        // for (const playlistName of playlistNames) {
-        //     await spotifyWebPlayerPage.deletePlaylistByName(playlistName);
-        // }
+        await spotifyWebPlayerPage.open();
+        await spotifyWebPlayerPage.waitForDisplayed();
+        const accessToken = await spotifyWebPlayerPage.getAccessToken();
 
-        // testDataManager.resetTestData();
+        for (const playlistId of playlistIds) {
+            unfollowPlaylist(playlistId, accessToken);
+        }
+
+        testDataManager.resetTestData();
     },
     /**
      * Gets executed right after terminating the webdriver session.

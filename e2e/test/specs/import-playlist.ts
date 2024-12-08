@@ -41,7 +41,6 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -50,10 +49,12 @@ suite('import playlist flows', function () {
         expect(notificationMessage).toContain('SUCCESS');
         expect(notificationMessage).toContain(`${knownSongCount} tracks`);
 
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
+
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
         const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
@@ -93,7 +94,6 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -102,10 +102,12 @@ suite('import playlist flows', function () {
         expect(notificationMessage).toContain('SUCCESS');
         expect(notificationMessage).toContain(`${knownSongCount} tracks`);
 
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
+
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
         const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
@@ -144,7 +146,6 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -153,10 +154,12 @@ suite('import playlist flows', function () {
         expect(notificationMessage).toContain('SUCCESS');
         expect(notificationMessage).toContain(`${knownSongCount} tracks`);
 
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
+
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
         const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
