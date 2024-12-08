@@ -1,52 +1,60 @@
 name: Deploy
 
-on: 
+on:
   workflow_dispatch:
 
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   staging:
     runs-on: ubuntu-latest
+
     environment:
       name: staging
       url: https://stg.nickwanders.com/projects/ng-spotify-importer/
+
     env:
       ENVIRONMENT: production,staging # https://github.com/angular/angular-cli/issues/17402
-      CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOST: stg.nickwanders.com
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME }}
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD }}
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT: 22
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH: /home/nickwanders/stg.nickwanders.com/
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH: projects/ng-spotify-importer/
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-      - name: Install Chromium
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
+      - name: Install Chrome
         run: |
-          # Chromium v108
-          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F1058929%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
-          unzip chrome-linux.zip
+          sudo apt-get update
+          wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -P /tmp
+          sudo apt-get install -y "/tmp/google-chrome-stable_current_amd64.deb" -f
+
       - name: Install Dependencies
         run: npm ci
+
       - name: Inject Version
         if: github.ref_type == 'tag'
         run: |
-          npm run version:update &&
+          npm run version:update
           npm run version:inject
+
       - name: Deploy to Staging
         run: npm run deploy
+
       - name: Run Deploy Tests
         run: npm run deploy:test
+
       - name: Save Test Results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: deploy-test-results
           path: e2e/output/
