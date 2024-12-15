@@ -53,7 +53,7 @@ jobs:
         run: npm run deploy:test
 
       - name: Save Test Results
-        if: always()
+        if: !cancelled()
         uses: actions/upload-artifact@v4
         with:
           name: deploy-test-results

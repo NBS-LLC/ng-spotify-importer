@@ -17,7 +17,7 @@
     "e2e:report": "allure generate --clean --output e2e/output/allure-report --single-file e2e/output/allure",
     "upload": "TS_NODE_PROJECT=scripts/tsconfig.json node -r ts-node/register scripts/upload.ts",
     "deploy": "npm run build && npm run upload",
-    "deploy:test": "wdio run e2e/wdio.conf.ts --autoCompileOpts.tsNodeOpts.project=e2e/tsconfig.json --spec e2e/test/deploy-specs/**/*.ts"
+    "deploy:test": "TS_NODE_PROJECT=e2e/tsconfig.json wdio run e2e/wdio.conf.ts --spec e2e/test/deploy-specs/**/*.ts"
   },
   "browser": {
     "crypto": false
