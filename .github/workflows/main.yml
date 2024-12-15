@@ -44,11 +44,11 @@ jobs:
         run: npm stop
 
       - name: Generate Test Report
-        if: !cancelled()
+        if: ${{ !cancelled() }}
         run: npm run e2e:report
 
       - name: Store Test Results
-        if: !cancelled()
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: e2e-test-results
