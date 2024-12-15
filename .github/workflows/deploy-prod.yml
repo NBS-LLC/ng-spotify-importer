@@ -1,36 +1,41 @@
 name: Deploy Production
 
-on: 
+on:
   release:
     types: [released]
 
 jobs:
   production:
     runs-on: ubuntu-latest
+
     environment:
       name: production
       url: https://nickwanders.com/projects/ng-spotify-importer/
+
     env:
       ENVIRONMENT: production
-      CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOST: nickwanders.com
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME }}
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD: ${{ secrets.NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD }}
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT: 22
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH: /home/nickwanders/nickwanders.com/
       NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH: projects/ng-spotify-importer/
+
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          cache: "npm"
+
       - name: Install Dependencies
         run: npm ci
+
       - name: Inject Version
         if: github.ref_type == 'tag'
         run: |
-          npm run version:update &&
+          npm run version:update
           npm run version:inject
+
       - name: Deploy to Production
         run: npm run deploy

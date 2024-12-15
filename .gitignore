@@ -48,3 +48,4 @@ Thumbs.db
 
 # Project Specific
 .ng-serve.pid
+output/

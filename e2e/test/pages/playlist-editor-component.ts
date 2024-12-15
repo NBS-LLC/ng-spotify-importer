@@ -46,7 +46,7 @@ class PlaylistEditorComponent {
     }
 
     async getSongDataRowComponentBySongTitle(title: string): Promise<SongDataRowComponent> {
-        browser.waitUntil(async () => {
+        await browser.waitUntil(async () => {
             return await this.songTitleElements.length > 0;
         });
 
@@ -57,10 +57,10 @@ class PlaylistEditorComponent {
         }
 
         return new SongDataRowComponent(
-            this.songTitleElements[index],
-            this.songArtistElements[index],
-            this.songLinkElements[index],
-            this.songPreviewElements[index]
+            await this.songTitleElements[index],
+            await this.songArtistElements[index],
+            await this.songLinkElements[index],
+            await this.songPreviewElements[index]
         );
     }
 

@@ -1,4 +1,4 @@
-name: CI
+name: Run E2E Framework
 
 on:
   pull_request:
@@ -9,27 +9,26 @@ jobs:
   test:
     concurrency:
       group: ci-test
-      
+
     runs-on: ubuntu-latest
 
     env:
-      CHROME_BIN: ${{ github.workspace }}/chrome-linux/chrome
       SPOTIFY_AUTH_TOKEN_PRIMARY: ${{ secrets.SPOTIFY_AUTH_TOKEN_PRIMARY }}
       SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
       SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+          node-version-file: ".nvmrc"
+          cache: "npm"
 
-      - name: Install Chromium
+      - name: Install Chrome
         run: |
-          # Chromium v108
-          curl https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F1058929%2Fchrome-linux.zip?alt=media -o chrome-linux.zip &&
-          unzip chrome-linux.zip
+          sudo apt-get update
+          wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -P /tmp
+          sudo apt-get install -y "/tmp/google-chrome-stable_current_amd64.deb" -f
 
       - name: Install Dependencies
         run: npm ci
@@ -44,9 +43,13 @@ jobs:
         if: always()
         run: npm stop
 
-      - name: Save Test Results
-        if: always()
-        uses: actions/upload-artifact@v3
+      - name: Generate Test Report
+        if: ${{ !cancelled() }}
+        run: npm run e2e:report
+
+      - name: Store Test Results
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
         with:
           name: e2e-test-results
           path: e2e/output/

@@ -1,6 +1,7 @@
 import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
 import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
+import { unfollowPlaylist } from './test/support/helpers';
 import { TestDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
@@ -72,13 +73,13 @@ export const config: WebdriverIO.Config = {
         // maxInstances: 5,
         //
         browserName: 'chrome',
+        browserVersion: 'stable',
         acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
         'goog:chromeOptions': {
-            binary: process.env['CHROME_BIN'],
             args: [
                 ...CI ? ['headless'] : [],
                 'disable-gpu',
@@ -94,6 +95,7 @@ export const config: WebdriverIO.Config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
+    outputDir: 'e2e/output',
     //
     // Set specific log levels per logger
     // loggers:
@@ -133,7 +135,7 @@ export const config: WebdriverIO.Config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    // services: [],
 
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -155,7 +157,13 @@ export const config: WebdriverIO.Config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['spec', { addConsoleLogs: true }]],
+    reporters: [
+        ['allure', {
+            outputDir: 'e2e/output/allure',
+            addConsoleLogs: true
+        }],
+        ['spec', { addConsoleLogs: true }]
+    ],
 
     //
     // Options to be passed to Mocha.
@@ -284,16 +292,18 @@ export const config: WebdriverIO.Config = {
      */
     after: async function (result, capabilities, specs) {
         const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
-        const playlistNames = testDataManager.getPlaylistNames();
+        const playlistIds = testDataManager.getPlaylistIds();
 
-        if (!playlistNames.length) {
+        if (!playlistIds.length) {
             return;
         }
 
         await spotifyWebPlayerPage.open();
         await spotifyWebPlayerPage.waitForDisplayed();
-        for (const playlistName of playlistNames) {
-            await spotifyWebPlayerPage.deletePlaylistByName(playlistName);
+        const accessToken = await spotifyWebPlayerPage.getAccessToken();
+
+        for (const playlistId of playlistIds) {
+            unfollowPlaylist(playlistId, accessToken);
         }
 
         testDataManager.resetTestData();

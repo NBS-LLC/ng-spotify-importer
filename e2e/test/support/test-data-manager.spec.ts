@@ -22,27 +22,27 @@ describe('TestDataManager', () => {
     });
 
     describe('#addPlaylistName', () => {
-        it('should add a single playlist name to the test data manager', () => {
-            testDataManager.addPlaylistName('Unit Test - 1234');
-            const playlistNames = testDataManager.getPlaylistNames();
-            assert.strictEqual(playlistNames.length, 1);
+        it('should add a single playlist to the test data manager', () => {
+            testDataManager.addPlaylist('AAAAAAAAAAAAAAAAAAAAAA');
+            const playlistIds = testDataManager.getPlaylistIds();
+            assert.strictEqual(playlistIds.length, 1);
         });
 
-        it('should collect playlist names', () => {
-            testDataManager.addPlaylistName('Unit Test - 1111');
-            testDataManager.addPlaylistName('Unit Test - 2222');
-            const playlistNames = testDataManager.getPlaylistNames();
-            assert.strictEqual(playlistNames.length, 2);
+        it('should collect playlists', () => {
+            testDataManager.addPlaylist('AAAAAAAAAAAAAAAAAAAAAA');
+            testDataManager.addPlaylist('BBBBBBBBBBBBBBBBBBBBBB');
+            const playlistIds = testDataManager.getPlaylistIds();
+            assert.strictEqual(playlistIds.length, 2);
         });
     });
 
     describe('#resetTestData', () => {
-        it('should remove playlist names from the test data manager', () => {
-            testDataManager.addPlaylistName('Unit Test - 1111');
-            testDataManager.addPlaylistName('Unit Test - 2222');
+        it('should remove playlists from the test data manager', () => {
+            testDataManager.addPlaylist('AAAAAAAAAAAAAAAAAAAAAA');
+            testDataManager.addPlaylist('BBBBBBBBBBBBBBBBBBBBBB');
             testDataManager.resetTestData();
-            const playlistNames = testDataManager.getPlaylistNames();
-            assert.strictEqual(playlistNames.length, 0);
+            const playlistIds = testDataManager.getPlaylistIds();
+            assert.strictEqual(playlistIds.length, 0);
         });
     });
 });

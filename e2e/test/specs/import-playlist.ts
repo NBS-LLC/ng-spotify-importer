@@ -4,7 +4,7 @@ import notificationComponent from '../pages/notification-component';
 import playlistEditorComponent from '../pages/playlist-editor-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
-import { getSongCountFromCSVPlaylist, getSongCountFromSpotifyPlaylist, getSongCountFromTextPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel } from '../support/helpers';
+import { getSongCountFromCSVPlaylist, getSongCountFromSpotifyPlaylist, getSongCountFromTextPlaylist, parsePlaylistIdFromImportNotification, parseSongCountFromLabel, waitForPlaylistToLoad } from '../support/helpers';
 import { TestDataManager } from '../support/test-data-manager';
 
 const testDataManager = TestDataManager.getInstance(process.env['WDIO_WORKER_ID']);
@@ -41,7 +41,6 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -50,11 +49,13 @@ suite('import playlist flows', function () {
         expect(notificationMessage).toContain('SUCCESS');
         expect(notificationMessage).toContain(`${knownSongCount} tracks`);
 
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
+
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
-        const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
+        const playlistDetails = await waitForPlaylistToLoad(spotifyClient, playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
@@ -93,7 +94,6 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -102,11 +102,13 @@ suite('import playlist flows', function () {
         expect(notificationMessage).toContain('SUCCESS');
         expect(notificationMessage).toContain(`${knownSongCount} tracks`);
 
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
+
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
-        const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
+        const playlistDetails = await waitForPlaylistToLoad(spotifyClient, playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 
@@ -144,7 +146,6 @@ suite('import playlist flows', function () {
         const uid = Date.now();
         const playlistName = `NGSI QA Auto - ${uid}`;
         await playlistEditorComponent.importPlaylist(playlistName);
-        testDataManager.addPlaylistName(playlistName);
 
         console.log('Verify that a success message displays after importing.');
 
@@ -153,11 +154,13 @@ suite('import playlist flows', function () {
         expect(notificationMessage).toContain('SUCCESS');
         expect(notificationMessage).toContain(`${knownSongCount} tracks`);
 
+        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
+        testDataManager.addPlaylist(playlistId);
+
         console.log('Verify the Spotify playlist contains all of the known songs.');
 
         const spotifyClient = await SpotifyClient.getInstance();
-        const playlistId = parsePlaylistIdFromImportNotification(notificationMessage);
-        const playlistDetails = await spotifyClient.getPlaylistDetailsById(playlistId);
+        const playlistDetails = await waitForPlaylistToLoad(spotifyClient, playlistId);
         expect(playlistDetails.body.name).toEqual(playlistName);
         expect(playlistDetails.body.tracks.total).toEqual(knownSongCount);
 

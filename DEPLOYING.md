@@ -1,4 +1,5 @@
 # Deployment Guide
+
 Follow these instructions when the main branch is ready to be deployed:
 
 ```
@@ -7,7 +8,6 @@ Follow these instructions when the main branch is ready to be deployed:
 > git tag -a v#.#.# -m "Short Summary of User Facing Changes"
 > git push origin v#.#.#
 ```
-
 
 1. Approve the deployment to staging via GitHub
 1. (Optional) Spot check staging
