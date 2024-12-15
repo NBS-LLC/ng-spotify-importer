@@ -46,7 +46,7 @@ class PlaylistEditorComponent {
     }
 
     async getSongDataRowComponentBySongTitle(title: string): Promise<SongDataRowComponent> {
-        browser.waitUntil(async () => {
+        await browser.waitUntil(async () => {
             return await this.songTitleElements.length > 0;
         });
 
