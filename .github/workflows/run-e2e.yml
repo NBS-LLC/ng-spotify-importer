@@ -1,4 +1,4 @@
-name: CI
+name: run-e2e
 
 on:
   pull_request:
