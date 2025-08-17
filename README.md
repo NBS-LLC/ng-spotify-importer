@@ -45,6 +45,8 @@ To get a Spotify Auth Token do the following:
 
 The Spotify Client ID and Secret are located in the settings of the [development](https://developer.spotify.com/) dashboard.
 
+Tests can be filtered via the command line, for example: `npm run e2e -- --mochaOpts.fgrep="simple slacker playlist"`
+
 ## Deploy
 
 To build and upload (aka deploy) the project:
