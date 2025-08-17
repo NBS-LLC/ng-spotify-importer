@@ -4,10 +4,8 @@ Import CSV and Slacker Radio playlists into Spotify.
 
 ## Prerequisites
 
-* [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) 
-* Chrome or Chromium - ensure CHROME_BIN env var is exported
-
-Note: Chrom* must match the [version](https://www.chromium.org/getting-involved/download-chromium) of the ChromeDriver. Firewall warnings on macOS can be fixed by [signing](https://github.com/puppeteer/puppeteer/issues/4752#issuecomment-586599843) the app.
+- [NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Chrome or Chromium
 
 ## Install
 
@@ -27,10 +25,6 @@ Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.gi
 
 **Note:** Runs automatically when starting the development server.
 
-Unit test configuration is based on the following environment variables:
-
-* CHROME_BIN
-
 ## Running end-to-end tests
 
 Run `npm run e2e` to execute the end-to-end tests via [WDIO](http://webdriver.io).
@@ -39,10 +33,9 @@ Run `npm run e2e` to execute the end-to-end tests via [WDIO](http://webdriver.io
 
 Test configuration is based on the following environment variables:
 
-* CHROME_BIN
-* SPOTIFY_AUTH_TOKEN_PRIMARY - used to sign into Spotify and grant access
-* SPOTIFY_CLIENT_ID - used to make api calls
-* SPOTIFY_CLIENT_SECRET - used to make api calls
+- SPOTIFY_AUTH_TOKEN_PRIMARY - used to sign into Spotify and grant access
+- SPOTIFY_CLIENT_ID - used to make api calls
+- SPOTIFY_CLIENT_SECRET - used to make api calls
 
 To get a Spotify Auth Token do the following:
 
@@ -62,12 +55,12 @@ npm run deploy
 
 Deployment configuration is based on the following environment variables:
 
-* ENVIRONMENT
-* NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOST
-* NG_SPOTIFY_IMPORTER__DEPLOYMENT_USERNAME
-* NG_SPOTIFY_IMPORTER__DEPLOYMENT_PASSWORD
-* NG_SPOTIFY_IMPORTER__DEPLOYMENT_PORT
-* NG_SPOTIFY_IMPORTER__DEPLOYMENT_HOME_PATH
-* NG_SPOTIFY_IMPORTER__DEPLOYMENT_PROJECT_PATH
+- ENVIRONMENT
+- NG_SPOTIFY_IMPORTER\_\_DEPLOYMENT_HOST
+- NG_SPOTIFY_IMPORTER\_\_DEPLOYMENT_USERNAME
+- NG_SPOTIFY_IMPORTER\_\_DEPLOYMENT_PASSWORD
+- NG_SPOTIFY_IMPORTER\_\_DEPLOYMENT_PORT
+- NG_SPOTIFY_IMPORTER\_\_DEPLOYMENT_HOME_PATH
+- NG_SPOTIFY_IMPORTER\_\_DEPLOYMENT_PROJECT_PATH
 
-Note: ENVIRONMENT must match a value found in angular.json's `configurations` section. 
+Note: ENVIRONMENT must match a value found in angular.json's `configurations` section.
