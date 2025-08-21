@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import * as Papa from 'papaparse';
 import { SpotifyClient } from '../services/spotify-client';
 import config from './config';
+import SpotifyWebApi from 'spotify-web-api-node';
 
 export function fileToString(path: string): string {
     try {
@@ -72,4 +73,17 @@ export async function waitForPlaylistToLoad(spotifyClient: SpotifyClient, playli
             return playlistDetails;
         };
     });
+}
+
+export async function getAppAccessToken() {
+    const accessToken = await browser.execute(() => {
+        const api = (window as any)?.spotifyWebApi as SpotifyWebApi;
+        return api?.getAccessToken();
+    });
+
+    if (!accessToken) {
+        throw new Error('Unable to get the app access token.');
+    }
+
+    return accessToken;
 }
