@@ -7,7 +7,7 @@ import {
 } from '../support/helpers';
 
 suite('utils', function () {
-    test('clean e2e test data', async function () {
+    test.skip('clean e2e test data', async function () {
         await browser.url('/');
         await spotifyAuthComponent.waitForDisplayed();
         await spotifyAuthComponent.grantPermissionWithCookies();
