@@ -44,6 +44,10 @@ export class SpotifyService {
     this.spotifyWebApi.setAccessToken(token.access_token);
     this.setAuthenticated(true);
 
+    if (this.testUseOnly) {
+      (window as any).spotifyWebApi = this.spotifyWebApi;
+    }
+
     setTimeout(() => {
       this.getRefreshedToken(token.refresh_token).then(refreshedToken => {
         this.setAccessToken(refreshedToken);
@@ -177,5 +181,9 @@ export class SpotifyService {
 
   private delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  private testUseOnly(): boolean {
+    return window?.location?.hostname == 'localhost';
   }
 }
