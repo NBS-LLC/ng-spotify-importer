@@ -71,7 +71,7 @@ export const config: WebdriverIO.Config = {
         // 5 instances get started at a time.
         // maxInstances: 5,
         //
-        browserName: 'chromium',
+        browserName: 'chrome',
         browserVersion: 'latest',
         acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
