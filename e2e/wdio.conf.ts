@@ -1,7 +1,6 @@
 import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
-import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
-import { unfollowPlaylist } from './test/support/helpers';
+import { grantAppSpotifyAccess, unfollowPlaylist } from './test/support/helpers';
 import { TestDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
@@ -73,7 +72,6 @@ export const config: WebdriverIO.Config = {
         // maxInstances: 5,
         //
         browserName: 'chrome',
-        browserVersion: 'stable',
         acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -298,12 +296,11 @@ export const config: WebdriverIO.Config = {
             return;
         }
 
-        await spotifyWebPlayerPage.open();
-        await spotifyWebPlayerPage.waitForDisplayed();
-        const accessToken = await spotifyWebPlayerPage.getAccessToken();
+        const accessToken = await grantAppSpotifyAccess();
 
         for (const playlistId of playlistIds) {
             unfollowPlaylist(playlistId, accessToken);
+            console.log(`Unfollowed playlist id: ${playlistId}.`);
         }
 
         testDataManager.resetTestData();

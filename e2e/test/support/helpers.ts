@@ -1,6 +1,9 @@
 import { DOMParser } from '@xmldom/xmldom';
 import fs from 'node:fs';
 import * as Papa from 'papaparse';
+import SpotifyWebApi from 'spotify-web-api-node';
+import fileReaderComponent from '../pages/file-reader-component';
+import spotifyAuthComponent from '../pages/spotify-auth-component';
 import { SpotifyClient } from '../services/spotify-client';
 import config from './config';
 
@@ -72,4 +75,30 @@ export async function waitForPlaylistToLoad(spotifyClient: SpotifyClient, playli
             return playlistDetails;
         };
     });
+}
+
+async function getAppAccessToken() {
+    const accessToken = await browser.execute(() => {
+        const api = (window as any)?.spotifyWebApi as SpotifyWebApi;
+        return api?.getAccessToken();
+    });
+
+    if (!accessToken) {
+        throw new Error('Unable to get the app access token.');
+    }
+
+    return accessToken;
+}
+
+/**
+ * Grants the app under test Spotify access.
+ *
+ * @returns A promise that resolves to the Spotify access token.
+ */
+export async function grantAppSpotifyAccess() {
+    await browser.url('/');
+    await spotifyAuthComponent.waitForDisplayed();
+    await spotifyAuthComponent.grantPermissionWithCookies();
+    await fileReaderComponent.waitForDisplayed();
+    return await getAppAccessToken();
 }
