@@ -1,6 +1,6 @@
+import SpotifyWebApi from 'spotify-web-api-node';
 import fileReaderComponent from '../pages/file-reader-component';
 import spotifyAuthComponent from '../pages/spotify-auth-component';
-import { spotifyWebPlayerPage } from '../pages/vendor/spotify/spotify-web-player-page';
 import { getCurrentUsersPlaylists, unfollowPlaylist } from '../support/helpers';
 
 suite('utils', function () {
@@ -10,19 +10,17 @@ suite('utils', function () {
         await spotifyAuthComponent.grantPermissionWithCookies();
         await fileReaderComponent.waitForDisplayed();
 
-        await spotifyWebPlayerPage.open();
-        await spotifyWebPlayerPage.waitForDisplayed();
-
-        const accessToken = await spotifyWebPlayerPage.getAccessToken();
-        const playlists = await getCurrentUsersPlaylists(accessToken);
-
-        playlists.forEach(async (playlist) => {
-            if(playlist.name.toLowerCase().includes('unit test')) {
-                return;
-            }
-
-            await unfollowPlaylist(playlist.id, accessToken);
-            console.log(`unfollwed: ${playlist.name}`);
+        const accessToken = await browser.execute(() => {
+            const api = (window as any).spotifyWebApi as SpotifyWebApi;
+            return api.getAccessToken();
         });
+
+        const playlists = await getCurrentUsersPlaylists(accessToken);
+        for (const playlist of playlists) {
+            if (playlist.name.match(/^NGSI QA Auto - \d+$/)) {
+                await unfollowPlaylist(playlist.id, accessToken);
+                console.log(`unfollowed: ${playlist.name}`);
+            }
+        }
     });
 });
