@@ -1,7 +1,8 @@
 import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
-import { spotifyWebPlayerPage } from './test/pages/vendor/spotify/spotify-web-player-page';
-import { unfollowPlaylist } from './test/support/helpers';
+import fileReaderComponent from './test/pages/file-reader-component';
+import spotifyAuthComponent from './test/pages/spotify-auth-component';
+import { getAppAccessToken, unfollowPlaylist } from './test/support/helpers';
 import { TestDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
@@ -298,12 +299,15 @@ export const config: WebdriverIO.Config = {
             return;
         }
 
-        await spotifyWebPlayerPage.open();
-        await spotifyWebPlayerPage.waitForDisplayed();
-        const accessToken = await spotifyWebPlayerPage.getAccessToken();
+        await browser.url('/');
+        await spotifyAuthComponent.waitForDisplayed();
+        await spotifyAuthComponent.grantPermissionWithCookies();
+        await fileReaderComponent.waitForDisplayed();
+        const accessToken = await getAppAccessToken();
 
         for (const playlistId of playlistIds) {
             unfollowPlaylist(playlistId, accessToken);
+            console.log(`Unfollowed playlist id: ${playlistId}.`);
         }
 
         testDataManager.resetTestData();
