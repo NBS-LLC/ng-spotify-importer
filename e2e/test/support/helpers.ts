@@ -91,11 +91,11 @@ async function getAppAccessToken() {
 }
 
 /**
- * Sets up an authenticated app session and retrieves the Spotify access token.
+ * Grants the app under test Spotify access.
  *
  * @returns A promise that resolves to the Spotify access token.
  */
-export async function setupAppAuthSession() {
+export async function grantAppSpotifyAccess() {
     await browser.url('/');
     await spotifyAuthComponent.waitForDisplayed();
     await spotifyAuthComponent.grantPermissionWithCookies();

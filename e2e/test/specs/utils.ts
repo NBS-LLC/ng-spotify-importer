@@ -1,12 +1,12 @@
 import {
     getCurrentUsersPlaylists,
-    setupAppAuthSession,
+    grantAppSpotifyAccess,
     unfollowPlaylist,
 } from '../support/helpers';
 
 suite('utils', function () {
     test.skip('clean e2e test data', async function () {
-        const accessToken = await setupAppAuthSession();
+        const accessToken = await grantAppSpotifyAccess();
         const playlists = await getCurrentUsersPlaylists(accessToken);
         for (const playlist of playlists) {
             if (playlist.name.match(/^NGSI QA Auto - \d+$/)) {

@@ -1,6 +1,6 @@
 import { dirname } from 'node:path';
 import { getFailureScreenshotFilename } from './lib/framework-utils';
-import { setupAppAuthSession, unfollowPlaylist } from './test/support/helpers';
+import { grantAppSpotifyAccess, unfollowPlaylist } from './test/support/helpers';
 import { TestDataManager } from './test/support/test-data-manager';
 
 const DEBUG = process.env['DEBUG'];
@@ -297,7 +297,7 @@ export const config: WebdriverIO.Config = {
             return;
         }
 
-        const accessToken = await setupAppAuthSession();
+        const accessToken = await grantAppSpotifyAccess();
 
         for (const playlistId of playlistIds) {
             unfollowPlaylist(playlistId, accessToken);
