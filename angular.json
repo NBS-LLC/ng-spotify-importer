@@ -84,18 +84,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-slacker-to-spotify:build"
+            "buildTarget": "ng-slacker-to-spotify:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-slacker-to-spotify:build:production"
+              "buildTarget": "ng-slacker-to-spotify:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-slacker-to-spotify:build"
+            "buildTarget": "ng-slacker-to-spotify:build"
           }
         },
         "test": {
