@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { Song } from './song';
 import { SpotifyService } from './spotify.service';
@@ -12,13 +12,12 @@ describe('SpotifyService', () => {
     spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks']);
 
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule
-      ],
-      providers: [
-        { provide: 'SpotifyWebApiJs', useValue: spotifyWebApi }
-      ]
-    }).compileComponents();
+    imports: [],
+    providers: [
+        { provide: 'SpotifyWebApiJs', useValue: spotifyWebApi },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+}).compileComponents();
     service = TestBed.inject(SpotifyService);
   }));
 

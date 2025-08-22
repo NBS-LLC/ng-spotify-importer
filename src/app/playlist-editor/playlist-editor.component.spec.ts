@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -75,18 +75,16 @@ describe('PlaylistEditorComponent', () => {
     const loadSongDataSpy = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
 
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        MatDialogModule,
-        FormsModule
-      ],
-      declarations: [
+    declarations: [
         PlaylistEditorComponent
-      ],
-      providers: [
-        { provide: SpotifyService, useValue: loadSongDataSpy }
-      ]
-    }).compileComponents();
+    ],
+    imports: [MatDialogModule,
+        FormsModule],
+    providers: [
+        { provide: SpotifyService, useValue: loadSongDataSpy },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+}).compileComponents();
 
     spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
     fixture = TestBed.createComponent(PlaylistEditorComponent);

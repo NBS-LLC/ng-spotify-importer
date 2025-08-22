@@ -11,20 +11,11 @@ import {NotificationComponent} from './notification/notification.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SongDetailsComponent} from './song-details/song-details.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import SpotifyWebApi from 'spotify-web-api-js';
 import { CleanupUnknownSongsHelpComponent } from './cleanup-unknown-songs-help/cleanup-unknown-songs-help.component';
 
-@NgModule({
-    imports: [
-        BrowserModule,
-        RouterModule.forRoot([], {}),
-        FormsModule,
-        BrowserAnimationsModule,
-        MatDialogModule,
-        HttpClientModule,
-    ],
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         SpotifyAuthComponent,
         PlaylistEditorComponent,
@@ -33,10 +24,13 @@ import { CleanupUnknownSongsHelpComponent } from './cleanup-unknown-songs-help/c
         SongDetailsComponent,
         CleanupUnknownSongsHelpComponent
     ],
-    providers: [
-        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
-    ],
-    bootstrap: [AppComponent]
-})
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        RouterModule.forRoot([], {}),
+        FormsModule,
+        BrowserAnimationsModule,
+        MatDialogModule], providers: [
+        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {
 }
