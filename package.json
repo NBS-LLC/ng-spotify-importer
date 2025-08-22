@@ -71,7 +71,7 @@
     "karma-coverage-istanbul-reporter": "3.0.3",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
-    "mocha": "^10.2.0",
+    "mocha": "11.7.1",
     "replace": "1.2.2",
     "spotify-web-api-node": "5.0.2",
     "ssh2-sftp-client": "12.0.1",
