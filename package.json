@@ -60,7 +60,7 @@
     "@wdio/mocha-framework": "^8.14.0",
     "@wdio/spec-reporter": "^8.14.0",
     "@xmldom/xmldom": "^0.8.7",
-    "allure-commandline": "2.32.0",
+    "allure-commandline": "2.34.1",
     "codelyzer": "6.0.2",
     "cross-var": "1.1.0",
     "expect": "30.0.5",
