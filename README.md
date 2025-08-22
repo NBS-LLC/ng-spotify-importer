@@ -19,6 +19,33 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Update
+
+Follow these steps when updating dependencies:
+
+1. Perform a clean checkout of main
+1. Ensure all automated tests pass (unit, integration, component, e2e)
+1. Create a new branch
+1. Update dev deps that relate to automated testing, in small batches
+1. Ensure all automated tests pass
+1. Update all non-Angular and non-WDIO deps, in small batches
+1. Ensure all automated tests pass
+1. Update all WDIO deps
+1. Ensure all automated tests pass
+1. Update all Angular deps (see [sub-section](#updating-angular))
+1. Ensure all automated tests pass
+
+Note: as a best practice `rm -rf node_modules/ package-lock.json` after each batch of updates.
+
+### Updating Angular
+
+Use Angular's update [guide](https://angular.dev/update-guide) and only update one major version at a time.
+
+Use the following settings:
+
+- Application complexity: `Medium`
+- Other dependencies: `Angular Material`
+
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
