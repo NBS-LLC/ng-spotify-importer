@@ -41,7 +41,7 @@
     "rxjs": "^7.8.0",
     "spotify-web-api-js": "^1.5.2",
     "tslib": "^2.5.0",
-    "zone.js": "^0.13.0"
+    "zone.js": "0.13.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.5",
