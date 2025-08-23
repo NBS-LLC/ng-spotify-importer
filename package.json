@@ -61,7 +61,6 @@
     "@wdio/spec-reporter": "~9.19.1",
     "@xmldom/xmldom": "~0.8.11",
     "allure-commandline": "~2.34.1",
-    "codelyzer": "~6.0.2",
     "expect": "~30.0.5",
     "jasmine-core": "~5.9.0",
     "jasmine-spec-reporter": "~7.0.0",
