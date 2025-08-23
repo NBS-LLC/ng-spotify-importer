@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -12,19 +12,17 @@ describe('SongDetailsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientModule,
-        FormsModule
-      ],
-      declarations: [
+    declarations: [
         SongDetailsComponent
-      ],
-      providers: [
+    ],
+    imports: [FormsModule],
+    providers: [
         { provide: MatDialogRef, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
-      ]
-    }).compileComponents();
+        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+}).compileComponents();
   }));
 
   beforeEach(() => {

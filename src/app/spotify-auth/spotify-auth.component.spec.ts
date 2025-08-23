@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -11,17 +11,15 @@ describe('SpotifyAuthComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterModule.forRoot([], {}),
-        HttpClientModule
-      ],
-      declarations: [
+    declarations: [
         SpotifyAuthComponent
-      ],
-      providers: [
-        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi }
-      ]
-    }).compileComponents();
+    ],
+    imports: [RouterModule.forRoot([], {})],
+    providers: [
+        { provide: 'SpotifyWebApiJs', useClass: SpotifyWebApi },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+}).compileComponents();
   }));
 
   beforeEach(() => {

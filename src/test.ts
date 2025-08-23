@@ -14,3 +14,7 @@ getTestBed().initTestEnvironment(
     teardown: { destroyAfterEach: false }
 }
 );
+
+beforeAll(() => {
+    window.onbeforeunload = jasmine.createSpy();
+});

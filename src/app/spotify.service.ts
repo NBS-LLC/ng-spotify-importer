@@ -1,11 +1,12 @@
 import {Inject, Injectable} from '@angular/core';
 import SpotifyWebApi from 'spotify-web-api-js';
 import {Song} from './song';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {environment} from '../environments/environment';
 import {BehaviorSubject, Observable} from 'rxjs';
 import sha256 from 'crypto-js/sha256';
 import Base64 from 'crypto-js/enc-base64';
+import * as CryptoJS from 'crypto-js';
 
 export interface RefreshableToken {
   access_token: string;
@@ -27,7 +28,6 @@ export class SpotifyService {
   }
 
   generateCodeVerifier(): string {
-    const CryptoJS = require('crypto-js');
     const code = CryptoJS.lib.WordArray.random(56 / 2);
     return CryptoJS.enc.Hex.stringify(code);
   }

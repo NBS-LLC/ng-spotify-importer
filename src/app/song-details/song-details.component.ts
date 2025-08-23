@@ -4,9 +4,10 @@ import {Song} from '../song';
 import {SpotifyService} from '../spotify.service';
 
 @Component({
-  selector: 'app-song-details',
-  templateUrl: './song-details.component.html',
-  styleUrls: ['./song-details.component.css']
+    selector: 'app-song-details',
+    templateUrl: './song-details.component.html',
+    styleUrls: ['./song-details.component.css'],
+    standalone: false
 })
 export class SongDetailsComponent implements OnInit {
   public originalSong: Song;

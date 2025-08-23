@@ -9,9 +9,10 @@ import { SongDetailsComponent } from '../song-details/song-details.component';
 import { SpotifyService } from '../spotify.service';
 
 @Component({
-  selector: 'app-playlist-editor',
-  templateUrl: './playlist-editor.component.html',
-  styleUrls: ['./playlist-editor.component.css']
+    selector: 'app-playlist-editor',
+    templateUrl: './playlist-editor.component.html',
+    styleUrls: ['./playlist-editor.component.css'],
+    standalone: false
 })
 export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
