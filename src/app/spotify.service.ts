@@ -90,7 +90,7 @@ export class SpotifyService {
 
     console.time('loadSongData');
     for (const song of songs) {
-      const searchResults = this.searchForSong(song.title, song.artist);
+      const searchResults = this.searchForSong(song.title, song.artist, song.album, song.isrc);
       searchResults.then((spotifySong) => {
         song.title = spotifySong.title;
         song.artist = spotifySong.artist;
@@ -140,9 +140,11 @@ export class SpotifyService {
     });
   }
 
-  loadPageOfSongs(title: string, artist: string, pageNumber: number): Promise<Song[] | null> {
+  loadPageOfSongs(title: string, artist: string, pageNumber: number, album: string, isrc: string): Promise<Song[] | null> {
     return new Promise<Song[]>(resolve => {
-      const query = `"${title}" artist:"${artist}"`;
+      let query = `"${title}" artist:"${artist}"`;
+      if (album) query+= ` album:${album}`;
+      if (isrc)  query+= ` isrc:${isrc}`;
       const limit = 10;
       const offset = (pageNumber - 1) * limit;
 
@@ -150,7 +152,7 @@ export class SpotifyService {
         if (data.tracks.total > 0) {
           const songs: Song[] = [];
           for (const track of data.tracks.items) {
-            const song: Song = {artist: track.artists.pop().name, title: track.name};
+            const song: Song = {artist: track.artists.pop().name, title: track.name, album: track.album.name};
             song.uri = track.uri;
             song.previewUrl = track.preview_url;
             song.externalUrl = track.external_urls.spotify;
@@ -164,9 +166,11 @@ export class SpotifyService {
     });
   }
 
-  private searchForSong(title: string, artist: string): Promise<Song> {
+  private searchForSong(title: string, artist: string, album: string, isrc: string): Promise<Song> {
     return new Promise<Song>(resolve => {
-      const query = `${title} artist:${artist}`;
+      let query = `${title} artist:${artist}`;
+      if (album) query+= ` album:${album}`;
+      if (isrc)  query+= ` isrc:${isrc}`;
       this.spotifyWebApi.searchTracks(query, {limit: 1}).then((data) => {
         const song: Song = {artist, title};
         if (data.tracks.total > 0) {
