@@ -2,7 +2,8 @@
   border-collapse: collapse;
 }
 
-#song-data, #song-data td {
+#song-data,
+#song-data td {
   border: 1px solid black;
 }
 

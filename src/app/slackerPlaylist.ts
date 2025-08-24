@@ -1,5 +1,6 @@
 import { XMLParser } from 'fast-xml-parser';
 import { decode } from 'he';
+
 import { Playlist } from './playlist';
 import { Song } from './song';
 
@@ -8,7 +9,7 @@ export class SlackerPlaylist implements Playlist {
 
   private name: string;
 
-  json: any;
+  json;
   songDataLoaded = false;
 
   constructor(playlistXml: string) {
@@ -16,13 +17,13 @@ export class SlackerPlaylist implements Playlist {
 
     const options = {
       ignoreAttributes: false,
-      attributeValueProcessor: (name, value, path) => decode(value),
+      attributeValueProcessor: (name, value) => decode(value),
     };
 
     try {
       const parser = new XMLParser(options);
       this.json = parser.parse(playlistXml);
-    } catch (e) {
+    } catch {
       throw new Error('Invalid Slacker Playlist - Unable to parse XML.');
     }
 
@@ -52,10 +53,10 @@ export class SlackerPlaylist implements Playlist {
   }
 
   getKnownSongs(): Song[] {
-    return SlackerPlaylist.songs.filter(song => song.uri);
+    return SlackerPlaylist.songs.filter((song) => song.uri);
   }
 
   getUnknownSongs(): Song[] {
-    return SlackerPlaylist.songs.filter(song => song.uri === undefined);
+    return SlackerPlaylist.songs.filter((song) => song.uri === undefined);
   }
 }

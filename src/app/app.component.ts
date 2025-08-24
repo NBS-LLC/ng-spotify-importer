@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+
 import * as appInfo from './app-info';
 import { CsvPlaylist } from './csvPlaylist';
 import { FileReaderComponent } from './file-reader/file-reader.component';
@@ -10,10 +11,10 @@ import { Song } from './song';
 import { SpotifyService } from './spotify.service';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    standalone: false
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  standalone: false,
 })
 export class AppComponent implements OnInit {
   title = `NG Spotify Importer`;
@@ -31,20 +32,22 @@ export class AppComponent implements OnInit {
   @ViewChild(PlaylistEditorComponent)
   playlistEditor: PlaylistEditorComponent;
 
-  constructor(private spotifyService: SpotifyService, private notificationService: NotificationService) {
-  }
+  constructor(
+    private spotifyService: SpotifyService,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     if (!this.isLocalBuild()) {
       this.releaseUrl = `${this.projectUrl}/releases/tag/v${this.version}`;
     }
 
-    this.spotifyService.onAuthChange.subscribe(isAuthenticated => {
+    this.spotifyService.onAuthChange.subscribe((isAuthenticated) => {
       this.showPlaylistLoader = isAuthenticated;
     });
   }
 
-  onFileRead(playlist: { contents: string; name: string, type: string }) {
+  onFileRead(playlist: { contents: string; name: string; type: string }) {
     switch (playlist.type) {
       case 'csv': {
         try {

@@ -1,8 +1,8 @@
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TestBed, waitForAsync } from '@angular/core/testing';
+
 import { Song } from './song';
 import { SpotifyService } from './spotify.service';
-
 
 describe('SpotifyService', () => {
   let service: SpotifyService;
@@ -12,12 +12,9 @@ describe('SpotifyService', () => {
     spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks']);
 
     TestBed.configureTestingModule({
-    imports: [],
-    providers: [
-        { provide: 'SpotifyWebApiJs', useValue: spotifyWebApi },
-        provideHttpClient(withInterceptorsFromDi())
-    ]
-}).compileComponents();
+      imports: [],
+      providers: [{ provide: 'SpotifyWebApiJs', useValue: spotifyWebApi }, provideHttpClient(withInterceptorsFromDi())],
+    }).compileComponents();
     service = TestBed.inject(SpotifyService);
   }));
 
@@ -49,15 +46,17 @@ describe('SpotifyService', () => {
    * Covers https://github.com/NBS-LLC/ng-spotify-importer/issues/217
    */
   it('should search for tracks using proper query', async () => {
-    spotifyWebApi.searchTracks.and.returnValue(Promise.resolve({
-      tracks: {}
-    }));
+    spotifyWebApi.searchTracks.and.returnValue(
+      Promise.resolve({
+        tracks: {},
+      })
+    );
 
-    const songs: Song[] = [
-      { title: 'Hearts on Fire', artist: 'ILLENIUM, Dabin, Lights' },
-    ];
+    const songs: Song[] = [{ title: 'Hearts on Fire', artist: 'ILLENIUM, Dabin, Lights' }];
 
     await service.loadSongData(songs);
-    expect(spotifyWebApi.searchTracks).toHaveBeenCalledWith('Hearts on Fire artist:ILLENIUM, Dabin, Lights', { limit: 1 });
+    expect(spotifyWebApi.searchTracks).toHaveBeenCalledWith('Hearts on Fire artist:ILLENIUM, Dabin, Lights', {
+      limit: 1,
+    });
   });
 });

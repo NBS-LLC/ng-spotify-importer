@@ -1,11 +1,11 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "daily"
-      time: "06:00"
-      timezone: "America/Los_Angeles"
-    versioning-strategy: "increase"
+      interval: 'daily'
+      time: '06:00'
+      timezone: 'America/Los_Angeles'
+    versioning-strategy: 'increase'
     # Temporarily disabled because every other PR gets stuck
     open-pull-requests-limit: 0

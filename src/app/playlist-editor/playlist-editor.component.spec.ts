@@ -2,9 +2,11 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+
 import { Playlist } from '../playlist';
 import { Song } from '../song';
 import { SpotifyService } from '../spotify.service';
+
 import { PlaylistEditorComponent } from './playlist-editor.component';
 
 class MockPlaylist implements Playlist {
@@ -36,7 +38,7 @@ class MockPlaylist implements Playlist {
     this.songs = [
       { artist: 'Unit Test 01', title: 'Sample Song 01', uri: 'http://example.com/unit_test_01-sample_song_01' },
       { artist: 'Unit Test 02', title: 'Sample Song 02' },
-      { artist: 'Unit Test 03 & Should be Removed', title: 'Sample Song 03 (Should be Removed)' }
+      { artist: 'Unit Test 03 & Should be Removed', title: 'Sample Song 03 (Should be Removed)' },
     ];
 
     this.songDataLoaded = true;
@@ -45,7 +47,7 @@ class MockPlaylist implements Playlist {
   loadOnlyKnown() {
     this.songs = [
       { artist: 'Unit Test 01', title: 'Sample Song 01', uri: 'http://example.com/unit_test_01-sample_song_01' },
-      { artist: 'Unit Test 02', title: 'Sample Song 02', uri: 'http://example.com/unit_test_02-sample_song_02' }
+      { artist: 'Unit Test 02', title: 'Sample Song 02', uri: 'http://example.com/unit_test_02-sample_song_02' },
     ];
 
     this.songDataLoaded = true;
@@ -54,7 +56,7 @@ class MockPlaylist implements Playlist {
   loadOnlyUnknown() {
     this.songs = [
       { artist: 'Unit Test 01', title: 'Sample Song 01' },
-      { artist: 'Unit Test 02', title: 'Sample Song 02' }
+      { artist: 'Unit Test 02', title: 'Sample Song 02' },
     ];
 
     this.songDataLoaded = true;
@@ -75,16 +77,10 @@ describe('PlaylistEditorComponent', () => {
     const loadSongDataSpy = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
 
     TestBed.configureTestingModule({
-    declarations: [
-        PlaylistEditorComponent
-    ],
-    imports: [MatDialogModule,
-        FormsModule],
-    providers: [
-        { provide: SpotifyService, useValue: loadSongDataSpy },
-        provideHttpClient(withInterceptorsFromDi())
-    ]
-}).compileComponents();
+      declarations: [PlaylistEditorComponent],
+      imports: [MatDialogModule, FormsModule],
+      providers: [{ provide: SpotifyService, useValue: loadSongDataSpy }, provideHttpClient(withInterceptorsFromDi())],
+    }).compileComponents();
 
     spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
     fixture = TestBed.createComponent(PlaylistEditorComponent);
@@ -154,7 +150,7 @@ describe('PlaylistEditorComponent', () => {
     expect(component.playlist.getSongs()).toEqual([
       { artist: 'Unit Test 01', title: 'Sample Song 01', uri: 'http://example.com/unit_test_01-sample_song_01' },
       { artist: 'Unit Test 02', title: 'Sample Song 02' }, // Nothing to cleanup
-      { artist: 'Unit Test 03', title: 'Sample Song 03' } // Cleaned up
+      { artist: 'Unit Test 03', title: 'Sample Song 03' }, // Cleaned up
     ]);
   });
 

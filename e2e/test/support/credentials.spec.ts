@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
-import { Credentials } from "./credentials";
+
+import { Credentials } from './credentials';
 
 describe('Credentials', () => {
-    describe('#constructor()', () => {
-        it('should allow username and password to be set', () => {
-            const creds = new Credentials('unit', 'test');
-            assert.strictEqual(creds.username, 'unit');
-            assert.strictEqual(creds.password, 'test');
-        });
+  describe('#constructor()', () => {
+    it('should allow username and password to be set', () => {
+      const creds = new Credentials('unit', 'test');
+      assert.strictEqual(creds.username, 'unit');
+      assert.strictEqual(creds.password, 'test');
     });
+  });
 });

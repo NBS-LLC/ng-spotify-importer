@@ -1,16 +1,16 @@
 <h1 mat-dialog-title>Song Details</h1>
 
 <div mat-dialog-content>
-  <strong>Title:</strong> {{originalSong.title}}
-  <br/>
-  <strong>Artist:</strong> {{originalSong.artist}}
+  <strong>Title:</strong> {{ originalSong.title }}
+  <br />
+  <strong>Artist:</strong> {{ originalSong.artist }}
 
   <div>
     <label for="song-title">Title:</label>
-    <input id="song-title" type="text" [(ngModel)]="song.title"/>
+    <input id="song-title" type="text" [(ngModel)]="song.title" />
 
     <label for="song-artist">Artist:</label>
-    <input id="song-artist" type="text" [(ngModel)]="song.artist"/>
+    <input id="song-artist" type="text" [(ngModel)]="song.artist" />
 
     <button (click)="handleSearchClick()">Search</button>
   </div>
@@ -27,17 +27,17 @@
       </tr>
       <tr *ngFor="let relatedSong of relatedSongs" (click)="handleRelatedSongClick(relatedSong)">
         <td class="song-title">
-          {{relatedSong.title}}
+          {{ relatedSong.title }}
         </td>
         <td class="song-artist">
-          {{relatedSong.artist}}
+          {{ relatedSong.artist }}
         </td>
         <td class="song-link">
-          <a href="{{relatedSong.externalUrl}}" target="_blank" (click)="$event.stopPropagation()">[Spotify]</a>
+          <a href="{{ relatedSong.externalUrl }}" target="_blank" (click)="$event.stopPropagation()">[Spotify]</a>
         </td>
         <td class="song-preview">
           <audio controls *ngIf="relatedSong.previewUrl; else noPreview">
-            <source src="{{relatedSong.previewUrl}}">
+            <source src="{{ relatedSong.previewUrl }}" />
           </audio>
           <ng-template #noPreview>no preview available</ng-template>
         </td>

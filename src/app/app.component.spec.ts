@@ -2,6 +2,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 import { FileReaderComponent } from './file-reader/file-reader.component';
 import { SpotifyService } from './spotify.service';
@@ -16,17 +17,14 @@ describe('AppComponent', () => {
     const fileReaderMock = jasmine.createSpyObj([], ['fileInputDisabled']);
 
     TestBed.configureTestingModule({
-    declarations: [
-        AppComponent,
-        FileReaderComponent
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [RouterModule.forRoot([], {})],
-    providers: [
+      declarations: [AppComponent, FileReaderComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [RouterModule.forRoot([], {})],
+      providers: [
         { provide: SpotifyService, useValue: spotifyServiceMock },
-        provideHttpClient(withInterceptorsFromDi())
-    ]
-});
+        provideHttpClient(withInterceptorsFromDi()),
+      ],
+    });
 
     spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
     spotifyServiceSpy.loadSongData.and.resolveTo();

@@ -1,13 +1,14 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Song} from '../song';
-import {SpotifyService} from '../spotify.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
+import { Song } from '../song';
+import { SpotifyService } from '../spotify.service';
 
 @Component({
-    selector: 'app-song-details',
-    templateUrl: './song-details.component.html',
-    styleUrls: ['./song-details.component.css'],
-    standalone: false
+  selector: 'app-song-details',
+  templateUrl: './song-details.component.html',
+  styleUrls: ['./song-details.component.css'],
+  standalone: false,
 })
 export class SongDetailsComponent implements OnInit {
   public originalSong: Song;
@@ -16,7 +17,8 @@ export class SongDetailsComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<SongDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public song: Song,
-    private spotifyService: SpotifyService) {
+    private spotifyService: SpotifyService
+  ) {
     this.originalSong = Object.assign({}, this.song);
   }
 
@@ -39,7 +41,7 @@ export class SongDetailsComponent implements OnInit {
   }
 
   private searchForRelated() {
-    this.spotifyService.loadPageOfSongs(this.song.title, this.song.artist, 1).then(songs => {
+    this.spotifyService.loadPageOfSongs(this.song.title, this.song.artist, 1).then((songs) => {
       if (songs) {
         this.relatedSongs = songs;
       }

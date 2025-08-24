@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { FileReaderComponent } from './file-reader.component';
 
+import { FileReaderComponent } from './file-reader.component';
 
 describe('FileReaderComponent', () => {
   let component: FileReaderComponent;
@@ -8,9 +8,8 @@ describe('FileReaderComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [FileReaderComponent]
-    })
-      .compileComponents();
+      declarations: [FileReaderComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
