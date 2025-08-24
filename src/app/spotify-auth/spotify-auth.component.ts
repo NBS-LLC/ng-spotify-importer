@@ -1,14 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {RefreshableToken, SpotifyService} from '../spotify.service';
-import {environment} from '../../environments/environment';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { RefreshableToken, SpotifyService } from '../spotify.service';
+import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Component({
-    selector: 'app-spotify-auth',
-    templateUrl: './spotify-auth.component.html',
-    styleUrls: ['./spotify-auth.component.css'],
-    standalone: false
+  selector: 'app-spotify-auth',
+  templateUrl: './spotify-auth.component.html',
+  styleUrls: ['./spotify-auth.component.css'],
+  standalone: false,
 })
 export class SpotifyAuthComponent implements OnInit {
   public authUrl: string;
@@ -17,7 +17,11 @@ export class SpotifyAuthComponent implements OnInit {
   private codeVerifier: string;
   private codeChallenge: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient, private spotifyService: SpotifyService) {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private http: HttpClient,
+    private spotifyService: SpotifyService
+  ) {
     if (!sessionStorage.codeVerifier) {
       sessionStorage.codeVerifier = this.spotifyService.generateCodeVerifier();
     }
@@ -28,7 +32,7 @@ export class SpotifyAuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
+    this.activatedRoute.queryParams.subscribe((params) => {
       if (params.code) {
         const body = new HttpParams()
           .set('client_id', environment.spotify.clientId)
@@ -41,7 +45,7 @@ export class SpotifyAuthComponent implements OnInit {
           this.spotifyService.setAccessToken(data);
 
           if (this.spotifyService.hasAuthenticated()) {
-            this.spotifyService.loadUserId().then(userId => this.userId = userId);
+            this.spotifyService.loadUserId().then((userId) => (this.userId = userId));
           }
         });
       }

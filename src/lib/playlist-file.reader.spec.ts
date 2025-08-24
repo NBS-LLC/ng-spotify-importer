@@ -1,9 +1,9 @@
 import { readPlaylist } from './playlist-file-reader';
 
 describe('PlaylistFileReader', () => {
-    describe('readPlaylist', () => {
-        it('should handle unicode playlists', async () => {
-            const contents = `
+  describe('readPlaylist', () => {
+    it('should handle unicode playlists', async () => {
+      const contents = `
             <?xml version="1.0" encoding="UTF-8" ?>
             <Playlist name='Example - Special Characters'>
             <description>An example playlist with special characters.</description>
@@ -20,9 +20,9 @@ describe('PlaylistFileReader', () => {
             </Playlist>
             `.trim();
 
-            const playlist = new File([contents], 'unicode.xml', { type: 'text/xml' });
-            const result = await readPlaylist(playlist);
-            expect(result).toEqual(contents);
-        });
+      const playlist = new File([contents], 'unicode.xml', { type: 'text/xml' });
+      const result = await readPlaylist(playlist);
+      expect(result).toEqual(contents);
     });
+  });
 });

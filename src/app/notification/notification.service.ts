@@ -1,15 +1,14 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
   private timeoutSec = 5;
   private message = '';
   private messageType = 'info';
 
-  constructor() {
-  }
+  constructor() {}
 
   public error(message: string) {
     this.messageType = 'error';

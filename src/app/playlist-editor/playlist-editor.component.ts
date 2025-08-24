@@ -9,10 +9,10 @@ import { SongDetailsComponent } from '../song-details/song-details.component';
 import { SpotifyService } from '../spotify.service';
 
 @Component({
-    selector: 'app-playlist-editor',
-    templateUrl: './playlist-editor.component.html',
-    styleUrls: ['./playlist-editor.component.css'],
-    standalone: false
+  selector: 'app-playlist-editor',
+  templateUrl: './playlist-editor.component.html',
+  styleUrls: ['./playlist-editor.component.css'],
+  standalone: false,
 })
 export class PlaylistEditorComponent implements OnInit {
   @Input() playlist: Playlist;
@@ -23,8 +23,8 @@ export class PlaylistEditorComponent implements OnInit {
   constructor(
     private spotifyService: SpotifyService,
     private notificationService: NotificationService,
-    private dialog: MatDialog) {
-  }
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.songsDisplayed = this.playlist.getSongs();
@@ -68,12 +68,14 @@ export class PlaylistEditorComponent implements OnInit {
   }
 
   importPlaylist() {
-    this.spotifyService.loadUserId().then(userId => {
-      this.spotifyService.createPlaylist(userId, this.playlist.getPlaylistName(), this.playlist.getSongs()).then(playlistId => {
-        this.spotifyService.loadPlaylistTrackCount(playlistId).then(trackCount => {
-          this.notificationService.success(`SUCCESS: Playlist (${playlistId}) imported with ${trackCount} tracks.`);
+    this.spotifyService.loadUserId().then((userId) => {
+      this.spotifyService
+        .createPlaylist(userId, this.playlist.getPlaylistName(), this.playlist.getSongs())
+        .then((playlistId) => {
+          this.spotifyService.loadPlaylistTrackCount(playlistId).then((trackCount) => {
+            this.notificationService.success(`SUCCESS: Playlist (${playlistId}) imported with ${trackCount} tracks.`);
+          });
         });
-      });
     });
   }
 
@@ -83,7 +85,7 @@ export class PlaylistEditorComponent implements OnInit {
 
   openSongDetailsDialog(song: Song) {
     this.dialog.open(SongDetailsComponent, {
-      data: song
+      data: song,
     });
   }
 

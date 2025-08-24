@@ -17,8 +17,8 @@ export class CsvPlaylist implements Playlist {
     const options: ParseConfig = {
       header: true,
       skipEmptyLines: true,
-      transformHeader: header => header.trim().toUpperCase(),
-      transform: value => decode(value.trim()),
+      transformHeader: (header) => header.trim().toUpperCase(),
+      transform: (value) => decode(value.trim()),
     };
 
     this.csv = parse(playlistCsv, options);
@@ -48,10 +48,10 @@ export class CsvPlaylist implements Playlist {
   }
 
   getKnownSongs(): Song[] {
-    return CsvPlaylist.songs.filter(song => song.uri);
+    return CsvPlaylist.songs.filter((song) => song.uri);
   }
 
   getUnknownSongs(): Song[] {
-    return CsvPlaylist.songs.filter(song => song.uri === undefined);
+    return CsvPlaylist.songs.filter((song) => song.uri === undefined);
   }
 }

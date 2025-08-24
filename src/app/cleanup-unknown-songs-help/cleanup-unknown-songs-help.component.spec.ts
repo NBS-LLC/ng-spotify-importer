@@ -8,9 +8,8 @@ describe('CleanupUnknownSongsHelpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CleanupUnknownSongsHelpComponent ]
-    })
-    .compileComponents();
+      declarations: [CleanupUnknownSongsHelpComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

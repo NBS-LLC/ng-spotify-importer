@@ -16,17 +16,14 @@ describe('AppComponent', () => {
     const fileReaderMock = jasmine.createSpyObj([], ['fileInputDisabled']);
 
     TestBed.configureTestingModule({
-    declarations: [
-        AppComponent,
-        FileReaderComponent
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [RouterModule.forRoot([], {})],
-    providers: [
+      declarations: [AppComponent, FileReaderComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [RouterModule.forRoot([], {})],
+      providers: [
         { provide: SpotifyService, useValue: spotifyServiceMock },
-        provideHttpClient(withInterceptorsFromDi())
-    ]
-});
+        provideHttpClient(withInterceptorsFromDi()),
+      ],
+    });
 
     spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
     spotifyServiceSpy.loadSongData.and.resolveTo();

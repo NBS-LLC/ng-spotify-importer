@@ -1,17 +1,30 @@
-<h2>Songs - {{playlist.getPlaylistName()}}</h2>
+<h2>Songs - {{ playlist.getPlaylistName() }}</h2>
 
-<button id="playlist-import" *ngIf="playlist.songDataLoaded" (click)="importPlaylist()" [disabled]="!importEnabled || playlist.getKnownSongs().length == 0">
+<button
+  id="playlist-import"
+  *ngIf="playlist.songDataLoaded"
+  (click)="importPlaylist()"
+  [disabled]="!importEnabled || playlist.getKnownSongs().length == 0"
+>
   Import Playlist
 </button>
 
 <div>
   <label for="playlist-name">Playlist Name:</label>
-  <input id="playlist-name" type="text" [ngModel]="playlist.getPlaylistName()"
-         (ngModelChange)="playlist.setPlaylistName($event)"/>
+  <input
+    id="playlist-name"
+    type="text"
+    [ngModel]="playlist.getPlaylistName()"
+    (ngModelChange)="playlist.setPlaylistName($event)"
+  />
 </div>
 
 <div *ngIf="playlist.songDataLoaded">
-  <button id="playlist-cleanup-unknown-songs" (click)="cleanupUnknownSongs()" [disabled]="!cleanupEnabled || playlist.getUnknownSongs().length == 0">
+  <button
+    id="playlist-cleanup-unknown-songs"
+    (click)="cleanupUnknownSongs()"
+    [disabled]="!cleanupEnabled || playlist.getUnknownSongs().length == 0"
+  >
     Cleanup Unknown Songs
   </button>
 
@@ -19,17 +32,33 @@
 </div>
 
 <div *ngIf="playlist.songDataLoaded" id="song-data-filter">
-  <label for="song-data-filter-all">All Songs ({{playlist.getSongs().length}}):</label>
-  <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-all"
-         name="song-data-filter-group" value="all" checked="checked">
+  <label for="song-data-filter-all">All Songs ({{ playlist.getSongs().length }}):</label>
+  <input
+    (change)="handleSongFilterChange($event)"
+    type="radio"
+    id="song-data-filter-all"
+    name="song-data-filter-group"
+    value="all"
+    checked="checked"
+  />
 
-  <label for="song-data-filter-known">Known Songs ({{playlist.getKnownSongs().length}}):</label>
-  <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-known"
-         name="song-data-filter-group" value="known">
+  <label for="song-data-filter-known">Known Songs ({{ playlist.getKnownSongs().length }}):</label>
+  <input
+    (change)="handleSongFilterChange($event)"
+    type="radio"
+    id="song-data-filter-known"
+    name="song-data-filter-group"
+    value="known"
+  />
 
-  <label for="song-data-filter-unknown">Unknown Songs ({{playlist.getUnknownSongs().length}}):</label>
-  <input (change)="handleSongFilterChange($event)" type="radio" id="song-data-filter-unknown"
-         name="song-data-filter-group" value="unknown">
+  <label for="song-data-filter-unknown">Unknown Songs ({{ playlist.getUnknownSongs().length }}):</label>
+  <input
+    (change)="handleSongFilterChange($event)"
+    type="radio"
+    id="song-data-filter-unknown"
+    name="song-data-filter-group"
+    value="unknown"
+  />
 </div>
 
 <table id="song-data">
@@ -41,20 +70,20 @@
   </tr>
   <tr *ngFor="let song of songsDisplayed">
     <td class="song-title">
-      <input type="text" [(ngModel)]="song.title"/>
+      <input type="text" [(ngModel)]="song.title" />
     </td>
     <td class="song-artist">
-      <input type="text" [(ngModel)]="song.artist"/>
+      <input type="text" [(ngModel)]="song.artist" />
     </td>
     <td class="song-link">
-      <a *ngIf="song.externalUrl; else unknown" href="{{song.externalUrl}}" target="_blank">[Spotify]</a>
+      <a *ngIf="song.externalUrl; else unknown" href="{{ song.externalUrl }}" target="_blank">[Spotify]</a>
       <ng-template #unknown>unknown song</ng-template>
       <button (click)="openSongDetailsDialog(song)">more</button>
       <button (click)="refreshSong(song)">refresh</button>
     </td>
     <td class="song-preview">
       <audio controls *ngIf="song.previewUrl; else noPreview">
-        <source src="{{song.previewUrl}}">
+        <source src="{{ song.previewUrl }}" />
       </audio>
       <ng-template #noPreview>no preview available</ng-template>
     </td>
