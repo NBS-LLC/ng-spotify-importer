@@ -11,10 +11,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "resolveJsonModule": true,
     "useDefineForClassFields": false
   },
