@@ -9,7 +9,7 @@ const importPlugin = require('eslint-plugin-import');
 
 module.exports = [
   {
-    ignores: ['.cache/', '.git/', '.github/', 'node_modules/'],
+    ignores: ['.angular/', '.git/', '.github/', 'dist/', 'node_modules/'],
   },
   {
     files: ['**/*.ts'],
