@@ -1,16 +1,16 @@
 export class SongDataRowComponent {
-    get moreElement() {
-        return this.linkElement.$('button=more');
-    }
+  get moreElement() {
+    return this.linkElement.$('button=more');
+  }
 
-    constructor(
-        readonly titleElement: WebdriverIO.Element,
-        readonly artistElement: WebdriverIO.Element,
-        readonly linkElement: WebdriverIO.Element,
-        readonly previewElement: WebdriverIO.Element
-    ) { }
+  constructor(
+    readonly titleElement: ChainablePromiseElement,
+    readonly artistElement: ChainablePromiseElement,
+    readonly linkElement: ChainablePromiseElement,
+    readonly previewElement: ChainablePromiseElement
+  ) {}
 
-    async clickMore() {
-        await this.moreElement.click();
-    }
+  async clickMore() {
+    await this.moreElement.click();
+  }
 }
