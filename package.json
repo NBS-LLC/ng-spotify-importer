@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "lint": "ng lint",
+    "lint:check": "ng lint",
+    "format:check": "prettier --check .",
     "test": "ng test",
     "prestart": "npm run test",
     "start": "ng serve & echo $! > .ng-serve.pid",
