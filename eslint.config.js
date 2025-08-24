@@ -5,6 +5,8 @@ const tsPlugin = require('@typescript-eslint/eslint-plugin');
 const angularPlugin = require('@angular-eslint/eslint-plugin');
 const angularTemplateParser = require('@angular-eslint/template-parser');
 const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+const importPlugin = require('eslint-plugin-import');
+
 module.exports = [
   {
     ignores: ['.cache/', '.git/', '.github/', 'node_modules/'],
@@ -21,6 +23,7 @@ module.exports = [
       '@typescript-eslint': tsPlugin,
       '@angular-eslint': angularPlugin,
       prettier: prettierPlugin,
+      import: importPlugin,
     },
     rules: {
       ...tsPlugin.configs.recommended.rules,
@@ -43,6 +46,16 @@ module.exports = [
         },
       ],
       '@angular-eslint/prefer-standalone': ['off'],
+      'import/order': [
+        'error',
+        {
+          'newlines-between': 'always',
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+        },
+      ],
     },
   },
   {
