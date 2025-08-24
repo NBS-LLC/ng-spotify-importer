@@ -1,12 +1,14 @@
-import { Inject, Injectable } from '@angular/core';
-import SpotifyWebApi from 'spotify-web-api-js';
-import { Song } from './song';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../environments/environment';
-import { BehaviorSubject, Observable } from 'rxjs';
-import sha256 from 'crypto-js/sha256';
-import Base64 from 'crypto-js/enc-base64';
+import { Inject, Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
+import Base64 from 'crypto-js/enc-base64';
+import sha256 from 'crypto-js/sha256';
+import { BehaviorSubject, Observable } from 'rxjs';
+import SpotifyWebApi from 'spotify-web-api-js';
+
+import { environment } from '../environments/environment';
+
+import { Song } from './song';
 
 export interface RefreshableToken {
   access_token: string;

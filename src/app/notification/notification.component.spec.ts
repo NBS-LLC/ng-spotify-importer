@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+
 import { NotificationComponent } from './notification.component';
 
 describe('NotificationComponent', () => {

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+
 import { FileReaderComponent } from './file-reader.component';
 
 describe('FileReaderComponent', () => {

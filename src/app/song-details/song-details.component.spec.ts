@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import SpotifyWebApi from 'spotify-web-api-js';
+
 import { SongDetailsComponent } from './song-details.component';
 
 describe('SongDetailsComponent', () => {

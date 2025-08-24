@@ -2,6 +2,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import SpotifyWebApi from 'spotify-web-api-js';
+
 import { SpotifyAuthComponent } from './spotify-auth.component';
 
 describe('SpotifyAuthComponent', () => {
