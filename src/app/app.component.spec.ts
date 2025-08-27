@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NotificationService } from 'src/app/notification/notification.service';
 
 import { AppComponent } from './app.component';
+import { CsvPlaylist } from './csvPlaylist';
 import { FileReaderComponent } from './file-reader/file-reader.component';
 import { SpotifyService } from './spotify.service';
 
@@ -17,7 +18,7 @@ describe('AppComponent', () => {
   beforeEach(() => {
     const spotifyServiceMock = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
     const fileReaderMock = jasmine.createSpyObj([], ['fileInputDisabled']);
-    const notificationServiceMock = jasmine.createSpyObj(NotificationService, ['error', 'setTimeout', 'info']);
+    const notificationServiceMock = jasmine.createSpyObj(NotificationService, ['error', 'setTimeout', 'info', 'reset']);
 
     TestBed.configureTestingModule({
       declarations: [AppComponent, FileReaderComponent],
@@ -161,5 +162,37 @@ describe('AppComponent', () => {
     const songs = spotifyServiceSpy.loadSongData.calls.mostRecent().args[0];
     expect(songs[2].title).toEqual('Twilight vs Breathe (§)');
     expect(songs[2].artist).toEqual('Adam K & Soha');
+  });
+
+  describe('onFileChanged', () => {
+    it('should reset the progress and playlist data', () => {
+      // Arrange
+      component.songs = [
+        { title: 'Song 1', artist: 'Artist 1' },
+        { title: 'Song 2', artist: 'Artist 2' },
+      ];
+      component.songsLoaded = { count: 2 };
+      component.playlist = new CsvPlaylist('Title,Artist\nSong 1,Artist 1', 'test.csv');
+
+      // Act
+      component.onFileChanged();
+
+      // Assert
+      expect(component.songs).toEqual([]);
+      expect(component.songsLoaded.count).toBe(0);
+      expect(component.playlist).toBeNull();
+    });
+
+    it('should reset the playlist editor when it is available', () => {
+      // Arrange
+      const playlistEditorSpy = jasmine.createSpyObj('PlaylistEditorComponent', ['reset']);
+      component.playlistEditor = playlistEditorSpy;
+
+      // Act
+      component.onFileChanged();
+
+      // Assert
+      expect(playlistEditorSpy.reset).toHaveBeenCalled();
+    });
   });
 });
