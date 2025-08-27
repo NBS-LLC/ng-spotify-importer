@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   songsLoaded = { count: 0 };
   showLargeFileWarning = false;
   playlistDataForWarning: { contents: string; name: string; type: string };
+  largeFileThreshold = 1000;
 
   @ViewChild(FileReaderComponent)
   fileReader: FileReaderComponent;
@@ -73,7 +74,7 @@ export class AppComponent implements OnInit {
       }
     }
 
-    if (playlist.getSongs().length > 1000) {
+    if (playlist.getSongs().length > this.largeFileThreshold) {
       this.playlistDataForWarning = playlistData;
       this.showLargeFileWarning = true;
       return;
@@ -118,7 +119,7 @@ export class AppComponent implements OnInit {
   cancelLargeImport() {
     this.showLargeFileWarning = false;
     this.fileReader.clearFileInput();
-    this.notificationService.info('Import canceled. Please select a new file.');
+    this.notificationService.info('Processing canceled. Please select a new file.');
   }
 
   onFileChanged() {
