@@ -74,6 +74,12 @@ export class AppComponent implements OnInit {
 
     this.fileReader.fileInputDisabled = true;
     this.spotifyService.loadSongData(this.songs, this.songsLoaded).then(() => {
+      if (this.songs.length != this.songsLoaded.count) {
+        this.notificationService.setTimeout(60);
+        this.notificationService.error('Unable to process all song data. See console log for details.');
+        this.notificationService.setTimeout(5);
+      }
+
       this.playlist.songDataLoaded = true;
       this.fileReader.fileInputDisabled = false;
     });
