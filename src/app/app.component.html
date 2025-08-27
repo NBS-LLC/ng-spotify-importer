@@ -10,6 +10,16 @@
 <app-spotify-auth></app-spotify-auth>
 
 <div *ngIf="showPlaylistLoader" id="playlist-loader">
+  <div class="donation-container">
+    <a href="https://www.paypal.com/ncp/payment/5XWKGWV6R5ZLN" target="_blank" class="paypal-button">
+      Support this Project
+    </a>
+    <div class="paypal-branding">
+      Powered by
+      <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" />
+    </div>
+  </div>
+
   <app-file-reader (fileChanged)="onFileChanged()" (fileContents)="onFileRead($event)"></app-file-reader>
 
   <div>

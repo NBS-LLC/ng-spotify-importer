@@ -47,3 +47,38 @@
   color: white;
   border-color: #4caf50;
 }
+
+/* Donation Button Styles */
+.donation-container {
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+.paypal-button {
+  display: inline-block;
+  background-color: #ffc439; /* PayPal Gold */
+  color: #111;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  border: 1px solid #ffc439;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.paypal-button:hover {
+  background-color: #f2b82c;
+}
+
+.paypal-branding {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.paypal-branding img {
+  height: 0.875rem;
+  vertical-align: middle;
+  margin-left: 4px;
+}
