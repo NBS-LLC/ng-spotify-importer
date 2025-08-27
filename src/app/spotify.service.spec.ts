@@ -59,4 +59,37 @@ describe('SpotifyService', () => {
       limit: 1,
     });
   });
+
+  /**
+   * Partially covers https://github.com/NBS-LLC/ng-spotify-importer/issues/260
+   */
+  it('should handle search errors gracefully', async () => {
+    const errorSpy = spyOn(console, 'error');
+    const songs: Song[] = [
+      { title: 'Song that fails', artist: 'Artist A' },
+      { title: 'Song that succeeds', artist: 'Artist B' },
+    ];
+
+    const successfulTrack = {
+      uri: 'spotify:track:successful',
+      preview_url: 'http://preview.url',
+      external_urls: { spotify: 'http://spotify.url' },
+      artists: [{ name: 'Artist B' }],
+      name: 'Song that succeeds',
+    };
+
+    // First call fails, second call succeeds
+    spotifyWebApi.searchTracks.and.returnValues(
+      Promise.reject('Spotify API error'),
+      Promise.resolve({
+        tracks: { items: [successfulTrack], total: 1 },
+      })
+    );
+
+    await service.loadSongData(songs);
+
+    expect(errorSpy).toHaveBeenCalled();
+    expect(songs[0].uri).toBeUndefined(); // The failing song should not be updated
+    expect(songs[1].uri).toEqual('spotify:track:successful'); // The successful song should be updated
+  });
 });

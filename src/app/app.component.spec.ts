@@ -2,6 +2,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import { NotificationService } from 'src/app/notification/notification.service';
 
 import { AppComponent } from './app.component';
 import { FileReaderComponent } from './file-reader/file-reader.component';
@@ -11,10 +12,12 @@ describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let spotifyServiceSpy: jasmine.SpyObj<SpotifyService>;
+  let notificationServiceSpy: jasmine.SpyObj<NotificationService>;
 
   beforeEach(() => {
     const spotifyServiceMock = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
     const fileReaderMock = jasmine.createSpyObj([], ['fileInputDisabled']);
+    const notificationServiceMock = jasmine.createSpyObj(NotificationService, ['error', 'setTimeout']);
 
     TestBed.configureTestingModule({
       declarations: [AppComponent, FileReaderComponent],
@@ -22,11 +25,13 @@ describe('AppComponent', () => {
       imports: [RouterModule.forRoot([], {})],
       providers: [
         { provide: SpotifyService, useValue: spotifyServiceMock },
+        { provide: NotificationService, useValue: notificationServiceMock },
         provideHttpClient(withInterceptorsFromDi()),
       ],
     });
 
     spotifyServiceSpy = TestBed.inject(SpotifyService) as jasmine.SpyObj<SpotifyService>;
+    notificationServiceSpy = TestBed.inject(NotificationService) as jasmine.SpyObj<NotificationService>;
     spotifyServiceSpy.loadSongData.and.resolveTo();
 
     fixture = TestBed.createComponent(AppComponent);
@@ -40,6 +45,26 @@ describe('AppComponent', () => {
 
   it(`should have as title 'NG Spotify Importer'`, () => {
     expect(component.title).toEqual('NG Spotify Importer');
+  });
+
+  it('should show an error if the song count does not match the loaded song count', async () => {
+    const contents =
+      'Title,Artist\n' +
+      'Electric Love [Oliver Remix],BØRNS\n' +
+      'XXX 88,MØ\n' +
+      'Twilight vs Breathe (Jack Trades Remix),Adam K &amp; Soha\n' +
+      'No Place,Rüfüs Du Sol';
+
+    spotifyServiceSpy.loadSongData.and.callFake(async (songs, songsLoaded) => {
+      songsLoaded.count = 2;
+    });
+
+    component.onFileRead({ contents, name: 'Unit Test - Mismatched Count', type: 'csv' });
+    await fixture.whenStable();
+
+    expect(notificationServiceSpy.error).toHaveBeenCalledWith(
+      'Unable to process all song data. See console log for details.'
+    );
   });
 
   it('should handle unicode slacker playlists', () => {
