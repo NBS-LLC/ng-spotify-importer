@@ -5,6 +5,8 @@
   </span>
 </h1>
 
+<p>View <a href="{{ projectUrl }}" target="_blank">source code</a> and contribute to this project on GitHub.</p>
+
 <app-notification></app-notification>
 
 <app-spotify-auth></app-spotify-auth>
@@ -29,8 +31,6 @@
 
   <app-playlist-editor *ngIf="playlist" [playlist]="playlist"></app-playlist-editor>
 </div>
-
-<p>View <a href="{{ projectUrl }}" target="_blank">source code</a> and contribute to this project on GitHub.</p>
 
 <!-- Large File Warning Dialog -->
 <div class="overlay" *ngIf="showLargeFileWarning">

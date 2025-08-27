@@ -82,3 +82,7 @@
   vertical-align: middle;
   margin-left: 4px;
 }
+
+#playlist-loader {
+  padding-bottom: 2rem;
+}
