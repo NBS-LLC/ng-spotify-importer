@@ -93,20 +93,23 @@ export class SpotifyService {
 
     console.time('loadSongData');
     for (const song of songs) {
-      const searchResults = this.searchForSong(song.title, song.artist);
-      searchResults.then((spotifySong) => {
-        song.title = spotifySong.title;
-        song.artist = spotifySong.artist;
-        song.uri = spotifySong.uri;
-        song.previewUrl = spotifySong.previewUrl;
-        song.externalUrl = spotifySong.externalUrl;
+      const searchPromise = this.searchForSong(song.title, song.artist)
+        .then((spotifySong) => {
+          song.title = spotifySong.title;
+          song.artist = spotifySong.artist;
+          song.uri = spotifySong.uri;
+          song.previewUrl = spotifySong.previewUrl;
+          song.externalUrl = spotifySong.externalUrl;
 
-        if (songsLoaded) {
-          songsLoaded.count++;
-        }
-      });
+          if (songsLoaded) {
+            songsLoaded.count++;
+          }
+        })
+        .catch((error) => {
+          console.error(`Error searching for song: ${song.title} - ${song.artist}`, error);
+        });
 
-      promises.push(searchResults);
+      promises.push(searchPromise);
       await this.delay(100);
     }
     console.timeEnd('loadSongData');
@@ -168,17 +171,20 @@ export class SpotifyService {
   }
 
   private searchForSong(title: string, artist: string): Promise<Song> {
-    return new Promise<Song>((resolve) => {
+    return new Promise<Song>((resolve, reject) => {
       const query = `${title} artist:${artist}`;
-      this.spotifyWebApi.searchTracks(query, { limit: 1 }).then((data) => {
-        const song: Song = { artist, title };
-        if (data.tracks.total > 0) {
-          song.uri = data.tracks.items[0].uri;
-          song.previewUrl = data.tracks.items[0].preview_url;
-          song.externalUrl = data.tracks.items[0].external_urls.spotify;
-        }
-        resolve(song);
-      });
+      this.spotifyWebApi.searchTracks(query, { limit: 1 }).then(
+        (data) => {
+          const song: Song = { artist, title };
+          if (data.tracks.total > 0) {
+            song.uri = data.tracks.items[0].uri;
+            song.previewUrl = data.tracks.items[0].preview_url;
+            song.externalUrl = data.tracks.items[0].external_urls.spotify;
+          }
+          resolve(song);
+        },
+        (error) => reject(error)
+      );
     });
   }
 
