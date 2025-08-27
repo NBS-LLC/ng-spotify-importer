@@ -25,12 +25,9 @@
 <!-- Large File Warning Dialog -->
 <div class="overlay" *ngIf="showLargeFileWarning">
   <div class="dialog">
-    <h3>Heads Up: Large File Detected</h3>
-    <p>
-      Imports over 1,000 songs can be very slow and may cause the application to become unresponsive or crash. For a
-      stable experience, we strongly recommend processing smaller files.
-    </p>
-    <p>The upcoming, next-generation version of this tool will handle large imports much more effectively.</p>
+    <h2>Large File Detected</h2>
+    <p>Importing over 1,000 songs can be very slow and may cause the application to become unresponsive or crash.</p>
+    <p>The upcoming, next-generation version of this tool will handle large imports more effectively.</p>
     <div class="dialog-buttons">
       <button (click)="proceedWithLargeImport()">Proceed at Your Own Risk</button>
       <button (click)="cancelLargeImport()">Use a Smaller File</button>
