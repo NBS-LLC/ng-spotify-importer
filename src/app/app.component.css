@@ -1,0 +1,49 @@
+/* Large File Warning Dialog Styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: left;
+}
+
+.dialog h2 {
+  text-align: center;
+}
+
+.dialog-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dialog-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.dialog-buttons button:first-child {
+  background-color: #f44336;
+  color: white;
+  border-color: #f44336;
+}
+
+.dialog-buttons button:last-child {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}

@@ -38,4 +38,8 @@ export class FileReaderComponent implements OnInit {
     this.fileInputElement.nativeElement.value = '';
     this.fileType = ($event.target as HTMLInputElement).value;
   }
+
+  public clearFileInput(): void {
+    this.fileInputElement.nativeElement.value = '';
+  }
 }

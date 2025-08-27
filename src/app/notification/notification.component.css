@@ -1,11 +1,25 @@
+.notification-container {
+  display: flex;
+  justify-content: center;
+}
+
 #notification {
   margin-bottom: 1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+  color: white;
+  display: inline-flex;
+  align-items: center;
 }
 
 .error {
-  color: red;
+  background-color: #f44336;
 }
 
 .success {
-  color: green;
+  background-color: #4caf50;
+}
+
+.info {
+  background-color: #2196f3;
 }

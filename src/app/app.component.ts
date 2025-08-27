@@ -25,6 +25,9 @@ export class AppComponent implements OnInit {
   playlist: Playlist;
   songs: Song[] = [];
   songsLoaded = { count: 0 };
+  showLargeFileWarning = false;
+  playlistDataForWarning: { contents: string; name: string; type: string };
+  largeFileThreshold = 1000;
 
   @ViewChild(FileReaderComponent)
   fileReader: FileReaderComponent;
@@ -47,11 +50,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  onFileRead(playlist: { contents: string; name: string; type: string }) {
-    switch (playlist.type) {
+  onFileRead(playlistData: { contents: string; name: string; type: string }) {
+    let playlist: Playlist;
+    switch (playlistData.type) {
       case 'csv': {
         try {
-          this.playlist = new CsvPlaylist(playlist.contents, playlist.name);
+          playlist = new CsvPlaylist(playlistData.contents, playlistData.name);
         } catch (e) {
           this.notificationService.error('' + e);
           throw e;
@@ -61,7 +65,7 @@ export class AppComponent implements OnInit {
 
       case 'slacker': {
         try {
-          this.playlist = new SlackerPlaylist(playlist.contents);
+          playlist = new SlackerPlaylist(playlistData.contents);
         } catch (e) {
           this.notificationService.error('' + e);
           throw e;
@@ -70,6 +74,17 @@ export class AppComponent implements OnInit {
       }
     }
 
+    if (playlist.getSongs().length > this.largeFileThreshold) {
+      this.playlistDataForWarning = playlistData;
+      this.showLargeFileWarning = true;
+      return;
+    }
+
+    this.processPlaylist(playlist);
+  }
+
+  processPlaylist(playlist: Playlist) {
+    this.playlist = playlist;
     this.songs = this.playlist.getSongs();
 
     this.fileReader.fileInputDisabled = true;
@@ -83,6 +98,28 @@ export class AppComponent implements OnInit {
       this.playlist.songDataLoaded = true;
       this.fileReader.fileInputDisabled = false;
     });
+  }
+
+  proceedWithLargeImport() {
+    this.showLargeFileWarning = false;
+    let playlist: Playlist;
+    switch (this.playlistDataForWarning.type) {
+      case 'csv': {
+        playlist = new CsvPlaylist(this.playlistDataForWarning.contents, this.playlistDataForWarning.name);
+        break;
+      }
+      case 'slacker': {
+        playlist = new SlackerPlaylist(this.playlistDataForWarning.contents);
+        break;
+      }
+    }
+    this.processPlaylist(playlist);
+  }
+
+  cancelLargeImport() {
+    this.showLargeFileWarning = false;
+    this.fileReader.clearFileInput();
+    this.notificationService.info('Processing canceled. Please select a new file.');
   }
 
   onFileChanged() {

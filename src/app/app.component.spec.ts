@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   beforeEach(() => {
     const spotifyServiceMock = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
     const fileReaderMock = jasmine.createSpyObj([], ['fileInputDisabled']);
-    const notificationServiceMock = jasmine.createSpyObj(NotificationService, ['error', 'setTimeout']);
+    const notificationServiceMock = jasmine.createSpyObj(NotificationService, ['error', 'setTimeout', 'info']);
 
     TestBed.configureTestingModule({
       declarations: [AppComponent, FileReaderComponent],
@@ -65,6 +65,24 @@ describe('AppComponent', () => {
     expect(notificationServiceSpy.error).toHaveBeenCalledWith(
       'Unable to process all song data. See console log for details.'
     );
+  });
+
+  it('should not show large file warning when song count is at the threshold', () => {
+    const contents = 'Title,Artist\n' + 'Song 1,Artist 1\n' + 'Song 2,Artist 2';
+    component.largeFileThreshold = 2;
+
+    component.onFileRead({ contents, name: 'Unit Test - At Threshold', type: 'csv' });
+
+    expect(component.showLargeFileWarning).toBeFalse();
+  });
+
+  it('should show large file warning when song count is over the threshold', () => {
+    const contents = 'Title,Artist\n' + 'Song 1,Artist 1\n' + 'Song 2,Artist 2\n' + 'Song 3,Artist 3';
+    component.largeFileThreshold = 2;
+
+    component.onFileRead({ contents, name: 'Unit Test - Over Threshold', type: 'csv' });
+
+    expect(component.showLargeFileWarning).toBeTrue();
   });
 
   it('should handle unicode slacker playlists', () => {
