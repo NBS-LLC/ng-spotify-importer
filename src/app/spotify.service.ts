@@ -106,7 +106,7 @@ export class SpotifyService {
           }
         })
         .catch((error) => {
-          console.error(`Error searching for song: ${song.title} - ${song.artist}`, error);
+          console.error('Error loading song data.\nSong: %O\nError: %O', song, error);
         });
 
       promises.push(searchPromise);
