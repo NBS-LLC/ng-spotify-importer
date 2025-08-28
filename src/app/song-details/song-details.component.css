@@ -1,3 +1,7 @@
+hr {
+  margin-top: 1em;
+}
+
 #song-data {
   border-collapse: collapse;
 }

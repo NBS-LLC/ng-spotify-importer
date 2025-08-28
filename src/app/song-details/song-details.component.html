@@ -6,6 +6,14 @@
   <strong>Artist:</strong> {{ originalSong.artist }}
 
   <div>
+    <label for="spotify-id">Spotify ID:</label>
+    <input id="spotify-id" type="text" [(ngModel)]="spotifyId" />
+    <button (click)="getSongBySpotifyId()">Get by Spotify ID</button>
+  </div>
+
+  <hr />
+
+  <div>
     <label for="song-title">Title:</label>
     <input id="song-title" type="text" [(ngModel)]="song.title" />
 
