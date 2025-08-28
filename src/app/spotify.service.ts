@@ -192,6 +192,22 @@ export class SpotifyService {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  getTrackById(spotifyId: string): Promise<Song | null> {
+    return new Promise<Song>((resolve) => {
+      this.spotifyWebApi.getTrack(spotifyId).then((track) => {
+        if (track) {
+          const song: Song = { artist: track.artists.pop().name, title: track.name };
+          song.uri = track.uri;
+          song.previewUrl = track.preview_url;
+          song.externalUrl = track.external_urls.spotify;
+          resolve(song);
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  }
+
   private testUseOnly(): boolean {
     return window?.location?.hostname == 'localhost';
   }

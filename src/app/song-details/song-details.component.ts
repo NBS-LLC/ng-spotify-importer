@@ -13,6 +13,7 @@ import { SpotifyService } from '../spotify.service';
 export class SongDetailsComponent implements OnInit {
   public originalSong: Song;
   public relatedSongs: Song[];
+  public spotifyId: string;
 
   constructor(
     private dialogRef: MatDialogRef<SongDetailsComponent>,
@@ -24,6 +25,14 @@ export class SongDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.searchForRelated();
+  }
+
+  getSongBySpotifyId() {
+    this.spotifyService.getTrackById(this.spotifyId).then((song) => {
+      if (song) {
+        this.handleRelatedSongClick(song);
+      }
+    });
   }
 
   handleSearchClick() {
