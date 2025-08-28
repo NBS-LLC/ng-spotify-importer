@@ -123,9 +123,12 @@ export class AppComponent implements OnInit {
   }
 
   onFileChanged() {
+    this.notificationService.reset();
+    this.songsLoaded.count = 0;
+    this.songs = [];
+    this.playlist = null;
+
     if (this.playlistEditor) {
-      this.songsLoaded.count = 0;
-      this.playlist = null;
       this.playlistEditor.reset();
     }
   }
