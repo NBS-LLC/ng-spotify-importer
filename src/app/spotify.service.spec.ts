@@ -9,7 +9,7 @@ describe('SpotifyService', () => {
   let spotifyWebApi;
 
   beforeEach(waitForAsync(() => {
-    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks']);
+    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks', 'getTrack']);
 
     TestBed.configureTestingModule({
       imports: [],
@@ -40,6 +40,39 @@ describe('SpotifyService', () => {
 
     // Base64 would normally generate: 1TzPHyyCW0Uc23/t2qSQUdQvXdsL+gmacEQm8zLTfvo= which isn't URL safe.
     expect(challenge).toEqual('1TzPHyyCW0Uc23_t2qSQUdQvXdsL-gmacEQm8zLTfvo');
+  });
+
+  describe('getTrackById', () => {
+    it('should return a song when the track is found', async () => {
+      const track = {
+        artists: [{ name: 'Artist' }],
+        name: 'Title',
+        uri: 'spotify:track:123',
+        preview_url: 'http://preview.url',
+        external_urls: { spotify: 'http://spotify.url' },
+      };
+      spotifyWebApi.getTrack.and.returnValue(Promise.resolve(track));
+
+      const song = await service.getTrackById('123');
+
+      expect(song).toEqual({
+        artist: 'Artist',
+        title: 'Title',
+        uri: 'spotify:track:123',
+        previewUrl: 'http://preview.url',
+        externalUrl: 'http://spotify.url',
+      });
+      expect(spotifyWebApi.getTrack).toHaveBeenCalledWith('123');
+    });
+
+    it('should return null when the track is not found', async () => {
+      spotifyWebApi.getTrack.and.returnValue(Promise.resolve(null));
+
+      const song = await service.getTrackById('456');
+
+      expect(song).toBeNull();
+      expect(spotifyWebApi.getTrack).toHaveBeenCalledWith('456');
+    });
   });
 
   /**
