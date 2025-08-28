@@ -2,6 +2,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { NotificationService } from 'src/app/notification/notification.service';
 
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ describe('AppComponent', () => {
     const spotifyServiceMock = jasmine.createSpyObj(SpotifyService, ['loadSongData']);
     const fileReaderMock = jasmine.createSpyObj([], ['fileInputDisabled']);
     const notificationServiceMock = jasmine.createSpyObj(NotificationService, ['error', 'setTimeout', 'info', 'reset']);
+    spotifyServiceMock.onAuthChange = new BehaviorSubject<boolean>(true).asObservable();
 
     TestBed.configureTestingModule({
       declarations: [AppComponent, FileReaderComponent],
@@ -193,6 +195,50 @@ describe('AppComponent', () => {
 
       // Assert
       expect(playlistEditorSpy.reset).toHaveBeenCalled();
+    });
+  });
+
+  describe('Playlist Loading Progress', () => {
+    it('should update progress bar and numbers as songs are loaded', async () => {
+      const contents = 'Title,Artist\n' + 'Song 1,Artist 1\n' + 'Song 2,Artist 2\n' + 'Song 3,Artist 3';
+      const songCount = 3;
+
+      spotifyServiceSpy.loadSongData.and.callFake(async (songs, songsLoaded) => {
+        fixture.detectChanges();
+        const doc = fixture.debugElement.nativeElement;
+        const progressElement: HTMLProgressElement = doc.querySelector('#playlist-load-progress');
+        const progressText: HTMLElement = doc.querySelector('#playlist-load-progress-text');
+        expect(progressElement).toBeInstanceOf(HTMLProgressElement);
+        expect(progressText).toBeInstanceOf(HTMLElement);
+
+        // Initial state after file is read
+        expect(progressElement.value).toBe(0);
+        expect(progressElement.max).toBe(songCount);
+        expect(progressText.textContent.trim()).toBe(`0 / ${songCount}`);
+
+        // Simulate loading one song
+        songsLoaded.count = 1;
+        fixture.detectChanges();
+        expect(progressElement.value).toBe(1);
+        expect(progressText.textContent.trim()).toBe(`1 / ${songCount}`);
+
+        // Simulate loading another song
+        songsLoaded.count = 2;
+        fixture.detectChanges();
+        expect(progressElement.value).toBe(2);
+        expect(progressText.textContent.trim()).toBe(`2 / ${songCount}`);
+
+        // Simulate loading all songs
+        songsLoaded.count = 3;
+        fixture.detectChanges();
+        expect(progressElement.value).toBe(3);
+        expect(progressText.textContent.trim()).toBe(`3 / ${songCount}`);
+      });
+
+      component.onFileRead({ contents, name: 'progress-test.csv', type: 'csv' });
+      await fixture.whenStable();
+
+      expect(spotifyServiceSpy.loadSongData).toHaveBeenCalled();
     });
   });
 });

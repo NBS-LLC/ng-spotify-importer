@@ -27,7 +27,9 @@
   <div>
     <label for="playlist-load-progress">Playlist Loading Progress:</label>
     <progress id="playlist-load-progress" [value]="songsLoaded.count" [max]="songs.length"></progress>
-    <span style="margin-left: 0.5em">{{ songsLoaded.count }} / {{ songs.length }}</span>
+    <span id="playlist-load-progress-text" style="margin-left: 0.5em">
+      {{ songsLoaded.count }} / {{ songs.length }}
+    </span>
   </div>
 
   <app-playlist-editor *ngIf="playlist" [playlist]="playlist"></app-playlist-editor>
