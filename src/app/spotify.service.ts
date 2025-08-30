@@ -209,6 +209,6 @@ export class SpotifyService {
   }
 
   private testUseOnly(): boolean {
-    return window?.location?.hostname == 'localhost';
+    return window?.location?.hostname == '127.0.0.1';
   }
 }
