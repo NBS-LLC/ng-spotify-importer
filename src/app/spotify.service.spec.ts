@@ -1,21 +1,28 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { Song } from './song';
-import { SpotifyService } from './spotify.service';
+import { RefreshableToken, SpotifyService } from './spotify.service';
 
 describe('SpotifyService', () => {
   let service: SpotifyService;
+  let httpMock: HttpTestingController;
   let spotifyWebApi;
 
   beforeEach(waitForAsync(() => {
-    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks', 'getTrack']);
+    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks', 'getTrack', 'setAccessToken']);
 
     TestBed.configureTestingModule({
-      imports: [],
-      providers: [{ provide: 'SpotifyWebApiJs', useValue: spotifyWebApi }, provideHttpClient(withInterceptorsFromDi())],
-    }).compileComponents();
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: 'SpotifyWebApiJs', useValue: spotifyWebApi },
+      ],
+    });
+
     service = TestBed.inject(SpotifyService);
+    httpMock = TestBed.inject(HttpTestingController);
   }));
 
   it('should be created', () => {
@@ -125,4 +132,32 @@ describe('SpotifyService', () => {
     expect(songs[0].uri).toBeUndefined(); // The failing song should not be updated
     expect(songs[1].uri).toEqual('spotify:track:successful'); // The successful song should be updated
   });
+
+  it('should automatically refresh the token 1 minute before it expires', fakeAsync(() => {
+    const initialToken: RefreshableToken = {
+      access_token: 'initial_access',
+      expires_in: 3600, // 1 hour
+      refresh_token: 'my_refresh_token',
+    };
+
+    const refreshedToken: RefreshableToken = {
+      access_token: 'new_access',
+      expires_in: 3600,
+      refresh_token: 'my_refresh_token',
+    };
+
+    service.setAccessToken(initialToken);
+    expect(spotifyWebApi.setAccessToken).toHaveBeenCalledWith('initial_access');
+
+    tick((3600 - 60 - 1) * 1000);
+    httpMock.expectNone('https://accounts.spotify.com/api/token');
+
+    tick(1000);
+    const req = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req.request.body.get('refresh_token')).toBe('my_refresh_token');
+    req.flush(refreshedToken);
+
+    tick();
+    expect(spotifyWebApi.setAccessToken).toHaveBeenCalledWith('new_access');
+  }));
 });
