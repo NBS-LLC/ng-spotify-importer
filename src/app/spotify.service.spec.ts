@@ -137,13 +137,13 @@ describe('SpotifyService', () => {
     const initialToken: RefreshableToken = {
       access_token: 'initial_access',
       expires_in: 3600, // 1 hour
-      refresh_token: 'my_refresh_token',
+      refresh_token: 'initial_refresh_token',
     };
 
     const refreshedToken: RefreshableToken = {
       access_token: 'new_access',
       expires_in: 3600,
-      refresh_token: 'my_refresh_token',
+      refresh_token: 'new_refresh_token',
     };
 
     service.setAccessToken(initialToken);
@@ -154,7 +154,7 @@ describe('SpotifyService', () => {
 
     tick(1000);
     const req = httpMock.expectOne('https://accounts.spotify.com/api/token');
-    expect(req.request.body.get('refresh_token')).toBe('my_refresh_token');
+    expect(req.request.body.get('refresh_token')).toBe('initial_refresh_token');
     req.flush(refreshedToken);
 
     tick();
