@@ -51,7 +51,13 @@ export class SpotifyService {
     setTimeout(
       () => {
         this.getRefreshedToken(token.refresh_token).then((refreshedToken) => {
-          this.setAccessToken(refreshedToken);
+          const tokenToStore: RefreshableToken = {
+            ...refreshedToken,
+            // Spotify might not send a refresh token if an existing one is still valid.
+            refresh_token: refreshedToken.refresh_token || token.refresh_token,
+          };
+
+          this.setAccessToken(tokenToStore);
         });
       },
       (token.expires_in - 60) * 1000

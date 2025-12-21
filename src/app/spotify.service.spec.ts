@@ -160,4 +160,36 @@ describe('SpotifyService', () => {
     tick();
     expect(spotifyWebApi.setAccessToken).toHaveBeenCalledWith('new_access');
   }));
+
+  it("uses an existing refresh token if a new one isn't provided", fakeAsync(() => {
+    const initialToken: RefreshableToken = {
+      access_token: 'initial_access',
+      expires_in: 3600, // 1 hour
+      refresh_token: 'initial_refresh_token',
+    };
+
+    const refreshedToken: RefreshableToken = {
+      access_token: 'new_access',
+      expires_in: 3600,
+      refresh_token: undefined,
+    };
+
+    service.setAccessToken(initialToken);
+    expect(spotifyWebApi.setAccessToken).toHaveBeenCalledWith('initial_access');
+
+    tick((3600 - 60) * 1000);
+    const req1 = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req1.request.body.get('refresh_token')).toBe('initial_refresh_token');
+    req1.flush(refreshedToken);
+
+    tick((3600 - 60) * 1000);
+    const req2 = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req2.request.body.get('refresh_token')).toBe('initial_refresh_token');
+    req2.flush(refreshedToken);
+
+    tick((3600 - 60) * 1000);
+    const req3 = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req3.request.body.get('refresh_token')).toBe('initial_refresh_token');
+    req3.flush(refreshedToken);
+  }));
 });
