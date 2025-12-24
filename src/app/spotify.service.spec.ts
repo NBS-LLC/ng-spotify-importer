@@ -1,21 +1,28 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { TestBed, waitForAsync } from '@angular/core/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { discardPeriodicTasks, fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
 
 import { Song } from './song';
-import { SpotifyService } from './spotify.service';
+import { RefreshableToken, SpotifyService } from './spotify.service';
 
 describe('SpotifyService', () => {
   let service: SpotifyService;
+  let httpMock: HttpTestingController;
   let spotifyWebApi;
 
   beforeEach(waitForAsync(() => {
-    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks', 'getTrack']);
+    spotifyWebApi = jasmine.createSpyObj('SpotifyWebApiJs', ['searchTracks', 'getTrack', 'setAccessToken']);
 
     TestBed.configureTestingModule({
-      imports: [],
-      providers: [{ provide: 'SpotifyWebApiJs', useValue: spotifyWebApi }, provideHttpClient(withInterceptorsFromDi())],
-    }).compileComponents();
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        { provide: 'SpotifyWebApiJs', useValue: spotifyWebApi },
+      ],
+    });
+
     service = TestBed.inject(SpotifyService);
+    httpMock = TestBed.inject(HttpTestingController);
   }));
 
   it('should be created', () => {
@@ -125,4 +132,67 @@ describe('SpotifyService', () => {
     expect(songs[0].uri).toBeUndefined(); // The failing song should not be updated
     expect(songs[1].uri).toEqual('spotify:track:successful'); // The successful song should be updated
   });
+
+  it('should automatically refresh the token every 15 minutes', fakeAsync(() => {
+    const FIFTEEN_MINS = 15 * 60 * 1000;
+
+    service.setAccessToken({
+      access_token: 'access_1',
+      expires_in: 3600,
+      refresh_token: 'refresh_1',
+    });
+
+    const expectRefresh = (expectedOldRefresh: string, nextAccess: string, nextRefresh: string) => {
+      tick(FIFTEEN_MINS - 1000); // Move to 1 second before
+      httpMock.expectNone((r) => r.url.endsWith('/api/token')); // Verify nothing happened
+
+      tick(1000);
+      const req = httpMock.expectOne((r) => r.url.endsWith('/api/token'));
+      expect(req.request.body.get('refresh_token')).toBe(expectedOldRefresh);
+
+      req.flush({ access_token: nextAccess, expires_in: 3600, refresh_token: nextRefresh });
+      tick(); // Resolve the promise
+      expect(spotifyWebApi.setAccessToken).toHaveBeenCalledWith(nextAccess);
+    };
+
+    expectRefresh('refresh_1', 'access_2', 'refresh_2');
+    expectRefresh('refresh_2', 'access_3', 'refresh_3');
+    expectRefresh('refresh_3', 'access_4', 'refresh_4');
+
+    discardPeriodicTasks();
+  }));
+
+  it("uses an existing refresh token if a new one isn't provided", fakeAsync(() => {
+    const FIFTEEN_MINS = 15 * 60 * 1000;
+
+    const initialToken: RefreshableToken = {
+      access_token: 'initial_access',
+      expires_in: 3600, // 1 hour
+      refresh_token: 'initial_refresh_token',
+    };
+
+    const refreshedToken: RefreshableToken = {
+      access_token: 'new_access',
+      expires_in: 3600,
+      refresh_token: undefined,
+    };
+
+    service.setAccessToken(initialToken);
+    expect(spotifyWebApi.setAccessToken).toHaveBeenCalledWith('initial_access');
+
+    tick(FIFTEEN_MINS);
+    const req1 = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req1.request.body.get('refresh_token')).toBe('initial_refresh_token');
+    req1.flush(refreshedToken);
+
+    tick(FIFTEEN_MINS);
+    const req2 = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req2.request.body.get('refresh_token')).toBe('initial_refresh_token');
+    req2.flush(refreshedToken);
+
+    tick(FIFTEEN_MINS);
+    const req3 = httpMock.expectOne('https://accounts.spotify.com/api/token');
+    expect(req3.request.body.get('refresh_token')).toBe('initial_refresh_token');
+    req3.flush(refreshedToken);
+  }));
 });
