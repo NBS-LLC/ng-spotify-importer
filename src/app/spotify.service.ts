@@ -160,7 +160,8 @@ export class SpotifyService {
       const offset = (pageNumber - 1) * limit;
 
       this.spotifyWebApi.searchTracks(query, { offset, limit }).then((data) => {
-        if (data.tracks.total > 0) {
+        // Workaround for https://github.com/NBS-LLC/ng-spotify-importer/issues/299
+        if (data.tracks.items.length > 0) {
           const songs: Song[] = [];
           for (const track of data.tracks.items) {
             const song: Song = { artist: track.artists.pop().name, title: track.name };
@@ -183,7 +184,8 @@ export class SpotifyService {
       this.spotifyWebApi.searchTracks(query, { limit: 1 }).then(
         (data) => {
           const song: Song = { artist, title };
-          if (data.tracks.total > 0) {
+          // Workaround for https://github.com/NBS-LLC/ng-spotify-importer/issues/299
+          if (data.tracks.items.length > 0) {
             song.uri = data.tracks.items[0].uri;
             song.previewUrl = data.tracks.items[0].preview_url;
             song.externalUrl = data.tracks.items[0].external_urls.spotify;
