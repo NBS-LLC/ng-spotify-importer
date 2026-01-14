@@ -88,7 +88,7 @@ describe('SpotifyService', () => {
   it('should search for tracks using proper query', async () => {
     spotifyWebApi.searchTracks.and.returnValue(
       Promise.resolve({
-        tracks: {},
+        tracks: { items: [] },
       })
     );
 
